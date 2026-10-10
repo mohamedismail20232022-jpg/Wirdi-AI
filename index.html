@@ -1924,7 +1924,16 @@ function renderCloud(){
 }
 
 async function cloudAuthDo(kind){
- if(!cloud.auth){toast('خدمة الحساب لسه بتحمل أو النت فاصل عندك يا بطل.');return}
+ // Ensure Firebase Auth has finished booting before attempting sign-in.
+ if(!cloud.auth){
+  if(cloud.enabled && !cloud.booting && !cloud.ready) await cloudBoot();
+  if(!cloud.auth){
+   const detail=cloud.msg||'خدمة تسجيل الدخول لم تكتمل تهيئتها.';
+   const gateMsg=$('gateAuthMessage');
+   if(document.body.classList.contains('auth-locked')&&gateMsg) gateMsg.textContent=detail;
+   toast(detail); return;
+  }
+ }
  const fromGate=document.body.classList.contains('auth-locked');
  const email=$(fromGate?'gateEmail':'cloudEmail').value.trim(), pass=$(fromGate?'gatePass':'cloudPass').value;
  const btnMap = fromGate?{login:'gateLogin',signup:'gateSignup',google:'gateGoogle',reset:'gateReset'}:{login:'cloudLogin',signup:'cloudSignup',google:'cloudGoogle',reset:'cloudReset'};
@@ -1952,8 +1961,9 @@ async function cloudAuthDo(kind){
    if(kind==='signup'){ await cloud.auth.createUserWithEmailAndPassword(email,pass); toast('✅ مبروك! عملت حساب جديد ودخلت طلقة.'); }
    else { await cloud.auth.signInWithEmailAndPassword(email,pass); toast('✅ تم تسجيل الدخول بنجاح! 🚀'); }
   }
-  $('cloudPass').value='';if($('gatePass'))$('gatePass').value='';if($('gateAuthMessage'))$('gateAuthMessage').textContent='';
+  if($('cloudPass'))$('cloudPass').value='';if($('gatePass'))$('gatePass').value='';if($('gateAuthMessage'))$('gateAuthMessage').textContent='';
  }catch(e){
+  console.error('WIRDI Firebase authentication error:', e && e.code, e);
   const message=authMsg(e);if($('gateAuthMessage')&&fromGate)$('gateAuthMessage').textContent=message;toast('❌ ' + message);
  }finally{
   if(btn){ btn.classList.remove('loading'); btn.innerHTML = originalText; btn.disabled=false; }
