@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071b1a"><meta name="application-name" content="WIRDI AI"><meta name="description" content="WIRDI AI — رفيقك الشخصي لتتبع العبادات ومراجعة الورد اليومي بخصوصية.">
+<title>WIRDI AI v3 | وِردي</title>
+<style>
+:root{--bg:#071614;--bg2:#0a201d;--panel:#102824;--panel2:#15332d;--line:rgba(223,203,145,.13);--gold:#d8ba72;--gold2:#f0dca2;--mint:#8de0ba;--text:#f5f4ed;--muted:#a6bbb1;--red:#ee958c;--blue:#8ebbdc;--shadow:0 22px 60px #020b0990;--radius:24px;--font:'Noto Sans Arabic','Noto Naskh Arabic',Tahoma,Arial,system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -12%,#1b5140 0,transparent 42%),radial-gradient(ellipse at -10% 30%,#122e2b 0,transparent 38%),var(--bg);color:var(--text);font-family:var(--font);min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px}button:disabled{opacity:.45;cursor:not-allowed}.app{max-width:1440px;margin:auto;padding:26px 30px 100px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:26px}.brand{display:flex;align-items:center;gap:13px}.brand-mark{width:48px;height:48px;border:1px solid #d8ba7255;border-radius:17px;display:grid;place-items:center;background:linear-gradient(145deg,#244b3c,#0d211e);box-shadow:inset 0 1px #ffffff20,0 8px 28px #0003}.brand-mark svg{width:30px;height:30px}.brand-name{font:800 23px Manrope,var(--font);letter-spacing:1.2px;direction:ltr;line-height:1.1}.brand-sub{font-size:11px;color:var(--gold);letter-spacing:1.7px;direction:ltr;margin-top:5px}.top-actions{display:flex;align-items:center;gap:10px}.date-chip,.sync-chip{border:1px solid var(--line);background:#0f2924b8;border-radius:14px;padding:11px 14px;color:var(--muted);font-size:12px;display:flex;align-items:center;gap:8px}.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px #8de0ba99}.icon-btn{height:42px;width:42px;border-radius:14px;border:1px solid var(--line);background:#102823;color:var(--gold2);display:grid;place-items:center}.icon-btn svg{width:19px;height:19px}.layout{display:grid;grid-template-columns:224px minmax(0,1fr);gap:26px}.sidebar{align-self:start;position:sticky;top:22px;padding:14px;background:#0b211dc9;border:1px solid var(--line);border-radius:25px;box-shadow:var(--shadow);backdrop-filter:blur(20px)}.nav-label{font-size:10px;color:#80998e;letter-spacing:1.4px;margin:12px 12px 9px}.nav-btn{display:flex;align-items:center;gap:13px;width:100%;border:0;color:var(--muted);background:transparent;text-align:right;padding:13px 14px;border-radius:15px;margin:3px 0;transition:.25s ease;font-size:13px}.nav-btn .nav-ico{width:20px;display:grid;place-items:center;font-size:17px}.nav-btn:hover{background:#ffffff09;color:var(--text);transform:translateX(-2px)}.nav-btn.active{color:var(--gold2);background:linear-gradient(100deg,#d9bb7220,#d9bb7206);box-shadow:inset -2px 0 var(--gold)}.sidebar-bottom{border-top:1px solid var(--line);margin-top:18px;padding:17px 10px 5px;color:var(--muted);font-size:11px;line-height:1.9}.sidebar-bottom strong{color:var(--gold2);font-weight:600}.main{min-width:0}.view{display:none;animation:rise .35s ease both}.view.active{display:block}@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.eyebrow{display:flex;align-items:center;gap:8px;color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.7px;margin-bottom:10px}.eyebrow:before{content:'';width:20px;height:1px;background:var(--gold)}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(25px,3vw,38px);letter-spacing:-.7px;line-height:1.35;margin-bottom:10px}h2{font-size:21px;margin-bottom:6px}h3{font-size:15px;margin-bottom:7px}.muted{color:var(--muted)}.small{font-size:12px;line-height:1.8}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:28px 0 15px}.section-head p{margin:0}.hero{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(240px,.75fr);gap:25px;padding:30px 32px;border:1px solid #d8ba7238;border-radius:30px;background:linear-gradient(120deg,#153a30eF,#0c211eeF 66%,#102b26ef);box-shadow:var(--shadow);margin-bottom:20px;isolation:isolate}.hero:before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 15% 40%,#d8ba7211,transparent 35%),radial-gradient(circle at 92% 0,#66c39e18,transparent 28%)}.hero:after{content:'۞';position:absolute;left:6%;top:-76px;font-size:265px;color:#e4c77b09;line-height:1;z-index:-1}.hero-copy{align-self:center}.hero-copy p{max-width:620px;color:#b6c9bf;line-height:2;font-size:13px;margin-bottom:19px}.hero-verse{display:inline-flex;align-items:center;gap:9px;color:var(--gold2);border-top:1px solid #d8ba7230;padding-top:15px;font-size:12px}.hero-verse span{color:#a6bbb1}.hero-visual{display:flex;justify-content:center;align-items:center;min-height:220px;position:relative}.orbit{width:224px;height:224px;border:1px solid #d8ba7244;border-radius:50%;position:relative;display:grid;place-items:center;animation:rotate 38s linear infinite}.orbit:before,.orbit:after{content:'';position:absolute;border:1px solid #d8ba7225;border-radius:50%}.orbit:before{inset:15px}.orbit:after{inset:32px;border-style:dashed;animation:rotate 45s linear infinite reverse}.orbit-core{width:142px;height:142px;border-radius:50%;background:radial-gradient(circle at 30% 22%,#d6bf7a28,#0d2924 65%);border:1px solid #d8ba7250;display:flex;flex-direction:column;justify-content:center;align-items:center;box-shadow:0 0 60px #d8ba720d,inset 0 0 28px #d8ba7212;animation:rotate 38s linear infinite reverse}.orbit-score{font:800 43px Manrope,sans-serif;color:var(--gold2);line-height:1}.orbit-label{font-size:11px;color:var(--muted);margin-top:7px}.orbit-dot{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px var(--gold);top:28px;left:47px}.orbit-dot.d2{background:var(--mint);box-shadow:0 0 18px var(--mint);width:6px;height:6px;top:auto;bottom:37px;left:auto;right:25px}.hero-metric{position:absolute;border:1px solid var(--line);border-radius:13px;padding:9px 12px;background:#091d19cc;backdrop-filter:blur(10px);font-size:11px;color:var(--muted);animation:float 5s ease-in-out infinite}.hero-metric strong{color:var(--text);font:700 17px Manrope,sans-serif;display:block;margin-top:3px;direction:ltr}.hero-metric.m1{top:12px;right:0}.hero-metric.m2{bottom:12px;left:0;animation-delay:-2s}@keyframes rotate{to{transform:rotate(360deg)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.grid{display:grid;gap:15px}.stats-grid{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:21px}.card{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,#112b26ed,#0d211edb);padding:21px;box-shadow:0 10px 32px #00000012;min-width:0}.stat-card{position:relative;overflow:hidden;min-height:140px}.stat-card:after{content:'';position:absolute;width:90px;height:90px;border-radius:50%;border:1px solid #d8ba7210;left:-25px;bottom:-45px}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;gap:8px}.stat-icon{width:32px;height:32px;border-radius:11px;display:grid;place-items:center;background:#d8ba7214;color:var(--gold2);font-size:15px}.stat-number{font:800 31px Manrope,sans-serif;direction:ltr;text-align:right;margin:13px 0 6px}.stat-footer{font-size:11px;color:var(--muted)}.positive{color:var(--mint)}.gold{color:var(--gold2)}.coral{color:var(--red)}.two-col{grid-template-columns:minmax(0,1.2fr) minmax(290px,.8fr)}.prayer-list{display:grid;gap:8px;margin-top:15px}.prayer-row{display:grid;grid-template-columns:minmax(100px,1fr) minmax(74px,.55fr) auto;gap:10px;align-items:center;padding:13px 14px;background:#ffffff04;border:1px solid #ffffff0b;border-radius:15px;transition:.2s}.prayer-row:hover{border-color:#d8ba723b;background:#d8ba7207}.prayer-ident{display:flex;align-items:center;gap:10px;min-width:0}.prayer-symbol{width:35px;height:35px;border-radius:12px;background:#d8ba7214;display:grid;place-items:center;color:var(--gold2);flex-shrink:0}.prayer-name{font-size:13px;font-weight:600}.prayer-time{font:600 12px Manrope,sans-serif;color:var(--muted);direction:ltr;text-align:center}.status-pill{display:inline-flex;align-items:center;gap:5px;font-size:10px;border-radius:20px;padding:6px 9px;white-space:nowrap}.status-pill.done{background:#8de0ba16;color:var(--mint)}.status-pill.pending{background:#d8ba7213;color:var(--gold2)}.status-pill.missed{background:#ee958c16;color:var(--red)}.status-pill.unknown{background:#ffffff0a;color:#b6c5bd}.status-pill:before{content:'';height:5px;width:5px;border-radius:50%;background:currentColor}.btn{border:1px solid transparent;border-radius:13px;padding:10px 14px;font-size:12px;font-weight:600;transition:transform .2s,background .2s,border-color .2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn:hover{transform:translateY(-1px)}.btn-primary{background:linear-gradient(120deg,#e5ce8b,#c5a75d);color:#17251c;box-shadow:0 8px 20px #d8ba7218}.btn-ghost{border-color:var(--line);background:#ffffff06;color:var(--text)}.btn-ghost:hover{border-color:#d8ba7266}.btn-mint{background:#8de0ba18;border-color:#8de0ba30;color:var(--mint)}.btn-danger{background:#ee958c12;border-color:#ee958c25;color:var(--red)}.btn-sm{padding:8px 10px;font-size:11px;border-radius:10px}.row-actions{display:flex;gap:7px;align-items:center;justify-content:flex-end}.progress-track{height:6px;border-radius:99px;background:#ffffff0c;overflow:hidden;margin-top:13px}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--mint),var(--gold));border-radius:99px;transition:width .7s cubic-bezier(.2,.7,.2,1)}.progress-heading{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:15px}.focus-card{background:linear-gradient(135deg,#193c31,#122a26);border-color:#8de0ba25;position:relative;overflow:hidden}.focus-card:after{content:'✦';position:absolute;font-size:105px;left:0;bottom:-29px;color:#8de0ba0b}.focus-title{font-size:18px;font-weight:600;margin:0 0 8px}.focus-card p{font-size:12px;line-height:1.9;color:#adc3b8;margin-bottom:16px}.focus-list{display:grid;gap:12px}.focus-line{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.8;color:#c9d7cf}.focus-bullet{height:23px;width:23px;display:grid;place-items:center;flex-shrink:0;background:#8de0ba18;color:var(--mint);border-radius:8px}.mini-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.mini-action{padding:18px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-height:130px;text-align:right;border:1px solid var(--line);background:#102720;border-radius:20px;color:var(--text);transition:.25s}.mini-action:hover{transform:translateY(-3px);border-color:#d8ba7255}.mini-action .big-ico{font-size:22px}.mini-action strong{font-size:13px}.mini-action span{font-size:11px;color:var(--muted)}
+/* worship view */
+.page-title{display:flex;align-items:flex-end;justify-content:space-between;gap:15px;margin:4px 0 25px}.page-title p{margin:0;line-height:1.8}.worship-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.worship-card{padding:22px;position:relative;overflow:hidden}.worship-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.worship-icon{height:43px;width:43px;border-radius:15px;background:#d8ba7215;border:1px solid #d8ba7220;display:grid;place-items:center;font-size:20px}.worship-card h3{font-size:17px;margin:15px 0 5px}.worship-card .desc{font-size:11px;color:var(--muted);line-height:1.8;min-height:20px}.worship-value{font:800 27px Manrope,sans-serif;direction:ltr;margin-top:18px}.worship-value small{font:500 12px var(--font);color:var(--muted);direction:rtl}.counter-actions{display:flex;gap:7px;align-items:center;margin-top:15px;flex-wrap:wrap}.counter-actions .btn-primary{flex:1}.counter-actions .btn-icon{width:41px;height:41px;padding:0;font-size:18px}.tiny-meta{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:var(--muted);margin-top:12px}.dhikr-controls{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.line-field{width:100%;border:1px solid var(--line);background:#081b18;color:var(--text);border-radius:12px;padding:11px 12px}.line-field::placeholder{color:#6e8c7f}.habit-row{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:14px 0;border-bottom:1px solid #ffffff0b}.habit-row:last-child{border-bottom:0}.check-btn{height:32px;width:32px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--muted)}.check-btn.checked{background:#8de0ba1c;color:var(--mint);border-color:#8de0ba55}.notes-area{width:100%;min-height:118px;background:#081b18;border:1px solid var(--line);color:var(--text);border-radius:15px;padding:14px;resize:vertical;line-height:1.8}
+/* reports */
+.report-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:8px}.segmented{display:flex;gap:4px;padding:4px;border-radius:14px;background:#081b18;border:1px solid var(--line)}.segmented button{border:0;background:transparent;color:var(--muted);padding:9px 12px;border-radius:10px;font-size:11px}.segmented button.active{background:#d8ba7220;color:var(--gold2)}.report-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}.chart-wrap{position:relative;height:235px;margin-top:17px}.chart-wrap svg{width:100%;height:100%;overflow:visible}.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:10px;margin-top:11px}.legend i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-left:5px}.breakdown{display:grid;gap:16px;margin-top:20px}.break-row{display:grid;grid-template-columns:90px minmax(0,1fr) 38px;gap:10px;align-items:center;font-size:11px}.break-row .progress-track{margin:0;height:7px}.break-row b{font:700 11px Manrope,sans-serif;direction:ltr;text-align:left}.insight-box{display:flex;gap:13px;padding:15px;border-radius:16px;border:1px solid #d8ba7220;background:#d8ba7208;margin-top:12px}.insight-symbol{width:34px;height:34px;display:grid;place-items:center;flex-shrink:0;background:#d8ba7215;border-radius:12px;color:var(--gold2)}.insight-box p{font-size:12px;color:#bfd0c5;line-height:1.95;margin:0}.insight-box strong{color:var(--gold2)}.review-section{margin-top:18px}.review-section h3{display:flex;align-items:center;gap:8px}.review-section ul{padding-right:19px;color:#bfd0c5;font-size:12px;line-height:2.1;margin:9px 0}.empty-state{border:1px dashed #d8ba7235;padding:24px;border-radius:18px;text-align:center;color:var(--muted);font-size:12px;line-height:2}
+/* history & settings */
+.history-list{display:grid;gap:9px}.history-item{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;padding:15px;border:1px solid var(--line);border-radius:15px;background:#ffffff03}.history-date{font-size:13px;font-weight:600}.history-sub{font-size:10px;color:var(--muted);margin-top:4px}.history-score{font:700 19px Manrope,sans-serif;color:var(--gold2);direction:ltr}.settings-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.setting-field{margin-top:15px}.setting-field label{display:block;color:var(--muted);font-size:11px;margin-bottom:7px}.setting-field .line-field{font-size:12px}.setting-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.subcard{background:#091e1a;border:1px solid var(--line);border-radius:17px;padding:17px;margin-top:15px}.privacy-note{font-size:11px;line-height:1.95;color:var(--muted)}.privacy-note strong{color:var(--mint)}.statusline{font-size:11px;color:var(--muted);line-height:1.8}.toast{position:fixed;z-index:1000;bottom:28px;left:50%;transform:translate(-50%,20px);padding:13px 18px;border-radius:14px;background:#e4ce8b;color:#10201a;font-size:12px;font-weight:600;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;max-width:calc(100vw - 30px);text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-backdrop{position:fixed;inset:0;z-index:500;display:none;place-items:center;padding:18px;background:#020908b8;backdrop-filter:blur(8px)}.modal-backdrop.show{display:grid;animation:fade .18s}.modal{width:min(520px,100%);max-height:90vh;overflow:auto;background:#0d241f;border:1px solid #d8ba7240;border-radius:24px;padding:23px;box-shadow:var(--shadow);animation:rise .25s}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}.modal-head h3{font-size:18px;margin:0}.modal-body{font-size:12px;line-height:1.9;color:var(--muted)}.modal-actions{display:flex;gap:8px;justify-content:flex-start;margin-top:20px;flex-wrap:wrap}.close-x{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:10px;width:34px;height:34px}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.footer-note{text-align:center;font-size:10px;color:#6f8a7e;margin:27px 0 0}.mobile-nav{display:none}.pill-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.tag{font-size:10px;border:1px solid var(--line);border-radius:50px;padding:6px 10px;color:var(--muted)}.tag.ok{color:var(--mint);border-color:#8de0ba2b;background:#8de0ba0b}.divider{height:1px;background:var(--line);margin:17px 0}.hidden{display:none!important}
+@media(max-width:1080px){.app{padding:22px 20px 105px}.layout{grid-template-columns:190px minmax(0,1fr);gap:17px}.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding:25px}.hero-visual{min-height:200px}.orbit{width:190px;height:190px}.orbit-core{width:120px;height:120px}.orbit-score{font-size:37px}.hero-metric.m1{right:-8px}.hero-metric.m2{left:-8px}.two-col{grid-template-columns:1fr}.mini-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:720px){.app{padding:14px 13px calc(91px + env(safe-area-inset-bottom))}.topbar{margin-bottom:18px}.brand-mark{height:42px;width:42px;border-radius:14px}.brand-name{font-size:19px}.brand-sub{font-size:9px}.date-chip{display:none}.sync-chip{padding:10px;font-size:10px}.top-actions{gap:7px}.layout{display:block}.sidebar{display:none}.hero{grid-template-columns:1fr;padding:23px 21px;border-radius:24px;gap:0}.hero-copy p{font-size:12px}.hero-visual{min-height:205px;grid-row:1}.orbit{width:180px;height:180px}.orbit-core{width:116px;height:116px}.hero-visual .hero-metric.m1{right:calc(50% - 133px);top:12px}.hero-visual .hero-metric.m2{left:calc(50% - 133px);bottom:8px}.hero:after{font-size:185px;left:0;top:-25px}.stats-grid{gap:10px}.card{padding:17px;border-radius:19px}.stat-card{min-height:128px;padding:15px}.stat-number{font-size:26px}.section-head{margin:24px 0 13px}.section-head h2{font-size:18px}.prayer-row{grid-template-columns:minmax(85px,1fr) auto;gap:8px;padding:11px}.prayer-time{display:none}.prayer-ident{gap:8px}.prayer-symbol{width:32px;height:32px}.row-actions .btn{padding:8px 10px;font-size:10px}.two-col,.report-grid,.settings-grid,.worship-grid{grid-template-columns:1fr}.mini-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.mini-action{padding:13px;min-height:120px;border-radius:16px}.mini-action strong{font-size:11px}.mini-action span{font-size:10px}.page-title{align-items:flex-start;flex-direction:column}.report-toolbar{width:100%}.report-toolbar .segmented{flex:1;justify-content:space-between}.report-toolbar .segmented button{flex:1;padding:9px 7px}.history-item{grid-template-columns:1fr auto;gap:8px}.history-item .history-progress{display:none}.mobile-nav{position:fixed;bottom:0;left:0;right:0;z-index:200;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:9px 10px calc(9px + env(safe-area-inset-bottom));background:#081a17ed;border-top:1px solid #d8ba7222;backdrop-filter:blur(18px)}.mobile-nav .nav-btn{display:flex;flex-direction:column;justify-content:center;gap:4px;padding:8px 3px;margin:0;font-size:9px;text-align:center;border-radius:12px}.mobile-nav .nav-btn .nav-ico{font-size:18px}.mobile-nav .nav-btn.active{box-shadow:inset 0 2px var(--gold)}.footer-note{margin-top:22px}.field-grid{grid-template-columns:1fr}.worship-card{padding:19px}.break-row{grid-template-columns:78px minmax(0,1fr) 34px}.toast{bottom:calc(84px + env(safe-area-inset-bottom))}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+.storage-status-note{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#ffffff04;color:var(--muted);font-size:11px;line-height:1.9}.storage-status-note strong{color:var(--gold2)}
+.bk-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);font-size:12px}.bk-actions{display:flex;gap:6px;flex-shrink:0}#cloudCard code{background:#091e1a;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:11px}</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+ <div class="brand"><div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M25.8 5.5a14.8 14.8 0 1 0 9 25.8A16.5 16.5 0 0 1 25.8 5.5Z" stroke="#E7CC84" stroke-width="1.7"/><path d="m22 13 1.9 4.2 4.5.4-3.4 3 1 4.4-4-2.3-3.9 2.3.9-4.4-3.3-3 4.5-.4L22 13Z" fill="#E7CC84"/><circle cx="10" cy="8" r="1.5" fill="#8DE0BA"/></svg></div><div><div class="brand-name">WIRDI <span style="color:var(--gold)">AI</span></div><div class="brand-sub">YOUR WORSHIP COMPANION</div></div></div>
+ <div class="top-actions"><div class="date-chip">◷ <span id="headerDate">—</span></div><div class="sync-chip"><span class="sync-dot" id="syncDot"></span><span id="syncLabel">جارٍ التحميل…</span></div><button class="icon-btn" id="quickSettings" aria-label="الإعدادات" title="الإعدادات"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.4a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9h-.4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2v-.4a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.4a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/></svg></button></div>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="nav-label">مساحة الورد</div><button class="nav-btn active" data-view="home"><span class="nav-ico">⌂</span>الرئيسية</button><button class="nav-btn" data-view="worship"><span class="nav-ico">✧</span>عباداتي اليوم</button><button class="nav-btn" data-view="reports"><span class="nav-ico">▥</span>التقارير والتحليل</button><button class="nav-btn" data-view="history"><span class="nav-ico">◷</span>السجل التاريخي</button><div class="nav-label" style="margin-top:22px">التخصيص</div><button class="nav-btn" data-view="settings"><span class="nav-ico">⚙</span>الإعدادات والأهداف</button><div class="sidebar-bottom"><strong>خطوة بخطوة، بثبات.</strong><br>مساحة شخصية لمتابعة وردك، دون أحكام على النية أو القبول.<br><span style="color:#638274">Cairo · Africa/Cairo</span></div></aside>
+<main class="main">
+<section class="view active" id="view-home">
+ <div class="hero"><div class="hero-copy"><div class="eyebrow">مساحة هادئة للثبات</div><h1 id="greeting">أهلًا بيك في وِردي</h1><p>خُد يومك عبادةً عبادة. سجّل اللي أنجزته، راجع يومك بوضوح، وابنِ على خطوات صغيرة تقدر تستمر عليها — من غير ضغط ولا مقارنة.</p><div class="hero-verse">﴿ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ ﴾ <span>الرعد · ٢٨</span></div></div><div class="hero-visual"><div class="orbit"><span class="orbit-dot"></span><span class="orbit-dot d2"></span><div class="orbit-core"><div class="orbit-score" id="heroScore">0</div><div class="orbit-label">درجة اليوم / ١٠٠</div></div></div><div class="hero-metric m1"><span>إنجاز الأهداف</span><strong id="heroCompletion">0%</strong></div><div class="hero-metric m2"><span>اكتمال التسجيل</span><strong id="heroCoverage">0%</strong></div></div></div><div id="heroScoreHint" class="small muted" style="margin:-7px 0 18px;padding-inline:5px">الدرجة ستُحسب من البيانات التي تسجلها؛ البيانات الناقصة لا تُحسب كأنها تقصير.</div>
+ <div class="grid stats-grid"><article class="card stat-card"><div class="stat-top"><span>الصلوات المسجّلة</span><span class="stat-icon">☼</span></div><div class="stat-number" id="statPrayers">0<span style="font-size:15px;color:var(--muted)"> / 5</span></div><div class="stat-footer" id="statPrayersSub">لسه مفيش تسجيل لليوم</div></article><article class="card stat-card"><div class="stat-top"><span>القرآن الكريم</span><span class="stat-icon">۞</span></div><div class="stat-number" id="statQuran">0<span style="font-size:15px;color:var(--muted)"> / 6</span></div><div class="stat-footer">صفحات مسجّلة اليوم</div><div class="progress-track"><div class="progress-fill" id="statQuranBar"></div></div></article><article class="card stat-card"><div class="stat-top"><span>الصلاة على النبي ﷺ</span><span class="stat-icon">♡</span></div><div class="stat-number" id="statSalawat">0</div><div class="stat-footer" id="statSalawatSub">من الهدف اليومي</div><div class="progress-track"><div class="progress-fill" id="statSalawatBar"></div></div></article><article class="card stat-card"><div class="stat-top"><span>قيام الليل</span><span class="stat-icon">☾</span></div><div class="stat-number" id="statQiyam">0<span style="font-size:15px;color:var(--muted)"> / 2</span></div><div class="stat-footer">ركعة مسجّلة اليوم</div><div class="progress-track"><div class="progress-fill" id="statQiyamBar"></div></div></article></div>
+ <div class="grid two-col"><article class="card"><div class="section-head" style="margin-top:0"><div><h2>صلوات اليوم</h2><p class="small muted">مواقيت القاهرة · حسب آخر تحديث متاح</p></div><button class="btn btn-ghost btn-sm" id="refreshTimes">↻ تحديث المواقيت</button></div><div class="pill-row"><span class="tag" id="timesDateTag">مواقيت اليوم</span><span class="tag ok" id="timesSourceTag">جاري التحقق…</span></div><div class="prayer-list" id="homePrayerList"></div><div class="progress-heading"><span>الصلوات المؤكدة كمكتملة</span><strong id="prayerProgressText">0 / 5</strong></div><div class="progress-track"><div class="progress-fill" id="prayerProgress"></div></div><p class="small muted" style="margin:13px 0 0">«غير مسجّلة» لا تعني إن الصلاة ما حصلتش؛ دي بس معناها إنك لسه ما سجلتهاش في التطبيق.</p></article>
+ <article class="card focus-card"><div class="eyebrow">مراجعة اليوم</div><div class="focus-title">خطوتك القادمة ✦</div><p id="focusIntro">التقدّم بيتبني من تسجيل واضح وخطوة عملية واحدة كل مرة.</p><div class="focus-list" id="focusList"></div><div style="margin-top:20px"><button class="btn btn-primary" data-goto="worship">افتح عباداتي اليوم <span>←</span></button></div></article></div>
+ <div class="section-head"><div><h2>كمّل وردك بطريقتك</h2><p class="small muted">اختصارات سريعة للتسجيل</p></div></div><div class="grid mini-grid"><button class="mini-action" data-goto="worship"><span class="big-ico">☼</span><strong>الصلوات الخمس</strong><span>التسجيل والتوقيت</span></button><button class="mini-action" data-goto="worship"><span class="big-ico">۞</span><strong>القرآن الكريم</strong><span>تتبّع الصفحات</span></button><button class="mini-action" data-goto="worship"><span class="big-ico">♡</span><strong>الصلاة على النبي ﷺ</strong><span>عداد الورد</span></button></div>
+</section>
+<section class="view" id="view-worship"><div class="page-title"><div><div class="eyebrow">مساحة تسجيل يومية</div><h1>عباداتي اليوم</h1><p class="muted small" id="worshipDateLabel">—</p></div><div class="report-toolbar"><button class="btn btn-ghost" id="prevDay">→ اليوم السابق</button><button class="btn btn-ghost" id="todayBtn">اليوم</button><button class="btn btn-ghost" id="nextDay">اليوم التالي ←</button></div></div>
+ <article class="card" style="margin-bottom:15px"><div class="section-head" style="margin-top:0"><div><h2>الصلوات الخمس</h2><p class="small muted">سجّل وقت الصلاة الفعلي للمقارنة مع بداية الوقت.</p></div><span class="tag" id="worshipPrayerCount">0 / 5 مكتملة</span></div><div class="prayer-list" id="worshipPrayerList"></div><div class="small muted" style="margin-top:12px;line-height:1.9">التوقيت المعروض هو الفارق عن بداية الوقت المحسوب. هو مؤشر متابعة شخصي، وليس حكمًا على صحة الصلاة أو قبولها. تأكد من مواقيت الجهة المحلية عند الحاجة.</div></article>
+ <div class="grid worship-grid"><article class="card worship-card"><div class="worship-card-top"><div class="worship-icon">☀</div><span class="tag" id="morningStatus">غير مسجّلة</span></div><h3>أذكار الصباح</h3><div class="desc">سجّل البداية والنهاية عشان تتابع عادتك اليومية.</div><div class="tiny-meta"><span id="morningStartText">البداية: —</span><span id="morningEndText">النهاية: —</span></div><div class="dhikr-controls"><button class="btn btn-ghost" id="morningStart">ابدأ الأذكار</button><button class="btn btn-primary" id="morningDone">أتممتها ✓</button><button class="btn btn-ghost btn-sm" id="morningUndo">تراجع</button></div></article>
+ <article class="card worship-card"><div class="worship-card-top"><div class="worship-icon">☾</div><span class="tag" id="eveningStatus">غير مسجّلة</span></div><h3>أذكار المساء</h3><div class="desc">سجّل البداية والنهاية عشان تتابع عادتك اليومية.</div><div class="tiny-meta"><span id="eveningStartText">البداية: —</span><span id="eveningEndText">النهاية: —</span></div><div class="dhikr-controls"><button class="btn btn-ghost" id="eveningStart">ابدأ الأذكار</button><button class="btn btn-primary" id="eveningDone">أتممتها ✓</button><button class="btn btn-ghost btn-sm" id="eveningUndo">تراجع</button></div></article>
+ <article class="card worship-card"><div class="worship-card-top"><div class="worship-icon">۞</div><span class="tag" id="quranGoalTag">الهدف 6 صفحات</span></div><h3>القرآن الكريم</h3><div class="desc">اقرأ على قدر استطاعتك؛ وسجّل عدد الصفحات التي قرأتها.</div><div class="worship-value"><span id="quranCount">0</span> <small>صفحة من <span id="quranTargetDisplay">6</span></small></div><div class="progress-track"><div class="progress-fill" id="quranProgress"></div></div><div class="counter-actions"><button class="btn btn-primary" id="quranPlus">+ صفحة</button><button class="btn btn-ghost btn-icon" id="quranMinus" aria-label="إنقاص صفحة">−</button><button class="btn btn-ghost btn-sm" id="editQuranGoal">تعديل الهدف</button></div><div class="tiny-meta"><span id="quranMeta">لم يبدأ التسجيل بعد</span><span id="quranPercentage">0%</span></div></article>
+ <article class="card worship-card"><div class="worship-card-top"><div class="worship-icon">♡</div><span class="tag" id="salawatGoalTag">الهدف 100</span></div><h3>الصلاة على النبي ﷺ</h3><div class="desc">عداد بسيط لوردك اليومي؛ كل ضغطة تضيف مرة واحدة.</div><div class="worship-value"><span id="salawatCount">0</span> <small>من <span id="salawatTargetDisplay">100</span></small></div><div class="progress-track"><div class="progress-fill" id="salawatProgress"></div></div><div class="counter-actions"><button class="btn btn-primary" id="salawatPlus">+ مرة واحدة</button><button class="btn btn-ghost btn-icon" id="salawatMinus" aria-label="إنقاص مرة">−</button><button class="btn btn-ghost btn-sm" id="salawatPlusTen">+10</button><button class="btn btn-ghost btn-sm" id="editSalawatGoal">تعديل الهدف</button></div><div class="tiny-meta"><span id="salawatMeta">ابدأ تسجيل الورد</span><span id="salawatPercentage">0%</span></div></article>
+ <article class="card worship-card"><div class="worship-card-top"><div class="worship-icon">☾</div><span class="tag" id="qiyamGoalTag">الهدف ركعتان</span></div><h3>قيام الليل</h3><div class="desc">تابع عدد الركعات وسجّل وقت أول وآخر إضافة.</div><div class="worship-value"><span id="qiyamCount">0</span> <small>ركعة من <span id="qiyamTargetDisplay">2</span></small></div><div class="progress-track"><div class="progress-fill" id="qiyamProgress"></div></div><div class="counter-actions"><button class="btn btn-primary" id="qiyamPlus">+ ركعة</button><button class="btn btn-ghost btn-icon" id="qiyamMinus" aria-label="إنقاص ركعة">−</button><button class="btn btn-ghost btn-sm" id="editQiyamGoal">تعديل الهدف</button></div><div class="tiny-meta"><span id="qiyamMeta">لم يبدأ التسجيل بعد</span><span id="qiyamPercentage">0%</span></div></article>
+ <article class="card worship-card"><div class="worship-card-top"><div class="worship-icon">✦</div><button class="btn btn-ghost btn-sm" id="addHabit">+ إضافة عادة</button></div><h3>أهدافي الشخصية</h3><div class="desc">عادات إضافية تختارها بنفسك، ووزنها الافتراضي ضمن التقييم 10 نقاط إجمالًا.</div><div id="habitList" style="margin-top:14px"></div><div id="noHabits" class="small muted" style="margin-top:12px">لسه مفيش عادات مضافة. أضف عادة شخصية لو حابب.</div></article></div>
+ <div class="section-head"><div><h2>ملاحظات اليوم</h2><p class="small muted">مساحة خاصة ليك لتسجيل أي ملاحظة أو نية عملية للغد.</p></div><span class="tag">محفوظة تلقائيًا</span></div><textarea id="dayNotes" class="notes-area" placeholder="إيه اللي ساعدك تثبت النهارده؟ وإيه خطوة صغيرة تحب تجربها بكرة؟"></textarea>
+</section>
+<section class="view" id="view-reports"><div class="page-title"><div><div class="eyebrow">مراجعة بدون جلد ذات</div><h1>التقارير والتحليل</h1><p class="muted small">افهم نمطك، وشوف أين تقدّمت، واختر تحسينًا عمليًا واحدًا.</p></div><div class="report-toolbar"><div class="segmented" id="periodSwitch"><button data-period="day" class="active">يومي</button><button data-period="week">7 أيام</button><button data-period="half">15 يوم</button><button data-period="month">شهري</button></div></div></div>
+ <div class="grid stats-grid"><article class="card stat-card"><div class="stat-top"><span>متوسط الدرجة</span><span class="stat-icon">◉</span></div><div class="stat-number" id="reportScore">0</div><div class="stat-footer" id="reportScoreSub">من 100 نقطة</div></article><article class="card stat-card"><div class="stat-top"><span>إنجاز الأهداف</span><span class="stat-icon">✓</span></div><div class="stat-number" id="reportCompletion">0%</div><div class="stat-footer">وفق الأهداف المسجلة</div></article><article class="card stat-card"><div class="stat-top"><span>الالتزام بالتوقيت</span><span class="stat-icon">◷</span></div><div class="stat-number" id="reportTiming">—</div><div class="stat-footer">من الصلوات المسجلة المكتملة</div></article><article class="card stat-card"><div class="stat-top"><span>تغطية البيانات</span><span class="stat-icon">▤</span></div><div class="stat-number" id="reportCoverage">0%</div><div class="stat-footer">مدى اكتمال التسجيل، لا مدى العبادة</div></article></div>
+ <div class="grid report-grid"><article class="card"><div><h2 id="chartTitle">مسار اليوم</h2><p class="small muted" id="chartSubtitle">ملخص الأداء المسجل.</p></div><div class="chart-wrap"><svg id="scoreChart" viewBox="0 0 620 230" role="img" aria-label="رسم بياني للدرجات اليومية"></svg></div><div class="legend"><span><i style="background:var(--gold)"></i>درجة اليوم</span><span><i style="background:var(--mint)"></i>إنجاز الأهداف</span><span><i style="background:var(--blue)"></i>اكتمال التسجيل</span></div></article><article class="card"><h2>تفصيل الدرجة</h2><p class="small muted">الأوزان ثابتة وواضحة: 45 للصلوات، 15 للأذكار، 12 للقرآن، 8 للصلاة على النبي ﷺ، 10 للقيام، و10 للعادات الاختيارية. عند عدم إضافة عادات، تُعاد معايرة الأوزان الأساسية تناسبيًا إلى 100.</p><div class="breakdown" id="scoreBreakdown"></div><div class="divider"></div><div class="small muted">الصلاة: 45 · الأذكار: 15 · القرآن: 12 · الصلاة على النبي ﷺ: 8 · القيام: 10 · العادات: 10</div></article></div>
+ <article class="card" style="margin-top:15px"><div class="section-head" style="margin-top:0"><div><h2>المراجعة الذكية وخطة العمل</h2><p class="small muted">تحليل محلي لنمط التسجيل والإنجاز، مع اقتراحات عملية قابلة للتنفيذ.</p></div><span class="tag ok">يعمل دون مفتاح API</span></div><div id="insightContent"></div><div class="small muted" style="margin-top:16px">تنبيه: هذا التحليل مبني على قواعد وبياناتك المحلية، وليس نموذج محادثة خارجيًا. الأرقام لا تقيس الإخلاص أو القبول ولا تصدر حكمًا شرعيًا.</div></article>
+ <article class="card" style="margin-top:15px"><div class="section-head" style="margin-top:0"><div><h2>التقرير التفصيلي</h2><p class="small muted" id="reportNarrativeSubtitle">ملاحظات تساعدك تراجع يومك.</p></div><button class="btn btn-ghost btn-sm" id="exportReport">تصدير التقرير</button></div><div class="grid" id="detailedReport" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:14px"></div></article>
+</section>
+<section class="view" id="view-history"><div class="page-title"><div><div class="eyebrow">ذاكرة الورد</div><h1>السجل التاريخي</h1><p class="muted small">كل يوم تسجّله هنا محفوظ تلقائيًا على جهازك وفي حسابك عند تسجيل الدخول.</p></div><button class="btn btn-ghost" id="exportData">⬇ تصدير نسخة احتياطية</button></div><div class="grid stats-grid"><article class="card stat-card"><div class="stat-top"><span>أيام لها نشاط مسجّل</span><span class="stat-icon">◷</span></div><div class="stat-number" id="historyActiveDays">0</div><div class="stat-footer">من أول استخدام</div></article><article class="card stat-card"><div class="stat-top"><span>متوسط الدرجة</span><span class="stat-icon">◉</span></div><div class="stat-number" id="historyAvgScore">0</div><div class="stat-footer">للأيام التي بها بيانات</div></article><article class="card stat-card"><div class="stat-top"><span>أعلى درجة مسجلة</span><span class="stat-icon">✧</span></div><div class="stat-number" id="historyBestScore">0</div><div class="stat-footer" id="historyBestDate">لسه مفيش أيام مكتملة البيانات</div></article><article class="card stat-card"><div class="stat-top"><span>أحدث يوم نشط</span><span class="stat-icon">✦</span></div><div class="stat-number" id="historyLatest">—</div><div class="stat-footer">حسب آخر نشاط مسجّل</div></article></div><article class="card"><div class="section-head" style="margin-top:0"><div><h2>أيامك السابقة</h2><p class="small muted">افتح أي يوم لمراجعة تفاصيله وتعديل تسجيلاته.</p></div><select class="line-field" style="width:auto;max-width:160px" id="historyFilter"><option value="all">كل الأيام</option><option value="active">أيام بها نشاط</option><option value="lowcoverage">تسجيل جزئي</option></select></div><div id="historyList" class="history-list"></div><div id="historyEmpty" class="empty-state hidden">لسه مفيش سجل كفاية للعرض.<br>ابدأ بتسجيل أول نشاط، وهيظهر يومك هنا تلقائيًا.</div></article></section>
+<section class="view" id="view-settings"><div class="page-title"><div><div class="eyebrow">على مقاسك</div><h1>الإعدادات والأهداف</h1><p class="muted small">خصّص أهدافك ومصدر المواقيت وطريقة الاحتفاظ ببياناتك.</p></div></div>
+<div class="grid settings-grid"><article class="card" id="cloudCard" style="grid-column:1/-1"><h2>الحساب والمزامنة السحابية</h2><p class="small muted">سجّل دخولك مرة واحدة، وكل تسجيل بيتحفظ تلقائيًا في حسابك ويظهر على أي موبايل تفتح منه حسابك. التقارير اليومية والأسبوعية والشهرية بتتحسب من نفس البيانات على كل الأجهزة.</p>
+<div id="cloudOff" class="subcard hidden"><div class="privacy-note"><strong>المزامنة غير مفعّلة بعد:</strong> أضف إعدادات مشروع Firebase في أول سكريبت الملف (<code dir="ltr">FIREBASE_CONFIG</code>) وانشر الملف على رابط https. لحد وقتها التطبيق شغّال محليًا بشكل طبيعي.</div></div>
+<div id="cloudAuth" class="hidden"><div class="setting-field"><label for="cloudEmail">البريد الإلكتروني</label><input class="line-field" id="cloudEmail" type="email" autocomplete="email" inputmode="email" dir="ltr" placeholder="name@example.com" /></div><div class="setting-field"><label for="cloudPass">كلمة السر</label><input class="line-field" id="cloudPass" type="password" autocomplete="current-password" dir="ltr" placeholder="6 حروف على الأقل" /></div><div class="setting-actions"><button class="btn btn-primary" id="cloudLogin">دخول</button><button class="btn btn-ghost" id="cloudSignup">إنشاء حساب جديد</button><button class="btn btn-ghost" id="cloudGoogle">الدخول بجوجل</button><button class="btn btn-ghost btn-sm" id="cloudReset">نسيت كلمة السر؟</button></div></div>
+<div id="cloudAccount" class="hidden"><div class="subcard" style="margin-top:12px"><div id="cloudUserLine" style="font-size:13px;color:var(--gold2);direction:ltr;text-align:right"></div><div class="statusline" id="cloudStatusLine" style="margin-top:6px"></div></div><div class="setting-actions"><button class="btn btn-primary" id="cloudSyncNow">🔄 مزامنة الآن</button><button class="btn btn-ghost" id="cloudBackupNow">☁ نسخة احتياطية سحابية الآن</button><button class="btn btn-ghost" id="cloudLogout">تسجيل خروج</button></div><h3 style="margin-top:20px">النسخ الاحتياطية السحابية</h3><div id="cloudBackupList"></div><div class="divider"></div><button class="btn btn-danger btn-sm" id="cloudWipe">حذف بياناتي من السحابة</button></div>
+<div class="statusline" id="cloudMsg" style="margin-top:10px"></div>
+<div class="subcard"><div class="privacy-note"><strong>الحماية:</strong> بياناتك مربوطة بحسابك فقط، والاتصال مشفّر، وقواعد قاعدة البيانات بتمنع أي حساب تاني من قراءتها. بتتعمل نسخة احتياطية تلقائية يوميًا (آخر 7 نسخ)، ونسخة أمان قبل أي استعادة أو استيراد.</div></div></article><article class="card"><h2>مواقيت الصلاة</h2><p class="small muted">الإعداد الافتراضي: القاهرة، مصر · المنطقة الزمنية Africa/Cairo. الحساب المحلي احتياطي تقريبي؛ عند الاتصال تُستخدم مواقيت الخدمة الخارجية، ولا تمنح المواقيت التقديرية نقاط توقيت حتى لا تؤثر تقديرات غير مؤكدة على الدرجة.</p><div class="setting-field"><label for="cityName">المدينة</label><input class="line-field" id="cityName" value="Cairo" /></div><div class="setting-field"><label for="countryName">الدولة</label><input class="line-field" id="countryName" value="Egypt" /></div><div class="setting-field"><label for="calcMethod">طريقة حساب المواقيت</label><select class="line-field" id="calcMethod"><option value="5">الهيئة المصرية العامة للمساحة (5)</option><option value="3">رابطة العالم الإسلامي (3)</option><option value="4">أم القرى، مكة (4)</option><option value="2">ISNA (2)</option><option value="1">جامعة العلوم الإسلامية، كراتشي (1)</option></select></div><div class="setting-actions"><button class="btn btn-primary" id="savePrayerSettings">حفظ وتحديث المواقيت</button></div><div class="subcard"><div class="statusline" id="timeStatus">سيتم التحديث من الإنترنت عند توفره، مع الاحتفاظ بآخر مواقيت محفوظة في حالة انقطاع الاتصال.</div></div></article>
+<article class="card"><h2>أهداف الورد اليومية</h2><p class="small muted">غيّر الأرقام لتناسب قدرتك، والتقييم يحتسب نسبة الإنجاز حتى الهدف فقط.</p><div class="setting-field"><label for="goalQuran">عدد صفحات القرآن</label><input class="line-field" id="goalQuran" type="number" min="1" max="604" value="6" /></div><div class="setting-field"><label for="goalSalawat">عدد الصلاة على النبي ﷺ</label><input class="line-field" id="goalSalawat" type="number" min="1" max="100000" value="100" /></div><div class="setting-field"><label for="goalQiyam">ركعات قيام الليل</label><input class="line-field" id="goalQiyam" type="number" min="1" max="100" value="2" /></div><div class="setting-actions"><button class="btn btn-primary" id="saveGoals">حفظ الأهداف</button><button class="btn btn-ghost" id="resetGoals">استعادة الأهداف الافتراضية</button></div><div class="subcard"><div class="privacy-note">التقييم اليومي من <strong>100 نقطة</strong> لقياس التزامك بالخطة الشخصية فقط. لا يقيس النية ولا قبول الأعمال، ولا يحوّل عبادة غير مسجّلة إلى افتراض أنها لم تحدث.</div></div></article>
+<article class="card"><h2>حماية البيانات والنسخ الاحتياطي</h2><p class="small muted">كل تسجيل يُحفظ تلقائيًا على هذا الجهاز في قاعدة IndexedDB مع نسخة توافقية داخل المتصفح، وعند تسجيل الدخول يُحفظ أيضًا في حسابك السحابي. وتقدر دايمًا تنزّل نسخة JSON بنفسك.</p><div class="subcard" style="margin:12px 0"><div class="statusline" id="lastSaveStatus">جاري فحص الحفظ المحلي…</div><div id="storageDetails" class="small muted" style="margin-top:8px;line-height:1.9">سيظهر هنا وضع التخزين بعد اختبار المتصفح.</div></div><div class="setting-actions"><button class="btn btn-primary" id="shareBackupBtn">☁ مشاركة نسخة احتياطية / Google Drive</button><button class="btn btn-ghost" id="exportData2">⬇ تنزيل نسخة JSON</button><button class="btn btn-ghost" id="importDataBtn">⬆ استعادة نسخة على هذا الجهاز</button><button class="btn btn-danger" id="clearData">مسح كل البيانات</button><input id="importDataFile" type="file" accept="application/json,.json" class="hidden" /></div><div class="subcard"><div class="privacy-note"><strong>نقل يدوي (من غير حساب):</strong> اضغط «مشاركة نسخة احتياطية / Google Drive»، واختر Drive أو تطبيق ملفات تحفظ فيه النسخة. على الهاتف الآخر افتح WIRDI AI ثم اختر «استعادة نسخة على هذا الجهاز» وحدد ملف JSON. دي طريقة نقل/استعادة يدوية؛ للمزامنة التلقائية استخدم حسابك من كارت المزامنة فوق.</div><div class="privacy-note" id="cloudProtectNote" style="margin-top:10px"></div></div></article>
+<article class="card"><h2>عن WIRDI AI</h2><p class="small muted">رفيق تتبع شخصي للورد اليومي، صُمّم عشان يخليك تشوف تقدمك بهدوء وتختار الخطوة التالية.</p><div class="subcard"><div class="pill-row"><span class="tag ok">واجهة عربية RTL</span><span class="tag">تصميم للهاتف والكمبيوتر</span><span class="tag">تسجيل بالثواني</span><span class="tag">تقرير 7 / 15 / 30 يومًا</span></div></div><div class="divider"></div><div class="privacy-note">نسخة التشغيل الحالية تتضمن محرك تحليل محلي قائمًا على القواعد. ربط نموذج ذكاء اصطناعي توليدي حقيقي يتطلب خدمة آمنة وخادمًا وسيطًا؛ لا يُوضع مفتاح API سري داخل ملف HTML عام.</div><div class="setting-actions"><button class="btn btn-ghost" data-goto="reports">استكشف التقارير ←</button></div></article></div></section>
+<footer class="footer-note">WIRDI AI v3 · حفظ محلي مع تحقق + مزامنة سحابية ونسخ احتياطي · التقييم للتنظيم الشخصي فقط، وليس حكمًا دينيًا.</footer>
+</main></div>
+<nav class="mobile-nav" aria-label="التنقل"><button class="nav-btn active" data-view="home"><span class="nav-ico">⌂</span>الرئيسية</button><button class="nav-btn" data-view="worship"><span class="nav-ico">✧</span>عباداتي</button><button class="nav-btn" data-view="reports"><span class="nav-ico">▥</span>التقارير</button><button class="nav-btn" data-view="history"><span class="nav-ico">◷</span>السجل</button><button class="nav-btn" data-view="settings"><span class="nav-ico">⚙</span>الإعدادات</button></nav>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-head"><h3 id="modalTitle">تسجيل وقت الصلاة</h3><button class="close-x" id="modalClose" aria-label="إغلاق">×</button></div><div class="modal-body" id="modalBody"></div><div class="modal-actions" id="modalActions"></div></div></div>
+<script>
+(() => {
+'use strict';
+// ====== إعدادات Firebase (املأها من Firebase Console ← Project settings ← Your apps ← Web) ======
+const FIREBASE_CONFIG={apiKey:'AIzaSyAXYl7YHJO1Pr_CoF1aV4oWUV0SleNEP_E',authDomain:'wirdi-ai.firebaseapp.com',projectId:'wirdi-ai',appId:'1:467371967252:web:c5ff977b66963844aa7801'};
+const FB_VER='10.12.5', UID_KEY='wirdi_cloud_uid', BK_CHUNK=700000;
+const cloud={enabled:!!(FIREBASE_CONFIG.apiKey&&FIREBASE_CONFIG.projectId),ready:false,booting:false,authKnown:false,user:null,auth:null,db:null,unsubDays:null,unsubSet:null,daysInit:false,setInit:false,initial:false,rv:{},rvSettings:0,pending:false,lastSync:0,err:'',msg:'',paused:false,backups:[],setSig:undefined,pushT:null,rt:null,denied:0,busy:false};
+let lastInd={status:'saved',savedAt:Date.now(),detail:''};
+const STORAGE_KEY='wirdi_ai_v2';
+const LEGACY_STORAGE_KEY='wirdi_ai_v1';
+const STORAGE_META_KEY='wirdi_ai_meta_v2';
+const DB_NAME='wirdi_ai_local_database';
+const DB_VERSION=1;
+const TZ='Africa/Cairo';
+const PRAYERS=[{key:'Fajr',name:'الفجر',symbol:'☾'},{key:'Dhuhr',name:'الظهر',symbol:'☼'},{key:'Asr',name:'العصر',symbol:'◉'},{key:'Maghrib',name:'المغرب',symbol:'◌'},{key:'Isha',name:'العشاء',symbol:'✧'}];
+const DEFAULTS={settings:{city:'Cairo',country:'Egypt',method:5,goals:{quranPages:6,salawat:100,qiyamRakaat:2},customHabits:[]},records:{}};
+let state=clone(DEFAULTS), currentDate=cairoDate(new Date()), currentView='home', activePeriod='day', toastTimer;
+let dbPromise=null, idbWriteChain=Promise.resolve(), storagePersistent=false, idbAvailable=false;
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function normalizeState(s){
+ const src=(s&&typeof s==='object')?s:{};
+ const settings=(src.settings&&typeof src.settings==='object')?src.settings:{};
+ const goals=(settings.goals&&typeof settings.goals==='object')?settings.goals:{};
+ const records=(src.records&&typeof src.records==='object'&&!Array.isArray(src.records))?src.records:{};
+ return {...clone(DEFAULTS),...src,settings:{...clone(DEFAULTS.settings),...settings,goals:{...clone(DEFAULTS.settings.goals),...goals},customHabits:Array.isArray(settings.customHabits)?settings.customHabits.filter(h=>h&&h.id&&h.name):[]},records};
+}
+function loadState(){
+ try { let raw=localStorage.getItem(STORAGE_KEY); if(!raw)raw=localStorage.getItem(LEGACY_STORAGE_KEY); if(raw)return normalizeState(JSON.parse(raw)); } catch(e) {}
+ return clone(DEFAULTS);
+}
+function openDB(){
+ if(dbPromise)return dbPromise;
+ dbPromise=new Promise((resolve,reject)=>{
+  if(!('indexedDB' in window)){reject(new Error('IndexedDB unavailable'));return}
+  const req=indexedDB.open(DB_NAME,DB_VERSION);
+  req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains('snapshots'))db.createObjectStore('snapshots',{keyPath:'id'})};
+  req.onsuccess=()=>{idbAvailable=true;resolve(req.result)};
+  req.onerror=()=>reject(req.error||new Error('IndexedDB open failed'));
+  req.onblocked=()=>reject(new Error('IndexedDB blocked'));
+ });
+ return dbPromise;
+}
+async function readIDBSnapshot(){
+ try {const db=await openDB();return await new Promise((resolve,reject)=>{const tx=db.transaction('snapshots','readonly');const req=tx.objectStore('snapshots').get('main');req.onsuccess=()=>resolve(req.result||null);req.onerror=()=>reject(req.error)})}catch(e){return null}
+}
+async function restoreState(){
+ let local=null, localStamp=0;
+ try {const raw=localStorage.getItem(STORAGE_KEY)||localStorage.getItem(LEGACY_STORAGE_KEY);if(raw)local=normalizeState(JSON.parse(raw));const meta=JSON.parse(localStorage.getItem(STORAGE_META_KEY)||'{}');localStamp=Number(meta.savedAt)||0}catch(e){local=null}
+ const backup=await readIDBSnapshot();
+ if(backup&&backup.state&&(!local||Number(backup.savedAt||0)>localStamp))return normalizeState(backup.state);
+ return local||loadState();
+}
+function persist(){
+ cloudStampSettings();
+ const snapshot=clone(state), savedAt=Date.now();
+ let localOk=false, localError='';
+ try {
+  const raw=JSON.stringify(snapshot);
+  localStorage.setItem(STORAGE_KEY,raw);
+  localStorage.setItem(STORAGE_META_KEY,JSON.stringify({savedAt,version:3}));
+  // Verify the compatibility copy immediately after writing.
+  const check=localStorage.getItem(STORAGE_KEY);
+  if(check!==raw) throw new Error('Local verification failed');
+  localOk=true;
+ } catch(e) { localError=String(e?.message||e); }
+ idbWriteChain=idbWriteChain.then(async()=>{
+  try {
+   const db=await openDB();
+   await new Promise((resolve,reject)=>{
+    const tx=db.transaction('snapshots','readwrite');
+    tx.objectStore('snapshots').put({id:'main',savedAt,state:snapshot});
+    tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error('Transaction aborted'));
+   });
+   const readback=await readIDBSnapshot();
+   if(!readback||readback.savedAt!==savedAt||!readback.state) throw new Error('IndexedDB read-back verification failed');
+   updateSaveIndicator('saved',savedAt);
+  } catch(e) {
+   updateSaveIndicator(localOk?'localOnly':'failed',savedAt,localError||String(e?.message||e));
+  }
+ });
+ if(localOk) updateSaveIndicator('saving',savedAt);
+ else updateSaveIndicator('failed',savedAt,localError);
+ cloudSchedulePush();
+}
+function updateSaveIndicator(status,savedAt=Date.now(),detail=''){
+ lastInd={status,savedAt,detail};
+ const label=$('syncLabel'),dot=$('syncDot'),line=$('lastSaveStatus');
+ const when=new Intl.DateTimeFormat('ar-EG',{timeZone:TZ,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true}).format(new Date(savedAt));
+ let header='',msg='',color='var(--mint)';
+ if(status==='saved'){
+  header='حُفظ محليًا · '+when;msg='✅ تم حفظ البيانات محليًا والتحقق من قراءتها مرة أخرى. آخر حفظ: '+when+' بتوقيت القاهرة. '+(cloud.enabled?'سجّل دخولك من الإعدادات لتفعيل المزامنة بين أجهزتك.':'المزامنة السحابية غير مفعّلة.');
+ } else if(status==='saving'){
+  header='جارٍ تأكيد الحفظ المحلي…';msg='جارٍ تأكيد كتابة البيانات في التخزين المحلي.';color='var(--gold)';
+ } else if(status==='localOnly'){
+  header='حفظ في المتصفح فقط';msg='⚠️ تم حفظ نسخة المتصفح، لكن تعذّر تأكيد IndexedDB. صدّر نسخة خارجية الآن. '+detail;color='var(--gold)';
+ } else {
+  header='تعذّر تأكيد الحفظ';msg='🔴 لم نستطع تأكيد حفظ آمن. صدّر نسخة احتياطية فورًا ولا تغلق الصفحة قبل ذلك. '+detail;color='var(--red)';
+ }
+ const cs=cloudIndicator();
+ if(cs&&(status==='saved'||status==='saving')){header=cs.header;msg='✅ محفوظ على الجهاز. '+cs.msg;color=cs.color}else if(cs&&status==='localOnly'){msg+=' · '+cs.msg}
+ if(label)label.textContent=header;if(dot){dot.style.background=color;dot.style.boxShadow='0 0 12px '+color+'66'}if(line)line.textContent=msg;
+}
+function updateScoreConfigForDay(day=currentDate){const r=dayRecord(day);r.scoreConfig={goals:clone(state.settings.goals),customHabits:clone(state.settings.customHabits)};saveDay(r)}
+function $(id){return document.getElementById(id)}
+function cairoDate(date){return new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(date)}
+function cairoParts(date){const parts=new Intl.DateTimeFormat('en-GB',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(date);const o={};parts.forEach(p=>o[p.type]=p.value);return o}
+function zonedToUtc(day,hhmm,seconds=0){const [y,m,d]=day.split('-').map(Number);const [hh,mm]=hhmm.split(':').map(Number);const target=Date.UTC(y,m-1,d,hh,mm,seconds);let guess=target;for(let i=0;i<3;i++){const p=cairoParts(new Date(guess));const represented=Date.UTC(+p.year,+p.month-1,+p.day,+p.hour,+p.minute,+p.second);guess+=target-represented}return new Date(guess)}
+function fmtTime(iso,withSeconds=false){if(!iso)return'—';const d=new Date(iso);if(Number.isNaN(d.getTime()))return'—';return new Intl.DateTimeFormat('ar-EG',{timeZone:TZ,hour:'2-digit',minute:'2-digit',...(withSeconds?{second:'2-digit'}:{}),hour12:true}).format(d)}
+function fmtDate(day,opts={}){const d=new Date(day+'T12:00:00');return new Intl.DateTimeFormat('ar-EG',{timeZone:TZ,weekday:opts.weekday?'long':undefined,day:'numeric',month:'long',year:opts.year?'numeric':undefined}).format(d)}
+function dateShift(day,n){const d=new Date(day+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)}
+function timestamp(){return new Date().toISOString()}
+function esc(s){return String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function dayTemplate(day){return {date:day,scoreConfig:{goals:clone(state.settings.goals),customHabits:clone(state.settings.customHabits)},prayers:Object.fromEntries(PRAYERS.map(p=>[p.key,{status:'unrecorded',performedAt:null,updatedAt:null}])),adhkar:{morning:{status:'unrecorded',startedAt:null,completedAt:null},evening:{status:'unrecorded',startedAt:null,completedAt:null}},salawat:{count:0,touched:false,events:[]},quran:{pages:0,touched:false,events:[]},qiyam:{rakaat:0,touched:false,events:[]},habits:{},notes:'',prayerTimes:null,createdAt:timestamp(),updatedAt:timestamp()}}
+function dayRecord(day=currentDate){if(!state.records[day]){state.records[day]=dayTemplate(day);persist()}else{const base=dayTemplate(day),r=state.records[day];state.records[day]={...base,...r,scoreConfig:r.scoreConfig||base.scoreConfig,prayers:{...base.prayers,...(r.prayers||{})},adhkar:{...base.adhkar,...(r.adhkar||{})},salawat:{...base.salawat,...(r.salawat||{})},quran:{...base.quran,...(r.quran||{})},qiyam:{...base.qiyam,...(r.qiyam||{})},habits:r.habits||{}}}return state.records[day]}
+function saveDay(r,auto){r.updatedAt=timestamp();if(!auto)r.ue=Date.now();state.records[r.date]=r;persist()}
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2600)}
+function goto(view){currentView=view;document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+view));document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));if(view==='home')renderHome();if(view==='worship')renderWorship();if(view==='reports')renderReports();if(view==='history')renderHistory();if(view==='settings')renderSettings();window.scrollTo({top:0,behavior:'smooth'})}
+function openModal(title,body,actions){$('modalTitle').textContent=title;$('modalBody').innerHTML=body;$('modalActions').innerHTML='';actions.forEach(a=>{const b=document.createElement('button');b.className='btn '+(a.class||'btn-ghost');b.textContent=a.text;b.onclick=()=>a.onClick?.();$('modalActions').appendChild(b)});$('modalBackdrop').classList.add('show')}
+function closeModal(){$('modalBackdrop').classList.remove('show')}
+function timeForPrayer(r,key){return r.prayerTimes?.timings?.[key]||null}
+function timingDelta(r,key,performedAt){const pt=timeForPrayer(r,key);if(!pt||!performedAt)return null;const hm=String(pt).match(/(\d{1,2}):(\d{2})/);if(!hm)return null;const target=zonedToUtc(r.date,`${hm[1].padStart(2,'0')}:${hm[2]}`);return Math.round((new Date(performedAt)-target)/1000)}
+function fmtDelta(seconds){if(seconds===null||seconds===undefined)return'التوقيت غير متاح';const early=seconds<0;let n=Math.abs(seconds);const h=Math.floor(n/3600),m=Math.floor(n%3600/60),s=n%60;const t=`${h?`${h} س `:''}${m?`${m} د `:''}${s} ث`;if(early)return`قبل بداية الوقت بـ ${t}`;if(seconds===0)return'مع بداية الوقت';return`بعد بداية الوقت بـ ${t}`}
+function timingPoints(sec){if(sec==null||sec<0)return 0;if(sec<=900)return 2;if(sec<=1800)return 1.5;if(sec<=3600)return 1;if(sec<=10800)return .5;return 0}
+function adherencePct(records){let known=0,good=0;records.forEach(r=>PRAYERS.forEach(p=>{const rec=r.prayers?.[p.key];if(rec?.status==='done'&&rec.performedAt&&r.prayerTimes?.source!=='offlineCalc'){const d=timingDelta(r,p.key,rec.performedAt);if(d!==null){known++;if(d>=0&&timingPoints(d)===2)good++}}}));return known?Math.round(good/known*100):null}
+function isInWindow(when,kind){if(!when)return false;const p=cairoParts(new Date(when));const m=+p.hour*60+(+p.minute);return kind==='morning'?(m>=240&&m<720):(m>=900&&m<1440)}
+function scoreDay(r){
+ const cfg=r.scoreConfig||{goals:state.settings.goals,customHabits:state.settings.customHabits};
+ const goals={...state.settings.goals,...(cfg.goals||{})};
+ const habits=Array.isArray(cfg.customHabits)?cfg.customHabits:[];
+ // The fixed rubric is 100 points: prayers 45, adhkar 15, Quran 12, salawat 8, qiyam 10, optional personal habits 10.
+ // When no personal habits are configured, the core 90 points are proportionally normalized to 100.
+ const scale=habits.length?1:(100/90);
+ const parts={prayers:0,adhkar:0,quran:0,salawat:0,qiyam:0,habits:0};
+ const maxParts={prayers:0,adhkar:0,quran:0,salawat:0,qiyam:0,habits:0};
+ let compNum=0,compDen=0,known=0,knownTotal=10+habits.length;
+ const add=(key,possible,earned)=>{maxParts[key]+=possible;parts[key]+=earned};
+ // Prayer completion: 7 points per prayer. Timing: up to 2 more, scored only when both performance time and prayer time are known.
+ PRAYERS.forEach(p=>{
+  const pr=r.prayers?.[p.key]||{};
+  if(['done','notDone','exempt'].includes(pr.status))known++;
+  if(pr.status==='done'||pr.status==='notDone'){
+   compDen++;if(pr.status==='done')compNum++;
+   add('prayers',7*scale,(pr.status==='done'?7:0)*scale);
+   if(pr.status==='done'&&pr.performedAt&&r.prayerTimes?.source!=='offlineCalc'){const delta=timingDelta(r,p.key,pr.performedAt);if(delta!==null)add('prayers',2*scale,timingPoints(delta)*scale)}
+  }
+ });
+ // Adhkar completion: 6 points each. Timing is assessed only when a completion timestamp exists.
+ ['morning','evening'].forEach(k=>{
+  const a=r.adhkar?.[k]||{};
+  if(a.status&&a.status!=='unrecorded')known++;
+  if(a.status==='done'||a.status==='notDone'){
+   compDen++;if(a.status==='done')compNum++;
+   add('adhkar',6*scale,(a.status==='done'?6:0)*scale);
+   if(a.status==='done'&&a.completedAt)add('adhkar',1.5*scale,isInWindow(a.completedAt,k)?1.5*scale:0);
+  }
+ });
+ // Counters become assessable only after the user changes them; untouched counters are unknown, not zero.
+ if(r.quran?.touched){known++;compDen++;const frac=Math.min(Math.max(0,Number(r.quran.pages)||0)/Math.max(1,Number(goals.quranPages)||1),1);compNum+=frac;add('quran',12*scale,12*scale*frac)}
+ if(r.salawat?.touched){known++;compDen++;const frac=Math.min(Math.max(0,Number(r.salawat.count)||0)/Math.max(1,Number(goals.salawat)||1),1);compNum+=frac;add('salawat',8*scale,8*scale*frac)}
+ if(r.qiyam?.touched){known++;compDen++;const frac=Math.min(Math.max(0,Number(r.qiyam.rakaat)||0)/Math.max(1,Number(goals.qiyamRakaat)||1),1);compNum+=frac;add('qiyam',10*scale,10*scale*frac)}
+ if(habits.length){habits.forEach(h=>{const v=r.habits?.[h.id];if(v!==undefined){known++;compDen++;if(v===true)compNum++;const w=10/habits.length;add('habits',w,v===true?w:0)}})}
+ const earned=Object.values(parts).reduce((a,b)=>a+b,0),assessed=Object.values(maxParts).reduce((a,b)=>a+b,0);
+ const score=assessed>0?Math.round((earned/assessed)*100):null;
+ const targetProgress=compDen?Math.round(compNum/compDen*100):null;
+ const coverage=Math.round(Math.min(known,knownTotal)/Math.max(1,knownTotal)*100);
+ const prayersDone=PRAYERS.filter(p=>r.prayers?.[p.key]?.status==='done').length;
+ const adhkarDone=['morning','evening'].filter(k=>r.adhkar?.[k]?.status==='done').length;
+ return {score,parts,maxParts,earned,assessed,targetProgress,coverage,known,knownTotal,prayersDone,adhkarDone,completion:targetProgress,adherence:adherencePct([r]),rated:assessed>0,scoreConfidence:Math.round(assessed)};
+}
+function dateRecords(period){const n=period==='week'?7:period==='half'?15:period==='month'?30:1;const list=[];for(let i=n-1;i>=0;i--){const day=dateShift(currentDate,-i);const r=state.records[day]||dayTemplate(day);list.push(r)}return list}
+function periodAggregate(recs){
+ const scored=recs.map(r=>scoreDay(r));
+ const withData=recs.filter((r,i)=>scored[i].coverage>0);
+ const rated=scored.filter(s=>s.score!==null);
+ const score=rated.length?Math.round(rated.reduce((a,s)=>a+s.score,0)/rated.length):null;
+ const completionValues=scored.filter(s=>s.completion!==null);
+ const completion=completionValues.length?Math.round(completionValues.reduce((a,s)=>a+s.completion,0)/completionValues.length):null;
+ const coverage=Math.round(scored.reduce((a,s)=>a+s.coverage,0)/Math.max(1,scored.length));
+ const adherence=adherencePct(recs);
+ return {score,completion,coverage,adherence,scored,withData,ratedDays:rated.length,days:recs.length};
+}
+function renderTop(){const now=new Date(),p=cairoParts(now),h=+p.hour; $('headerDate').textContent=new Intl.DateTimeFormat('ar-EG',{timeZone:TZ,weekday:'short',day:'numeric',month:'short'}).format(now);$('greeting').textContent=h<11?'صباح الخير، خُد يومك بهدوء':h<16?'يومك مبارك، خطوة بخطوة':'مساء الخير، راجع يومك برفق'}
+function updateDailyScore(){const r=dayRecord(currentDate),s=scoreDay(r);$('heroScore').textContent=s.score===null?'—':s.score;$('heroCompletion').textContent=s.completion===null?'—':s.completion+'%';$('heroCoverage').textContent=s.coverage+'%';$('statPrayers').innerHTML=`${s.prayersDone}<span style="font-size:15px;color:var(--muted)"> / 5</span>`;$('statPrayersSub').textContent=s.prayersDone===5?'كل الصلوات مسجلة كمكتملة':`${5-s.prayersDone} صلوات لم تسجّل كمكتملة`;$('heroScoreHint')&&($('heroScoreHint').textContent=s.score===null?'سجّل أي إنجاز لبدء التقييم':`مبني على ${s.assessed.toFixed(1)} نقطة قابلة للتقييم · تغطية التسجيل ${s.coverage}%`);$('statQuran').innerHTML=`${r.quran.pages}<span style="font-size:15px;color:var(--muted)"> / ${state.settings.goals.quranPages}</span>`;$('statQuranBar').style.width=Math.min(100,r.quran.pages/state.settings.goals.quranPages*100)+'%';$('statSalawat').textContent=r.salawat.count;$('statSalawatSub').textContent=`من ${state.settings.goals.salawat} مرة`; $('statSalawatBar').style.width=Math.min(100,r.salawat.count/state.settings.goals.salawat*100)+'%';$('statQiyam').innerHTML=`${r.qiyam.rakaat}<span style="font-size:15px;color:var(--muted)"> / ${state.settings.goals.qiyamRakaat}</span>`;$('statQiyamBar').style.width=Math.min(100,r.qiyam.rakaat/state.settings.goals.qiyamRakaat*100)+'%';$('prayerProgressText').textContent=`${s.prayersDone} / 5`;$('prayerProgress').style.width=(s.prayersDone/5*100)+'%';renderFocus(r,s)}
+function statusLabel(status){return status==='done'?['مكتملة','done']:status==='notDone'?['لم أؤدّها','missed']:status==='unsure'?['غير متأكد','pending']:status==='exempt'?['مستثناة','unknown']:['غير مسجّلة','unknown']}
+function prayerRowHTML(r,p){const rec=r.prayers[p.key]||{},[status,cls]=statusLabel(rec.status);const t=timeForPrayer(r,p.key);const delta=rec.status==='done'&&rec.performedAt?timingDelta(r,p.key,rec.performedAt):null;const timingLabel=delta!==null?(r.prayerTimes?.source==='offlineCalc'?` · فرق تقديري ${fmtDelta(delta)}`:` · ${fmtDelta(delta)}`):'';const clock=t?String(t).match(/\d{1,2}:\d{2}/)?.[0]:'—';return `<div class="prayer-row"><div class="prayer-ident"><div class="prayer-symbol">${p.symbol}</div><div><div class="prayer-name">${p.name}</div><div class="small muted">${rec.performedAt?`أُدّيت ${fmtTime(rec.performedAt,true)}${timingLabel}`:rec.status==='notDone'?'تم تأكيد عدم الأداء':rec.status==='unsure'?'التسجيل غير مؤكد':rec.status==='exempt'?'مستثناة في تسجيلك':'سجّل الحالة'}</div></div></div><div class="prayer-time">${clock}</div><div class="row-actions"><span class="status-pill ${cls}">${status}</span><button class="btn btn-ghost btn-sm" data-prayer="${p.key}" data-action="edit-prayer">تسجيل</button></div></div>`}
+function bindPrayerButtons(root){root.querySelectorAll('[data-action="edit-prayer"]').forEach(b=>b.addEventListener('click',()=>showPrayerModal(b.dataset.prayer)))}
+function renderHome(){const r=dayRecord(currentDate);updateDailyScore();$('homePrayerList').innerHTML=PRAYERS.map(p=>prayerRowHTML(r,p)).join('');bindPrayerButtons($('homePrayerList'));$('timesDateTag').textContent=fmtDate(currentDate);$('timesSourceTag').textContent=r.prayerTimes?.source==='api'?'مواقيت محدّثة من الإنترنت':r.prayerTimes?.source==='offlineCalc'?'حساب فلكي محلي تقريبي':r.prayerTimes?.timings?'آخر مواقيت محفوظة':'بانتظار المواقيت';$('timesSourceTag').className='tag '+(r.prayerTimes?.timings?'ok':'');}
+function renderFocus(r,s){let actions=[];const next=PRAYERS.find(p=>r.prayers[p.key]?.status==='unrecorded');if(next)actions.push(`سجّل حالة صلاة ${next.name}؛ غير المسجّل مش معناه إنها ما حصلتش.`);if(!r.adhkar.morning.completedAt)actions.push('لو أذكار الصباح من وردك، خصّص لها وقتًا بسيطًا وسجّل إنجازها.');if(r.quran.pages<state.settings.goals.quranPages)actions.push(`القرآن: باقي ${state.settings.goals.quranPages-r.quran.pages} صفحة للوصول لهدفك الشخصي.`);if(r.salawat.count<state.settings.goals.salawat)actions.push(`الصلاة على النبي ﷺ: باقي ${state.settings.goals.salawat-r.salawat.count} مرة لهدفك.`);if(!actions.length)actions.push('سجّلت أهدافك الأساسية. راجع ملخص اليوم واختر عادة واحدة تحافظ عليها غدًا.');$('focusIntro').textContent=s.coverage<30?'ابدأ بتسجيل بسيط؛ تسجيل ما حدث هو أول خطوة لفهم نمطك.':s.score>=75?'فيه تقدم واضح في بيانات اليوم. حافظ على الوتيرة من غير ما تضغط على نفسك.':'المراجعة هنا علشان تساعدك تختار الخطوة التالية، مش علشان تحكم على يومك.';$('focusList').innerHTML=actions.slice(0,3).map(a=>`<div class="focus-line"><span class="focus-bullet">✦</span><span>${esc(a)}</span></div>`).join('')}
+function showPrayerModal(key){const r=dayRecord(currentDate),p=PRAYERS.find(p=>p.key===key),rec=r.prayers[key],time=timeForPrayer(r,key);const now=cairoParts(new Date());const init=rec.performedAt?(()=>{const x=cairoParts(new Date(rec.performedAt));return `${x.year}-${x.month}-${x.day}T${x.hour}:${x.minute}:${x.second}`})():`${r.date}T${now.hour}:${now.minute}:${now.second}`;
+const timingMsg=time?`بداية الوقت ${r.prayerTimes?.source==='offlineCalc'?'التقديرية المحسوبة محليًا':'المحفوظة'}: <strong style="color:var(--gold2)">${esc(time.match(/\d{1,2}:\d{2}/)?.[0]||time)}</strong> بتوقيت القاهرة.${r.prayerTimes?.source==='offlineCalc'?' لن تدخل هذه المقارنة التقديرية في درجة التوقيت.':''}`:'مواقيت الصلاة غير متاحة حاليًا؛ سيتم حفظ وقت الأداء، وحساب الفرق عند توافر المواقيت.';const existingDelta=rec.status==='done'&&rec.performedAt?timingDelta(r,key,rec.performedAt):null;
+openModal(`تسجيل صلاة ${p.name}`,`<p>اختار الحالة المناسبة. أي حالة غير مسجّلة تفضل غير مؤكدة بدل ما نفترض إنها لم تحصل.</p><div class="subcard">${timingMsg}${existingDelta!==null?`<div style="margin-top:8px;color:var(--mint)">الفارق المسجّل: ${esc(fmtDelta(existingDelta))}</div>`:''}</div><div class="setting-field"><label for="prayerPerfTime">وقت الأداء (بالساعة والدقيقة والثانية)</label><input id="prayerPerfTime" class="line-field" type="datetime-local" step="1" value="${init}" /></div><div class="setting-field"><label>حالة الصلاة</label><div class="pill-row"><span class="tag">${esc(statusLabel(rec.status)[0])}</span>${rec.performedAt?`<span class="tag">آخر تسجيل: ${fmtTime(rec.performedAt,true)}</span>`:''}</div></div>`,[
+{text:'تمت الصلاة ✓',class:'btn-primary',onClick:()=>{const v=$('prayerPerfTime').value;if(!v){toast('اختار وقت الأداء الأول.');return}const [d,t]=v.split('T');const dt=zonedToUtc(d,t.slice(0,5),+(t.split(':')[2]||0));r.prayers[key]={status:'done',performedAt:dt.toISOString(),updatedAt:timestamp()};saveDay(r);closeModal();renderAll();const sec=timingDelta(r,key,r.prayers[key].performedAt);toast(sec===null?'تم حفظ وقت الصلاة.':'تم حفظ الصلاة والتوقيت: '+fmtDelta(sec));}},
+{text:'لم أؤدّها',class:'btn-danger',onClick:()=>{r.prayers[key]={status:'notDone',performedAt:null,updatedAt:timestamp()};saveDay(r);closeModal();renderAll();toast('تم تسجيل الحالة كما اخترتها.')}},
+{text:'غير متأكد',class:'btn-ghost',onClick:()=>{r.prayers[key]={status:'unsure',performedAt:null,updatedAt:timestamp()};saveDay(r);closeModal();renderAll();toast('تم حفظ حالة «غير متأكد».')}},
+{text:'مستثناة',class:'btn-ghost',onClick:()=>{r.prayers[key]={status:'exempt',performedAt:null,updatedAt:timestamp()};saveDay(r);closeModal();renderAll();toast('تم حفظ الحالة.')}},
+{text:'مسح التسجيل',class:'btn-ghost',onClick:()=>{r.prayers[key]={status:'unrecorded',performedAt:null,updatedAt:timestamp()};saveDay(r);closeModal();renderAll();toast('تم مسح التسجيل وأصبحت الحالة غير مسجّلة.')}}
+])}
+function renderWorship(){const r=dayRecord(currentDate);$('worshipDateLabel').textContent=fmtDate(currentDate,{weekday:true,year:true});$('worshipPrayerList').innerHTML=PRAYERS.map(p=>prayerRowHTML(r,p)).join('');bindPrayerButtons($('worshipPrayerList'));$('worshipPrayerCount').textContent=scoreDay(r).prayersDone+' / 5 مكتملة';renderAdhkar(r,'morning');renderAdhkar(r,'evening');renderCounters(r);renderHabits(r);if(document.activeElement!==$('dayNotes'))$('dayNotes').value=r.notes||''}
+function renderAdhkar(r,k){const a=r.adhkar[k],name=k==='morning'?'morning':'evening';$(name+'Status').textContent=a.status==='done'?'مكتملة':a.startedAt?'قيد المتابعة':a.status==='notDone'?'لم أتمّها':'غير مسجّلة';$(name+'Status').className='tag '+(a.status==='done'?'ok':'');$(name+'StartText').textContent='البداية: '+fmtTime(a.startedAt,true);$(name+'EndText').textContent='النهاية: '+fmtTime(a.completedAt,true);$(name+'Start').textContent=a.startedAt?'تحديث وقت البداية':'ابدأ الأذكار';$(name+'Done').textContent=a.status==='done'?'تمت ✓':'أتممتها ✓'}
+function renderCounters(r){let g=state.settings.goals;[['quran',r.quran.pages,g.quranPages,'quranCount','quranTargetDisplay','quranProgress','quranPercentage','quranGoalTag','صفحات'],['salawat',r.salawat.count,g.salawat,'salawatCount','salawatTargetDisplay','salawatProgress','salawatPercentage','salawatGoalTag','مرة'],['qiyam',r.qiyam.rakaat,g.qiyamRakaat,'qiyamCount','qiyamTargetDisplay','qiyamProgress','qiyamPercentage','qiyamGoalTag','ركعة']].forEach(([key,val,target,cid,tid,pid,pctid,tagid,unit])=>{$(cid).textContent=val;$(tid).textContent=target;$(pid).style.width=Math.min(100,val/target*100)+'%';$(pctid).textContent=Math.round(Math.min(100,val/target*100))+'%';$(tagid).textContent='الهدف '+target+' '+unit;});$('quranMeta').textContent=r.quran.touched?'آخر إضافة: '+fmtTime(r.quran.events?.at(-1)?.at,true):'لم يبدأ التسجيل بعد';$('salawatMeta').textContent=r.salawat.touched?'آخر إضافة: '+fmtTime(r.salawat.events?.at(-1)?.at,true):'ابدأ تسجيل الورد';$('qiyamMeta').textContent=r.qiyam.touched?'آخر إضافة: '+fmtTime(r.qiyam.events?.at(-1)?.at,true):'لم يبدأ التسجيل بعد'}
+function renderHabits(r){const hs=r.scoreConfig?.customHabits||state.settings.customHabits;$('noHabits').classList.toggle('hidden',hs.length>0);$('habitList').innerHTML=hs.map(h=>{const value=r.habits[h.id];return `<div class="habit-row"><div><div style="font-size:12px;font-weight:600">${esc(h.name)}</div><div class="small muted">${value===true?'تم الإنجاز':value===false?'لم تُنجز':'لم تُسجّل بعد'}</div></div><div class="row-actions"><button class="check-btn ${value===true?'checked':''}" data-habit="${h.id}" data-val="true" aria-label="تم إنجاز ${esc(h.name)}">✓</button><button class="check-btn ${value===false?'checked':''}" data-habit="${h.id}" data-val="false" aria-label="لم أنجز ${esc(h.name)}">×</button>${r.date===cairoDate(new Date())?`<button class="btn btn-ghost btn-sm" data-delete-habit="${h.id}">حذف</button>`:''}</div></div>`}).join('');$('habitList').querySelectorAll('[data-habit]').forEach(b=>b.onclick=()=>{r.habits[b.dataset.habit]=b.dataset.val==='true';saveDay(r);renderAll()});$('habitList').querySelectorAll('[data-delete-habit]').forEach(b=>b.onclick=()=>{state.settings.customHabits=state.settings.customHabits.filter(h=>h.id!==b.dataset.deleteHabit);const today=dayRecord(cairoDate(new Date()));today.scoreConfig={goals:clone(state.settings.goals),customHabits:clone(state.settings.customHabits)};saveDay(today);persist();renderAll();toast('تم حذف العادة من اليوم وما بعده؛ سجلات الأيام السابقة احتفظت بتعريفها.')})}
+function eventChange(key,delta){const r=dayRecord(currentDate),obj=r[key];obj.touched=true;const field=key==='quran'?'pages':key==='salawat'?'count':'rakaat';obj[field]=Math.max(0,(obj[field]||0)+delta);obj.events=obj.events||[];obj.events.push({at:timestamp(),delta,value:obj[field]});saveDay(r);renderAll();}
+function addHabit(){openModal('إضافة عادة شخصية',`<p>اختار عادة صغيرة قابلة للمتابعة. يمكن تسجيل إنجازها أو تركها غير مسجلة في كل يوم.</p><div class="setting-field"><label for="habitName">اسم العادة</label><input id="habitName" maxlength="50" class="line-field" placeholder="مثال: قراءة صفحة علم أو صدقة" /></div>`,[{text:'إضافة العادة',class:'btn-primary',onClick:()=>{const name=$('habitName').value.trim();if(!name){toast('اكتب اسم العادة.');return}if(state.settings.customHabits.length>=10){toast('الحد الأقصى 10 عادات.');return}state.settings.customHabits.push({id:'h'+Date.now().toString(36),name});const r=dayRecord(cairoDate(new Date()));r.scoreConfig={goals:clone(state.settings.goals),customHabits:clone(state.settings.customHabits)};saveDay(r);persist();closeModal();renderAll();toast('تمت إضافة العادة لليوم وما بعده؛ السجل السابق يحتفظ بأوزانه.')}} ,{text:'إلغاء',onClick:closeModal}])}
+function editGoal(key,title,current,min,max){openModal(title,`<p>غيّر الهدف اليومي. الدرجة تحتسب الإنجاز حتى الهدف، وأي إنجاز زائد يظل ظاهرًا في العدّاد.</p><div class="setting-field"><label for="newGoal">الهدف الجديد</label><input id="newGoal" class="line-field" type="number" min="${min}" max="${max}" value="${current}" /></div>`,[{text:'حفظ',class:'btn-primary',onClick:()=>{const n=+$('newGoal').value;if(!Number.isFinite(n)||n<min||n>max){toast(`اكتب رقمًا بين ${min} و${max}.`);return}state.settings.goals[key]=n;const r=dayRecord(cairoDate(new Date()));r.scoreConfig={goals:clone(state.settings.goals),customHabits:clone(state.settings.customHabits)};saveDay(r);persist();closeModal();renderAll();toast('تم تحديث الهدف لليوم وما بعده؛ الأيام السابقة تحتفظ بالهدف المسجل.')}},{text:'إلغاء',onClick:closeModal}])}
+function svgChart(recs){
+ const W=620,H=230,L=35,R=12,T=15,B=29,innerW=W-L-R,innerH=H-T-B;
+ let svg='';[0,25,50,75,100].forEach(v=>{const y=T+innerH-v/100*innerH;svg+=`<line x1="${L}" y1="${y}" x2="${W-R}" y2="${y}" stroke="#ffffff10" stroke-width="1"/><text x="${L-10}" y="${y+4}" fill="#718e80" font-size="10" text-anchor="end">${v}</text>`});
+ const xAt=i=>L+(recs.length===1?innerW/2:i*innerW/(recs.length-1));
+ const series=[['score',r=>scoreDay(r).score,'#d8ba72'],['completion',r=>scoreDay(r).completion,'#8de0ba'],['coverage',r=>scoreDay(r).coverage,'#8ebbdc']];
+ series.forEach(([name,fn,color])=>{
+  const raw=recs.map((r,i)=>({i,x:xAt(i),value:fn(r)}));
+  const segments=[];let current=[];
+  raw.forEach(p=>{if(p.value===null||p.value===undefined||!Number.isFinite(Number(p.value))){if(current.length)segments.push(current);current=[]}else current.push({...p,y:T+innerH-(Math.max(0,Math.min(100,Number(p.value)))/100)*innerH})});
+  if(current.length)segments.push(current);
+  segments.forEach(seg=>{
+   if(seg.length>1){const path=seg.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');if(name==='score'){const area=path+` L ${seg.at(-1).x} ${T+innerH} L ${seg[0].x} ${T+innerH} Z`;svg+=`<path d="${area}" fill="${color}" opacity=".06"/>`}svg+=`<path d="${path}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`}
+   seg.forEach(p=>{svg+=`<circle cx="${p.x}" cy="${p.y}" r="3" fill="${color}" stroke="#0d241f" stroke-width="1.5"><title>${fmtDate(recs[p.i].date)}: ${Math.round(p.value)}</title></circle>`});
+  });
+ });
+ if(recs.length<=15)recs.forEach((r,i)=>{if(i%Math.max(1,Math.ceil(recs.length/7))===0||i===recs.length-1){const x=xAt(i);svg+=`<text x="${x}" y="${H-7}" fill="#718e80" font-size="9" text-anchor="middle">${r.date.slice(8)}</text>`}});
+ return svg;
+}
+function aggregateBreakdown(recs){
+ const keys=[['prayers','الصلوات'],['adhkar','الأذكار'],['quran','القرآن'],['salawat','الصلاة على النبي ﷺ'],['qiyam','قيام الليل'],['habits','العادات الشخصية']];
+ return keys.map(([k,label])=>{let earned=0,possible=0,n=0;recs.forEach(r=>{const x=scoreDay(r);earned+=x.parts[k]||0;possible+=x.maxParts[k]||0;if((x.maxParts[k]||0)>0)n++});const val=n?earned/n:0,max=n?possible/n:0;return {k,label,val,max,percent:possible?earned/possible*100:0,assessedDays:n}});
+}
+function insightsFor(recs,period){
+ const ag=periodAggregate(recs),latest=[...recs].reverse().find(r=>scoreDay(r).coverage>0)||recs.at(-1),ls=scoreDay(latest);
+ const tips=[],strengths=[],improve=[];
+ const rated=recs.filter(r=>scoreDay(r).score!==null);
+ const allPrayers=recs.reduce((a,r)=>a+PRAYERS.filter(p=>r.prayers?.[p.key]?.status==='done').length,0);
+ const quranPages=recs.reduce((a,r)=>a+(Number(r.quran?.pages)||0),0);
+ const salawat=recs.reduce((a,r)=>a+(Number(r.salawat?.count)||0),0);
+ const adhkarCount=recs.reduce((a,r)=>a+['morning','evening'].filter(k=>r.adhkar?.[k]?.status==='done').length,0);
+ const knownPrayer=recs.reduce((a,r)=>a+PRAYERS.filter(p=>['done','notDone','unsure','exempt'].includes(r.prayers?.[p.key]?.status)).length,0);
+ if(!ag.withData.length){return {strengths:['لا توجد بيانات مسجلة كفاية لإصدار قراءة موثوقة بعد.'],improve:['سجّل ما حدث فعلًا، واترك ما لا تتذكره «غير مسجل» بدل التخمين.'],plan:['ابدأ بتسجيل حالة صلاة أو ورد واحد؛ لا تحتاج لإكمال كل شيء حتى تبدأ.'],overview:'لا توجد درجة بعد؛ لن يتم تفسير غياب البيانات على أنه تقصير.'}}
+ if(allPrayers>0)strengths.push(`سجّلت ${allPrayers} صلاة مكتملة خلال الفترة.`);
+ if(quranPages>0)strengths.push(`سجّلت ${quranPages} صفحة قرآن خلال الفترة.`);
+ if(salawat>0)strengths.push(`إجمالي عدّاد الصلاة على النبي ﷺ: ${salawat} مرة.`);
+ if(adhkarCount>0)strengths.push(`سجّلت إكمال ${adhkarCount} جلسة أذكار.`);
+ if(ag.coverage>=70)strengths.push(`تغطية التسجيل ${ag.coverage}%؛ وده بيساعد على تحليل أدق.`);
+ if(!strengths.length)strengths.push('بدأت في بناء سجل شخصي؛ البيانات المسجلة فقط هي التي تدخل في التحليل.');
+ if(ag.coverage<50)improve.push('تغطية البيانات لسه محدودة. سجّل الحالات المعروفة فقط؛ لا تحاول ملء الفراغات بالتخمين.');
+ if(ag.completion!==null&&ag.completion<60)improve.push('متوسط إنجاز الأهداف المسجلة منخفض نسبيًا؛ جرّب تقسيم الأهداف الكبيرة إلى جلسات أصغر أو مراجعة الهدف نفسه.');
+ if(ag.adherence!==null&&ag.adherence<70)improve.push('من الصلوات التي لها توقيت أداء ومواقيت محفوظة، توجد فرصة لتحسين الالتزام بالخطة الزمنية. جرّب تذكيرًا هادئًا أو الاستعداد مبكرًا.');
+ if(ag.adherence===null)improve.push('لا توجد عينة توقيت كافية بعد؛ تسجيل وقت الأداء مع مواقيت محفوظة يتيح تحليل التوقيت دون افتراضات.');
+ if(quranPages===0)improve.push('لا توجد صفحات قرآن مسجلة خلال الفترة؛ إن كان القرآن ضمن خطتك، سجّل حتى لو كانت القراءة قليلة.');
+ if(adhkarCount===0)improve.push('لم تُسجّل جلسة أذكار مكتملة في هذه الفترة؛ يمكنك اختيار وقت ثابت يناسب روتينك.');
+ if(!improve.length)improve.push('المؤشرات المتاحة مستقرة نسبيًا؛ حافظ على الروتين بدل زيادة أهداف كثيرة دفعة واحدة.');
+ // Trend: compare first and second half among days that received a score, not blank calendar days.
+ const split=Math.floor(recs.length/2),first=recs.slice(0,split).map(r=>scoreDay(r)).filter(x=>x.score!==null),second=recs.slice(split).map(r=>scoreDay(r)).filter(x=>x.score!==null);
+ let trendText='البيانات المسجلة لا تكفي للمقارنة بين مرحلتين.';
+ if(first.length&&second.length){const a=first.reduce((x,y)=>x+y.score,0)/first.length,b=second.reduce((x,y)=>x+y.score,0)/second.length,d=Math.round(b-a);trendText=d>3?`الدرجة ارتفعت في النصف الثاني بنحو ${d} نقطة مقارنة بالنصف الأول.`:d< -3?`متوسط الدرجة أقل في النصف الثاني بنحو ${Math.abs(d)} نقطة؛ راجع حجم الأهداف وظروف الأيام قبل الاستنتاج.`:'متوسط الدرجة متقارب بين النصفين (فرق أقل من 4 نقاط).';}
+ if(ls.score!==null&&ls.score<70){if((latest.quran?.pages||0)<(latest.scoreConfig?.goals?.quranPages||state.settings.goals.quranPages))tips.push(`خطة الغد: قسّم ورد القرآن إلى جلستين قصيرتين، مع هدفك التاريخي ${latest.scoreConfig?.goals?.quranPages||state.settings.goals.quranPages} صفحات.`);if((latest.salawat?.count||0)<(latest.scoreConfig?.goals?.salawat||state.settings.goals.salawat))tips.push('خطة الغد: وزّع عدّاد الصلاة على النبي ﷺ على أكثر من فترة بدل تركه لآخر اليوم.');}
+ const nextPrayer=PRAYERS.find(p=>latest.prayers?.[p.key]?.status==='unrecorded');if(nextPrayer)tips.push(`خطة تسجيل الغد: بعد صلاة ${nextPrayer.name} سجّل الحالة والوقت الفعلي إن تذكرته.`);
+ if(ag.coverage<70)tips.push('اختَر مراجعة قصيرة في نهاية اليوم لتسجيل ما تتذكره بدقة وترك غير المؤكد دون تخمين.');
+ if(!tips.length)tips.push('اختر تعديلًا صغيرًا واحدًا لليوم التالي، ثم راجع أثره بعد عدة أيام.');
+ const summaryScore=ag.score===null?'لا توجد درجة قابلة للتقييم':`متوسط الدرجة للأيام التي أمكن تقييمها ${ag.score}/100`;
+ return {strengths,improve,plan:[...new Set(tips)].slice(0,3),overview:`${summaryScore}. التقييم يحتسب الجوانب المسجلة والقابلة للتقييم فقط؛ متوسط تغطية السجل ${ag.coverage}%. ${trendText} الأرقام تنظم الخطة الشخصية ولا تقيس القبول أو النية.`,trend:trendText,knownPrayer};
+}
+function sectionBox(title,icon,items){return `<div class="review-section"><h3>${icon} ${title}</h3><ul>${items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`}
+function renderReports(){const recs=dateRecords(activePeriod),ag=periodAggregate(recs),ins=insightsFor(recs,activePeriod);$('reportScore').textContent=ag.score===null?'—':ag.score;$('reportCompletion').textContent=ag.completion===null?'—':ag.completion+'%';$('reportTiming').textContent=ag.adherence===null?'—':ag.adherence+'%';$('reportCoverage').textContent=ag.coverage+'%';$('reportScoreSub').textContent=activePeriod==='day'?(ag.score===null?'لا توجد نقاط قابلة للتقييم':'درجة البيانات القابلة للتقييم من 100'):`متوسط ${ag.ratedDays} يومًا قابلًا للتقييم من ${ag.days}`;$('chartTitle').textContent=activePeriod==='day'?'ملخص اليوم':activePeriod==='week'?'مسار آخر 7 أيام':activePeriod==='half'?'مسار آخر 15 يومًا':'مسار آخر 30 يومًا';$('chartSubtitle').textContent=`من ${fmtDate(recs[0].date)} إلى ${fmtDate(recs.at(-1).date)} · الأيام غير المسجلة تظهر كفجوات، لا كدرجة صفر.`;$('scoreChart').innerHTML=svgChart(recs);$('scoreBreakdown').innerHTML=aggregateBreakdown(recs).map(b=>`<div class="break-row" title="${b.assessedDays} يومًا به بيانات لهذه الفئة"><span>${b.label}</span><div class="progress-track"><div class="progress-fill" style="width:${Math.min(100,b.percent)}%;background:${b.k==='quran'?'var(--mint)':b.k==='salawat'?'var(--blue)':'linear-gradient(90deg,var(--mint),var(--gold))'}"></div></div><b>${b.assessedDays?Math.round(b.percent)+'%':'—'}</b></div>`).join('');$('insightContent').innerHTML=`<div class="insight-box"><div class="insight-symbol">✧</div><p><strong>WIRDI Intelligence · تحليل محلي قابل للتفسير</strong><br>${esc(ins.overview)}</p></div><div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px">${[['نقاط قوة','✦',ins.strengths],['فرص للتحسين','◇',ins.improve],['خطة عملية','→',ins.plan]].map(a=>`<div class="subcard" style="margin-top:0;padding:14px"><div class="eyebrow">${a[1]} ${a[0]}</div><ul style="padding-right:17px;margin:0;font-size:11px;line-height:2;color:#c1d0c7">${a[2].map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`).join('')}</div>`;$('detailedReport').innerHTML=`<div>${sectionBox('ما كان جيدًا','✓',ins.strengths)}</div><div>${sectionBox('ما يحتاج مراجعة','◇',ins.improve)}</div><div>${sectionBox('خطة اليوم التالي','→',ins.plan)}</div><div>${sectionBox('قراءة المؤشرات','◉',[`نسبة إنجاز الأهداف: ${ag.completion===null?'لا توجد بيانات كافية':ag.completion+'%'}.`,`تغطية التسجيل: ${ag.coverage}%.`,`الأيام التي تم تقييمها: ${ag.ratedDays} من ${ag.days}.`,`التزام التوقيت: ${ag.adherence===null?'لا توجد بيانات كافية':ag.adherence+'% من الصلوات المسجلة ذات التوقيت المعروف'}.`,`عدد الأيام ذات أي بيانات: ${ag.withData.length} من ${ag.days}.`])}</div>`;$('reportNarrativeSubtitle').textContent=activePeriod==='day'?'تقرير اليوم، وفق ما تم تسجيله فقط.':`تقرير مجمّع لآخر ${ag.days} يومًا.`}
+function renderHistory(){const recs=Object.values(state.records).sort((a,b)=>b.date.localeCompare(a.date));const withData=recs.filter(r=>scoreDay(r).coverage>0||scoreDay(r).score>0);$('historyActiveDays').textContent=withData.length;const historyRated=withData.map(r=>scoreDay(r)).filter(x=>x.score!==null);$('historyAvgScore').textContent=historyRated.length?Math.round(historyRated.reduce((a,x)=>a+x.score,0)/historyRated.length):'—';const best=[...withData].filter(r=>scoreDay(r).score!==null).sort((a,b)=>scoreDay(b).score-scoreDay(a).score)[0];$('historyBestScore').textContent=best?scoreDay(best).score:0;$('historyBestDate').textContent=best?fmtDate(best.date):'لسه مفيش أيام بها بيانات';$('historyLatest').textContent=withData.length?fmtDate(withData[0].date).split(' ').slice(0,2).join(' '):'—';const filter=$('historyFilter').value;const show=recs.filter(r=>{const s=scoreDay(r);if(filter==='active')return s.coverage>0||s.score>0;if(filter==='lowcoverage')return s.coverage>0&&s.coverage<65;return true}).slice(0,100);$('historyList').innerHTML=show.map(r=>{const s=scoreDay(r);return `<div class="history-item"><div><div class="history-date">${esc(fmtDate(r.date,{weekday:true,year:true}))}</div><div class="history-sub">${s.prayersDone}/5 صلوات مكتملة · ${r.quran.pages} صفحة قرآن · تغطية ${s.coverage}%</div></div><div class="history-progress" style="width:115px"><div class="progress-heading"><span>الدرجة</span><strong>${s.score===null?'—':s.score+'/100'}</strong></div><div class="progress-track"><div class="progress-fill" style="width:${s.score||0}%"></div></div></div><button class="btn btn-ghost btn-sm" data-open-day="${r.date}">فتح اليوم ←</button></div>`}).join('');$('historyEmpty').classList.toggle('hidden',show.length>0);$('historyList').querySelectorAll('[data-open-day]').forEach(b=>b.onclick=()=>{currentDate=b.dataset.openDay;goto('worship')})}
+function renderSettings(){ $('cityName').value=state.settings.city;$('countryName').value=state.settings.country;$('calcMethod').value=String(state.settings.method);$('goalQuran').value=state.settings.goals.quranPages;$('goalSalawat').value=state.settings.goals.salawat;$('goalQiyam').value=state.settings.goals.qiyamRakaat;const r=dayRecord(currentDate);$('timeStatus').textContent=r.prayerTimes?.updatedAt?`آخر تحديث للمواقيت: ${fmtTime(r.prayerTimes.updatedAt,true)} — ${r.prayerTimes.source==='api'?'من الإنترنت':r.prayerTimes.source==='offlineCalc'?'حساب فلكي محلي تقريبي':'نسخة محفوظة'}.`:'سيتم حساب مواقيت تقريبية للقاهرة محليًا فورًا، ومحاولة تحديثها من الإنترنت عند توفره.'}
+function renderAll(){renderTop();if(currentView==='home')renderHome();else if(currentView==='worship')renderWorship();else if(currentView==='reports')renderReports();else if(currentView==='history')renderHistory();else if(currentView==='settings'){renderSettings();renderCloud()}}
+function offlineCairoPrayerTimes(day,method=5){
+ // NOAA-style solar position estimate for Cairo, Egypt; fallback only, visibly labeled approximate.
+ const [yy,mm,dd]=day.split('-').map(Number), date=new Date(Date.UTC(yy,mm-1,dd,12));
+ const n=Math.floor((date-Date.UTC(yy,0,1))/86400000)+1, days=(new Date(Date.UTC(yy+1,0,1))-Date.UTC(yy,0,1))/86400000;
+ const gamma=2*Math.PI/days*(n-1);
+ const eq=229.18*(0.000075+0.001868*Math.cos(gamma)-0.032077*Math.sin(gamma)-0.014615*Math.cos(2*gamma)-0.040849*Math.sin(2*gamma));
+ const dec=0.006918-0.399912*Math.cos(gamma)+0.070257*Math.sin(gamma)-0.006758*Math.cos(2*gamma)+0.000907*Math.sin(2*gamma)-0.002697*Math.cos(3*gamma)+0.00148*Math.sin(3*gamma);
+ const lat=30.0444*Math.PI/180, lon=31.2357;
+ const localNoonUtc=zonedToUtc(day,'12:00');
+ const offset=(Date.UTC(yy,mm-1,dd,12)-localNoonUtc.getTime())/60000;
+ const noon=720-4*lon-eq+offset;
+ const angle=(alt)=>{const a=alt*Math.PI/180;const c=(Math.sin(a)-Math.sin(lat)*Math.sin(dec))/(Math.cos(lat)*Math.cos(dec));return Math.acos(Math.max(-1,Math.min(1,c)))*180/Math.PI*4};
+ const sunriseAngle=angle(-0.833), fajrAngles={5:19.5,3:18,4:18.5,2:15,1:18}, ishaAngles={5:17.5,3:17,4:17,2:15,1:18};
+ const fajrAngle=angle(-(fajrAngles[method]||19.5));
+ const asrAlt=Math.atan(1/(1+Math.tan(Math.abs(lat-dec))))*180/Math.PI;
+ const asrAngle=angle(asrAlt);
+ const minutes={Fajr:noon-fajrAngle,Sunrise:noon-sunriseAngle,Dhuhr:noon+2,Asr:noon+asrAngle,Maghrib:noon+sunriseAngle,Isha:method===4?noon+sunriseAngle+90:noon+angle(-(ishaAngles[method]||17.5))};
+ const fmt=m=>{m=((m%1440)+1440)%1440;const x=Math.round(m);return String(Math.floor(x/60)).padStart(2,'0')+':'+String(x%60).padStart(2,'0')};
+ const out={};Object.entries(minutes).forEach(([k,v])=>out[k]=fmt(v));return out;
+}
+async function fetchPrayerTimes(day=currentDate,force=false){
+ const r=dayRecord(day);if(!force&&r.prayerTimes?.timings&&r.prayerTimes?.date===day&&r.prayerTimes.source==='api'){if(day===currentDate)$('timesSourceTag').textContent='مواقيت محدّثة من الإنترنت';return true}
+ const city=state.settings.city||'Cairo',country=state.settings.country||'Egypt',method=state.settings.method||5;const d=day.split('-').reverse().join('-');
+ const tag=$('timesSourceTag');if(tag)tag.textContent='جاري تحديث المواقيت…';
+ const sl=$('syncLabel');if(sl&&sl.textContent.includes('جارٍ تحديث'))sl.textContent='حفظ محلي تلقائي';
+ if(!r.prayerTimes?.timings||r.prayerTimes.date!==day){r.prayerTimes={date:day,timings:offlineCairoPrayerTimes(day,method),source:'offlineCalc',updatedAt:timestamp(),method,city:'Cairo',country:'Egypt',timezone:TZ};saveDay(r,true);if(day===currentDate){if(tag){tag.textContent='حساب فلكي محلي تقريبي';tag.className='tag ok'}const ts=$('timeStatus');if(ts)ts.textContent='مواقيت القاهرة متاحة محليًا كتقدير تقريبي؛ جارٍ محاولة التحديث من الإنترنت.';renderAll()}}
+ try{
+  const url=`https://api.aladhan.com/v1/timingsByCity/${encodeURIComponent(d)}?city=${encodeURIComponent(city)}&country=${encodeURIComponent(country)}&method=${encodeURIComponent(method)}`;
+  const ctrl=new AbortController(),tm=setTimeout(()=>ctrl.abort(),7000);
+  let resp;try{resp=await fetch(url,{signal:ctrl.signal,cache:'no-store'})}finally{clearTimeout(tm)}
+  if(!resp.ok)throw new Error('HTTP '+resp.status);
+  const json=await resp.json();if(json.code!==200||!json.data?.timings)throw new Error('Invalid payload');
+  const timings={};['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'].forEach(k=>timings[k]=json.data.timings[k]);
+  r.prayerTimes={date:day,timings,source:'api',updatedAt:timestamp(),method,city,country,timezone:json.data.meta?.timezone||TZ};saveDay(r,true);
+  if(day===currentDate){const ts=$('timeStatus');if(ts)ts.textContent=`تم تحديث مواقيت ${city} من الإنترنت في ${fmtTime(r.prayerTimes.updatedAt,true)}.`;renderAll()};return true;
+ }catch(e){
+  if(!r.prayerTimes?.timings||r.prayerTimes.date!==day||r.prayerTimes.source==='offlineCalc'){
+   const timings=offlineCairoPrayerTimes(day,method);
+   r.prayerTimes={date:day,timings,source:'offlineCalc',updatedAt:timestamp(),method,city:'Cairo',country:'Egypt',timezone:TZ};saveDay(r,true);
+  }
+  if(day===currentDate){const tagNow=$('timesSourceTag');if(tagNow){tagNow.textContent=r.prayerTimes?.source==='api'?'آخر مواقيت محفوظة':'حساب فلكي محلي تقريبي';tagNow.className='tag ok'}const ts=$('timeStatus');if(ts)ts.textContent=r.prayerTimes?.source==='offlineCalc'?'لا يوجد اتصال؛ تم حساب مواقيت القاهرة محليًا كتقدير تقريبي. عند عودة الإنترنت حدّثها وراجع المواقيت الرسمية.':'تعذّر الاتصال؛ سيُستخدم آخر جدول مواقيت محفوظ.';renderAll()}
+  const ts=$('timeStatus');if(ts)ts.textContent='تعذّر الاتصال بمصدر المواقيت؛ بقيت بياناتك محفوظة محليًا. مواقيت الحساب المحلي تقريبية وليست مصدرًا معتمدًا للمقارنة الدقيقة.';return false;
+ }
+}
+function exportJSON(obj,filename){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+async function shareBackup(){
+ const payload={app:'WIRDI AI',version:3,exportedAt:timestamp(),settings:state.settings,records:state.records};
+ const date=currentDate||cairoDate(new Date());
+ const filename=`wirdi-backup-${date}.json`;
+ const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+ const file=new File([blob],filename,{type:'application/json'});
+ try{
+  if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+   await navigator.share({title:'WIRDI AI — نسخة احتياطية',text:'نسخة احتياطية لبيانات WIRDI AI. احتفظ بها في مكان آمن.',files:[file]});
+   toast('اختار Google Drive أو مكانًا آمنًا من قائمة المشاركة.');return;
+  }
+ }catch(e){if(e?.name==='AbortError')return;}
+ exportJSON(payload,filename);
+ toast('تم تنزيل ملف النسخة الاحتياطية. ارفعه إلى Drive أو مكان آمن.');
+}
+function exportCurrentReport(){const recs=dateRecords(activePeriod),ag=periodAggregate(recs),ins=insightsFor(recs,activePeriod);const report={app:'WIRDI AI',version:2,exportedAt:timestamp(),period:activePeriod,from:recs[0].date,to:recs.at(-1).date,metrics:ag,insights:ins,records:recs};exportJSON(report,`wirdi-report-${currentDate}.json`);toast('تم تصدير التقرير بصيغة JSON.')}
+function saveNote(){const r=dayRecord(currentDate);if(r.notes===$('dayNotes').value)return;r.notes=$('dayNotes').value;saveDay(r)}
+function bindEvents(){document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>goto(b.dataset.view)));document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>goto(b.dataset.goto)));$('quickSettings').onclick=()=>goto('settings');$('modalClose').onclick=closeModal;$('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop'))closeModal()});window.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+$('refreshTimes').onclick=()=>fetchPrayerTimes(currentDate,true).then(ok=>toast(ok?'تم تحديث مواقيت الصلاة.':'تعذّر التحديث؛ سيستخدم التطبيق آخر مواقيت محفوظة.'));$('savePrayerSettings').onclick=()=>{const city=$('cityName').value.trim(),country=$('countryName').value.trim();if(!city||!country){toast('اكتب المدينة والدولة.');return}state.settings.city=city;state.settings.country=country;state.settings.method=+$('calcMethod').value;persist();fetchPrayerTimes(currentDate,true).then(ok=>{renderAll();toast(ok?'تم حفظ الإعدادات وتحديث المواقيت.':'تم حفظ الإعدادات؛ تحديث المواقيت يحتاج اتصالًا. ')})};
+$('saveGoals').onclick=()=>{const q=+$('goalQuran').value,s=+$('goalSalawat').value,y=+$('goalQiyam').value;if(!Number.isInteger(q)||q<1||q>604||!Number.isInteger(s)||s<1||s>100000||!Number.isInteger(y)||y<1||y>100){toast('راجع الأهداف: صفحات 1–604، الصلاة على النبي 1–100000، القيام 1–100.');return}state.settings.goals={quranPages:q,salawat:s,qiyamRakaat:y};const r=dayRecord(cairoDate(new Date()));r.scoreConfig={goals:clone(state.settings.goals),customHabits:clone(state.settings.customHabits)};saveDay(r);persist();renderAll();toast('تم حفظ الأهداف الجديدة لليوم وما بعده؛ الأيام السابقة تحتفظ بإعداداتها المسجلة.')};$('resetGoals').onclick=()=>{state.settings.goals=clone(DEFAULTS.settings.goals);const r=dayRecord(cairoDate(new Date()));r.scoreConfig={goals:clone(state.settings.goals),customHabits:clone(state.settings.customHabits)};saveDay(r);persist();renderAll();toast('تمت استعادة الأهداف الافتراضية لليوم وما بعده.')};
+$('quranPlus').onclick=()=>eventChange('quran',1);$('quranMinus').onclick=()=>eventChange('quran',-1);$('salawatPlus').onclick=()=>eventChange('salawat',1);$('salawatMinus').onclick=()=>eventChange('salawat',-1);$('salawatPlusTen').onclick=()=>eventChange('salawat',10);$('qiyamPlus').onclick=()=>eventChange('qiyam',1);$('qiyamMinus').onclick=()=>eventChange('qiyam',-1);$('editQuranGoal').onclick=()=>editGoal('quranPages','تعديل هدف القرآن',state.settings.goals.quranPages,1,604);$('editSalawatGoal').onclick=()=>editGoal('salawat','تعديل هدف الصلاة على النبي ﷺ',state.settings.goals.salawat,1,100000);$('editQiyamGoal').onclick=()=>editGoal('qiyamRakaat','تعديل هدف القيام',state.settings.goals.qiyamRakaat,1,100);
+['morning','evening'].forEach(k=>{$(k+'Start').onclick=()=>{const r=dayRecord(currentDate);r.adhkar[k].startedAt=timestamp();r.adhkar[k].status='inProgress';saveDay(r);renderAll();toast('تم تسجيل بداية الأذكار.')};$(k+'Done').onclick=()=>{const r=dayRecord(currentDate);r.adhkar[k].completedAt=timestamp();r.adhkar[k].status='done';if(!r.adhkar[k].startedAt)r.adhkar[k].startedAt=r.adhkar[k].completedAt;saveDay(r);renderAll();toast('تم تسجيل إتمام الأذكار.')};$(k+'Undo').onclick=()=>{const r=dayRecord(currentDate);r.adhkar[k]={status:'unrecorded',startedAt:null,completedAt:null};saveDay(r);renderAll();toast('تم التراجع عن تسجيل الأذكار.')}});
+$('addHabit').onclick=addHabit;$('dayNotes').addEventListener('change',saveNote);$('dayNotes').addEventListener('blur',saveNote);$('prevDay').onclick=()=>{currentDate=dateShift(currentDate,-1);renderAll();if(!state.records[currentDate]?.prayerTimes?.timings)fetchPrayerTimes(currentDate)};$('nextDay').onclick=()=>{const n=dateShift(currentDate,1);if(n>cairoDate(new Date())){toast('لا يمكن فتح يوم مستقبلي في سجل العبادات.');return}currentDate=n;renderAll();if(!state.records[currentDate]?.prayerTimes?.timings)fetchPrayerTimes(currentDate)};$('todayBtn').onclick=()=>{currentDate=cairoDate(new Date());renderAll();fetchPrayerTimes(currentDate)};
+$('periodSwitch').querySelectorAll('button').forEach(b=>b.onclick=()=>{activePeriod=b.dataset.period;$('periodSwitch').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));renderReports()});$('historyFilter').onchange=renderHistory;$('exportData').onclick=$('exportData2').onclick=()=>{exportJSON({app:'WIRDI AI',version:3,exportedAt:timestamp(),settings:state.settings,records:state.records},`wirdi-backup-${currentDate}.json`);toast('تم تنزيل نسخة JSON؛ احفظها خارج الجهاز.')};$('shareBackupBtn').onclick=shareBackup;$('exportReport').onclick=exportCurrentReport;$('importDataBtn').onclick=()=>$('importDataFile').click();$('importDataFile').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const obj=JSON.parse(await f.text());if(!obj.records||!obj.settings)throw new Error('format');if(!confirm('سيتم استبدال بيانات التطبيق الحالية بالنسخة المستوردة'+(cloud.user?' (وكذلك بيانات حسابك السحابي وكل أجهزتك)':'')+'. هل تريد المتابعة؟'))return;if(cloud.user)cloudBackup('نسخة أمان قبل الاستيراد',true);state=normalizeState({settings:obj.settings,records:obj.records});for(const r of Object.values(state.records)){if(!r.scoreConfig)r.scoreConfig={goals:clone(state.settings.goals),customHabits:clone(state.settings.customHabits)}}if(cloud.user)cloudStampAll();persist();if(cloud.user){cloudDeleteExtras();cloudPushScan()}renderAll();toast('تم استيراد البيانات بنجاح والتحقق من بنية النسخة.')}catch(err){toast('الملف غير صالح أو ليس نسخة WIRDI AI.')}finally{e.target.value=''}};$('clearData').onclick=()=>openModal('مسح كل البيانات',`<p style="color:var(--red)">سيتم حذف جميع سجلات العبادات والإعدادات المحلية في هذا المتصفح. يُفضّل تصدير نسخة احتياطية أولًا. لا يمكن التراجع بعد التأكيد.</p>${cloud.user?'<p class="small muted">أنت مسجّل دخول: المسح هنا للجهاز ده فقط، وبياناتك هترجع من حسابك السحابي تلقائيًا. لحذف بيانات السحابة استخدم «حذف بياناتي من السحابة».</p>':''}`,[{text:'نعم، امسح كل البيانات',class:'btn-danger',onClick:()=>{state=clone(DEFAULTS);if(cloud.user)cloudRepull();localStorage.removeItem(STORAGE_KEY);localStorage.removeItem(LEGACY_STORAGE_KEY);localStorage.removeItem(STORAGE_META_KEY);idbWriteChain=idbWriteChain.then(async()=>{try{const db=await openDB();await new Promise((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').delete('main');tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}catch(e){}});closeModal();renderAll();fetchPrayerTimes(currentDate,true);toast('تم مسح البيانات المحلية.')}},{text:'إلغاء',onClick:closeModal}]);}
+/* ===================== المزامنة السحابية (Firebase Auth + Firestore) ===================== */
+function sigSettings(){return JSON.stringify({...state.settings,_u:undefined})}
+function isMeaningful(r){
+ if(!r||typeof r!=='object')return false;
+ if(Object.values(r.prayers||{}).some(p=>p&&p.status&&p.status!=='unrecorded'))return true;
+ if(Object.values(r.adhkar||{}).some(a=>a&&a.status&&a.status!=='unrecorded'))return true;
+ if(r.salawat&&(r.salawat.touched||r.salawat.count>0))return true;
+ if(r.quran&&(r.quran.touched||r.quran.pages>0))return true;
+ if(r.qiyam&&(r.qiyam.touched||r.qiyam.rakaat>0))return true;
+ if(r.habits&&Object.keys(r.habits).length)return true;
+ return !!(r.notes&&String(r.notes).trim());
+}
+function verOf(r){if(!r||typeof r!=='object')return 0;if(r.ue)return Number(r.ue)||0;return isMeaningful(r)?(Date.parse(r.updatedAt)||0):0}
+function fmtClock(ms){return new Intl.DateTimeFormat('ar-EG',{timeZone:TZ,hour:'2-digit',minute:'2-digit',hour12:true}).format(new Date(ms))}
+function fmtStamp(ms){return new Intl.DateTimeFormat('ar-EG',{timeZone:TZ,day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',hour12:true}).format(new Date(ms))}
+function cloudIndicator(){
+ if(!cloud.user)return null;
+ if(cloud.err)return {header:'خطأ في المزامنة',msg:'🔴 '+cloud.err,color:'var(--red)'};
+ if(cloud.paused)return {header:'المزامنة متوقفة',msg:'⏸ المزامنة متوقفة؛ اضغط «مزامنة الآن» من الإعدادات.',color:'var(--gold)'};
+ if(!navigator.onLine)return {header:'بدون إنترنت · هتتزامن لما يرجع',msg:'📴 مفيش اتصال؛ تعديلاتك محفوظة وهتترفع تلقائيًا أول ما الإنترنت يرجع.',color:'var(--gold)'};
+ if(!cloud.initial||cloud.pending)return {header:'جارٍ المزامنة…',msg:'🔄 جارٍ مزامنة بياناتك مع حسابك.',color:'var(--gold)'};
+ const t=fmtClock(cloud.lastSync||Date.now());
+ return {header:'متزامن مع حسابك · '+t,msg:'☁ متزامن مع حسابك السحابي · آخر مزامنة '+t+'.',color:'var(--mint)'};
+}
+function cloudRefresh(){updateSaveIndicator(lastInd.status,lastInd.savedAt,lastInd.detail);renderCloud()}
+function cloudStampSettings(){const sg=sigSettings();if(cloud.setSig===undefined){cloud.setSig=sg;return}if(sg!==cloud.setSig){state.settings._u=Date.now();cloud.setSig=sg}}
+function cloudSchedulePush(ms=800){if(!cloud.user)return;clearTimeout(cloud.pushT);cloud.pushT=setTimeout(cloudPushScan,ms)}
+function cloudErr(e){
+ const code=e&&e.code||'';console.warn('cloud',e);
+ if(code==='permission-denied'){cloud.denied++;if(cloud.denied>=3){cloud.err='الخادم رفض الكتابة. راجع قواعد Firestore (Rules) في مشروع Firebase.';cloudRefresh()}return}
+ if(code==='unavailable'||code==='failed-precondition')return;
+ cloud.err='تعذّرت المزامنة: '+(e&&e.message||code||'خطأ غير معروف');cloudRefresh();
+}
+function authMsg(e){
+ const m={'auth/invalid-email':'البريد الإلكتروني غير صحيح.','auth/missing-password':'اكتب كلمة السر.','auth/invalid-credential':'البريد أو كلمة السر غير صحيحة.','auth/wrong-password':'كلمة السر غير صحيحة.','auth/user-not-found':'مفيش حساب بالبريد ده. اضغط «إنشاء حساب جديد».','auth/email-already-in-use':'البريد ده مسجّل قبل كده. اضغط «دخول».','auth/weak-password':'كلمة السر ضعيفة (6 حروف على الأقل).','auth/network-request-failed':'مفيش اتصال بالإنترنت.','auth/too-many-requests':'محاولات كتير؛ جرّب بعد شوية.','auth/popup-closed-by-user':'تم إغلاق نافذة جوجل.','auth/cancelled-popup-request':'تم إلغاء الطلب.','auth/unauthorized-domain':'النطاق ده غير مضاف في Firebase ← Authentication ← Authorized domains.','auth/operation-not-allowed':'طريقة الدخول دي غير مفعّلة في Firebase ← Authentication ← Sign-in method.'};
+ return m[e&&e.code]||('تعذّر تنفيذ العملية: '+(e&&e.message||'خطأ غير معروف'));
+}
+function loadScript(src){return new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=()=>rej(new Error('load failed: '+src));document.head.appendChild(s)})}
+async function cloudBoot(){
+ if(!cloud.enabled){renderCloud();return}
+ if(cloud.booting||cloud.ready)return;cloud.booting=true;
+ try{
+  const base='https://www.gstatic.com/firebasejs/'+FB_VER+'/';
+  if(!window.firebase)await loadScript(base+'firebase-app-compat.js');
+  if(!firebase.auth)await loadScript(base+'firebase-auth-compat.js');
+  if(!firebase.firestore)await loadScript(base+'firebase-firestore-compat.js');
+  if(!firebase.apps.length)firebase.initializeApp(FIREBASE_CONFIG);
+  cloud.auth=firebase.auth();cloud.auth.languageCode='ar';cloud.db=firebase.firestore();
+  try{await cloud.db.enablePersistence({synchronizeTabs:true})}catch(e){}
+  cloud.ready=true;cloud.msg='';
+  cloud.auth.onAuthStateChanged(u=>{cloud.authKnown=true;cloud.user=u||null;cloud.err='';cloud.denied=0;if(u)cloudStart();else cloudStop();cloudRefresh()});
+ }catch(e){cloud.msg='تعذّر تحميل خدمة الحساب (غالبًا مفيش إنترنت). بياناتك محفوظة على جهازك وهنحاول تاني تلقائيًا.';cloud.authKnown=true}
+ cloud.booting=false;renderCloud();
+}
+function cloudStop(){
+ ['unsubDays','unsubSet'].forEach(k=>{try{cloud[k]&&cloud[k]()}catch(e){}cloud[k]=null});
+ cloud.daysInit=false;cloud.setInit=false;cloud.initial=false;cloud.rv={};cloud.rvSettings=0;cloud.pending=false;cloud.backups=[];cloud.paused=false;
+}
+function cloudStart(){
+ const u=cloud.user;if(!u)return;cloudStop();
+ const last=localStorage.getItem(UID_KEY);
+ const hasLocal=Object.values(state.records).some(r=>verOf(r)>0);
+ if(last&&last!==u.uid&&hasLocal){
+  cloud.paused=true;cloudRefresh();
+  openModal('الجهاز عليه بيانات حساب آخر','<p class="small" style="line-height:2">آخر حساب اتزامن على الجهاز ده مختلف عن الحساب اللي دخلت بيه الآن. اختار:<br>• <strong>دمج</strong>: بيانات الجهاز تتضاف لحسابك الحالي.<br>• <strong>ابدأ فاضي</strong>: بيانات الجهاز تتمسح ويتحمّل حسابك من السحابة.</p>',[
+   {text:'دمج مع هذا الحساب',class:'btn-primary',onClick:()=>{closeModal();cloudAttach()}},
+   {text:'ابدأ بحساب فاضي (يمسح بيانات الجهاز)',class:'btn-danger',onClick:()=>{state=clone(DEFAULTS);cloud.setSig=sigSettings();persist();closeModal();cloudAttach();renderAll()}},
+   {text:'تسجيل خروج',onClick:()=>{closeModal();cloud.auth.signOut()}}]);
+  return;
+ }
+ cloudAttach();
+}
+function deferredRender(){
+ clearTimeout(cloud.rt);
+ cloud.rt=setTimeout(()=>{const a=document.activeElement;if(a&&/^(TEXTAREA|INPUT|SELECT)$/.test(a.tagName)&&!a.closest('#cloudCard')){deferredRender();return}renderAll()},300);
+}
+function cloudMaybeInitial(){if(cloud.initial||!(cloud.daysInit&&cloud.setInit))return;cloud.initial=true;cloudAfterInitial()}
+function cloudAttach(){
+ const u=cloud.user;if(!u||!cloud.db)return;
+ cloud.paused=false;localStorage.setItem(UID_KEY,u.uid);
+ const base=cloud.db.collection('users').doc(u.uid);
+ const onErr=e=>{cloud.err=(e&&e.code==='permission-denied')?'مفيش صلاحية قراءة. راجع قواعد Firestore (Rules) في مشروع Firebase.':'تعذّرت قراءة البيانات من السحابة.';console.warn(e);cloudRefresh()};
+ cloud.unsubSet=base.collection('meta').doc('settings').onSnapshot(doc=>{
+  if(!cloud.setInit&&(!doc.metadata.fromCache||!navigator.onLine))cloud.setInit=true;
+  if(doc.exists&&!doc.metadata.hasPendingWrites){
+   const data=doc.data(),rv=Number(data.v)||0;cloud.rvSettings=rv;
+   if(rv>(Number(state.settings._u)||0)){try{state.settings=normalizeState({settings:JSON.parse(data.json)}).settings;cloud.setSig=sigSettings();persist();deferredRender()}catch(e){}}
+  }
+  cloudMaybeInitial();
+ },onErr);
+ cloud.unsubDays=base.collection('days').onSnapshot({includeMetadataChanges:true},snap=>{
+  let changed=false;
+  snap.docChanges().forEach(ch=>{
+   const d=ch.doc.id;
+   if(ch.type==='removed'){if(!ch.doc.metadata.hasPendingWrites){delete cloud.rv[d];if(state.records[d]){delete state.records[d];changed=true}}return}
+   const data=ch.doc.data(),rv=Number(data.v)||0;cloud.rv[d]=rv;
+   const loc=state.records[d];if(loc&&verOf(loc)>=rv)return;
+   try{state.records[d]=JSON.parse(data.json);changed=true}catch(e){}
+  });
+  cloud.pending=snap.metadata.hasPendingWrites;
+  if(!snap.metadata.hasPendingWrites&&!snap.metadata.fromCache){cloud.lastSync=Date.now();cloud.err=''}
+  if(!cloud.daysInit&&(!snap.metadata.fromCache||!navigator.onLine))cloud.daysInit=true;
+  if(changed){persist();deferredRender()}
+  cloudMaybeInitial();cloudRefresh();
+ },onErr);
+ cloudRefresh();
+}
+function cloudAfterInitial(){
+ if(!cloud.rvSettings&&sigSettings()!==JSON.stringify({...DEFAULTS.settings,_u:undefined})){state.settings._u=Date.now();cloud.setSig=sigSettings();persist()}
+ cloudPushScan();
+ cloudLoadBackups().then(cloudAutoBackup).catch(()=>{});
+}
+function cloudPushScan(){
+ if(!cloud.user||!cloud.db||!cloud.initial)return;
+ const base=cloud.db.collection('users').doc(cloud.user.uid);let n=0;
+ for(const [d,r] of Object.entries(state.records)){
+  const v=verOf(r);if(v<=0||v<=(cloud.rv[d]||0))continue;
+  cloud.rv[d]=v;n++;
+  base.collection('days').doc(d).set({v,date:d,json:JSON.stringify(r)}).catch(cloudErr);
+ }
+ const sv=Number(state.settings._u)||0;
+ if(sv>cloud.rvSettings){cloud.rvSettings=sv;n++;base.collection('meta').doc('settings').set({v:sv,json:JSON.stringify(state.settings)}).catch(cloudErr)}
+ if(n){cloud.pending=true;cloudRefresh()}
+}
+function cloudStampAll(){const now=Date.now();for(const r of Object.values(state.records)){if(verOf(r)>0)r.ue=now}state.settings._u=now;cloud.setSig=sigSettings()}
+function cloudDeleteExtras(){
+ if(!cloud.user||!cloud.db)return;
+ const col=cloud.db.collection('users').doc(cloud.user.uid).collection('days');
+ Object.keys(cloud.rv).forEach(d=>{if(!state.records[d]||verOf(state.records[d])<=0){delete cloud.rv[d];col.doc(d).delete().catch(cloudErr)}});
+}
+function cloudRepull(){cloud.setSig=sigSettings();cloudStart()}
+/* ---------- النسخ الاحتياطي السحابي ---------- */
+async function gzipB64(str){
+ const cs=new CompressionStream('gzip'),w=cs.writable.getWriter();w.write(new TextEncoder().encode(str));w.close();
+ const u8=new Uint8Array(await new Response(cs.readable).arrayBuffer());let s='';
+ for(let i=0;i<u8.length;i+=0x8000)s+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));
+ return btoa(s);
+}
+async function gunzipB64(b){
+ const u8=Uint8Array.from(atob(b),c=>c.charCodeAt(0)),ds=new DecompressionStream('gzip'),w=ds.writable.getWriter();w.write(u8);w.close();
+ return new TextDecoder().decode(await new Response(ds.readable).arrayBuffer());
+}
+function bkCol(){return cloud.db.collection('users').doc(cloud.user.uid).collection('backups')}
+async function cloudLoadBackups(){
+ if(!cloud.user||!cloud.db||!navigator.onLine)return;
+ try{const s=await bkCol().orderBy('createdAt','desc').limit(20).get();cloud.backups=s.docs.map(d=>({id:d.id,...d.data()}));renderCloud()}catch(e){console.warn(e)}
+}
+async function cloudBackup(reason,auto){
+ if(!cloud.user||!cloud.db)return false;
+ const payload=JSON.stringify({app:'WIRDI AI',version:3,exportedAt:timestamp(),settings:state.settings,records:state.records});
+ const days=Object.values(state.records).filter(r=>verOf(r)>0).length;
+ if(!navigator.onLine){if(!auto)toast('محتاج اتصال بالإنترنت لعمل نسخة سحابية.');return false}
+ try{
+  let enc='raw',data=payload;
+  if(window.CompressionStream){try{data=await gzipB64(payload);enc='gz'}catch(e){}}
+  const parts=[];for(let i=0;i<data.length;i+=BK_CHUNK)parts.push(data.slice(i,i+BK_CHUNK));
+  const ref=bkCol().doc();
+  for(let i=0;i<parts.length;i++)await ref.collection('parts').doc(String(i).padStart(3,'0')).set({i,data:parts[i]});
+  await ref.set({createdAt:Date.now(),reason:reason||'يدوية',auto:!!auto,enc,parts:parts.length,days,size:payload.length});
+  await cloudLoadBackups();
+  if(!auto)toast('تم حفظ نسخة احتياطية في حسابك.');
+  return true;
+ }catch(e){console.warn(e);if(!auto)toast('تعذّر حفظ النسخة السحابية.');return false}
+}
+async function cloudDeleteBackup(id){
+ const ref=bkCol().doc(id),ps=await ref.collection('parts').get();
+ const b=cloud.db.batch();ps.docs.forEach(p=>b.delete(p.ref));b.delete(ref);await b.commit();
+}
+async function cloudAutoBackup(){
+ if(!cloud.user||!navigator.onLine||!Object.values(state.records).some(r=>verOf(r)>0))return;
+ const autos=cloud.backups.filter(b=>b.auto);
+ if(!autos.length||Date.now()-autos[0].createdAt>20*3600e3)await cloudBackup('تلقائية يومية',true);
+ const old=cloud.backups.filter(b=>b.auto).slice(7);
+ for(const b of old){try{await cloudDeleteBackup(b.id)}catch(e){}}
+ if(old.length)await cloudLoadBackups();
+}
+async function cloudRestore(id){
+ try{
+  const ref=bkCol().doc(id),meta=(await ref.get()).data();if(!meta)throw new Error('missing');
+  const ps=await ref.collection('parts').orderBy('i').get();
+  let data=ps.docs.map(p=>p.data().data).join('');
+  if(meta.enc==='gz')data=await gunzipB64(data);
+  const obj=JSON.parse(data);if(!obj.records||!obj.settings)throw new Error('format');
+  toast('جارٍ أخذ نسخة أمان ثم الاستعادة…');
+  await cloudBackup('نسخة أمان قبل الاستعادة',true);
+  state=normalizeState({settings:obj.settings,records:obj.records});
+  for(const r of Object.values(state.records)){if(!r.scoreConfig)r.scoreConfig={goals:clone(state.settings.goals),customHabits:clone(state.settings.customHabits)}}
+  cloudStampAll();persist();cloudDeleteExtras();cloudPushScan();renderAll();
+  toast('تمت استعادة النسخة وهتظهر على كل أجهزتك.');
+ }catch(e){console.warn(e);toast('تعذّرت استعادة النسخة. بياناتك الحالية لم تتغير.')}
+}
+async function cloudWipe(){
+ const base=cloud.db.collection('users').doc(cloud.user.uid);
+ try{
+  ['unsubDays','unsubSet'].forEach(k=>{try{cloud[k]&&cloud[k]()}catch(e){}cloud[k]=null});
+  for(const c of ['days','meta']){
+   const s=await base.collection(c).get();
+   for(let i=0;i<s.docs.length;i+=400){const b=cloud.db.batch();s.docs.slice(i,i+400).forEach(d=>b.delete(d.ref));await b.commit()}
+  }
+  const bs=await base.collection('backups').get();
+  for(const d of bs.docs)await cloudDeleteBackup(d.id);
+  await cloud.db.clearPersistence?.().catch(()=>{});
+  toast('تم حذف بياناتك من السحابة. بياناتك لسه على الجهاز ده.');
+  await cloud.auth.signOut();
+ }catch(e){console.warn(e);toast('تعذّر حذف بيانات السحابة بالكامل؛ جرّب تاني.');cloudStart()}
+}
+/* ---------- واجهة الحساب ---------- */
+function renderCloud(){
+ const card=$('cloudCard');if(!card)return;
+ const showAuth=cloud.enabled&&cloud.ready&&cloud.authKnown&&!cloud.user,showAcc=cloud.enabled&&cloud.ready&&!!cloud.user;
+ $('cloudOff').classList.toggle('hidden',cloud.enabled);
+ $('cloudAuth').classList.toggle('hidden',!showAuth);
+ $('cloudAccount').classList.toggle('hidden',!showAcc);
+ $('cloudMsg').textContent=cloud.msg||(cloud.enabled&&!cloud.authKnown?'جارٍ تحميل خدمة الحساب…':'');
+ if(showAcc){
+  $('cloudUserLine').textContent='الحساب: '+(cloud.user.email||cloud.user.displayName||'—');
+  const ci=cloudIndicator();$('cloudStatusLine').textContent=ci?ci.msg:'';
+  const L=$('cloudBackupList');
+  L.innerHTML=cloud.backups.length?cloud.backups.map(b=>`<div class="bk-row"><div><strong>${esc(fmtStamp(b.createdAt))}</strong> · ${esc(b.reason||'')}<div class="small muted">${b.days||0} يوم مسجّل</div></div><div class="bk-actions"><button class="btn btn-ghost btn-sm" data-bk-restore="${esc(b.id)}">استعادة</button><button class="btn btn-ghost btn-sm" data-bk-del="${esc(b.id)}">حذف</button></div></div>`).join(''):'<div class="small muted">لسه مفيش نسخ سحابية. بتتعمل نسخة تلقائية كل يوم، ويمكنك عمل نسخة يدويًا.</div>';
+ }
+ const n=$('cloudProtectNote');if(n)n.innerHTML=cloud.enabled?(cloud.user?'<strong>المزامنة شغّالة:</strong> أي تعديل بيتحفظ على جهازك فورًا ويترفع لحسابك، ويظهر على أجهزتك الأخرى خلال ثواني. لو كنت بدون إنترنت التعديلات بتتخزن وتترفع لوحدها لما الاتصال يرجع.':'<strong>المزامنة جاهزة:</strong> سجّل دخولك من كارت «الحساب والمزامنة السحابية» فوق، وبيانات الجهاز الحالية هتترفع لحسابك تلقائيًا.'):'<strong>المزامنة السحابية غير مفعّلة:</strong> لازم تضيف إعدادات Firebase داخل الملف (FIREBASE_CONFIG) الأول.';
+}
+async function cloudAuthDo(kind){
+ if(!cloud.auth){toast('خدمة الحساب لسه مش جاهزة.');return}
+ const email=$('cloudEmail').value.trim(),pass=$('cloudPass').value;cloud.msg='';
+ try{
+  if(kind==='google'){
+   const p=new firebase.auth.GoogleAuthProvider();
+   try{await cloud.auth.signInWithPopup(p)}catch(e){if(['auth/popup-blocked','auth/operation-not-supported-in-this-environment'].includes(e.code)){await cloud.auth.signInWithRedirect(p);return}throw e}
+  }else if(kind==='reset'){
+   if(!email){cloud.msg='اكتب بريدك الأول عشان نبعتلك رابط إعادة التعيين.';renderCloud();return}
+   await cloud.auth.sendPasswordResetEmail(email);cloud.msg='اتبعت رابط إعادة تعيين كلمة السر على بريدك.';
+  }else{
+   if(!email||!pass){cloud.msg='اكتب البريد وكلمة السر.';renderCloud();return}
+   if(kind==='signup')await cloud.auth.createUserWithEmailAndPassword(email,pass);else await cloud.auth.signInWithEmailAndPassword(email,pass);
+  }
+  $('cloudPass').value='';
+ }catch(e){cloud.msg=authMsg(e)}
+ renderCloud();
+}
+function cloudBind(){
+ if(!$('cloudCard'))return;
+ $('cloudLogin').onclick=()=>cloudAuthDo('login');$('cloudSignup').onclick=()=>cloudAuthDo('signup');$('cloudGoogle').onclick=()=>cloudAuthDo('google');$('cloudReset').onclick=()=>cloudAuthDo('reset');
+ $('cloudPass').addEventListener('keydown',e=>{if(e.key==='Enter')cloudAuthDo('login')});
+ $('cloudLogout').onclick=async()=>{try{await cloud.auth.signOut();toast('تم تسجيل الخروج. بياناتك لسه محفوظة على الجهاز.')}catch(e){toast('تعذّر تسجيل الخروج.')}};
+ $('cloudSyncNow').onclick=()=>{if(cloud.paused||!cloud.unsubDays){cloudStart();return}cloud.err='';cloud.denied=0;cloudPushScan();cloudLoadBackups();cloudRefresh();toast('جارٍ المزامنة…')};
+ $('cloudBackupNow').onclick=()=>cloudBackup('يدوية',false);
+ $('cloudWipe').onclick=()=>openModal('حذف بياناتك من السحابة','<p style="color:var(--red)">هيتم حذف كل التسجيلات والنسخ الاحتياطية المخزّنة في حسابك على السحابة، وبعدها تسجيل الخروج. بياناتك على الجهاز ده هتفضل زي ما هي. لا يمكن التراجع.</p>',[{text:'نعم، احذف من السحابة',class:'btn-danger',onClick:()=>{closeModal();cloudWipe()}},{text:'إلغاء',onClick:closeModal}]);
+ $('cloudBackupList').addEventListener('click',e=>{
+  const r=e.target.closest('[data-bk-restore]'),d=e.target.closest('[data-bk-del]');
+  if(r){const id=r.dataset.bkRestore;openModal('استعادة نسخة احتياطية','<p class="small" style="line-height:2">هتتبدّل بياناتك الحالية (على الجهاز وفي حسابك) ببيانات النسخة دي، وتظهر على كل أجهزتك. هنأخد نسخة أمان تلقائيًا قبل الاستعادة.</p>',[{text:'استعادة',class:'btn-primary',onClick:()=>{closeModal();cloudRestore(id)}},{text:'إلغاء',onClick:closeModal}])}
+  if(d){const id=d.dataset.bkDel;openModal('حذف النسخة','<p class="small">حذف النسخة الاحتياطية دي نهائيًا؟</p>',[{text:'حذف',class:'btn-danger',onClick:async()=>{closeModal();try{await cloudDeleteBackup(id);await cloudLoadBackups();toast('تم حذف النسخة.')}catch(err){toast('تعذّر الحذف.')}}},{text:'إلغاء',onClick:closeModal}])}
+ });
+ window.addEventListener('online',()=>{if(cloud.enabled&&!cloud.ready)cloudBoot();cloudSchedulePush(300);cloudRefresh()});
+ window.addEventListener('offline',cloudRefresh);
+}
+async function init(){
+ state=await restoreState();
+ cloud.setSig=sigSettings();
+ // One-time migration: freeze today's scoring goals/habit weights into every legacy day so future setting changes don't rewrite past grades.
+ let migrated=false;for(const [day,rec] of Object.entries(state.records)){if(rec&&typeof rec==='object'&&!rec.scoreConfig){rec.scoreConfig={goals:clone(state.settings.goals),customHabits:clone(state.settings.customHabits)};migrated=true}}
+ try{if(navigator.storage?.persist){storagePersistent=await navigator.storage.persist()}}catch(e){storagePersistent=false}
+ bindEvents();cloudBind();dayRecord(currentDate);if(migrated)persist();renderAll();persist();await idbWriteChain;cloudBoot();fetchPrayerTimes(currentDate);
+ try{
+  const el=$('storageDetails');
+  if(navigator.storage?.estimate){const est=await navigator.storage.estimate();if(el&&est.quota)el.textContent=`التخزين المستخدم تقريبًا ${Math.round((est.usage||0)/1024)} كيلوبايت من مساحة المتصفح المتاحة. التخزين المحلي مرتبط بهذا المتصفح والجهاز؛ النسخ الخارجي ضروري للنقل والحماية طويلة المدى.`}
+  if(el)el.textContent+=' '+(storagePersistent?'المتصفح وافق على طلب التخزين الدائم.':'لم يؤكد المتصفح التخزين الدائم؛ قد يحذف بعض البيانات في ظروف استثنائية.');
+ }catch(e){}
+ setInterval(()=>{if(currentDate===cairoDate(new Date()))renderTop()},30000);
+}
+init();
+})();
+</script>
+</body></html>
