@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071310"><meta name="color-scheme" content="dark light"><meta name="application-name" content="WIRDI AI"><meta name="description" content="WIRDI AI — a private Arabic-English companion for daily worship tracking and reflection.">
-<title>WIRDI AI — Signature Edition</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071310"><meta name="color-scheme" content="dark light"><meta name="application-name" content="WIRDI AI Smart Companion"><meta name="description" content="WIRDI AI — a private Arabic-English companion for daily worship tracking and reflection.">
+<title>WIRDI AI — Smart Companion Edition</title>
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -2805,6 +2805,55 @@ body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .s
 
 </style>
 
+<style id="wirdi-v13-sort-styles">
+
+/* ===== WIRDI v13: iOS-like bouncy dashboard card reordering ===== */
+.wirdi-sort-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;min-width:0;margin:12px 0 14px;padding:11px 13px;border:1px solid rgba(217,184,117,.19);border-radius:15px;background:linear-gradient(110deg,rgba(11,35,38,.92),rgba(6,23,26,.87));box-shadow:0 7px 22px rgba(0,0,0,.10)}
+.wirdi-sort-toolbar-copy{display:flex;align-items:center;gap:10px;min-width:0}
+.wirdi-sort-toolbar-icon{width:35px;height:35px;flex:0 0 35px;display:grid;place-items:center;border:1px solid rgba(217,184,117,.27);border-radius:11px;background:rgba(217,184,117,.08);color:#dfc184}
+.wirdi-sort-toolbar-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round}
+.wirdi-sort-toolbar-copy>span:last-child{display:flex;flex-direction:column;gap:3px;min-width:0}
+.wirdi-sort-toolbar-copy strong{font-size:11px;color:#efdfbb;font-weight:650;line-height:1.5}
+.wirdi-sort-toolbar-copy small{font-size:10px;color:#9eb3b2;line-height:1.55}
+.wirdi-sort-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;flex:0 0 auto;min-height:37px;padding:0 14px;border:1px solid rgba(219,186,120,.44);border-radius:20px;background:linear-gradient(145deg,rgba(217,184,117,.16),rgba(217,184,117,.06));color:#efd59c;font-size:11px;font-weight:650;box-shadow:0 2px 0 rgba(0,0,0,.1);transition:transform .22s cubic-bezier(.2,1.4,.4,1),box-shadow .2s,background .2s}
+.wirdi-sort-toggle:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.18)}
+.wirdi-sort-toggle:active{transform:scale(.96)}
+.wirdi-sort-button-icon{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}
+.wirdi-sort-mode .wirdi-sort-toggle{background:linear-gradient(135deg,#d8b66f,#a7803a);border-color:#ecd49e;color:#102326;box-shadow:0 5px 18px rgba(196,157,83,.2)}
+.wirdi-sort-mode [data-wirdi-sortable-card]{position:relative;isolation:isolate;cursor:grab!important;touch-action:none;user-select:none;-webkit-user-select:none;outline:1px solid rgba(218,185,122,.22);outline-offset:2px;animation:wirdi-card-jiggle .24s ease-in-out infinite alternate;animation-delay:var(--wirdi-jiggle-delay,0ms);transform-origin:50% 55%;will-change:transform}
+.wirdi-sort-mode [data-wirdi-sortable-card]:nth-child(2n){--wirdi-jiggle-angle:.32deg;--wirdi-jiggle-delay:-110ms}
+.wirdi-sort-mode [data-wirdi-sortable-card]:nth-child(3n){--wirdi-jiggle-angle:-.38deg;--wirdi-jiggle-delay:-60ms}
+.wirdi-sort-mode [data-wirdi-sortable-card]:nth-child(4n){--wirdi-jiggle-angle:.25deg;--wirdi-jiggle-delay:-170ms}
+.wirdi-sort-mode [data-wirdi-sortable-card]:hover{outline-color:rgba(235,203,139,.55);box-shadow:0 0 0 3px rgba(218,185,122,.055),0 12px 28px rgba(0,0,0,.12)}
+.wirdi-sort-mode [data-wirdi-sortable-card] :is(button,a,input,select,textarea,[role="button"]){pointer-events:none!important}
+.wirdi-sort-mode [data-wirdi-sortable-card]::after{content:"";position:absolute;inset:0;z-index:20;border:1px solid rgba(225,197,139,.11);border-radius:inherit;pointer-events:none}
+.wirdi-sort-mode [data-wirdi-sortable-card].wirdi-drop-target{outline:2px solid #e8c77f;outline-offset:4px;box-shadow:0 0 0 7px rgba(224,189,116,.09),0 16px 38px rgba(0,0,0,.24);animation:wirdi-target-pulse .72s ease-in-out infinite alternate;z-index:5}
+.wirdi-drag-placeholder{display:block;flex:0 0 auto;box-sizing:border-box;min-height:46px;width:100%;border:1.5px dashed rgba(224,190,116,.68);border-radius:14px;background:linear-gradient(135deg,rgba(218,185,122,.105),rgba(96,180,169,.055));box-shadow:inset 0 0 0 1px rgba(218,185,122,.045);pointer-events:none}
+.wirdi-sort-dragging{position:fixed!important;z-index:2147483000!important;pointer-events:none!important;cursor:grabbing!important;opacity:.97!important;animation:none!important;outline:2px solid rgba(239,211,154,.84)!important;outline-offset:2px!important;box-shadow:0 28px 65px rgba(0,0,0,.38),0 0 0 7px rgba(220,185,117,.10)!important;transform:translate3d(0,0,0) scale(1.025) rotate(0deg)!important;transition:box-shadow .18s ease,opacity .18s ease!important}
+.wirdi-sort-dragging::after{display:none!important}
+.wirdi-sort-landed{animation:wirdi-sort-land .46s cubic-bezier(.16,1.45,.36,1) both!important;outline-color:rgba(223,190,122,.5)!important}
+.wirdi-sortbar-status{font-size:10px;color:#d9bf84;white-space:nowrap}
+body.light-ui .wirdi-sort-toolbar{background:linear-gradient(110deg,#fffefa,#f3f7f0);border-color:#d8dfcf;box-shadow:0 7px 22px rgba(33,59,42,.055)}
+body.light-ui .wirdi-sort-toolbar-icon{background:#f8f1df;border-color:#e5d7b1;color:#866626}
+body.light-ui .wirdi-sort-toolbar-copy strong{color:#2b4434!important;-webkit-text-fill-color:#2b4434!important}
+body.light-ui .wirdi-sort-toolbar-copy small{color:#647466!important;-webkit-text-fill-color:#647466!important}
+body.light-ui .wirdi-sort-toggle{background:linear-gradient(145deg,#fffdf7,#f8f2e4);color:#715522;border-color:#d8c696}
+body.light-ui.wirdi-sort-mode .wirdi-sort-toggle{background:linear-gradient(135deg,#dfc17c,#b38b40);color:#21372b;border-color:#cfb36f}
+body.light-ui .wirdi-sort-mode [data-wirdi-sortable-card]{outline-color:rgba(151,117,45,.25)}
+body.light-ui .wirdi-sort-mode [data-wirdi-sortable-card].wirdi-drop-target{outline-color:#a57d2a;box-shadow:0 0 0 7px rgba(177,137,49,.09),0 16px 35px rgba(32,55,36,.12)}
+body.light-ui .wirdi-drag-placeholder{background:linear-gradient(135deg,rgba(183,144,57,.09),rgba(77,152,119,.045));border-color:rgba(143,104,33,.62)}
+/* Grouped panels retain their internal layout while allowing column swaps. */
+.dashboard-aside>[data-wirdi-sortable-card].wirdi-insight-lower,
+.dashboard-aside>[data-wirdi-sortable-card].lower-dashboard-grid{grid-template-columns:minmax(0,1fr)}
+.dashboard-aside>[data-wirdi-sortable-card] .wirdi-insight-lower,
+.dashboard-aside>[data-wirdi-sortable-card] .lower-dashboard-grid{min-width:0}
+@keyframes wirdi-card-jiggle{from{transform:rotate(calc(var(--wirdi-jiggle-angle,.3deg)*-1)) translateY(0)}to{transform:rotate(var(--wirdi-jiggle-angle,.3deg)) translateY(-.7px)}}
+@keyframes wirdi-target-pulse{from{transform:scale(1.002)}to{transform:scale(1.012)}}
+@keyframes wirdi-sort-land{0%{transform:scale(.965) translateY(7px);filter:brightness(1.13)}58%{transform:scale(1.018) translateY(-3px);filter:brightness(1.04)}78%{transform:scale(.994) translateY(1px)}100%{transform:scale(1) translateY(0);filter:brightness(1)}}
+@media(max-width:620px){.wirdi-sort-toolbar{align-items:flex-start;padding:10px;gap:8px}.wirdi-sort-toolbar-icon{width:31px;height:31px;flex-basis:31px}.wirdi-sort-toolbar-copy strong{font-size:10px}.wirdi-sort-toolbar-copy small{font-size:9px}.wirdi-sort-toggle{min-height:34px;padding:0 10px;font-size:10px;white-space:nowrap}.wirdi-sort-button-icon{width:13px;height:13px}.wirdi-sort-mode [data-wirdi-sortable-card]{outline-offset:1px}}
+@media(prefers-reduced-motion:reduce){.wirdi-sort-mode [data-wirdi-sortable-card],.wirdi-sort-mode [data-wirdi-sortable-card].wirdi-drop-target,.wirdi-sort-landed{animation:none!important;transition:none!important}.wirdi-sort-toggle{transition:none!important}}
+
+</style>
 </head>
 <body>
 <div class="app">
@@ -2846,6 +2895,16 @@ body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .s
 </aside>
 <main class="main">
 <section class="view active" id="view-home">
+ <div class="wirdi-sort-toolbar" id="wirdiSortToolbar" dir="auto" aria-label="ترتيب كروت لوحة التحكم">
+  <div class="wirdi-sort-toolbar-copy">
+   <span class="wirdi-sort-toolbar-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5h12M8 12h12M8 19h12M3.5 5h.01M3.5 12h.01M3.5 19h.01"/></svg></span>
+   <span><strong id="wirdiSortTitle">رتّب لوحة التحكم بطريقتك</strong><small id="wirdiSortHint">فعّل وضع الترتيب، ثم اسحب كارت فوق كارت تاني لتبديل مكانيهما.</small></span>
+  </div>
+  <button id="wirdiSortToggle" class="wirdi-sort-toggle" type="button" aria-pressed="false">
+   <svg class="wirdi-sort-button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h12M8 12h12M8 19h12M3.5 5h.01M3.5 12h.01M3.5 19h.01"/></svg>
+   <span id="wirdiSortButtonText">ترتيب الكروت</span>
+  </button>
+ </div>
  <div class="dashboard-grid">
   <div class="dashboard-primary">
    <section aria-label="Verse of the day" class="reference-hero feature-carousel" id="featureCarousel">
@@ -3648,11 +3707,24 @@ function wirdiAchievementData(){
   {id:'qiyam2',icon:'✧',ar:'قيام الليل',en:'Night prayer',descAr:'سجّل يومًا أتممت فيه ركعتين أو أكثر.',descEn:'Log a day with at least two rak‘ahs.',earned:qiyamDays>=1,progress:Math.min(1,qiyamDays),target:1}
  ];return {data,streak,activeDays:active.length,prayerTotal,quranTotal,qiyamDays};
 }
+function wirdiHasAnyRecordedEntry(r){
+ if(!r||typeof r!=='object')return false;
+ const marked=new Set(['done','notDone','unsure','exempt','started','inProgress','partial']);
+ if(PRAYERS.some(p=>marked.has(r.prayers?.[p.key]?.status)||!!r.prayers?.[p.key]?.performedAt))return true;
+ if(['morning','evening'].some(k=>marked.has(r.adhkar?.[k]?.status)||!!r.adhkar?.[k]?.startedAt||!!r.adhkar?.[k]?.completedAt))return true;
+ if(r.quran?.touched===true||Number(r.quran?.pages)>0||Number(r.quran?.verses)>0||Number(r.quran?.minutes)>0)return true;
+ if(r.salawat?.touched===true||Number(r.salawat?.count)>0)return true;
+ if(r.qiyam?.touched===true||Number(r.qiyam?.rakaat)>0)return true;
+ if(Object.values(r.habits||{}).some(v=>v===true||marked.has(v)||marked.has(v?.status)))return true;
+ if(r.reflection&&['gratitude','lesson','tomorrow'].some(k=>String(r.reflection[k]||'').trim()))return true;
+ if(typeof r.notes==='string'&&r.notes.trim())return true;
+ return false;
+}
 function wirdiCalendarBounds(){
  const today=cairoDate(new Date());
  const isDateKey=v=>typeof v==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&!Number.isNaN(new Date(v+'T12:00:00Z').getTime())&&new Date(v+'T12:00:00Z').toISOString().slice(0,10)===v;
  const knownDates=Object.keys(state.records||{}).filter(d=>isDateKey(d)&&d<=today).sort();
- const meaningful=knownDates.filter(d=>{const r=state.records[d];if(!r)return false;try{return scoreDay(r).coverage>0||wirdiActivityCount(r)>0}catch(e){return false}});
+ const meaningful=knownDates.filter(d=>{const r=state.records[d];if(!r)return false;try{return scoreDay(r).coverage>0||wirdiHasAnyRecordedEntry(r)||wirdiActivityCount(r)>0}catch(e){return false}});
  const configuredStart=state.settings?.trackingStartDate;
  // A stale trackingStartDate must never hide real saved records. Keep settings intact,
  // but let the calendar's visible range reach the earliest meaningful saved day.
@@ -3676,7 +3748,7 @@ function renderWirdiCalendar(){
  const prev=$('wirdiCalendarPrev'),next=$('wirdiCalendarNext'),todayBtn=$('wirdiCalendarToday');
  if(prev){prev.disabled=wirdiCalendarMonth<=startMonth;prev.title=en?'Previous month':'الشهر السابق';prev.setAttribute('aria-label',prev.title);prev.onclick=()=>{const candidate=wirdiMonthShift(wirdiCalendarMonth,-1);if(candidate>=startMonth){wirdiCalendarMonth=candidate;renderWirdiCalendar()}}}
  if(next){next.disabled=wirdiCalendarMonth>=todayMonth;next.title=en?'Next month':'الشهر التالي';next.setAttribute('aria-label',next.title);next.onclick=()=>{const candidate=wirdiMonthShift(wirdiCalendarMonth,1);if(candidate<=todayMonth){wirdiCalendarMonth=candidate;renderWirdiCalendar()}}}
- if(todayBtn){todayBtn.textContent=en?'Today':'اليوم';todayBtn.title=en?'Go to today':'الرجوع لنهارده';todayBtn.onclick=()=>{wirdiCalendarMonth=todayMonth;currentDate=today;renderWirdiCalendar()}}
+ if(todayBtn){todayBtn.textContent=en?'Today':'اليوم';todayBtn.title=en?'Go to today':'الرجوع لنهارده';todayBtn.onclick=()=>{wirdiCalendarMonth=todayMonth;currentDate=today;renderWirdiCalendar();goto('worship',null,{keepScroll:true})}}
  const title=$('wirdiHeatTitle');if(title)title.textContent=en?'Your worship calendar':'تقويم إنجازاتك';
  const sub=$('wirdiHeatSub');if(sub)sub.textContent=en?'Daily scores appear inside logged dates; today stays highlighted independently.':'السكور اليومي بيظهر جوّه مربع كل يوم عليه تسجيل، والنهارده مميز دايمًا.';
  const eyebrow=$('wirdiCalendarEyebrow');if(eyebrow)eyebrow.textContent=en?'YOUR JOURNEY':'رحلتك مع الورد';
@@ -3697,7 +3769,7 @@ function renderWirdiCalendar(){
   const activity=wirdiActivityCount(r);
   const metrics=r?scoreDay(r):null;
   const completed=!!r&&metrics.coverage>=100&&metrics.completion===100;
-  const hasActivity=!!r&&(activity>0||(metrics?.coverage||0)>0);
+  const hasActivity=!!r&&(wirdiHasAnyRecordedEntry(r)||activity>0||(metrics?.coverage||0)>0);
   // Count saved records regardless of a stale configured start date.
   if((!beforeStart||!!r)&&!future){usableDays++;if(hasActivity)activeDays++;if(completed)completedDays++}
   let status=en?'No activity logged':'من غير تسجيل';
@@ -4483,7 +4555,13 @@ $('periodSwitch').querySelectorAll('button').forEach(b=>b.onclick=()=>{activePer
   if(file.size>25*1024*1024)throw new Error('حجم الملف أكبر من 25 ميجابايت.');
   const payload=JSON.parse(await file.text());validateBackupPayload(payload);
   const replacement=sanitizeImportedState(payload);
-  if(!confirm('سيتم استبدال بيانات التطبيق الحالية بالنسخة المستوردة'+(cloud.user?' (وكذلك بيانات حسابك السحابي وكل أجهزتك)':'')+'. هل تريد المتابعة؟'))return;
+  const importedDates=Object.keys(replacement.records).filter(d=>wirdiHasAnyRecordedEntry(replacement.records[d])).sort();
+  const existingDates=Object.keys(state.records||{}).filter(d=>wirdiHasAnyRecordedEntry(state.records[d])).sort();
+  const dateRange=importedDates.length?`${importedDates[0]} — ${importedDates[importedDates.length-1]}`:(uiLang==='en'?'none':'لا توجد');
+  const previewMessage=uiLang==='en'
+   ?`Backup preview\n\nLogged days in file: ${importedDates.length}\nDate range: ${dateRange}\nLogged days currently on this device: ${existingDates.length}\n\nImport REPLACES the current local records${cloud.user?' AND updates your signed-in cloud account and other devices':''}. A safety copy must succeed first. Continue?`
+   :`معاينة النسخة الاحتياطية\n\nالأيام التي تحتوي على تسجيلات في الملف: ${importedDates.length}\nالفترة المسجلة: ${dateRange}\nالأيام المسجلة حاليًا على الجهاز: ${existingDates.length}\n\nالاستعادة هتستبدل السجلات المحلية الحالية${cloud.user?' وكمان تحدّث حسابك السحابي وباقي أجهزتك':''}. لازم نسخة الأمان تنجح الأول. هل تريد المتابعة؟`;
+  if(!confirm(previewMessage))return;
   // Both local and cloud safety copies must succeed before current data is replaced.
   try{await saveLocalSafetySnapshot()}catch(snapshotError){throw new Error('تعذّر إنشاء نسخة أمان محلية؛ لم يتم استبدال بياناتك الحالية. '+(snapshotError?.message||''))}
   if(cloud.user){const cloudBackupOk=await cloudBackup('نسخة أمان قبل الاستيراد',false);if(!cloudBackupOk)throw new Error('تعذّر تأكيد النسخة السحابية؛ لم يتم استبدال بياناتك الحالية.')}
@@ -4849,12 +4927,18 @@ function reminderSettings(){
  state.settings.reminders={...clone(WIRDI_REMINDER_DEFAULTS),...old,channels:{...WIRDI_REMINDER_DEFAULTS.channels,...(old.channels||{})},times:{...WIRDI_REMINDER_DEFAULTS.times,...(old.times||{})},lastSent:{...(old.lastSent||{})}};
  return state.settings.reminders;
 }
-function reminderText(key){const en=uiLang==='en';return ({quran:en?['Qur’an time','Your daily Qur’an goal is still waiting. Want to start with five calm minutes?']:['وقت الورد','ورد القرآن لسه مستنيك. تحب تبدأ بخمس دقايق بهدوء؟'],morning:en?['Morning adhkar','If morning adhkar are part of your routine, take a quiet moment for them.']:['أذكار الصباح','لو أذكار الصباح من وردك، خُد لها لحظة هادئة.'],evening:en?['Evening adhkar','A gentle reminder for your evening adhkar, if you planned them today.']:['أذكار المساء','تذكير لطيف بأذكار المساء لو كنت مخطط لها النهارده.'],reflection:en?['A moment to reflect','Take one minute to review your day and choose one gentle step for tomorrow.']:['لحظة مراجعة','خد دقيقة تراجع يومك، واختار خطوة بسيطة لبكرة.']})[key]||['WIRDI AI',''];}
+function reminderText(key){
+ const en=uiLang==='en',r=dayRecord(worshipDateFor(new Date()));
+ if(key==='quran'){const remaining=Math.max(0,(Number(state.settings.goals?.quranPages)||6)-(Number(r.quran?.pages)||0));return en?['Qur’an time',`${remaining} page${remaining===1?'':'s'} left to your personal goal. Start with one calm page, if now is a good time.`]:['وقت الورد',`فاضلك ${remaining.toLocaleString('ar-EG')} صفحة على هدفك الشخصي. ممكن تبدأ بصفحة واحدة بهدوء لو الوقت مناسب.`]}
+ if(key==='morning')return en?['Morning adhkar','A gentle reminder for your morning adhkar. If you already said them, just update your log.']:['أذكار الصباح','تذكير لطيف بأذكار الصباح؛ لو قلتها بالفعل، حدّث تسجيلك بس.'];
+ if(key==='evening')return en?['Evening adhkar','A gentle reminder for your evening adhkar. If you already said them, just update your log.']:['أذكار المساء','تذكير هادئ بأذكار المساء؛ لو قلتها بالفعل، حدّث تسجيلك بس.'];
+ return en?['A moment to reflect','Take one minute to review your day and choose one realistic step for tomorrow—without judging yourself.']:['لحظة مراجعة','خد دقيقة تراجع يومك وتختار خطوة واقعية لبكرة، من غير ما تحكم على نفسك.'];
+}
 function reminderIsQuiet(now,cfg){const p=cairoParts(now),m=(+p.hour)*60+(+p.minute),a=Number(cfg.quietStart.slice(0,2))*60+Number(cfg.quietStart.slice(3)),b=Number(cfg.quietEnd.slice(0,2))*60+Number(cfg.quietEnd.slice(3));return a===b?false:(a<b?(m>=a&&m<b):(m>=a||m<b));}
-function reminderDue(key,r){if(key==='quran')return (Number(r.quran?.pages)||0)<(Number(state.settings.goals?.quranPages)||6);if(key==='morning')return r.adhkar?.morning?.status!=='done';if(key==='evening')return r.adhkar?.evening?.status!=='done';return true;}
-function reminderEligibleNow(key,r,now,cfg){if(!cfg.enabled||!cfg.channels[key]||reminderIsQuiet(now,cfg)||!reminderDue(key,r))return false;const parts=cairoParts(now),today=worshipDateFor(now),nowMin=Number(parts.hour)*60+Number(parts.minute),at=cfg.times[key]||'20:00',target=Number(at.slice(0,2))*60+Number(at.slice(3));if(nowMin<target+Math.max(0,Number(cfg.delayMinutes)||0))return false;const sentKey=today+':'+key;return !cfg.lastSent[sentKey];}
+function reminderDue(key,r){if(key==='quran')return (Number(r.quran?.pages)||0)<(Number(state.settings.goals?.quranPages)||6);if(key==='morning')return r.adhkar?.morning?.status!=='done'&&!r.adhkar?.morning?.completedAt;if(key==='evening')return r.adhkar?.evening?.status!=='done'&&!r.adhkar?.evening?.completedAt;if(key==='reflection')return !r.reflection||!['gratitude','lesson','tomorrow'].some(k=>String(r.reflection[k]||'').trim());return false;}
+function reminderEligibleNow(key,r,now,cfg){if(!cfg.enabled||!cfg.channels[key]||reminderIsQuiet(now,cfg)||!reminderDue(key,r))return false;const parts=cairoParts(now),today=worshipDateFor(now),nowMin=Number(parts.hour)*60+Number(parts.minute),at=cfg.times[key]||'20:00',target=Number(at.slice(0,2))*60+Number(at.slice(3)),delay=Math.max(0,Number(cfg.delayMinutes)||0),elapsed=(nowMin-target+1440)%1440,window=key==='morning'?180:key==='evening'?240:key==='quran'?300:180;if(elapsed<delay||elapsed>delay+window)return false;const sentKey=today+':'+key;return !cfg.lastSent[sentKey];}
 function sendWirdiReminder(key,cfg){const [title,body]=reminderText(key);toast((uiLang==='en'?'Reminder · ':'تذكير · ')+body);if(cfg.browser&&'Notification'in window&&Notification.permission==='granted'&&document.visibilityState!=='visible'){try{const n=new Notification(title,{body,tag:'wirdi-'+key,icon:'/favicon.ico'});n.onclick=()=>{window.focus();if(key==='quran')goto('worship','quran');else if(key==='morning'||key==='evening')goto('worship','adhkar');else goto('reports');n.close()}}catch(e){console.warn('WIRDI browser notification unavailable',e)}}}
-function scanWirdiReminders(){if(document.body.classList.contains('auth-locked'))return;const cfg=reminderSettings(),now=new Date(),day=worshipDateFor(now),r=dayRecord(day);let changed=false;for(const key of ['quran','morning','evening','reflection']){if(reminderEligibleNow(key,r,now,cfg)){const sentKey=day+':'+key;cfg.lastSent[sentKey]=Date.now();changed=true;sendWirdiReminder(key,cfg)}}if(changed){const keys=Object.keys(cfg.lastSent);if(keys.length>90)keys.slice(0,keys.length-60).forEach(k=>delete cfg.lastSent[k]);persist()}}
+function scanWirdiReminders(){if(document.body.classList.contains('auth-locked'))return;const cfg=reminderSettings();if(document.visibilityState==='hidden'&&!(cfg.browser&&'Notification'in window&&Notification.permission==='granted'))return;const now=new Date(),day=worshipDateFor(now),r=dayRecord(day);let changed=false;for(const key of ['quran','morning','evening','reflection']){if(reminderEligibleNow(key,r,now,cfg)){const sentKey=day+':'+key;cfg.lastSent[sentKey]=Date.now();changed=true;sendWirdiReminder(key,cfg)}}if(changed){const keys=Object.keys(cfg.lastSent);if(keys.length>90)keys.slice(0,keys.length-60).forEach(k=>delete cfg.lastSent[k]);persist()}}
 function openWirdiNotificationCenter(){const cfg=reminderSettings(),r=dayRecord(worshipDateFor(new Date())),en=uiLang==='en';const rows=[['quran',en?'Qur’an reading':'ورد القرآن',en?`${r.quran?.pages||0} / ${state.settings.goals?.quranPages||6} pages`:`${r.quran?.pages||0} / ${state.settings.goals?.quranPages||6} صفحة`,reminderDue('quran',r)],['morning',en?'Morning adhkar':'أذكار الصباح',en?'Daily remembrance':'ورد اليوم',reminderDue('morning',r)],['evening',en?'Evening adhkar':'أذكار المساء',en?'Daily remembrance':'ورد اليوم',reminderDue('evening',r)],['reflection',en?'Daily reflection':'مراجعة اليوم',en?'A gentle end-of-day check-in':'مراجعة هادئة قبل نهاية اليوم',true]];openModal(en?'Your reminder center':'مركز التنبيهات',`<div class="wirdi-notice-intro"><span class="wirdi-notice-orb">✦</span><div><strong>${en?'A gentle nudge, never pressure':'تذكير لطيف، من غير ضغط'}</strong><p>${en?'Your private reminders are tailored to the goals you choose.':'التنبيهات خاصة بيك ومبنية على الأهداف اللي أنت اخترتها.'}</p></div></div><div class="wirdi-notice-list">${rows.map(([k,t,d,pending])=>`<div class="wirdi-notice-row"><span class="wirdi-notice-dot ${pending?'is-pending':'is-done'}"></span><div class="wirdi-notice-copy"><strong>${t}</strong><small>${d}</small></div><span class="wirdi-notice-status">${pending?(en?'Pending':'متبقي'):(en?'Completed':'مكتمل')}</span></div>`).join('')}</div><div class="wirdi-notice-actions"><button type="button" class="btn btn-primary" id="wirdiStartReflection">${en?'Daily reflection':'مراجعة اليوم'}</button><button type="button" class="btn btn-ghost" id="wirdiOpenReminderSettings">${en?'Reminder settings':'إعدادات التنبيهات'}</button><button type="button" class="btn btn-ghost" id="wirdiEnableBrowser">${en?'Enable browser alerts':'تفعيل إشعارات المتصفح'}</button></div><p class="wirdi-notice-foot">${en?'Browser alerts require permission and work while this page is active; background push requires additional deployment setup.':'إشعارات المتصفح تحتاج إذنك، والتذكير المجدول حاليًا يعمل أثناء تشغيل الصفحة؛ الإشعارات في الخلفية تحتاج إعداد Push إضافيًا.'}</p>`,[{text:en?'Done':'تم',class:'btn-primary',onClick:closeModal}]);$('wirdiStartReflection')?.addEventListener('click',openWirdiReflection);$('wirdiOpenReminderSettings')?.addEventListener('click',openWirdiReminderSettings);$('wirdiEnableBrowser')?.addEventListener('click',enableWirdiBrowserNotifications)}
 function wirdiEscapeText(v){return String(v||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function openWirdiReflection(){const en=uiLang==='en',r=dayRecord(worshipDateFor(new Date())),v=r.reflection||{};openModal(en?'Daily reflection':'مراجعة اليوم',`<div class="wirdi-reflection-head"><span>✦</span><div><strong>${en?'A little reflection, without judgement':'وقفة بسيطة من غير أحكام'}</strong><p>${en?'Private notes to help you notice what matters and plan one gentle next step.':'ملاحظات خاصة تساعدك تلاحظ اللي يهمك وتختار خطوة هادئة لليوم التالي.'}</p></div></div><label class="wirdi-reflection-label">${en?'What are you grateful for today?':'إيه نعمة حابب تحمد ربنا عليها النهارده؟'}<textarea id="wrReflectGratitude" rows="2" maxlength="1200" placeholder="${en?'A moment, a person, or something small…':'لحظة، شخص، أو حاجة بسيطة…'}">${wirdiEscapeText(v.gratitude)}</textarea></label><label class="wirdi-reflection-label">${en?'What did you learn about yourself?':'إيه حاجة اتعلمتها عن نفسك؟'}<textarea id="wrReflectLesson" rows="2" maxlength="1200" placeholder="${en?'Keep it honest and kind.':'اكتب بصدق ورفق بنفسك.'}">${wirdiEscapeText(v.lesson)}</textarea></label><label class="wirdi-reflection-label">${en?'One small intention for tomorrow':'نية صغيرة لبكرة'}<textarea id="wrReflectTomorrow" rows="2" maxlength="1200" placeholder="${en?'Make it realistic and specific.':'خليها بسيطة وقابلة للتنفيذ.'}">${wirdiEscapeText(v.tomorrow)}</textarea></label><p class="wirdi-notice-foot">${en?'These notes are saved with your account data. They are not a measure of your faith.':'الملاحظات دي بتتحفظ ضمن بيانات حسابك، ومش مقياس لإيمانك أو علاقتك بربنا.'}</p>`,[{text:en?'Cancel':'إلغاء',class:'btn-ghost',onClick:closeModal},{text:en?'Save reflection':'حفظ المراجعة',class:'btn-primary',onClick:()=>{const rec=dayRecord(worshipDateFor(new Date()));rec.reflection={gratitude:$('wrReflectGratitude').value.trim(),lesson:$('wrReflectLesson').value.trim(),tomorrow:$('wrReflectTomorrow').value.trim(),updatedAt:timestamp()};saveDay(rec);closeModal();toast(en?'Reflection saved privately.':'تم حفظ مراجعتك اليومية.')}}])}
@@ -5027,6 +5111,7 @@ function translateTree(root){
 }
 function applyLanguage(lang){
  uiLang=lang==='en'?'en':'ar';
+ document.querySelectorAll('.wirdi-password-toggle').forEach(b=>{const input=b.parentElement?.querySelector('input');const shown=input?.type==='text';b.textContent=uiLang==='en'?(shown?'Hide':'Show'):(shown?'إخفاء':'إظهار');b.setAttribute('aria-label',uiLang==='en'?(shown?'Hide password':'Show password'):(shown?'إخفاء كلمة المرور':'إظهار كلمة المرور'))});
  document.documentElement.lang=uiLang;
  document.documentElement.dir=uiLang==='en'?'ltr':'rtl';
  try{localStorage.setItem('wirdi_ui_lang',uiLang)}catch(e){}
@@ -5048,11 +5133,100 @@ document.querySelectorAll('[data-route]').forEach(btn=>btn.addEventListener('cli
 $('profileSettings')?.addEventListener('click',()=>goto('settings'));
 $('themeToggle')?.addEventListener('click',()=>{document.body.classList.toggle('light-ui');const b=$('themeToggle');if(b)b.title=document.body.classList.contains('light-ui')?'Switch to dark appearance':'Switch to light appearance';try{localStorage.setItem('wirdi_light_ui',document.body.classList.contains('light-ui')?'1':'0')}catch(e){}});
 try{if(localStorage.getItem('wirdi_black_gold_theme')!=='1'){localStorage.removeItem('wirdi_light_ui');localStorage.setItem('wirdi_black_gold_theme','1')}if(localStorage.getItem('wirdi_light_ui')==='1')document.body.classList.add('light-ui')}catch(e){}
-$('notificationsBtn')?.addEventListener('click',()=>{const r=dayRecord(currentDate),s=scoreDay(r);openModal(uiLang==='en'?'Your daily overview':'ملخص يومك',`<p>${uiLang==='en'?'Your current record coverage is':'تغطية التسجيل الحالية'} <strong>${s.coverage}%</strong>.</p><div class="subcard"><strong>${uiLang==='en'?'Suggested next steps':'الخطوات التالية المقترحة'}</strong><div style="margin-top:8px;line-height:1.9">${esc($('focusList')?.innerText||'سجّل إنجازاتك اليومية لمراجعة أدق.')}</div></div><p class="small muted">${uiLang==='en'?'Only recorded data is included. Unrecorded does not mean missed.':'يعتمد الملخص على البيانات المسجّلة فقط؛ غير المسجّل لا يعني أنك لم تؤدِّ العبادة.'}</p>`,[{text:uiLang==='en'?'View analysis':'عرض التحليل',class:'btn-primary',onClick:()=>{closeModal();goto('reports')}},{text:uiLang==='en'?'Close':'إغلاق',class:'btn-ghost',onClick:closeModal}])});
+
 $('readTafsirBtn')?.addEventListener('click',showFeaturedAction);$('featurePrev')?.addEventListener('click',()=>advanceFeature(-1));$('featureNext')?.addEventListener('click',()=>advanceFeature(1));$('featureDots')?.querySelectorAll('[data-feature-dot]').forEach(b=>b.addEventListener('click',()=>{featureIndex=+b.dataset.featureDot;renderFeaturedCard()}));$('featurePause')?.addEventListener('click',()=>{featurePaused=!featurePaused;const b=$('featurePause');if(b){b.textContent=featurePaused?'▶':'Ⅱ';b.title=uiLang==='en'?(featurePaused?'Resume automatic rotation':'Pause automatic rotation'):(featurePaused?'استئناف التبديل التلقائي':'إيقاف التبديل التلقائي');b.setAttribute('aria-label',b.title)}});
-function runDashboardSearch(){const value=($('dashboardSearch')?.value||'').trim().toLowerCase();if(!value)return;let view='home',target='';if(/prayer|salah|صلوات|صلاة|مواقيت/.test(value)){view='insights';selectedInsightDomain='prayers'}else if(/qur|قرآن|قران|reading|صفحات/.test(value)){view='insights';selectedInsightDomain='quran'}else if(/adhkar|dhikr|ذكر|أذكار/.test(value)){view='insights';selectedInsightDomain='adhkar'}else if(/salawat|النبي/.test(value)){view='insights';selectedInsightDomain='salawat'}else if(/night|qiyam|قيام/.test(value)){view='insights';selectedInsightDomain='qiyam'}else if(/report|analysis|analytics|تحليل|تقارير|إحصائ/.test(value)){view='reports'}else if(/history|سجل|تاريخ/.test(value)){view='history'}else if(/setting|goal|إعداد|هدف|أهداف/.test(value)){view=value.includes('goal')||value.includes('هدف')?'goals':'settings'}else{toast(uiLang==='en'?'Try “prayers”, “Qur’an”, “analysis” or “settings”.':'جرّب البحث عن الصلوات أو القرآن أو التحليل أو الإعدادات.');return}goto(view);if(target)setTimeout(()=>{const el=$(target);if(el)el.scrollIntoView({behavior:'smooth',block:'center'})},100)}
+function runDashboardSearch(){
+ const value=($('dashboardSearch')?.value||'').trim().toLowerCase();if(!value)return;
+ const say=(ar,en)=>toast(uiLang==='en'?en:ar);
+ if(/تذكير|تنبيه|إشعار|notification|reminder|alerts?/.test(value)){openWirdiNotificationCenter();return}
+ if(/تسجيل سريع|سجل بسرعة|quick\s*log|quick entry|أضيف عبادة|add an? entry/.test(value)){openWirdiQuickLog();return}
+ if(/مراجعة اليوم|تأمل|امتنان|reflection|gratitude|daily review/.test(value)){openWirdiReflection();return}
+ if(/نسخة احتياطية|باك.?أب|backup|استعادة البيانات|import data|restore data|export data/.test(value)){goto('settings');setTimeout(()=>{const el=$('importDataBtn')||$('exportData2');(el?.closest('.card')||el)?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'})},160);return}
+ if(/مزامنة|sync|cloud|سحابي|سحابية/.test(value)){goto('settings');setTimeout(()=>{const el=$('cloudCard');el?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'})},160);return}
+ if(/الوضع الفاتح|الوضع الداكن|لايت مود|دارك مود|light\s*mode|dark\s*mode|appearance|المظهر/.test(value)){document.body.classList.toggle('light-ui');const themeButton=$('themeToggle');if(themeButton)themeButton.title=document.body.classList.contains('light-ui')?'Switch to dark appearance':'Switch to light appearance';try{localStorage.setItem('wirdi_light_ui',document.body.classList.contains('light-ui')?'1':'0')}catch(e){}say('تم تبديل المظهر.','Appearance switched.');return}
+ if(/النهارده|اليوم الحالي|today'?s? record|today/.test(value)){currentDate=worshipDateFor(new Date());goto('home');return}
+ let view='home';
+ if(/prayer|salah|صلوات|صلاة|مواقيت|الفجر|الظهر|العصر|المغرب|العشاء/.test(value)){view='insights';selectedInsightDomain='prayers'}
+ else if(/qur|قرآن|قران|reading|صفحات|آية|سورة/.test(value)){view='insights';selectedInsightDomain='quran'}
+ else if(/adhkar|dhikr|ذكر|أذكار|تسبيح/.test(value)){view='insights';selectedInsightDomain='adhkar'}
+ else if(/salawat|النبي|الصلاة على الرسول/.test(value)){view='insights';selectedInsightDomain='salawat'}
+ else if(/night|qiyam|قيام|تهجد/.test(value)){view='insights';selectedInsightDomain='qiyam'}
+ else if(/report|analysis|analytics|تحليل|تقارير|إحصائ|تقرير/.test(value)){view='reports'}
+ else if(/history|سجل|تاريخ|أيام سابقة/.test(value)){view='history'}
+ else if(/setting|goal|إعداد|هدف|أهداف|الهدف/.test(value)){view=/goal|هدف|أهداف|الهدف/.test(value)?'goals':'settings'}
+ else{say('مش متأكد تقصد إيه. جرّب: تسجيل سريع، تنبيهات، مزامنة، نسخة احتياطية، أهداف، القرآن، الصلاة، أو التقارير.','I’m not sure what you mean. Try: quick log, reminders, sync, backup, goals, Qur’an, prayers, or reports.');$('dashboardSearch')?.focus();return}
+ goto(view);
+}
 $('dashboardSearch')?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();runDashboardSearch()}});
 document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('dashboardSearch')?.focus()}});
+
+/* WIRDI AI v12 · contextual intelligence, safety, and UX layer (local, explainable rules). */
+function getWirdiSmartAdvice(record=dayRecord(currentDate),day=currentDate){
+ const en=uiLang==='en',today=worshipDateFor(new Date()),isToday=day===today;
+ const goals=state.settings?.goals||{},pages=Math.max(0,Number(record.quran?.pages)||0),pagesGoal=Math.max(1,Number(goals.quranPages)||6),salawat=Math.max(0,Number(record.salawat?.count)||0),salawatGoal=Math.max(1,Number(goals.salawat)||100),qiyam=Math.max(0,Number(record.qiyam?.rakaat)||0),qiyamGoal=Math.max(1,Number(goals.qiyamRakaat)||2);
+ const prayersDone=PRAYERS.filter(p=>record.prayers?.[p.key]?.status==='done').length;
+ const morningDone=record.adhkar?.morning?.status==='done'||!!record.adhkar?.morning?.completedAt;
+ const eveningDone=record.adhkar?.evening?.status==='done'||!!record.adhkar?.evening?.completedAt;
+ const hour=Number(cairoParts(new Date()).hour),coverage=(()=>{try{return scoreDay(record).coverage||0}catch(e){return 0}})();
+ if(!isToday)return {kind:'history',title:en?'You are reviewing a past day':'إنت بتراجع يوم سابق',body:en?'This view uses that day’s saved entries. Return to today when you want to continue logging.':'الاقتراحات هنا مبنية على سجل اليوم اللي اخترته. ارجع لليوم الحالي لما تحب تكمل التسجيل.',reason:en?'The selected date is not today.':'التاريخ المحدد مش هو يوم الورد الحالي.',action:'today',label:en?'Go to today':'الرجوع لليوم الحالي',coverage};
+ if(hour>=5&&hour<12&&!morningDone)return {kind:'gentle',title:en?'A calm start':'بداية هادئة لليوم',body:en?'If morning adhkar are part of your routine and you have not logged them, open that section now.':'لو أذكار الصباح من وردك ولسه ما سجلتهاش، افتح القسم وسجّلها لو كنت قلتها.',reason:en?'Morning time window + no completed morning-adhkar entry.':'الوقت صباحًا، ومفيش تسجيل مكتمل لأذكار الصباح في سجل اليوم.',action:'morning',label:en?'Open morning adhkar':'فتح أذكار الصباح',coverage};
+ if(hour>=15&&hour<22&&!eveningDone)return {kind:'gentle',title:en?'An evening check-in':'وقفة مسائية بسيطة',body:en?'If evening adhkar are part of your routine, this is a gentle reminder—not an assumption that you missed them.':'لو أذكار المساء من وردك، ده تذكير لطيف بس؛ عدم التسجيل مش معناه إنك ما قلتهاش.',reason:en?'Evening time window + no completed evening-adhkar entry.':'الوقت مسائي، ومفيش تسجيل مكتمل لأذكار المساء في سجل اليوم.',action:'evening',label:en?'Open evening adhkar':'فتح أذكار المساء',coverage};
+ if(pages<pagesGoal)return {kind:'quran',title:en?'One page is a useful next step':'صفحة واحدة خطوة كويسة',body:en?`${pages} of ${pagesGoal} pages are logged for today. If it suits you, add one page and continue at your own pace.`:`متسجل ${pages.toLocaleString('ar-EG')} من ${pagesGoal.toLocaleString('ar-EG')} صفحة في هدفك اليومي. لو مناسب ليك، أضف صفحة واحدة وكمل براحتك.`,reason:en?'Based on the current Qur’an-page count and the goal you set.':'الاقتراح مبني على عدد صفحات القرآن المسجلة والهدف اللي إنت محدده.',action:'quran',label:en?'Log a Qur’an page':'تسجيل صفحة قرآن',coverage};
+ if(salawat<salawatGoal)return {kind:'salawat',title:en?'Continue at your own pace':'كمّل على مهلك',body:en?`${salawat} of ${salawatGoal} salawat are logged. A small entry is enough to keep your record up to date.`:`متسجل ${salawat.toLocaleString('ar-EG')} من ${salawatGoal.toLocaleString('ar-EG')} مرة من الصلاة على النبي ﷺ. تسجيل بسيط يكفي لتحديث سجلك.`,reason:en?'Based on the counter and your personal target.':'الاقتراح مبني على العداد والهدف الشخصي اللي إنت محدده.',action:'salawat',label:en?'Open salawat counter':'فتح عداد الصلاة على النبي ﷺ',coverage};
+ if(hour>=19&&qiyam<qiyamGoal)return {kind:'qiyam',title:en?'Plan gently for the night':'خطوة هادئة لليل',body:en?'If night prayer is part of your plan, you can review its counter or leave it for a time that suits you.':'لو قيام الليل ضمن خطتك، تقدر تراجع العداد أو تسيبه لوقت يناسبك. مش لازم تسجّل حاجة قبل ما تحصل.',reason:en?'Evening hours + the personal night-prayer target is not yet logged.':'الوقت مسائي، وهدف قيام الليل الشخصي لسه مش متسجل بالكامل.',action:'qiyam',label:en?'Open night-prayer counter':'فتح عداد قيام الليل',coverage};
+ const missingPrayer=PRAYERS.find(p=>!record.prayers?.[p.key]?.status||record.prayers[p.key].status==='unrecorded');
+ if(missingPrayer)return {kind:'prayer',title:en?'Keep the record accurate':'خلّي السجل دقيق',body:en?`The ${missingPrayer.name} entry has no status yet. If you already prayed, you can record what happened; do not treat a blank entry as a missed prayer.`:`تسجيل ${missingPrayer.name} لسه من غير حالة. لو صليتها، سجّل اللي حصل؛ الخانة الفاضية مش معناها إن الصلاة فاتتك.`,reason:en?'A prayer entry is blank; the app cannot infer what happened.':'فيه خانة صلاة فاضية، والتطبيق ما يقدرش يستنتج إيه اللي حصل من غير تسجيلك.',action:'prayer',label:en?'Review prayer entries':'مراجعة تسجيلات الصلاة',coverage};
+ return {kind:'complete',title:en?'Your record is up to date':'سجلك متابع كويس',body:en?'Your current goals are logged. You can stop here, review the day, or add a private reflection—no extra task is needed.':'الأهداف اللي التطبيق بيتابعها عندك مسجلة. تقدر تكتفي بكده أو تراجع يومك أو تكتب تأمل خاص؛ مش مطلوب تزود مهام لمجرد زيادة الدرجة.',reason:en?'No clear unfinished tracked goal was found in the current record.':'ما ظهرش هدف متابع واضح لسه ناقص في السجل الحالي.',action:'reflection',label:en?'Reflect on the day':'مراجعة اليوم',coverage};
+}
+function runWirdiSmartAction(action){
+ if(action==='today'){currentDate=worshipDateFor(new Date());goto('home');return}
+ if(action==='quick'){openWirdiQuickLog();return}
+ if(action==='reflection'){openWirdiReflection();return}
+ if(action==='reports'){goto('reports');return}
+ const dest={prayer:{target:'worshipPrayerList'},quran:{target:'quranPlus',focus:'quranPlus'},salawat:{target:'salawatPlus',focus:'salawatPlus'},qiyam:{target:'qiyamPlus',focus:'qiyamPlus'},morning:{target:'morningDone',focus:'morningDone'},evening:{target:'eveningDone',focus:'eveningDone'}}[action];
+ if(dest){focusWirdiSection(dest.target,{focus:dest.focus});return}
+ openWirdiQuickLog();
+}
+function renderWirdiSmartCompanion(){
+ const home=$('view-home'),hero=$('featureCarousel');if(!home||!hero)return;
+ let card=$('wirdiSmartCompanion');if(!card){card=document.createElement('section');card.id='wirdiSmartCompanion';card.className='wirdi-smart-card';card.setAttribute('aria-labelledby','wirdiSmartTitle');card.setAttribute('aria-live','polite');hero.insertAdjacentElement('afterend',card);}
+ const a=getWirdiSmartAdvice(dayRecord(currentDate),currentDate),en=uiLang==='en',r=dayRecord(currentDate),g=state.settings.goals||{},m=(()=>{try{return scoreDay(r)}catch(e){return {coverage:0,completion:null,score:null}}})();
+ const coverageText=(m.coverage||0)+'%';const quran=Math.max(0,Number(r.quran?.pages)||0),quranTarget=Math.max(1,Number(g.quranPages)||6),salawat=Math.max(0,Number(r.salawat?.count)||0),salawatTarget=Math.max(1,Number(g.salawat)||100);
+ card.dir=en?'ltr':'rtl';card.innerHTML=`<div class="wirdi-smart-top"><span class="wirdi-smart-orb" aria-hidden="true">✦</span><div class="wirdi-smart-heading"><span class="wirdi-smart-kicker">${en?'WIRDI · CONTEXTUAL COMPANION':'وِردي · المساعد الذكي'}</span><h2 id="wirdiSmartTitle">${esc(a.title)}</h2><p>${esc(a.body)}</p></div><span class="wirdi-smart-live"><i></i>${en?'Updated from your log':'متجدد من سجلك'}</span></div><div class="wirdi-smart-reason"><span>ⓘ</span><span><strong>${en?'Why this suggestion?':'ليه الاقتراح ده؟'}</strong> ${esc(a.reason)}</span></div><div class="wirdi-smart-metrics"><div><small>${en?'Record coverage':'تغطية التسجيل'}</small><strong>${coverageText}</strong></div><div><small>${en?'Qur’an pages':'صفحات القرآن'}</small><strong>${quran.toLocaleString(en?'en-US':'ar-EG')} / ${quranTarget.toLocaleString(en?'en-US':'ar-EG')}</strong></div><div><small>${en?'Salawat':'الصلاة على النبي ﷺ'}</small><strong>${salawat.toLocaleString(en?'en-US':'ar-EG')} / ${salawatTarget.toLocaleString(en?'en-US':'ar-EG')}</strong></div></div><div class="wirdi-smart-actions"><button type="button" class="wirdi-smart-primary" data-wirdi-smart-action="${a.action}">${esc(a.label)} <span aria-hidden="true">${en?'→':'←'}</span></button><button type="button" class="wirdi-smart-secondary" data-wirdi-smart-action="quick">${en?'Quick log':'تسجيل سريع'}</button></div><p class="wirdi-smart-disclaimer">${en?'Private, local rule-based guidance. Blank entries are not treated as proof that an act was missed; this is a tracking aid, not a religious judgement.':'اقتراحات محلية مبنية على قواعد واضحة وسجلك الخاص. الخانة الفاضية مش دليل إن العبادة فاتتك، والتقييم أداة متابعة مش حكم ديني.'}</p>`;
+ if(!card.dataset.bound){card.dataset.bound='1';card.addEventListener('click',e=>{const b=e.target.closest('[data-wirdi-smart-action]');if(b)runWirdiSmartAction(b.dataset.wirdiSmartAction)})}
+}
+function setupWirdiSmartAuth(){
+ const ids=['gatePass','cloudPass'];
+ ids.forEach(id=>{const input=$(id);if(!input||input.dataset.wirdiRevealReady)return;input.dataset.wirdiRevealReady='1';const wrap=document.createElement('div');wrap.className='wirdi-password-wrap';input.parentNode.insertBefore(wrap,input);wrap.appendChild(input);const toggle=document.createElement('button');toggle.type='button';toggle.className='wirdi-password-toggle';toggle.textContent=uiLang==='en'?'Show':'إظهار';toggle.setAttribute('aria-label',uiLang==='en'?'Show password':'إظهار كلمة المرور');toggle.setAttribute('aria-pressed','false');toggle.addEventListener('click',()=>{const show=input.type==='password';input.type=show?'text':'password';toggle.textContent=show?(uiLang==='en'?'Hide':'إخفاء'):(uiLang==='en'?'Show':'إظهار');toggle.setAttribute('aria-label',show?(uiLang==='en'?'Hide password':'إخفاء كلمة المرور'):(uiLang==='en'?'Show password':'إظهار كلمة المرور'));toggle.setAttribute('aria-pressed',String(show));input.focus()});wrap.appendChild(toggle)});
+ ['gateEmail','cloudEmail','gatePass','cloudPass'].forEach(id=>{const input=$(id);if(!input||input.dataset.wirdiHintReady)return;input.dataset.wirdiHintReady='1';const hint=document.createElement('small');hint.className='wirdi-auth-inline-hint';hint.id=id+'WirdiHint';hint.setAttribute('aria-live','polite');(input.closest('.wirdi-password-wrap')||input).insertAdjacentElement('afterend',hint);input.setAttribute('aria-describedby',hint.id);input.addEventListener('input',()=>{if(hint.textContent){hint.textContent='';hint.classList.remove('is-error')}input.removeAttribute('aria-invalid')});input.addEventListener('invalid',()=>{const message=input.type==='email'?(uiLang==='en'?'Enter a valid email address.':'اكتب بريد إلكتروني صحيح.'):(uiLang==='en'?'Use at least 6 characters.':'كلمة المرور لازم تكون 6 أحرف على الأقل.');wirdiAuthHint(id,message)},true)});
+}
+function wirdiAuthHint(id,message){const input=$(id),hint=$(id+'WirdiHint');if(input){input.setAttribute('aria-invalid','true');input.setAttribute('aria-describedby',id+'WirdiHint');input.focus()}if(hint){hint.textContent=message;hint.classList.add('is-error')}}
+const wirdiCloudAuthBaseV12=cloudAuthDo;
+cloudAuthDo=async function(kind){
+ setupWirdiSmartAuth();const fromGate=document.body.classList.contains('auth-locked'),emailId=fromGate?'gateEmail':'cloudEmail',passId=fromGate?'gatePass':'cloudPass',email=($(emailId)?.value||'').trim(),pass=$(passId)?.value||'';
+ [emailId,passId].forEach(id=>{const h=$(id+'WirdiHint');if(h){h.textContent='';h.classList.remove('is-error')}$(id)?.removeAttribute('aria-invalid')});
+ const emailLooksValid=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+ if((kind==='login'||kind==='signup'||kind==='reset')&&!emailLooksValid){wirdiAuthHint(emailId,uiLang==='en'?'Enter a valid email address.':'اكتب بريد إلكتروني صحيح بالشكل name@example.com.');return}
+ if((kind==='login'||kind==='signup')&&pass.length<6){wirdiAuthHint(passId,uiLang==='en'?'Use at least 6 characters.':'كلمة المرور لازم تكون 6 أحرف على الأقل.');return}
+ return wirdiCloudAuthBaseV12(kind);
+};
+function installWirdiSmartSearch(){const input=$('dashboardSearch');if(!input||input.dataset.wirdiSmartSearch)return;input.dataset.wirdiSmartSearch='1';input.setAttribute('aria-keyshortcuts','Control+K Meta+K');input.title=uiLang==='en'?'Search pages, reminders, backup, sync, appearance, or quick log':'ابحث عن قسم أو اكتب: تنبيهات، نسخة احتياطية، مزامنة، المظهر، أو تسجيل سريع';}
+const wirdiOriginalRenderHomeV12=renderHome;
+renderHome=function(){wirdiOriginalRenderHomeV12();renderWirdiSmartCompanion();};
+const wirdiOriginalSaveDayV12=saveDay;
+saveDay=function(r,auto){wirdiOriginalSaveDayV12(r,auto);if($('wirdiHeatmap')){try{renderWirdiCalendar()}catch(e){console.warn('WIRDI calendar refresh skipped',e)}}if(currentView==='home'&&$('wirdiSmartCompanion')){try{renderWirdiSmartCompanion()}catch(e){console.warn('WIRDI suggestion refresh skipped',e)}}};
+const wirdiOriginalNotificationCenterV12=openWirdiNotificationCenter;
+openWirdiNotificationCenter=function(){
+ wirdiOriginalNotificationCenterV12();const body=$('modalBody');if(!body||body.querySelector('.wirdi-smart-notice'))return;
+ const a=getWirdiSmartAdvice(dayRecord(currentDate),currentDate),box=document.createElement('section');box.className='wirdi-smart-notice';
+ const kicker=document.createElement('small');kicker.className='wirdi-smart-notice-kicker';kicker.textContent=uiLang==='en'?'PERSONALIZED NEXT STEP':'الخطوة المقترحة حسب سجلك';
+ const title=document.createElement('strong');title.textContent=a.title;
+ const copy=document.createElement('p');copy.textContent=a.body;
+ const reason=document.createElement('small');reason.className='wirdi-smart-notice-reason';reason.textContent=(uiLang==='en'?'Why: ':'السبب: ')+a.reason;
+ const action=document.createElement('button');action.type='button';action.className='btn btn-primary';action.textContent=a.label;action.addEventListener('click',()=>{closeModal();runWirdiSmartAction(a.action)});
+ box.append(kicker,title,copy,reason,action);const intro=body.querySelector('.wirdi-notice-intro');if(intro)intro.insertAdjacentElement('afterend',box);else body.prepend(box);
+};
+setupWirdiSmartAuth();installWirdiSmartSearch();
 
 bindWirdiEnhancements();
 init();
@@ -7005,4 +7179,268 @@ body.light-ui .domain-analysis-card .domain-summary-row strong {
   transition:background-color 99999s ease-out 0s !important;
 }
 </style>
+
+<style id="wirdi-v12-smart-intelligence-and-ux">
+/* Smart companion: a quiet, explainable, action-oriented layer. */
+.wirdi-smart-card{position:relative;overflow:hidden;margin:16px 0 20px;padding:20px;border:1px solid rgba(177,151,91,.34);border-radius:22px;background:linear-gradient(135deg,rgba(30,89,68,.22),rgba(180,149,81,.09)),var(--panel,#102824);box-shadow:0 15px 36px rgba(0,0,0,.08);color:var(--text,#f5f4ed)}
+.wirdi-smart-card:before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:3px;background:linear-gradient(180deg,#d9bd7c,#5dbf99);opacity:.92}
+.wirdi-smart-top{display:flex;align-items:flex-start;gap:13px;min-width:0}.wirdi-smart-orb{display:grid;place-items:center;flex:0 0 42px;height:42px;border:1px solid rgba(208,177,103,.4);border-radius:14px;background:rgba(190,159,87,.13);color:#d9bd7c;font-size:22px}.wirdi-smart-heading{flex:1;min-width:0}.wirdi-smart-kicker{display:block;font-size:9px;letter-spacing:.12em;font-weight:800;color:#b6a06d}.wirdi-smart-heading h2{margin:5px 0 5px;font-size:18px;line-height:1.45;color:inherit}.wirdi-smart-heading p{margin:0;color:var(--muted,#a6bbb1);font-size:12px;line-height:1.85}.wirdi-smart-live{display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;padding:6px 8px;border:1px solid rgba(95,181,137,.25);border-radius:99px;color:var(--muted,#a6bbb1);font-size:9px;white-space:nowrap}.wirdi-smart-live i{width:6px;height:6px;border-radius:100%;background:#64c49b;box-shadow:0 0 0 3px rgba(100,196,155,.12)}
+.wirdi-smart-reason{display:flex;align-items:flex-start;gap:8px;margin-top:15px;padding:11px 12px;border:1px solid var(--line,rgba(223,203,145,.13));border-radius:13px;background:rgba(120,150,130,.055);font-size:11px;line-height:1.85;color:var(--muted,#a6bbb1)}.wirdi-smart-reason>span:first-child{color:#d9bd7c;font-size:15px}.wirdi-smart-reason strong{color:var(--text,#f5f4ed)}
+.wirdi-smart-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:11px}.wirdi-smart-metrics>div{display:flex;flex-direction:column;gap:5px;min-width:0;padding:10px 11px;border:1px solid var(--line,rgba(223,203,145,.13));border-radius:12px;background:rgba(120,150,130,.045)}.wirdi-smart-metrics small{font-size:10px;line-height:1.5;color:var(--muted,#a6bbb1)}.wirdi-smart-metrics strong{font-size:15px;line-height:1.4;font-variant-numeric:tabular-nums;color:var(--text,#f5f4ed)}
+.wirdi-smart-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.wirdi-smart-actions button{min-height:40px;padding:9px 13px;border-radius:12px;font:inherit;font-size:12px;font-weight:750;cursor:pointer;transition:transform .16s ease,border-color .16s ease}.wirdi-smart-actions button:active{transform:scale(.985)}.wirdi-smart-primary{display:flex;align-items:center;justify-content:center;gap:12px;border:1px solid #c4a966;background:linear-gradient(135deg,#dcc27e,#b99a55);color:#172b22}.wirdi-smart-primary span{font-size:16px}.wirdi-smart-secondary{border:1px solid var(--line,rgba(223,203,145,.25));background:transparent;color:var(--text,#f5f4ed)}.wirdi-smart-disclaimer{margin:10px 0 0;font-size:10px;line-height:1.75;color:var(--muted,#a6bbb1);opacity:.9}
+.wirdi-smart-notice{display:grid;gap:7px;margin:0 0 13px;padding:14px;border:1px solid rgba(177,151,91,.38);border-radius:16px;background:linear-gradient(135deg,rgba(35,94,76,.13),rgba(194,161,91,.08))}.wirdi-smart-notice-kicker{font-size:9px;letter-spacing:.1em;font-weight:800;color:#b69a58}.wirdi-smart-notice>strong{font-size:15px;line-height:1.5}.wirdi-smart-notice p,.wirdi-smart-notice-reason{margin:0;font-size:12px;line-height:1.8;color:var(--muted,#a6bbb1)}.wirdi-smart-notice .btn{justify-self:start;margin-top:5px}
+/* Password visibility and field-level validation. */
+.wirdi-password-wrap{position:relative;width:100%;min-width:0;direction:ltr}.wirdi-password-wrap>input{width:100%;box-sizing:border-box;padding-inline-start:78px!important}.wirdi-password-toggle{position:absolute;z-index:2;inset-inline-start:7px;top:50%;transform:translateY(-50%);border:1px solid rgba(177,151,91,.3);border-radius:9px;padding:5px 9px;min-width:58px;background:rgba(177,151,91,.09);color:var(--text,#f5f4ed);font:inherit;font-size:11px;cursor:pointer}.wirdi-auth-inline-hint{display:block;min-height:0;margin:0 2px 4px;color:var(--muted,#a6bbb1);font-size:11px;line-height:1.55}.wirdi-auth-inline-hint:empty{display:none}.wirdi-auth-inline-hint.is-error{margin-top:5px;color:#ef9b8e!important;-webkit-text-fill-color:#ef9b8e!important}.wirdi-auth-inline-hint.is-error:before{content:"ⓘ ";font-weight:800}
+/* Global Light Mode completion: align forms, overlays, notices, and smart surfaces. */
+body.light-ui{color-scheme:light}
+body.light-ui .wirdi-smart-card{background:linear-gradient(135deg,#f4f8f1 0%,#fffdf6 100%);border-color:#cbd8c5;color:#23382d;box-shadow:0 12px 28px rgba(32,69,45,.07)}
+body.light-ui .wirdi-smart-kicker{color:#705a27}body.light-ui .wirdi-smart-heading p,body.light-ui .wirdi-smart-live,body.light-ui .wirdi-smart-reason,body.light-ui .wirdi-smart-metrics small,body.light-ui .wirdi-smart-disclaimer{color:#526657!important;-webkit-text-fill-color:#526657!important}
+body.light-ui .wirdi-smart-reason,body.light-ui .wirdi-smart-metrics>div{background:#fff;border-color:#d8e1d5}body.light-ui .wirdi-smart-reason strong,body.light-ui .wirdi-smart-heading h2,body.light-ui .wirdi-smart-metrics strong{color:#23382d!important;-webkit-text-fill-color:#23382d!important}
+body.light-ui .wirdi-smart-secondary{border-color:#c9d8ca;background:#fff;color:#264534}body.light-ui .wirdi-password-toggle{color:#254434;background:#f5f8f2;border-color:#cbd8ca}body.light-ui .wirdi-smart-notice{background:linear-gradient(135deg,#f3f8f1,#fffaf0);border-color:#cbd8c5}body.light-ui .wirdi-smart-notice>strong{color:#243b30!important;-webkit-text-fill-color:#243b30!important}body.light-ui .wirdi-smart-notice p,body.light-ui .wirdi-smart-notice-reason{color:#526657!important;-webkit-text-fill-color:#526657!important}
+body.light-ui #modalBackdrop .modal,body.light-ui #modalBackdrop .dialog,body.light-ui .modal-backdrop .modal{background:#fffefa!important;color:#26382d!important;border-color:#d2ddcf!important}
+body.light-ui #modalBackdrop input,body.light-ui #modalBackdrop select,body.light-ui #modalBackdrop textarea,body.light-ui .modal-backdrop input,body.light-ui .modal-backdrop select,body.light-ui .modal-backdrop textarea{background:#fff!important;color:#243b30!important;-webkit-text-fill-color:#243b30!important;border-color:#cbd8cc!important;color-scheme:light!important}
+body.light-ui #modalBackdrop input::placeholder,body.light-ui #modalBackdrop textarea::placeholder{color:#607264!important;-webkit-text-fill-color:#607264!important;opacity:1}
+body.light-ui .wirdi-notice-row,body.light-ui .wirdi-switch-row,body.light-ui .wirdi-channel-prefs{background:#fffefa;border-color:#d6e0d3}body.light-ui .wirdi-notice-copy strong,body.light-ui .wirdi-switch-row strong,body.light-ui .wirdi-channel-prefs>strong{color:#263d30!important;-webkit-text-fill-color:#263d30!important}body.light-ui .wirdi-notice-copy small,body.light-ui .wirdi-switch-row small,body.light-ui .wirdi-notice-status,body.light-ui .wirdi-notice-foot{color:#56695b!important;-webkit-text-fill-color:#56695b!important}
+body.light-ui :where(.wirdi-smart-card,.wirdi-smart-notice,.wirdi-notice-row,.wirdi-switch-row,.wirdi-channel-prefs) :where(button,input,select,textarea):focus-visible{outline:2px solid #39764b!important;outline-offset:2px}
+@media(max-width:620px){.wirdi-smart-card{padding:15px;border-radius:18px}.wirdi-smart-top{gap:10px;flex-wrap:wrap}.wirdi-smart-orb{flex-basis:36px;height:36px}.wirdi-smart-live{margin-inline-start:46px}.wirdi-smart-heading h2{font-size:16px}.wirdi-smart-metrics{gap:6px}.wirdi-smart-metrics>div{padding:9px 8px}.wirdi-smart-metrics small{font-size:9px}.wirdi-smart-metrics strong{font-size:13px}.wirdi-smart-actions{display:grid;grid-template-columns:1fr}.wirdi-smart-actions button{width:100%}.wirdi-smart-notice .btn{width:100%}}
+@media(prefers-reduced-motion:reduce){.wirdi-smart-actions button{transition:none}}
+</style>
+
+<script id="wirdi-v13-bouncy-dashboard-reorder">
+(function(){
+  'use strict';
+  if (window.__wirdiV13SortReady) return;
+  window.__wirdiV13SortReady = true;
+  const dashboard = document.querySelector('#view-home .dashboard-grid');
+  const toolbar = document.getElementById('wirdiSortToolbar');
+  const toggle = document.getElementById('wirdiSortToggle');
+  const title = document.getElementById('wirdiSortTitle');
+  const hint = document.getElementById('wirdiSortHint');
+  const buttonText = document.getElementById('wirdiSortButtonText');
+  if (!dashboard || !toolbar || !toggle) return;
+  const primary = dashboard.querySelector(':scope > .dashboard-primary');
+  const aside = dashboard.querySelector(':scope > .dashboard-aside');
+  if (!primary || !aside) return;
+  const storageKey = 'wirdi-dashboard-card-order-v1';
+  const knownKeys = new Map([
+    ['featureCarousel','verse-carousel'],['fajr-cycle-note','fajr-cycle'],['prayer-times-panel','prayer-times'],
+    ['activity-cards','activity-shortcuts'],['wirdi-command-card','smart-command'],['wirdi-insight-lower','calendar-insights'],
+    ['lower-dashboard-grid','analytics-weekly'],['next-prayer-panel','next-prayer'],['ai-assistant-card','ai-assistant'],
+    ['today-reflection-card','daily-reflection'],['performance-panel','performance-score'],['fajrLiveCard','fajr-live'],['closing-reflection','closing-reflection']
+  ]);
+  const classKeys = new Map([
+    ['feature-carousel','verse-carousel'],['fajr-cycle-note','fajr-cycle'],['prayer-times-panel','prayer-times'],
+    ['activity-cards','activity-shortcuts'],['wirdi-command-card','smart-command'],['wirdi-insight-lower','calendar-insights'],
+    ['lower-dashboard-grid','analytics-weekly'],['next-prayer-panel','next-prayer'],['ai-assistant-card','ai-assistant'],
+    ['today-reflection-card','daily-reflection'],['performance-panel','performance-score'],['fajr-live-card','fajr-live'],['closing-reflection','closing-reflection']
+  ]);
+  const columns = [primary, aside];
+  const allCards = [];
+  function stableKey(el){
+    if (el.id && knownKeys.has(el.id)) return knownKeys.get(el.id);
+    for (const c of el.classList) if (classKeys.has(c)) return classKeys.get(c);
+    if (el.id) return 'id-' + el.id.replace(/[^a-zA-Z0-9_-]/g,'-');
+    return 'card-' + allCards.length;
+  }
+  columns.forEach((col)=>Array.from(col.children).forEach((el)=>{
+    const key=stableKey(el);
+    el.setAttribute('data-wirdi-sortable-card','');
+    el.setAttribute('data-wirdi-sort-key',key);
+    el.style.setProperty('--wirdi-jiggle-delay', ((allCards.length%5)*-43)+'ms');
+    allCards.push(el);
+  }));
+  const cardByKey = new Map(allCards.map(el=>[el.dataset.wirdiSortKey,el]));
+
+  function readStoredOrder(){
+    try { const v=JSON.parse(localStorage.getItem(storageKey)||'null'); return v && typeof v==='object' ? v : null; }
+    catch(_){ return null; }
+  }
+  function restoreOrder(){
+    const saved=readStoredOrder();
+    if(!saved) return;
+    const placed=new Set();
+    columns.forEach((col,index)=>{
+      const keys=Array.isArray(saved[index===0?'primary':'aside'])?saved[index===0?'primary':'aside']:[];
+      keys.forEach(key=>{const node=cardByKey.get(key); if(node&&!placed.has(node)){col.appendChild(node);placed.add(node);}});
+    });
+    // Cards unknown to an older saved order stay in their original column and follow known ones.
+    allCards.forEach(node=>{if(!placed.has(node)){const original= node.dataset.wirdiOriginalColumn==='aside'?aside:primary;(original||primary).appendChild(node);placed.add(node);}});
+  }
+  allCards.forEach(node=>node.dataset.wirdiOriginalColumn=node.parentElement===aside?'aside':'primary');
+  restoreOrder();
+  function saveOrder(){
+    const payload={primary:Array.from(primary.children).filter(el=>el.hasAttribute('data-wirdi-sortable-card')).map(el=>el.dataset.wirdiSortKey),aside:Array.from(aside.children).filter(el=>el.hasAttribute('data-wirdi-sortable-card')).map(el=>el.dataset.wirdiSortKey),updatedAt:Date.now()};
+    try{localStorage.setItem(storageKey,JSON.stringify(payload));}catch(_){/* Layout continues to work for this session if storage is blocked. */}
+  }
+  function isArabic(){return (document.documentElement.lang||'ar').toLowerCase().startsWith('ar');}
+  let active=false;
+  let drag=null;
+  let currentTarget=null;
+  function copyTexts(){
+    const ar=isArabic();
+    if(active){
+      title.textContent=ar?'وضع ترتيب الكروت مفعّل':'Card arrangement is on';
+      hint.textContent=ar?'اسحب كارت فوق كارت تاني لتبديل مكانيهما. اضغط «تم» للحفظ.':'Drag a card onto another to swap positions. Press Done to save.';
+      buttonText.textContent=ar?'تم الترتيب':'Done';
+      toggle.setAttribute('aria-label',ar?'إنهاء ترتيب الكروت':'Finish arranging cards');
+      toggle.title=ar?'إنهاء وحفظ الترتيب':'Finish and save layout';
+    }else{
+      title.textContent=ar?'رتّب لوحة التحكم بطريقتك':'Arrange your dashboard your way';
+      hint.textContent=ar?'فعّل وضع الترتيب، ثم اسحب كارت فوق كارت تاني لتبديل مكانيهما.':'Turn on arrangement mode, then drag a card onto another to swap positions.';
+      buttonText.textContent=ar?'ترتيب الكروت':'Arrange cards';
+      toggle.setAttribute('aria-label',ar?'تفعيل ترتيب كروت لوحة التحكم':'Arrange dashboard cards');
+      toggle.title=ar?'اضغط ثم اسحب الكروت لتبديل أماكنها':'Turn on, then drag cards to swap places';
+    }
+  }
+  function setActive(next){
+    active=!!next;
+    document.body.classList.toggle('wirdi-sort-mode',active);
+    toggle.setAttribute('aria-pressed',String(active));
+    if(active){
+      allCards.forEach((el)=>{if(!el.hasAttribute('tabindex'))el.dataset.wirdiAddedTabindex='1',el.setAttribute('tabindex','0');});
+    }else{
+      if(drag) finishDrag(false);
+      allCards.forEach(el=>{if(el.dataset.wirdiAddedTabindex==='1'){el.removeAttribute('tabindex');delete el.dataset.wirdiAddedTabindex;}});
+      saveOrder();
+    }
+    copyTexts();
+  }
+  toggle.addEventListener('click',()=>setActive(!active));
+  const langObserver=new MutationObserver(copyTexts);
+  langObserver.observe(document.documentElement,{attributes:true,attributeFilter:['lang','dir']});
+  copyTexts();
+
+  function makePlaceholder(el){
+    const r=el.getBoundingClientRect();
+    const p=document.createElement('div');
+    p.className='wirdi-drag-placeholder';
+    p.setAttribute('aria-hidden','true');
+    p.style.height=Math.max(46,r.height)+'px';
+    p.style.width='100%';
+    p.style.minHeight=Math.max(46,r.height)+'px';
+    p.style.borderRadius=getComputedStyle(el).borderRadius||'14px';
+    return p;
+  }
+  function haptic(ms){try{if(navigator.vibrate)navigator.vibrate(ms);}catch(_){}}
+  function clearTarget(){if(currentTarget)currentTarget.classList.remove('wirdi-drop-target');currentTarget=null;}
+  function setTarget(el){
+    if(el===currentTarget)return;
+    clearTarget();
+    if(el&&el!==drag?.card&&el.isConnected){currentTarget=el;el.classList.add('wirdi-drop-target');}
+  }
+  function beginDrag(state){
+    const el=state.card;
+    if(!active||!el.isConnected)return;
+    const rect=el.getBoundingClientRect();
+    const placeholder=makePlaceholder(el);
+    el.parentNode.insertBefore(placeholder,el);
+    state.placeholder=placeholder;
+    state.rect=rect;
+    state.originalStyle=el.getAttribute('style');
+    state.parent=placeholder.parentNode;
+    state.key=el.dataset.wirdiSortKey;
+    state.started=true;
+    el.classList.add('wirdi-sort-dragging');
+    el.style.width=rect.width+'px';
+    el.style.height='auto';
+    el.style.left=(state.x-state.offsetX)+'px';
+    el.style.top=(state.y-state.offsetY)+'px';
+    el.style.margin='0';
+    el.style.maxWidth='calc(100vw - 12px)';
+    el.style.transform='translate3d(0,0,0) scale(1.025) rotate(0deg)';
+    document.body.appendChild(el);
+    state.card=el;
+    haptic(10);
+  }
+  function moveFloating(state,x,y){
+    state.x=x;state.y=y;
+    const el=state.card;
+    el.style.left=(x-state.offsetX)+'px';
+    el.style.top=(y-state.offsetY)+'px';
+    el.style.transform='translate3d(0,0,0) scale(1.025) rotate('+Math.max(-1.2,Math.min(1.2,(x-state.startX)*0.018))+'deg)';
+    const under=document.elementFromPoint(x,y);
+    const target=under&&under.closest?under.closest('[data-wirdi-sortable-card]'):null;
+    setTarget(target&&target!==el?target:null);
+  }
+  function resetCardStyle(state){
+    const el=state.card;
+    el.classList.remove('wirdi-sort-dragging');
+    if(state.originalStyle===null)el.removeAttribute('style');else el.setAttribute('style',state.originalStyle);
+  }
+  function finishDrag(commit){
+    const state=drag;if(!state)return;
+    drag=null;
+    clearTarget();
+    const el=state.card;
+    const sourceSlot=state.placeholder;
+    const target=state.started?state.dropTarget:null;
+    if(state.started&&commit&&target&&target!==el&&target.isConnected&&sourceSlot.isConnected){
+      const targetSlot=makePlaceholder(target);
+      target.parentNode.insertBefore(targetSlot,target);
+      sourceSlot.replaceWith(target);
+      targetSlot.replaceWith(el);
+      resetCardStyle(state);
+      el.classList.add('wirdi-sort-landed');
+      window.setTimeout(()=>el.classList.remove('wirdi-sort-landed'),520);
+      saveOrder();
+      haptic(18);
+    }else if(state.started&&sourceSlot.isConnected){
+      sourceSlot.replaceWith(el);
+      resetCardStyle(state);
+    }else if(!state.started){
+      // Nothing was moved; preserve the native click/activation.
+    }
+    if(state.started)saveOrder();
+    if(state.pointerId!=null&&state.captureTarget&&state.captureTarget.releasePointerCapture){try{state.captureTarget.releasePointerCapture(state.pointerId);}catch(_){}}
+  }
+  document.addEventListener('pointerdown',(e)=>{
+    if(!active||drag||e.button!==0||e.isPrimary===false)return;
+    const el=e.target&&e.target.closest?e.target.closest('[data-wirdi-sortable-card]'):null;
+    if(!el||!dashboard.contains(el))return;
+    const r=el.getBoundingClientRect();
+    drag={card:el,startX:e.clientX,startY:e.clientY,x:e.clientX,y:e.clientY,offsetX:e.clientX-r.left,offsetY:e.clientY-r.top,pointerId:e.pointerId,captureTarget:e.target,started:false,dropTarget:null};
+  },{passive:true});
+  document.addEventListener('pointermove',(e)=>{
+    if(!drag)return;
+    const state=drag;
+    const dx=e.clientX-state.startX,dy=e.clientY-state.startY;
+    if(!state.started){
+      if(Math.hypot(dx,dy)<7)return;
+      beginDrag(state);
+    }
+    if(state.started){
+      if(e.cancelable)e.preventDefault();
+      moveFloating(state,e.clientX,e.clientY);
+      state.dropTarget=currentTarget;
+    }
+  },{passive:false});
+  document.addEventListener('pointerup',(e)=>{
+    if(!drag)return;
+    if(!drag.started){finishDrag(false);return;}
+    // One final hit-test at release makes touch and stylus drops more reliable.
+    const el=document.elementFromPoint(e.clientX,e.clientY);
+    const target=el&&el.closest?el.closest('[data-wirdi-sortable-card]'):null;
+    drag.dropTarget=target&&target!==drag.card?target:null;
+    finishDrag(true);
+  },{passive:true});
+  document.addEventListener('pointercancel',()=>{if(drag)finishDrag(false);},{passive:true});
+  document.addEventListener('keydown',(e)=>{
+    if(!active||!e.altKey||!['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key))return;
+    const card=e.target&&e.target.closest?e.target.closest('[data-wirdi-sortable-card]'):null;
+    if(!card)return;
+    const parent=card.parentElement;
+    const siblings=Array.from(parent.children).filter(el=>el.hasAttribute('data-wirdi-sortable-card'));
+    const i=siblings.indexOf(card);
+    if(e.key==='ArrowUp'&&i>0){parent.insertBefore(card,siblings[i-1]);}
+    else if(e.key==='ArrowDown'&&i>=0&&i<siblings.length-1){parent.insertBefore(siblings[i+1],card);}
+    else if((e.key==='ArrowLeft'||e.key==='ArrowRight')){
+      const other=parent===primary?aside:primary;
+      const otherCards=Array.from(other.children).filter(el=>el.hasAttribute('data-wirdi-sortable-card'));
+      if(otherCards.length){const target=otherCards[Math.max(0,Math.min(otherCards.length-1,i))];const marker=makePlaceholder(target);target.parentNode.insertBefore(marker,target);card.parentNode.insertBefore(target,card);marker.replaceWith(card);}
+    }
+    saveOrder();haptic(8);e.preventDefault();
+  });
+})();
+</script>
+
 </body></html>
