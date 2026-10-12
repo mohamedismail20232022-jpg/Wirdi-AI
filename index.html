@@ -2029,6 +2029,26 @@ body :is(code, pre, kbd, samp) { font-family: ui-monospace, SFMono-Regular, Menl
 .daily-report-evidence{margin:14px 0 20px;padding:16px;border:1px solid #d7c79b44;border-radius:18px;background:linear-gradient(145deg,rgba(216,186,114,.075),rgba(141,224,186,.025));color:var(--text,#f5f4ed);break-inside:avoid}.daily-report-evidence-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.daily-report-evidence h3{font-size:15px;margin:0 0 8px}.daily-report-evidence-head span{font-size:10px;color:var(--gold,#d8ba72);border:1px solid #d8ba7244;border-radius:100px;padding:5px 9px;white-space:nowrap}.daily-report-evidence p{font-size:11px;line-height:1.8;color:var(--muted,#a6bbb1);margin:8px 0}.daily-report-evidence-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0}.daily-report-evidence-stats>div{padding:10px;border:1px solid rgba(165,188,170,.13);border-radius:12px;background:rgba(0,0,0,.08);min-width:0}.daily-report-evidence-stats small{display:block;font-size:10px;color:var(--muted,#a6bbb1);margin-bottom:5px}.daily-report-evidence-stats strong{display:block;font-size:12px;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.daily-report-evidence .daily-report-table{min-width:500px}.daily-report-evidence ul{margin:6px 0;padding-inline-start:20px;color:var(--muted,#a6bbb1);font-size:11px;line-height:1.8}.daily-report-evidence-foot{border-top:1px solid rgba(165,188,170,.15);padding-top:9px;font-size:10px!important}@media(max-width:540px){.daily-report-evidence{padding:11px}.daily-report-evidence-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.daily-report-evidence-head h3{font-size:13px}}
 body.light-ui .daily-report-evidence{background:linear-gradient(145deg,#fbf7e9,#f6faf5);color:#24372b;border-color:#e4d8b9}body.light-ui .daily-report-evidence p,body.light-ui .daily-report-evidence ul,body.light-ui .daily-report-evidence-stats small{color:#53675b}body.light-ui .daily-report-evidence-stats>div{background:#fff;border-color:#e0e9de}
 </style>
+
+<style id="wirdi-calendar-score-minimal-polish">
+/* Compact, legible daily score within each calendar tile. */
+.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-bottom{align-items:center!important;min-height:16px!important;gap:3px!important}
+.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:31px!important;min-height:17px!important;padding:2px 5px!important;border:1px solid rgba(139,178,153,.2)!important;border-radius:6px!important;background:rgba(135,168,149,.09)!important;color:#c1d2c7!important;font:750 10px/1 'Segoe UI',Arial,sans-serif!important;font-variant-numeric:tabular-nums!important;letter-spacing:-.15px!important;white-space:nowrap!important;box-shadow:inset 0 1px rgba(255,255,255,.025)!important}
+.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score.high{color:#9af0bb!important;border-color:rgba(97,220,150,.25)!important;background:rgba(69,178,119,.12)!important}
+.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score.mid{color:#f0d48c!important;border-color:rgba(222,187,103,.24)!important;background:rgba(206,164,73,.1)!important}
+.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score.low{color:#ffb4a2!important;border-color:rgba(241,139,115,.24)!important;background:rgba(193,91,72,.1)!important}
+.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score.unrated{min-width:20px!important;color:#8da198!important;background:rgba(135,168,149,.055)!important;border-color:rgba(139,178,153,.12)!important;font-weight:600!important}
+.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score.is-provisional{border-style:dashed!important}
+.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-bottom.has-score{justify-content:center!important}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score{color:#61796b!important;background:rgba(109,142,121,.07)!important;border-color:rgba(109,142,121,.18)!important}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score.high{color:#17663d!important;background:rgba(61,166,104,.1)!important;border-color:rgba(61,166,104,.24)!important}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score.mid{color:#805e1b!important;background:rgba(206,164,73,.11)!important;border-color:rgba(172,133,43,.25)!important}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score.low{color:#9a3f31!important;background:rgba(193,91,72,.08)!important;border-color:rgba(193,91,72,.2)!important}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score.unrated{color:#83958b!important}
+@media(max-width:640px){.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score{min-width:29px!important;min-height:16px!important;padding:2px 4px!important;font-size:9px!important;border-radius:5px!important}}
+@media(max-width:400px){.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score{min-width:27px!important;font-size:8px!important}.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-bottom.has-score{min-height:14px!important}}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -2902,7 +2922,7 @@ function renderWirdiCalendar(){
  if(next){next.disabled=wirdiCalendarMonth>=todayMonth;next.title=en?'Next month':'الشهر التالي';next.setAttribute('aria-label',next.title);next.onclick=()=>{const candidate=wirdiMonthShift(wirdiCalendarMonth,1);if(candidate<=todayMonth){wirdiCalendarMonth=candidate;renderWirdiCalendar()}}}
  if(todayBtn){todayBtn.textContent=en?'Today':'اليوم';todayBtn.title=en?'Go to today':'الرجوع لنهارده';todayBtn.onclick=()=>{wirdiCalendarMonth=todayMonth;currentDate=today;renderWirdiCalendar()}}
  const title=$('wirdiHeatTitle');if(title)title.textContent=en?'Your worship calendar':'تقويم إنجازاتك';
- const sub=$('wirdiHeatSub');if(sub)sub.textContent=en?'Every date has a clear status. Today stays highlighted independently of the selected record.':'كل يوم واضح بحالته، والنهارده مميز دايمًا حتى لو فاتح سجل يوم تاني.';
+ const sub=$('wirdiHeatSub');if(sub)sub.textContent=en?'Daily scores appear inside logged dates; today stays highlighted independently.':'السكور اليومي بيظهر جوّه مربع كل يوم عليه تسجيل، والنهارده مميز دايمًا.';
  const eyebrow=$('wirdiCalendarEyebrow');if(eyebrow)eyebrow.textContent=en?'YOUR JOURNEY':'رحلتك مع الورد';
  const completeLabel=$('wirdiCalCompleteLabel');if(completeLabel)completeLabel.textContent=en?'Days completed':'أيام مكتملة';
  const loggedLabel=$('wirdiCalLoggedLabel');if(loggedLabel)loggedLabel.textContent=en?'Days with entries':'أيام فيها تسجيل';
@@ -2931,12 +2951,20 @@ function renderWirdiCalendar(){
   else if(hasActivity)status=en?'In progress · some tasks left':'فيه تسجيل، ولسه فيه مهام ناقصة';
   const classes=['wirdi-heat-day','wirdi-calendar-day',beforeStart?'is-before-start':'',future?'is-future':'',key===today?'is-today':'',key===currentDate?'is-selected':'',completed?'is-complete':'',!completed&&hasActivity?'has-activity is-incomplete':'',!hasActivity?'is-empty':''].filter(Boolean).join(' ');
   const marker=completed?'<span class="wirdi-calendar-state-mark complete" aria-hidden="true">✓</span>':hasActivity?'<span class="wirdi-calendar-state-mark partial" aria-hidden="true">!</span>':'<span class="wirdi-calendar-state-mark empty" aria-hidden="true"></span>';
+  const scoreValue=metrics&&Number.isFinite(metrics.score)?metrics.score:null;
+  const scoreLabel=scoreValue!==null?`${scoreValue}%`:(hasActivity?'—':'');
+  const provisional=!!metrics&&metrics.scoreStatus==='provisional';
+  const scoreClass=scoreValue===null?'unrated':scoreValue>=80?'high':scoreValue>=50?'mid':'low';
+  const scoreHint=scoreValue!==null?(en?`Daily score: ${scoreValue}%${provisional?' · provisional':''}`:`السكور اليومي: ${scoreValue}%${provisional?' · درجة مبدئية':''}`):(hasActivity?(en?'Not enough data to calculate a score':'بيانات غير كافية لحساب السكور'):'');
   const monthDate=new Intl.DateTimeFormat(en?'en-US':'ar-EG',{month:'long',timeZone:'UTC'}).format(new Date(key+'T12:00:00Z'));
-  const aria=en?`${monthDate} ${day}, ${year}. ${status}${key===today?'. Today':''}`:`${day} ${monthDate} ${year}. ${status}${key===today?'، النهارده':''}`;
-  const todayChip=key===today?`<span class="wirdi-calendar-today-chip">${en?'TODAY':'النهارده'}</span>`:'';
+  const scoreAria=scoreHint?`${en?'. ': '، '}${scoreHint}`:'';
+  const aria=en?`${monthDate} ${day}, ${year}. ${status}${scoreAria}${key===today?'. Today':''}`:`${day} ${monthDate} ${year}. ${status}${scoreAria}${key===today?'، النهارده':''}`;
+  // The gold today outline remains the primary cue when a score is present, preserving room for the score on narrow screens.
+  const todayChip=key===today&&!scoreLabel?`<span class="wirdi-calendar-today-chip">${en?'TODAY':'النهارده'}</span>`:'';
   const taskCaption=completed?(en?'Complete':'مكتمل'):hasActivity?(en?'In progress':'ناقص'):'';
   const dayNumber=en?String(day):day.toLocaleString('ar-EG');
-  dayHtml+=`<button type="button" class="${classes}" data-wirdi-day="${key}" title="${esc(aria)}" aria-label="${esc(aria)}" aria-pressed="${key===currentDate?'true':'false'}" ${beforeStart||future?'disabled aria-disabled="true"':''}><span class="wirdi-calendar-day-top"><strong class="wirdi-calendar-day-number">${dayNumber}</strong>${marker}</span><span class="wirdi-calendar-day-bottom">${todayChip}<small class="wirdi-calendar-day-status">${taskCaption}</small></span></button>`;
+  const scoreMarkup=scoreLabel?`<span class="wirdi-calendar-score ${scoreClass}${provisional?' is-provisional':''}" title="${esc(scoreHint)}" aria-hidden="true">${scoreLabel}</span>`:'';
+  dayHtml+=`<button type="button" class="${classes}" data-wirdi-day="${key}" title="${esc(aria)}" aria-label="${esc(aria)}" aria-pressed="${key===currentDate?'true':'false'}" ${beforeStart||future?'disabled aria-disabled="true"':''}><span class="wirdi-calendar-day-top"><strong class="wirdi-calendar-day-number">${dayNumber}</strong>${marker}</span><span class="wirdi-calendar-day-bottom${scoreLabel?' has-score':''}">${todayChip}${scoreMarkup}${scoreLabel?'':`<small class="wirdi-calendar-day-status">${taskCaption}</small>`}</span></button>`;
  }
  const trailing=(7-((offset+daysInMonth)%7))%7;
  const trailingBlanks=Array.from({length:trailing},()=>'<span class="wirdi-calendar-blank" aria-hidden="true"></span>').join('');
@@ -4619,4 +4647,772 @@ body.wirdi-modal-open{overflow:hidden}
 })();
 </script>
 
+
+<style id="wirdi-premium-light-mode-repair">
+/* WIRDI AI — complete light theme. Appended last intentionally to neutralize legacy dark-only declarations. */
+html:has(body.light-ui){color-scheme:light!important;background:#f4f7f3!important;}
+body.light-ui{
+  color-scheme:light!important;
+  --bg:#f4f7f3!important;--bg2:#edf2ec!important;--panel:#ffffff!important;--panel2:#f7f9f6!important;
+  --line:rgba(47,75,57,.15)!important;--gold:#977431!important;--gold2:#785b27!important;
+  --mint:#237b58!important;--text:#1d2b24!important;--muted:#66766c!important;
+  --red:#b94f45!important;--blue:#3a7895!important;--shadow:0 12px 34px rgba(36,60,42,.075)!important;
+  background:radial-gradient(ellipse at 88% -10%,rgba(204,224,202,.62),transparent 38rem),radial-gradient(ellipse at 0% 46%,rgba(239,226,193,.24),transparent 32rem),#f4f7f3!important;
+  color:#1d2b24!important;
+}
+body.light-ui .app,body.light-ui .main,body.light-ui .view,body.light-ui .layout,
+body.light-ui #view-home,body.light-ui #view-worship,body.light-ui #view-reports,
+body.light-ui #view-insights,body.light-ui #view-history,body.light-ui #view-goals,
+body.light-ui #view-settings{background:transparent!important;color:var(--text)!important;}
+
+/* Main chrome: clean, breathable surfaces rather than leftover charcoal panels. */
+body.light-ui .topbar,body.light-ui .sidebar,body.light-ui .profile-control,
+body.light-ui .profile-chip,body.light-ui .topbar-tools,
+body.light-ui .mobile-nav{
+  background:rgba(255,255,252,.94)!important;color:var(--text)!important;
+  border-color:rgba(47,75,57,.13)!important;box-shadow:0 8px 28px rgba(39,61,44,.055)!important;
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+}
+body.light-ui .topbar{border:1px solid rgba(47,75,57,.12)!important;border-radius:20px!important;}
+body.light-ui .sidebar{border:1px solid rgba(47,75,57,.13)!important;}
+body.light-ui .mobile-nav{border-top:1px solid rgba(47,75,57,.13)!important;box-shadow:0 -8px 28px rgba(39,61,44,.07)!important;}
+body.light-ui .brand-name,body.light-ui .brand-title,body.light-ui .brand-mark,
+body.light-ui .profile-name strong,body.light-ui .profile-display-name,
+body.light-ui .nav-btn,body.light-ui .top-icon-button,body.light-ui .lang-toggle,
+body.light-ui .dashboard-search,body.light-ui .dashboard-search input,
+body.light-ui .panel-title-lockup h2,body.light-ui .panel-heading h2,
+body.light-ui .page-title,body.light-ui .page-title h1,body.light-ui .page-title h2,
+body.light-ui .section-head,body.light-ui .section-head h2,body.light-ui .section-head h3,
+body.light-ui .wirdi-calendar-title-lockup h2{color:var(--text)!important;}
+body.light-ui .brand-sub,body.light-ui .profile-name small,body.light-ui .nav-label,
+body.light-ui .nav-copy small,body.light-ui .panel-title-lockup small,
+body.light-ui .panel-heading small,body.light-ui .page-title p,
+body.light-ui .eyebrow,body.light-ui .muted,body.light-ui .small,
+body.light-ui .desc,body.light-ui .tiny-meta,body.light-ui .footer-note,
+body.light-ui .statusline,body.light-ui .privacy-note,body.light-ui .weekly-subtitle,
+body.light-ui .performance-note,body.light-ui .performance-row>span:nth-child(2),
+body.light-ui .wirdi-calendar-title-lockup p,body.light-ui .wirdi-calendar-stat-copy span,
+body.light-ui .wirdi-sync-status,body.light-ui .wirdi-calendar-legend,
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-day-status{color:#68786e!important;}
+body.light-ui .nav-btn{border-color:transparent!important;background:transparent!important;}
+body.light-ui .nav-btn:hover,body.light-ui .top-icon-button:hover,
+body.light-ui .lang-toggle:hover{background:#edf3ec!important;color:#274c36!important;}
+body.light-ui .nav-btn.active,body.light-ui .mobile-nav .nav-btn.active{
+  color:#215b3d!important;background:#e7f2e8!important;border-color:#d2e5d3!important;
+  box-shadow:inset 0 -2px #4d9164!important;
+}
+body.light-ui .nav-btn.active .nav-ico,body.light-ui .mobile-nav .nav-btn.active .nav-ico{color:#33764e!important;}
+body.light-ui .lang-toggle.active{background:#e7f0e5!important;color:#28583c!important;}
+body.light-ui .top-icon-button,body.light-ui .profile-photo-button{
+  color:#41584a!important;border-color:#dce5da!important;background:#f9fbf7!important;
+}
+body.light-ui .profile-chip img,body.light-ui #profileAvatar{border-color:#d4c18e!important;box-shadow:0 0 0 3px rgba(151,116,49,.08)!important;}
+
+/* Unified panel system across dashboard, worship, analytics, reports, history and settings. */
+body.light-ui .card,body.light-ui .subcard,body.light-ui .stat-card,
+body.light-ui .reference-panel,body.light-ui .performance-panel,
+body.light-ui .weekly-panel,body.light-ui .smart-insight-panel,
+body.light-ui .prayer-times-panel,body.light-ui .prayer-time-card,
+body.light-ui .worship-card,body.light-ui .activity-card,
+body.light-ui .today-reflection-card,body.light-ui .closing-reflection,
+body.light-ui .wirdi-mini-panel,body.light-ui .wirdi-quick-item,
+body.light-ui .insights-engine-banner,body.light-ui .insight-metric,
+body.light-ui .insight-metrics>div,body.light-ui .weekly-summary>span,
+body.light-ui .report-card,body.light-ui .report-panel,body.light-ui .chart-panel,
+body.light-ui .setting-field,body.light-ui .setting-card,body.light-ui .settings-card,
+body.light-ui .goal-card,body.light-ui .history-item,body.light-ui .achievement-card,
+body.light-ui .deep-insight-card,body.light-ui .wirdi-reflection-head,
+body.light-ui .wirdi-notice-intro,body.light-ui .wirdi-channel-prefs,
+body.light-ui .wirdi-reminder-settings,body.light-ui .wirdi-notice-status,
+body.light-ui .input-wrap,body.light-ui .line-field,body.light-ui .notes-area,
+body.light-ui .report-meaning-card,body.light-ui .report-toolbar,
+body.light-ui .score-breakdown-card,body.light-ui .insights-metric-card{
+  color:var(--text)!important;
+  background:linear-gradient(145deg,#fffefa 0%,#f7faf6 100%)!important;
+  border-color:#dce6db!important;
+  box-shadow:0 8px 24px rgba(37,65,43,.045)!important;
+}
+body.light-ui .main .card,body.light-ui .main .subcard{background:linear-gradient(145deg,#fffefa,#f7faf6)!important;border-color:#dce6db!important;}
+body.light-ui .card:hover,body.light-ui .subcard:hover,body.light-ui .wirdi-quick-item:hover,
+body.light-ui .prayer-time-card:hover{border-color:#c8d9c8!important;box-shadow:0 12px 28px rgba(37,65,43,.075)!important;}
+body.light-ui .divider,body.light-ui .section-divider,body.light-ui hr{border-color:#e1e8df!important;background-color:#e1e8df!important;}
+body.light-ui .panel-title-icon,body.light-ui .stat-icon,body.light-ui .wirdi-quick-icon,
+body.light-ui .activity-icon,body.light-ui .prayer-schedule-icon,
+body.light-ui .performance-icon,body.light-ui .insights-metric-icon{
+  color:#587c61!important;background:#edf4eb!important;border-color:#dae7d8!important;
+}
+
+/* Light-mode hero: keep the premium editorial feel without a dark photo overlay. */
+body.light-ui .reference-hero,body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  color:#22372a!important;
+  background:radial-gradient(ellipse at 86% 10%,rgba(214,231,199,.78),transparent 45%),radial-gradient(ellipse at 8% 95%,rgba(242,225,182,.55),transparent 42%),linear-gradient(125deg,#fffef8 0%,#edf5e9 58%,#f7f2df 100%)!important;
+  border:1px solid #d8e3d4!important;box-shadow:0 14px 32px rgba(38,66,44,.07)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:.22!important;}
+body.light-ui .verse-ar,body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .hero-copy-reference,
+body.light-ui .feature-carousel .hero-greeting,
+body.light-ui .hero-greeting,body.light-ui .feature-headline,
+body.light-ui .feature-carousel .verse-en,body.light-ui .feature-reflection,
+body.light-ui .feature-carousel .feature-reflection,
+body.light-ui .reference-hero .verse-en{color:#273b2d!important;text-shadow:none!important;}
+body.light-ui .feature-overline,body.light-ui .feature-carousel .verse-reference,
+body.light-ui .reference-hero .verse-reference{color:#896b2c!important;}
+body.light-ui .feature-carousel-controls>button{background:#fffdf5!important;color:#765d2a!important;border-color:#e2d4ab!important;}
+body.light-ui .feature-dots button{background:#879b88!important;}
+body.light-ui .feature-dots button.active{background:#9b7935!important;}
+body.light-ui .fajr-cycle-note{color:#617267!important;}
+
+/* Prayer rows, progress, score rings, metrics and the weekly chart. */
+body.light-ui .prayer-row,body.light-ui .habit-row,body.light-ui .break-row,
+body.light-ui .performance-row,body.light-ui .worship-card-top,
+body.light-ui .prayer-schedule-name,body.light-ui .prayer-schedule-time,
+body.light-ui .activity-card-stat,body.light-ui .activity-card-foot,
+body.light-ui .stat-number,body.light-ui .stat-footer,body.light-ui .stat-top,
+body.light-ui .performance-value,body.light-ui .performance-label,
+body.light-ui .worship-value,body.light-ui .counter-actions{color:var(--text)!important;}
+body.light-ui .progress-track,body.light-ui .perf-bar,body.light-ui .activity-progress,
+body.light-ui .weekly-chart .week-bar-wrap,body.light-ui .progress{background:#e6ede4!important;border-color:#dce6da!important;}
+body.light-ui .progress-fill,body.light-ui .perf-bar>i,body.light-ui .activity-progress>i{background:linear-gradient(90deg,#57966a,#93c49a)!important;}
+body.light-ui .score-ring{color:#2d6b49!important;}
+body.light-ui .weekly-chart .week-bar{background:linear-gradient(180deg,#8ab894,#4d8860)!important;}
+body.light-ui .activity-card-spacer{background:transparent!important;}
+
+/* Buttons: high contrast actions with light neutral secondary controls. */
+body.light-ui .btn-primary,body.light-ui .gold-filled-button,
+body.light-ui .wirdi-command-btn,body.light-ui .btn-success{
+  color:#fffdf7!important;background:linear-gradient(135deg,#34764d,#255c3c)!important;
+  border-color:#2e6a44!important;box-shadow:0 5px 14px rgba(39,103,62,.16)!important;
+}
+body.light-ui .btn-primary:hover,body.light-ui .gold-filled-button:hover,
+body.light-ui .wirdi-command-btn:hover{background:linear-gradient(135deg,#3d8357,#2b6945)!important;}
+body.light-ui .btn-ghost,body.light-ui .btn:not(.btn-primary):not(.btn-danger),
+body.light-ui .outline-gold-button,body.light-ui .btn-icon,
+body.light-ui .icon-btn,body.light-ui .counter-actions button,
+body.light-ui .wirdi-calendar-navbtn{
+  color:#425c49!important;background:#fffefa!important;border-color:#d9e4d7!important;
+  box-shadow:0 2px 7px rgba(40,68,45,.035)!important;
+}
+body.light-ui .btn-danger{color:#a43e37!important;background:#fff5f2!important;border-color:#efd0c9!important;}
+body.light-ui .tag,body.light-ui .pill,body.light-ui .micro-tag,
+body.light-ui .tiny-meta,body.light-ui .city-chip,body.light-ui .sync-chip{
+  color:#53685a!important;background:#f0f5ed!important;border-color:#dce6d8!important;
+}
+body.light-ui .tag.ok,body.light-ui .ok,body.light-ui .complete,
+body.light-ui .status-success{color:#267248!important;background:#e9f5eb!important;border-color:#cee5d1!important;}
+body.light-ui .btn:disabled,body.light-ui button:disabled{opacity:.55!important;}
+
+/* Consistent native controls, search, forms and focus states. */
+body.light-ui input,body.light-ui select,body.light-ui textarea,
+body.light-ui .line-field,body.light-ui .notes-area,
+body.light-ui .setting-field input,body.light-ui .setting-field select,
+body.light-ui .setting-field textarea,body.light-ui .wirdi-reminder-grid input,
+body.light-ui .wirdi-field-label select,body.light-ui .dashboard-search,
+body.light-ui .dashboard-search input,body.light-ui .report-toolbar select,
+body.light-ui .report-toolbar input,body.light-ui .search-input{
+  color:#22342a!important;background:#fffefa!important;border-color:#d8e2d6!important;
+  color-scheme:light!important;box-shadow:inset 0 1px 2px rgba(37,62,43,.025)!important;
+}
+body.light-ui input::placeholder,body.light-ui textarea::placeholder,
+body.light-ui .dashboard-search input::placeholder{color:#89968b!important;opacity:1!important;}
+body.light-ui input:focus,body.light-ui select:focus,body.light-ui textarea:focus{border-color:#86b38c!important;box-shadow:0 0 0 3px rgba(75,139,84,.12)!important;}
+body.light-ui input[type="checkbox"],body.light-ui input[type="radio"]{accent-color:#34764d!important;}
+body.light-ui :where(button,a,input,select,textarea,[tabindex]):focus-visible{outline-color:#669a71!important;box-shadow:0 0 0 4px rgba(76,137,85,.16)!important;}
+
+/* Modal, popover, account gate, toast and notification surfaces. */
+body.light-ui .modal-backdrop{background:rgba(28,43,32,.30)!important;backdrop-filter:blur(12px)!important;}
+body.light-ui .modal,body.light-ui #modalPanel,body.light-ui [role="dialog"]:not(.modal-backdrop),
+body.light-ui [role="menu"],body.light-ui [role="listbox"],
+body.light-ui .dropdown-menu,body.light-ui .popover,body.light-ui .wirdi-popover,
+body.light-ui .notification-panel,body.light-ui .profile-menu{
+  color:var(--text)!important;background:linear-gradient(145deg,#fffefa,#f4f8f2)!important;
+  border-color:#d8e3d6!important;box-shadow:0 22px 60px rgba(31,54,36,.16)!important;
+}
+body.light-ui .modal h1,body.light-ui .modal h2,body.light-ui .modal h3,
+body.light-ui .modal strong,body.light-ui .modal label,
+body.light-ui .modal .modal-title,body.light-ui .modal .modal-body,
+body.light-ui .modal p,body.light-ui .modal li{color:var(--text)!important;}
+body.light-ui .modal-close,body.light-ui .modal .btn-ghost{color:#526b57!important;background:#f1f6ef!important;border-color:#dce6d9!important;}
+body.light-ui #authGate{color:var(--text)!important;background:radial-gradient(ellipse at 50% 0%,rgba(221,236,213,.88),transparent 50%),#f3f7f1!important;}
+body.light-ui #authGate .auth-gate-card{color:var(--text)!important;background:linear-gradient(145deg,#fffefa,#f3f7f0)!important;border-color:#dce5d8!important;box-shadow:0 25px 70px rgba(40,64,42,.15)!important;}
+body.light-ui #authGate h1,body.light-ui #authGate h2,body.light-ui #authGate h3,
+body.light-ui #authGate p,body.light-ui #authGate label,body.light-ui #authGate small,
+body.light-ui #authGate .auth-gate-copy{color:var(--text)!important;}
+body.light-ui .toast{color:#263c2d!important;background:linear-gradient(130deg,#f5e9bd,#e7d49b)!important;border:1px solid #e1d09a!important;box-shadow:0 12px 35px rgba(47,61,35,.16)!important;}
+
+/* Calendar keeps its carefully tuned daily score treatment in either theme. */
+body.light-ui .wirdi-calendar-panel{
+  color:#23382a!important;background:radial-gradient(ellipse at 100% 0%,rgba(232,220,177,.23),transparent 39%),linear-gradient(150deg,#fffefa 0%,#f2f7ef 100%)!important;
+  border-color:#d9e4d6!important;box-shadow:0 14px 36px rgba(36,63,42,.065)!important;
+}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day{color:#304536!important;background:linear-gradient(145deg,#fffefa,#f5f8f3)!important;border-color:#dce6d9!important;box-shadow:0 3px 10px rgba(39,70,47,.035)!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-number{color:#2b4533!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day.is-complete:not(.is-today){background:linear-gradient(145deg,#eaf7ec,#d9efdd)!important;border-color:#9bcda5!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day.is-incomplete:not(.is-today){background:linear-gradient(145deg,#fff5f0,#f9e5df)!important;border-color:#e8b6a8!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day.is-today{background:linear-gradient(145deg,#fff5d7,#f6e9bf)!important;border-color:#d2b35c!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-score{color:#48634c!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-stat{background:#f4f8f1!important;border-color:#dce7d8!important;color:#304536!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-stat strong{color:#2d6140!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-legend-item{color:#617366!important;}
+
+/* Dense analytics and tables: explicit light surfaces for generated / dynamically rendered sections. */
+body.light-ui table,body.light-ui th,body.light-ui td{color:var(--text)!important;border-color:#e0e8de!important;}
+body.light-ui th{background:#eef4ec!important;}
+body.light-ui tr:nth-child(even){background:rgba(236,243,233,.52)!important;}
+body.light-ui .chart-grid,body.light-ui .chart-axis,body.light-ui .chart-label,
+body.light-ui .axis-label,body.light-ui .chart-legend,body.light-ui .chart-legend text,
+body.light-ui svg text{fill:#617267!important;color:#617267!important;}
+body.light-ui .chart-tooltip,body.light-ui .tooltip{color:#25382c!important;background:#fffefa!important;border-color:#dce6d9!important;box-shadow:0 8px 24px rgba(36,60,42,.1)!important;}
+body.light-ui .empty-state,body.light-ui .report-empty,body.light-ui .history-empty{color:#6c7b70!important;background:#f8faf6!important;border-color:#e0e8dd!important;}
+
+/* Narrow screens and print retain the same light palette, with no forced dark footer. */
+@media(max-width:760px){
+  body.light-ui .topbar{background:rgba(255,255,252,.97)!important;}
+  body.light-ui .mobile-nav{background:rgba(255,255,252,.97)!important;}
+  body.light-ui .wirdi-calendar-panel{box-shadow:0 8px 24px rgba(36,63,42,.05)!important;}
+}
+@media(prefers-reduced-motion:reduce){body.light-ui *,body.light-ui *:before,body.light-ui *:after{transition-duration:.01ms!important;animation-duration:.01ms!important;}}
+@media print{body.light-ui,body.light-ui .app,body.light-ui .main{background:#fff!important;color:#17211c!important;}}
+
+/* Final visual QA: remove image/overlay layers that otherwise keep selected cards dark. */
+body.light-ui .activity-card::before,body.light-ui .activity-card::after{display:none!important;content:none!important;background-image:none!important;opacity:0!important;}
+body.light-ui .activity-card,body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,body.light-ui .activity-card.activity-dhikr{
+  isolation:isolate!important;background:linear-gradient(145deg,#fffefa,#f3f8f1)!important;
+  background-image:linear-gradient(145deg,#fffefa,#f3f8f1)!important;border:1px solid #dce7d9!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot,body.light-ui .activity-card .activity-icon{
+  color:#2b4432!important;text-shadow:none!important;
+}
+body.light-ui .activity-card .activity-card-foot,body.light-ui .activity-card .activity-card-stat small,
+body.light-ui .activity-card .activity-card-head small{color:#71816f!important;}
+body.light-ui .activity-card .activity-icon{background:#e9f3e7!important;border:1px solid #dbe8d8!important;box-shadow:none!important;}
+body.light-ui .activity-card .activity-progress{background:#e2ebdf!important;}
+body.light-ui .activity-card .activity-progress>*{background:linear-gradient(90deg,#5a986b,#9bcaa0)!important;}
+
+body.light-ui .today-reflection-card .reflection-shade{display:none!important;background:none!important;background-image:none!important;opacity:0!important;}
+body.light-ui .today-reflection-card{background:linear-gradient(145deg,#fffefa,#f2f7ee)!important;background-image:linear-gradient(145deg,#fffefa,#f2f7ee)!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star{color:#90702f!important;text-shadow:none!important;}
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#2b4031!important;text-shadow:none!important;}
+body.light-ui .today-reflection-card .reflection-copy p{opacity:.82!important;}
+
+body.light-ui .sidebar-footer{background:linear-gradient(145deg,#f4f7ef,#eaf1e6)!important;background-image:none!important;border-top:1px solid #dce6d8!important;}
+body.light-ui .sidebar-footer *{color:#6b7b6d!important;text-shadow:none!important;}
+body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#886b32!important;}
+body.light-ui .language-switch{background:#fffefa!important;background-image:none!important;border-color:#dbe5d8!important;box-shadow:0 2px 8px rgba(35,59,39,.045)!important;}
+body.light-ui .language-globe{color:#65776a!important;}
+body.light-ui .lang-toggle:not(.active){color:#617367!important;}
+body.light-ui .brand-name,body.light-ui .brand-title,body.light-ui .brand-words,
+body.light-ui .brand-words strong,body.light-ui .sidebar-brand .brand-name,
+body.light-ui .sidebar-brand .brand-title{color:#89692c!important;}
+body.light-ui .nav-btn .nav-ico,body.light-ui .mobile-nav .nav-ico{
+  background:#eef4eb!important;background-image:none!important;color:#79612e!important;
+  border:1px solid #dce7d8!important;box-shadow:none!important;filter:none!important;
+}
+body.light-ui .nav-btn.active .nav-ico,body.light-ui .mobile-nav .nav-btn.active .nav-ico{
+  background:#dceedd!important;color:#2d7047!important;border-color:#c4dfc6!important;
+}
+body.light-ui .nav-btn .nav-ico svg,body.light-ui .mobile-nav .nav-ico svg{color:inherit!important;stroke:currentColor!important;filter:none!important;}
+body.light-ui .nav-btn .nav-ico svg path,body.light-ui .nav-btn .nav-ico svg circle,
+body.light-ui .nav-btn .nav-ico svg line,body.light-ui .nav-btn .nav-ico svg polyline,
+body.light-ui .nav-btn .nav-ico svg rect,body.light-ui .mobile-nav .nav-ico svg path,
+body.light-ui .mobile-nav .nav-ico svg circle,body.light-ui .mobile-nav .nav-ico svg line,
+body.light-ui .mobile-nav .nav-ico svg polyline,body.light-ui .mobile-nav .nav-ico svg rect{stroke:currentColor!important;}
+body.light-ui .nav-btn .nav-ico svg path,body.light-ui .mobile-nav .nav-ico svg path{fill:none!important;}
+body.light-ui #wirdiSkipLink{color:#315f40!important;background:#fffefa!important;border:1px solid #dce7d8!important;box-shadow:0 4px 18px rgba(35,59,39,.1)!important;}
+body.light-ui .next-prayer-date,body.light-ui .next-prayer-date *,
+body.light-ui .next-prayer-mark,body.light-ui .prayer-schedule-note,
+body.light-ui .prayer-time-card .prayer-schedule-en{color:#786638!important;text-shadow:none!important;}
+body.light-ui .fajr-live-card .fajr-live-kicker,body.light-ui .fajr-live-card .fajr-live-title,
+body.light-ui .feature-side-note{color:#80672e!important;text-shadow:none!important;}
+
+
+/* Final visual QA: remove image/overlay layers that otherwise keep selected cards dark. */
+body.light-ui .activity-card::before,body.light-ui .activity-card::after{display:none!important;content:none!important;background-image:none!important;opacity:0!important;}
+body.light-ui .activity-card,body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,body.light-ui .activity-card.activity-dhikr{
+  isolation:isolate!important;background:linear-gradient(145deg,#fffefa,#f3f8f1)!important;
+  background-image:linear-gradient(145deg,#fffefa,#f3f8f1)!important;border:1px solid #dce7d9!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot,body.light-ui .activity-card .activity-icon{
+  color:#2b4432!important;text-shadow:none!important;
+}
+body.light-ui .activity-card .activity-card-foot,body.light-ui .activity-card .activity-card-stat small,
+body.light-ui .activity-card .activity-card-head small{color:#71816f!important;}
+body.light-ui .activity-card .activity-icon{background:#e9f3e7!important;border:1px solid #dbe8d8!important;box-shadow:none!important;}
+body.light-ui .activity-card .activity-progress{background:#e2ebdf!important;}
+body.light-ui .activity-card .activity-progress>*{background:linear-gradient(90deg,#5a986b,#9bcaa0)!important;}
+
+body.light-ui .today-reflection-card .reflection-shade{display:none!important;background:none!important;background-image:none!important;opacity:0!important;}
+body.light-ui .today-reflection-card{background:linear-gradient(145deg,#fffefa,#f2f7ee)!important;background-image:linear-gradient(145deg,#fffefa,#f2f7ee)!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star{color:#90702f!important;text-shadow:none!important;}
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#2b4031!important;text-shadow:none!important;}
+body.light-ui .today-reflection-card .reflection-copy p{opacity:.82!important;}
+
+body.light-ui .sidebar-footer{background:linear-gradient(145deg,#f4f7ef,#eaf1e6)!important;background-image:none!important;border-top:1px solid #dce6d8!important;}
+body.light-ui .sidebar-footer *{color:#6b7b6d!important;text-shadow:none!important;}
+body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#886b32!important;}
+body.light-ui .language-switch{background:#fffefa!important;background-image:none!important;border-color:#dbe5d8!important;box-shadow:0 2px 8px rgba(35,59,39,.045)!important;}
+body.light-ui .language-globe{color:#65776a!important;}
+body.light-ui .lang-toggle:not(.active){color:#617367!important;}
+body.light-ui .brand-name,body.light-ui .brand-title,body.light-ui .brand-words,
+body.light-ui .brand-words strong,body.light-ui .sidebar-brand .brand-name,
+body.light-ui .sidebar-brand .brand-title{color:#89692c!important;}
+body.light-ui .nav-btn .nav-ico,body.light-ui .mobile-nav .nav-ico{
+  background:#eef4eb!important;background-image:none!important;color:#79612e!important;
+  border:1px solid #dce7d8!important;box-shadow:none!important;filter:none!important;
+}
+body.light-ui .nav-btn.active .nav-ico,body.light-ui .mobile-nav .nav-btn.active .nav-ico{
+  background:#dceedd!important;color:#2d7047!important;border-color:#c4dfc6!important;
+}
+body.light-ui .nav-btn .nav-ico svg,body.light-ui .mobile-nav .nav-ico svg{color:inherit!important;stroke:currentColor!important;filter:none!important;}
+body.light-ui .nav-btn .nav-ico svg path,body.light-ui .nav-btn .nav-ico svg circle,
+body.light-ui .nav-btn .nav-ico svg line,body.light-ui .nav-btn .nav-ico svg polyline,
+body.light-ui .nav-btn .nav-ico svg rect,body.light-ui .mobile-nav .nav-ico svg path,
+body.light-ui .mobile-nav .nav-ico svg circle,body.light-ui .mobile-nav .nav-ico svg line,
+body.light-ui .mobile-nav .nav-ico svg polyline,body.light-ui .mobile-nav .nav-ico svg rect{stroke:currentColor!important;}
+body.light-ui .nav-btn .nav-ico svg path,body.light-ui .mobile-nav .nav-ico svg path{fill:none!important;}
+body.light-ui #wirdiSkipLink{color:#315f40!important;background:#fffefa!important;border:1px solid #dce7d8!important;box-shadow:0 4px 18px rgba(35,59,39,.1)!important;}
+body.light-ui .next-prayer-date,body.light-ui .next-prayer-date *,
+body.light-ui .next-prayer-mark,body.light-ui .prayer-schedule-note,
+body.light-ui .prayer-time-card .prayer-schedule-en{color:#786638!important;text-shadow:none!important;}
+body.light-ui .fajr-live-card .fajr-live-kicker,body.light-ui .fajr-live-card .fajr-live-title,
+body.light-ui .feature-side-note{color:#80672e!important;text-shadow:none!important;}
+
+/* Dashboard QA: light surfaces inside cards, not only on the card shell. */
+body.light-ui .activity-shade{display:none!important;opacity:0!important;background:none!important;background-image:none!important;}
+body.light-ui .score-ring{background:conic-gradient(from -90deg,#dfe9dc 0deg,#dfe9dc 360deg)!important;border-color:#dbe6d8!important;box-shadow:inset 0 0 0 1px rgba(61,106,67,.04)!important;}
+body.light-ui .score-ring::before{background:linear-gradient(145deg,#fffefa,#f1f7ef)!important;border:1px solid #e0e9dd!important;box-shadow:none!important;}
+body.light-ui .score-ring strong,body.light-ui #heroScore{color:#2d6945!important;text-shadow:none!important;}
+body.light-ui #nextPrayerTime{color:#2c6a46!important;text-shadow:none!important;}
+body.light-ui #nextPrayerMeridiem,body.light-ui #nextPrayerName,
+body.light-ui .next-prayer-clock small,body.light-ui .next-prayer-clock .muted{color:#6e7e70!important;text-shadow:none!important;}
+body.light-ui #dashboardHijriDate,body.light-ui #dashboardDateShort,
+body.light-ui #dashboardDateLong,body.light-ui #dashboardLocation,
+body.light-ui #dailyScoreLabel,body.light-ui #wirdiCalendarRange,
+body.light-ui #prayerProgressText,body.light-ui .performance-panel .panel-heading .eyebrow,
+body.light-ui .activity-card .activity-card-foot small,body.light-ui .activity-card .activity-card-stat small,
+body.light-ui .activity-card .activity-card-head small{color:#6b7d6d!important;}
+body.light-ui .performance-panel .performance-row .performance-label,
+body.light-ui .performance-panel .performance-row .performance-value,
+body.light-ui .performance-panel .performance-row strong{color:#2b4432!important;}
+body.light-ui .prayer-time-card .prayer-schedule-name{color:#263b2d!important;}
+body.light-ui .prayer-time-card .prayer-schedule-en,
+body.light-ui .prayer-time-card .prayer-schedule-note{color:#7a6a45!important;}
+/* Final visual QA: remove image/overlay layers that otherwise keep selected cards dark. */
+body.light-ui .activity-card::before,body.light-ui .activity-card::after{display:none!important;content:none!important;background-image:none!important;opacity:0!important;}
+body.light-ui .activity-card,body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,body.light-ui .activity-card.activity-dhikr{
+  isolation:isolate!important;background:linear-gradient(145deg,#fffefa,#f3f8f1)!important;
+  background-image:linear-gradient(145deg,#fffefa,#f3f8f1)!important;border:1px solid #dce7d9!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot,body.light-ui .activity-card .activity-icon{
+  color:#2b4432!important;text-shadow:none!important;
+}
+body.light-ui .activity-card .activity-card-foot,body.light-ui .activity-card .activity-card-stat small,
+body.light-ui .activity-card .activity-card-head small{color:#71816f!important;}
+body.light-ui .activity-card .activity-icon{background:#e9f3e7!important;border:1px solid #dbe8d8!important;box-shadow:none!important;}
+body.light-ui .activity-card .activity-progress{background:#e2ebdf!important;}
+body.light-ui .activity-card .activity-progress>*{background:linear-gradient(90deg,#5a986b,#9bcaa0)!important;}
+
+body.light-ui .today-reflection-card .reflection-shade{display:none!important;background:none!important;background-image:none!important;opacity:0!important;}
+body.light-ui .today-reflection-card{background:linear-gradient(145deg,#fffefa,#f2f7ee)!important;background-image:linear-gradient(145deg,#fffefa,#f2f7ee)!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star{color:#90702f!important;text-shadow:none!important;}
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#2b4031!important;text-shadow:none!important;}
+body.light-ui .today-reflection-card .reflection-copy p{opacity:.82!important;}
+
+body.light-ui .sidebar-footer{background:linear-gradient(145deg,#f4f7ef,#eaf1e6)!important;background-image:none!important;border-top:1px solid #dce6d8!important;}
+body.light-ui .sidebar-footer *{color:#6b7b6d!important;text-shadow:none!important;}
+body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#886b32!important;}
+body.light-ui .language-switch{background:#fffefa!important;background-image:none!important;border-color:#dbe5d8!important;box-shadow:0 2px 8px rgba(35,59,39,.045)!important;}
+body.light-ui .language-globe{color:#65776a!important;}
+body.light-ui .lang-toggle:not(.active){color:#617367!important;}
+body.light-ui .brand-name,body.light-ui .brand-title,body.light-ui .brand-words,
+body.light-ui .brand-words strong,body.light-ui .sidebar-brand .brand-name,
+body.light-ui .sidebar-brand .brand-title{color:#89692c!important;}
+body.light-ui .nav-btn .nav-ico,body.light-ui .mobile-nav .nav-ico{
+  background:#eef4eb!important;background-image:none!important;color:#79612e!important;
+  border:1px solid #dce7d8!important;box-shadow:none!important;filter:none!important;
+}
+body.light-ui .nav-btn.active .nav-ico,body.light-ui .mobile-nav .nav-btn.active .nav-ico{
+  background:#dceedd!important;color:#2d7047!important;border-color:#c4dfc6!important;
+}
+body.light-ui .nav-btn .nav-ico svg,body.light-ui .mobile-nav .nav-ico svg{color:inherit!important;stroke:currentColor!important;filter:none!important;}
+body.light-ui .nav-btn .nav-ico svg path,body.light-ui .nav-btn .nav-ico svg circle,
+body.light-ui .nav-btn .nav-ico svg line,body.light-ui .nav-btn .nav-ico svg polyline,
+body.light-ui .nav-btn .nav-ico svg rect,body.light-ui .mobile-nav .nav-ico svg path,
+body.light-ui .mobile-nav .nav-ico svg circle,body.light-ui .mobile-nav .nav-ico svg line,
+body.light-ui .mobile-nav .nav-ico svg polyline,body.light-ui .mobile-nav .nav-ico svg rect{stroke:currentColor!important;}
+body.light-ui .nav-btn .nav-ico svg path,body.light-ui .mobile-nav .nav-ico svg path{fill:none!important;}
+body.light-ui #wirdiSkipLink{color:#315f40!important;background:#fffefa!important;border:1px solid #dce7d8!important;box-shadow:0 4px 18px rgba(35,59,39,.1)!important;}
+body.light-ui .next-prayer-date,body.light-ui .next-prayer-date *,
+body.light-ui .next-prayer-mark,body.light-ui .prayer-schedule-note,
+body.light-ui .prayer-time-card .prayer-schedule-en{color:#786638!important;text-shadow:none!important;}
+body.light-ui .fajr-live-card .fajr-live-kicker,body.light-ui .fajr-live-card .fajr-live-title,
+body.light-ui .feature-side-note{color:#80672e!important;text-shadow:none!important;}
+
+/* Dashboard QA: light surfaces inside cards, not only on the card shell. */
+body.light-ui .activity-shade{display:none!important;opacity:0!important;background:none!important;background-image:none!important;}
+body.light-ui .score-ring{background:conic-gradient(from -90deg,#dfe9dc 0deg,#dfe9dc 360deg)!important;border-color:#dbe6d8!important;box-shadow:inset 0 0 0 1px rgba(61,106,67,.04)!important;}
+body.light-ui .score-ring::before{background:linear-gradient(145deg,#fffefa,#f1f7ef)!important;border:1px solid #e0e9dd!important;box-shadow:none!important;}
+body.light-ui .score-ring strong,body.light-ui #heroScore{color:#2d6945!important;text-shadow:none!important;}
+body.light-ui #nextPrayerTime{color:#2c6a46!important;text-shadow:none!important;}
+body.light-ui #nextPrayerMeridiem,body.light-ui #nextPrayerName,
+body.light-ui .next-prayer-clock small,body.light-ui .next-prayer-clock .muted{color:#6e7e70!important;text-shadow:none!important;}
+body.light-ui #dashboardHijriDate,body.light-ui #dashboardDateShort,
+body.light-ui #dashboardDateLong,body.light-ui #dashboardLocation,
+body.light-ui #dailyScoreLabel,body.light-ui #wirdiCalendarRange,
+body.light-ui #prayerProgressText,body.light-ui .performance-panel .panel-heading .eyebrow,
+body.light-ui .activity-card .activity-card-foot small,body.light-ui .activity-card .activity-card-stat small,
+body.light-ui .activity-card .activity-card-head small{color:#6b7d6d!important;}
+body.light-ui .performance-panel .performance-row .performance-label,
+body.light-ui .performance-panel .performance-row .performance-value,
+body.light-ui .performance-panel .performance-row strong{color:#2b4432!important;}
+body.light-ui .prayer-time-card .prayer-schedule-name{color:#263b2d!important;}
+body.light-ui .prayer-time-card .prayer-schedule-en,
+body.light-ui .prayer-time-card .prayer-schedule-note{color:#7a6a45!important;}
+
+/* Comprehensive premium-light finish: secondary views, analytics and controls. */
+body.light-ui #view-reports .card.stat-card,
+body.light-ui #view-insights .card.insights-metric,
+body.light-ui #view-insights .insights-engine-banner,
+body.light-ui #view-insights .scoring-method-card,
+body.light-ui #view-history .card,
+body.light-ui #view-settings .card,
+body.light-ui #view-calendar .card,
+body.light-ui .report-panel,
+body.light-ui .analytics-panel{
+  color:#2b4031!important;background-color:#fffefa!important;
+  background-image:linear-gradient(145deg,#fffefa,#f4f8f1)!important;
+  border-color:#dce7d9!important;box-shadow:0 8px 24px rgba(40,67,43,.055)!important;
+}
+body.light-ui #periodSwitch.segmented,
+body.light-ui #insightDomainSwitch,
+body.light-ui #insightPeriodSwitch,
+body.light-ui .segmented,
+body.light-ui .segmented-control,
+body.light-ui .tab-switcher{
+  background:#edf3e9!important;background-image:none!important;border-color:#d8e4d4!important;box-shadow:none!important;
+}
+body.light-ui #periodSwitch.segmented button,
+body.light-ui #insightDomainSwitch button,
+body.light-ui #insightPeriodSwitch button,
+body.light-ui .segmented button,
+body.light-ui .segmented-control button,
+body.light-ui .tab-switcher button{color:#617467!important;background:transparent!important;border-color:transparent!important;box-shadow:none!important;}
+body.light-ui #periodSwitch.segmented button.active,
+body.light-ui #insightDomainSwitch button.active,
+body.light-ui #insightPeriodSwitch button.active,
+body.light-ui .segmented button.active,
+body.light-ui .segmented-control button.active,
+body.light-ui .tab-switcher button.active{color:#285f3b!important;background:#fffefa!important;border-color:#d7e5d2!important;box-shadow:0 1px 4px rgba(42,73,45,.08)!important;}
+body.light-ui .ai-outline-button{color:#2b6944!important;background:linear-gradient(135deg,#f4f9f1,#eaf4e8)!important;background-image:linear-gradient(135deg,#f4f9f1,#eaf4e8)!important;border:1px solid #cfe2cb!important;box-shadow:none!important;text-shadow:none!important;}
+body.light-ui .feature-counter{color:#376347!important;background:rgba(255,254,250,.92)!important;border:1px solid #d7e5d2!important;box-shadow:0 4px 14px rgba(44,75,46,.06)!important;text-shadow:none!important;}
+body.light-ui #refreshTimes,body.light-ui #refreshTimes.prayer-refresh-icon{color:#54735b!important;background:#fffefa!important;background-image:none!important;border-color:#dbe6d8!important;box-shadow:0 2px 8px rgba(41,68,44,.05)!important;}
+body.light-ui .ai-visual{background:#f2f7ed!important;background-image:none!important;border-color:#d9e6d5!important;box-shadow:none!important;}
+body.light-ui .ai-visual::before,body.light-ui .ai-visual::after{display:none!important;background:none!important;background-image:none!important;opacity:0!important;}
+body.light-ui .ai-visual *{text-shadow:none!important;}
+body.light-ui #dailyReportDate,
+body.light-ui #cloudEmail,body.light-ui #cloudPass,
+body.light-ui #cityName,body.light-ui #countryName,
+body.light-ui #goalQuran,body.light-ui #goalSalawat,body.light-ui #goalQiyam,
+body.light-ui #profileDisplayNameInput,
+body.light-ui .premium-auth-box input,body.light-ui .premium-auth-box select,
+body.light-ui .premium-auth-box textarea{
+  color:#293c2f!important;background:#fffefa!important;background-image:none!important;
+  border-color:#d5e2d1!important;caret-color:#2e6b45!important;box-shadow:inset 0 1px 2px rgba(34,57,36,.025)!important;
+}
+body.light-ui #profileAvatar{background:#f2f6ef!important;border-color:#dce6d8!important;}
+body.light-ui .premium-auth-box{background:#fffefa!important;background-image:linear-gradient(145deg,#fffefa,#f4f8f1)!important;color:#2b4031!important;border-color:#dce7d9!important;box-shadow:0 18px 55px rgba(35,59,39,.12)!important;}
+body.light-ui .premium-auth-box *{text-shadow:none!important;}
+body.light-ui .dashboard-grid .panel-heading small,
+body.light-ui .performance-row span,body.light-ui .performance-note,
+body.light-ui .insight-metrics small,body.light-ui .activity-card small,
+body.light-ui .fajr-live-sub,body.light-ui .fajr-live-stamp,
+body.light-ui .fajr-live-next-label,body.light-ui .fajr-live-cycle-range,
+body.light-ui .fajr-live-elapsed,body.light-ui .fajr-live-end-label,
+body.light-ui .weekly-summary small,body.light-ui .prayer-progress-text,
+body.light-ui .prayer-schedule-note,body.light-ui .panel-subtitle,
+body.light-ui .stat-card small,body.light-ui .insights-metric small,
+body.light-ui .scoring-method-card .muted{color:#657768!important;text-shadow:none!important;}
+body.light-ui #dashboardQuranCount,body.light-ui #dashboardSalawatCount,
+body.light-ui #dashboardAdhkarCount,body.light-ui #dashboardQuranPercent,
+body.light-ui #dashboardSalawatPercent,body.light-ui #dashboardAdhkarPercent,
+body.light-ui #dashboardQiyamPercent,body.light-ui #heroCompletion,
+body.light-ui #heroCoverage,body.light-ui .fajr-live-number,
+body.light-ui .fajr-live-card .fajr-live-value{color:#2d6945!important;text-shadow:none!important;}
+body.light-ui .fajr-live-card,body.light-ui .fajr-live-panel,
+body.light-ui .fajr-live-card .fajr-live-inner{background:#fffefa!important;background-image:linear-gradient(145deg,#fffefa,#f3f8f0)!important;border-color:#dce7d9!important;box-shadow:0 8px 24px rgba(40,67,43,.055)!important;}
+body.light-ui .fajr-live-card::before,body.light-ui .fajr-live-card::after,
+body.light-ui .fajr-live-panel::before,body.light-ui .fajr-live-panel::after{background:none!important;background-image:none!important;opacity:0!important;}
+body.light-ui #view-reports *,body.light-ui #view-insights *,body.light-ui #view-history *,body.light-ui #view-settings *{text-shadow:none;}
+body.light-ui #view-reports h1,body.light-ui #view-reports h2,body.light-ui #view-reports h3,
+body.light-ui #view-insights h1,body.light-ui #view-insights h2,body.light-ui #view-insights h3,
+body.light-ui #view-history h1,body.light-ui #view-history h2,body.light-ui #view-settings h1,body.light-ui #view-settings h2{color:#263c2d!important;}
+body.light-ui #view-reports p,body.light-ui #view-insights p,body.light-ui #view-history p,body.light-ui #view-settings p,
+body.light-ui #view-reports label,body.light-ui #view-insights label,body.light-ui #view-history label,body.light-ui #view-settings label{color:#5f7162;}
+body.light-ui .table-wrap,body.light-ui .table-container,body.light-ui table{background:#fffefa!important;color:#2b4031!important;border-color:#dce7d9!important;}
+body.light-ui th{color:#4d6954!important;background:#f0f5ed!important;border-color:#dde7d9!important;}
+body.light-ui td{color:#334a38!important;border-color:#e3ebe0!important;}
+body.light-ui .empty-state,body.light-ui .empty-state-card{color:#647568!important;background:#f7faf5!important;border-color:#dce7d9!important;}
+body.light-ui .toast,body.light-ui .tooltip,body.light-ui .popover,body.light-ui .dropdown-menu,body.light-ui .context-menu{color:#2b4031!important;background:#fffefa!important;border-color:#dce7d9!important;box-shadow:0 14px 35px rgba(34,57,36,.12)!important;}
+body.light-ui .toast *,body.light-ui .tooltip *,body.light-ui .popover *,body.light-ui .dropdown-menu *,body.light-ui .context-menu *{text-shadow:none!important;}
+body.light-ui .calendar-day,body.light-ui .calendar-cell,body.light-ui .calendar-grid .day-cell{background:#fffefa!important;border-color:#e0e8dd!important;color:#344b38!important;}
+body.light-ui .calendar-day:hover,body.light-ui .calendar-cell:hover,body.light-ui .calendar-grid .day-cell:hover{background:#eff6eb!important;border-color:#cbdcc6!important;}
+body.light-ui .calendar-day .score,body.light-ui .calendar-cell .score,body.light-ui .calendar-grid .day-cell .score{color:#2d6945!important;}
+body.light-ui input::placeholder,body.light-ui textarea::placeholder{color:#87968a!important;opacity:1!important;}
+body.light-ui :focus-visible{outline-color:#6aa77b!important;}
+
+/* Accessibility polish: prevent pale-gold UI labels from fading into cream surfaces. */
+body.light-ui .panel-heading h1,body.light-ui .panel-heading h2,body.light-ui .panel-heading h3,
+body.light-ui .panel-title,body.light-ui .section-title,body.light-ui .section-heading h1,
+body.light-ui .section-heading h2,body.light-ui .section-heading h3,
+body.light-ui .card-title,body.light-ui .performance-panel .panel-heading h3,
+body.light-ui .performance-panel .panel-heading strong,
+body.light-ui .insights-engine-banner h1,body.light-ui .insights-engine-banner h2,
+body.light-ui .insights-engine-banner h3,body.light-ui .scoring-method-card h2,
+body.light-ui .scoring-method-card h3,body.light-ui .stat-card .stat-value,
+body.light-ui .stat-card .stat-number,body.light-ui .insights-metric strong,
+body.light-ui .insights-metric .metric-value{color:#2b4833!important;text-shadow:none!important;}
+body.light-ui .panel-heading .eyebrow,body.light-ui .panel-heading .subtitle,
+body.light-ui .panel-heading .muted,body.light-ui .card .helper-text,
+body.light-ui .card .subtext,body.light-ui .card .description,
+body.light-ui .stat-card .stat-label,body.light-ui .insights-metric .metric-label,
+body.light-ui .performance-panel .performance-note{color:#66796a!important;text-shadow:none!important;}
+body.light-ui .performance-panel .performance-row .performance-value,
+body.light-ui .performance-panel .performance-row strong,
+body.light-ui .performance-panel .performance-row .performance-label{color:#2c5238!important;}
+body.light-ui .performance-panel .performance-row .performance-track,
+body.light-ui .performance-panel .performance-row .progress-track{background:#e5ede2!important;}
+body.light-ui .performance-panel .performance-row .performance-track>*,
+body.light-ui .performance-panel .performance-row .progress-track>*{background:linear-gradient(90deg,#649c70,#9ac99c)!important;}
+body.light-ui .prayer-time-card .prayer-schedule-en,
+body.light-ui .prayer-time-card .prayer-schedule-note,
+body.light-ui .fajr-live-card .fajr-live-sub,
+body.light-ui .fajr-live-card .fajr-live-stamp,
+body.light-ui .fajr-live-card .fajr-live-next-label,
+body.light-ui .fajr-live-card .fajr-live-cycle-range,
+body.light-ui .fajr-live-card .fajr-live-elapsed,
+body.light-ui .fajr-live-card .fajr-live-end-label{color:#66786a!important;}
+body.light-ui .fajr-live-card .fajr-live-kicker,
+body.light-ui .fajr-live-card .fajr-live-title{color:#3a6042!important;}
+body.light-ui .fajr-live-card .fajr-live-value,
+body.light-ui .fajr-live-card .fajr-live-number{color:#285d3a!important;}
+body.light-ui .calendar-day:disabled,body.light-ui .calendar-cell:disabled{color:#9ca99e!important;background:#f1f4ef!important;}
+
+/* Worship logging cards: these had legacy image gradients and dark text baked into view-specific rules. */
+body.light-ui #view-worship .worship-grid .worship-card,
+body.light-ui #view-worship .worship-grid .worship-card:nth-child(n){
+  color:#2b4031!important;background-color:#fffefa!important;
+  background-image:linear-gradient(145deg,#fffefa,#f2f7ef)!important;
+  background-blend-mode:normal!important;border:1px solid #dce7d9!important;
+  box-shadow:0 8px 24px rgba(40,67,43,.055)!important;
+}
+body.light-ui #view-worship .worship-card h3,
+body.light-ui #view-worship .worship-card h4{color:#294631!important;text-shadow:none!important;}
+body.light-ui #view-worship .worship-card .desc,
+body.light-ui #view-worship .worship-card .small,
+body.light-ui #view-worship .worship-card p{color:#657769!important;text-shadow:none!important;}
+body.light-ui #view-worship .worship-card .tag,
+body.light-ui #view-worship .worship-card .tiny-meta{
+  color:#536c59!important;background:#eff5ec!important;border:1px solid #dce7d9!important;
+}
+body.light-ui #view-worship .worship-card .worship-icon,
+body.light-ui #view-worship .worship-card .icon-box{
+  color:#376a45!important;background:#eaf3e7!important;border:1px solid #d8e6d3!important;box-shadow:none!important;
+}
+body.light-ui #view-worship .worship-card .worship-value,
+body.light-ui #view-worship .worship-card .worship-value span{color:#2e7048!important;text-shadow:none!important;}
+body.light-ui #view-worship .worship-card .worship-value small{color:#657769!important;}
+body.light-ui #view-worship .worship-card .progress-track,
+body.light-ui #view-worship .worship-card .progress-bar{background:#e4ede0!important;}
+body.light-ui #view-worship .worship-card .progress-fill{background:linear-gradient(90deg,#619b6b,#9bca9c)!important;}
+body.light-ui #view-worship .worship-card.wirdi-is-complete{background:linear-gradient(145deg,#f4faf1,#e8f4e5)!important;border-color:#bcd9bd!important;box-shadow:inset 3px 0 #65a875,0 8px 22px rgba(40,67,43,.05)!important;}
+body.light-ui #dashboardCoverage,body.light-ui #dashboardPrayerPercent,
+body.light-ui #fajrLivePercent,body.light-ui #performanceWindow,
+body.light-ui .performance-foot,body.light-ui .performance-foot *{
+  color:#42684a!important;text-shadow:none!important;
+}
+body.light-ui #performanceWindow{background:#eef5eb!important;border:1px solid #dce7d9!important;}
+body.light-ui .performance-panel .performance-row .performance-label small,
+body.light-ui .performance-panel .performance-row .performance-label .muted{color:#697c6b!important;}
+body.light-ui .worship-grid .worship-card .counter-actions .btn-ghost,
+body.light-ui .worship-grid .worship-card .dhikr-controls .btn-ghost{color:#4e6b55!important;background:#f2f7ef!important;border-color:#d7e4d3!important;}
+
+/* Final coverage for specificity-heavy legacy rules inside the main application views. */
+body.light-ui .main .card h1,body.light-ui .main .card h2,
+body.light-ui .main .card h3,body.light-ui .main .card h4,
+body.light-ui #view-worship .page-title h1,body.light-ui .page-title h1{color:#283f2e!important;text-shadow:none!important;}
+body.light-ui .main .card p,body.light-ui .main .card .desc,
+body.light-ui .main .card .small,body.light-ui .main .muted,
+body.light-ui #view-worship .worship-card .desc{color:#627568!important;text-shadow:none!important;}
+body.light-ui .main .tag,body.light-ui .main .micro-tag,
+body.light-ui .main .new-tag,body.light-ui .main .performance-window,
+body.light-ui .main .tiny-meta,body.light-ui .main .sync-chip,
+body.light-ui .main .city-chip{color:#526c58!important;background:#eff5ec!important;border-color:#dbe7d7!important;}
+body.light-ui .main .stat-top,body.light-ui .main .stat-top span,
+body.light-ui .main .stat-footer,body.light-ui #reportScoreLabel,
+body.light-ui #reportCoverageLabel,body.light-ui #reportMeaningScoreTitle,
+body.light-ui #reportMeaningCoverageTitle,
+body.light-ui #insightMetric4Label,body.light-ui .insights-metric>span,
+body.light-ui .insights-engine-copy strong,
+body.light-ui .insights-engine-copy p,
+body.light-ui .domain-day-label,body.light-ui .domain-day-value,
+body.light-ui #domainChartLegend,body.light-ui .domain-chart-legend,
+body.light-ui .chart-legend,body.light-ui .chart-caption{color:#52695a!important;text-shadow:none!important;}
+body.light-ui .main .stat-number,body.light-ui .main .stat-card .stat-number,
+body.light-ui .main .insights-metric strong,body.light-ui .main .insights-metric .metric-value,
+body.light-ui #reportCompletionScore,body.light-ui #reportCoverageScore,
+body.light-ui #insightMetric1Value,body.light-ui #insightMetric2Value,
+body.light-ui #insightMetric3Value,body.light-ui #insightMetric4Value{color:#2d7048!important;text-shadow:none!important;}
+body.light-ui .main .chart-wrap,body.light-ui .main .domain-trend-chart,
+body.light-ui .main .report-chart,body.light-ui .main .chart-container{background-color:#f7faf5!important;background-image:none!important;border-color:#dce7d9!important;}
+body.light-ui .main .domain-day-bar{background:linear-gradient(180deg,#76ad7f,#4d895d)!important;box-shadow:none!important;}
+body.light-ui .main .domain-day-bar.unknown{background:#dfe9dc!important;box-shadow:none!important;}
+body.light-ui .modal-backdrop{background:rgba(31,48,36,.24)!important;backdrop-filter:blur(8px)!important;}
+body.light-ui .modal,body.light-ui .modal-head,body.light-ui .modal-body,
+body.light-ui .modal-footer,body.light-ui .dialog,
+body.light-ui .dialog-content{background:#fffefa!important;background-image:linear-gradient(145deg,#fffefa,#f4f8f1)!important;color:#2b4031!important;border-color:#dce7d9!important;box-shadow:0 24px 70px rgba(30,50,32,.16)!important;}
+body.light-ui .modal h1,body.light-ui .modal h2,body.light-ui .modal h3,
+body.light-ui .dialog h1,body.light-ui .dialog h2,body.light-ui .dialog h3{color:#2b4833!important;}
+body.light-ui .modal p,body.light-ui .modal .small,body.light-ui .modal .muted,
+body.light-ui .dialog p,body.light-ui .dialog .small,body.light-ui .dialog .muted{color:#627568!important;}
+body.light-ui .mobile-nav{background:rgba(255,255,252,.96)!important;background-image:none!important;border-top:1px solid #dce7d9!important;box-shadow:0 -8px 24px rgba(40,67,43,.07)!important;backdrop-filter:blur(18px)!important;}
+body.light-ui .mobile-nav .nav-btn{color:#617467!important;background:transparent!important;}
+body.light-ui .mobile-nav .nav-btn.active{color:#2c6a43!important;background:#e9f3e6!important;box-shadow:inset 0 2px #75aa7c!important;}
+body.light-ui .mobile-nav .nav-btn.active .nav-ico{background:#dceedd!important;border-color:#c4dfc6!important;color:#2d7047!important;}
+body.light-ui .modal input,body.light-ui .modal select,body.light-ui .modal textarea,
+body.light-ui .dialog input,body.light-ui .dialog select,body.light-ui .dialog textarea{color:#293c2f!important;background:#fffefa!important;border-color:#d5e2d1!important;}
+body.light-ui .auth-gate,body.light-ui #authGate,body.light-ui .auth-card{background:#f4f8f1!important;background-image:none!important;color:#2b4031!important;}
+body.light-ui .auth-gate h1,body.light-ui .auth-gate h2,body.light-ui #authGate h1,body.light-ui #authGate h2,body.light-ui .auth-card h1,body.light-ui .auth-card h2{color:#2b4833!important;}
+body.light-ui .auth-gate p,body.light-ui #authGate p,body.light-ui .auth-card p{color:#627568!important;}
+body.light-ui .performance-panel .panel-heading,
+body.light-ui .performance-panel .panel-heading *,
+body.light-ui .performance-panel .panel-title-lockup,
+body.light-ui .performance-panel .panel-title-lockup *{color:#2b4833!important;text-shadow:none!important;}
+body.light-ui .performance-panel .panel-heading .performance-window{color:#526c58!important;background:#eff5ec!important;border-color:#dbe7d7!important;}
+body.light-ui .performance-panel .panel-heading .eyebrow{color:#657769!important;}
+
+/* WIRDI calendar v2: fully recolor the bespoke calendar, all states and score chips for light mode. */
+body.light-ui .wirdi-calendar-panel{
+  color:#2b4031!important;background:#fffefa!important;
+  background-image:linear-gradient(145deg,#fffefa,#f3f8f0)!important;
+  border-color:#dce7d9!important;box-shadow:0 12px 34px rgba(40,67,43,.07),inset 0 1px rgba(255,255,255,.9)!important;
+}
+body.light-ui .wirdi-calendar-panel::before{display:none!important;background:none!important;opacity:0!important;}
+body.light-ui .wirdi-calendar-title-lockup h3{color:#294631!important;}
+body.light-ui .wirdi-calendar-title-lockup p{color:#657769!important;}
+body.light-ui .wirdi-calendar-eyebrow{color:#816a32!important;}
+body.light-ui .wirdi-calendar-emblem{color:#376a45!important;background:linear-gradient(145deg,#f1f7ed,#e6f1e2)!important;border-color:#d6e5d1!important;box-shadow:none!important;}
+body.light-ui .wirdi-calendar-today-btn,body.light-ui .wirdi-calendar-today{
+  color:#315f3e!important;background:#edf5e9!important;border-color:#d2e3cd!important;box-shadow:none!important;
+}
+body.light-ui .wirdi-calendar-controls{background:#f0f5ed!important;border-color:#dce7d9!important;}
+body.light-ui .wirdi-calendar-controls strong,body.light-ui .wirdi-calendar-monthname strong{color:#2d5037!important;}
+body.light-ui .wirdi-calendar-monthname small{color:#6b7d6d!important;}
+body.light-ui .wirdi-calendar-navbtn,body.light-ui .wirdi-calendar-nav{
+  color:#536e59!important;background:#fffefa!important;border-color:#dce7d9!important;box-shadow:none!important;
+}
+body.light-ui .wirdi-calendar-monthbar{background:#f3f7f0!important;border-color:#dce7d9!important;}
+body.light-ui .wirdi-calendar-stat{background:#fffefa!important;border-color:#dce7d9!important;box-shadow:none!important;}
+body.light-ui .wirdi-calendar-stat-copy small{color:#6a7c6c!important;}
+body.light-ui .wirdi-calendar-stat-copy strong{color:#2c6b45!important;}
+body.light-ui .wirdi-calendar-stat-icon.complete{color:#2c7048!important;background:#e4f3e4!important;border-color:#cce5ce!important;}
+body.light-ui .wirdi-calendar-stat-icon.logged{color:#3e6f8a!important;background:#eaf3f8!important;border-color:#d6e7f1!important;}
+body.light-ui .wirdi-calendar-weekday,body.light-ui .wirdi-calendar-legend>span{color:#65796a!important;}
+body.light-ui .wirdi-calendar-weekday.is-rest-day{color:#876b2c!important;}
+body.light-ui .wirdi-calendar-legend{border-top-color:#e1e9dd!important;}
+body.light-ui .wirdi-calendar-legend>span{background:#f5f8f2!important;border-color:#dfe8db!important;}
+body.light-ui .wirdi-calendar-key.is-today-key{border-color:#c9a34f!important;background:#fbf0cf!important;box-shadow:none!important;}
+body.light-ui .wirdi-calendar-key.is-complete-key{color:#286342!important;border-color:#8cc39a!important;background:#dff2df!important;}
+body.light-ui .wirdi-calendar-key.is-active-key{color:#8a4a3e!important;border-color:#d8a195!important;background:#fae9e4!important;}
+body.light-ui .wirdi-calendar-key.is-empty-key{background:#eef3eb!important;border-color:#d9e4d5!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day{
+  background:linear-gradient(145deg,#fffefa,#f4f8f1)!important;background-image:linear-gradient(145deg,#fffefa,#f4f8f1)!important;
+  color:#304a36!important;border-color:#dce7d9!important;box-shadow:inset 0 1px #fff,0 2px 6px rgba(40,67,43,.025)!important;
+}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day::before{display:none!important;background:none!important;opacity:0!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day .wirdi-calendar-day-number{color:#2e4934!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day .wirdi-calendar-day-status{color:#687c6b!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-complete:not(.is-today){background:linear-gradient(145deg,#f0f8ed,#e2f1df)!important;border-color:#bbdcbc!important;box-shadow:inset 0 1px #fff!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-complete:not(.is-today) .wirdi-calendar-day-number{color:#285d3a!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-complete:not(.is-today) .wirdi-calendar-day-status{color:#4f7855!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-incomplete:not(.is-today){background:linear-gradient(145deg,#fff7f4,#f9e9e3)!important;border-color:#e7c3b9!important;box-shadow:inset 0 1px #fff!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-incomplete:not(.is-today) .wirdi-calendar-day-number{color:#70453b!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-incomplete:not(.is-today) .wirdi-calendar-day-status{color:#9b5f50!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-today{background:linear-gradient(145deg,#fff8e6,#f8edcd)!important;border-color:#d3b25e!important;box-shadow:inset 0 0 0 1px rgba(211,178,94,.16),0 0 0 2px rgba(211,178,94,.08)!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-today .wirdi-calendar-day-number{color:#755a22!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-today .wirdi-calendar-day-status{color:#806b3a!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-today .wirdi-calendar-today-chip{color:#70551b!important;background:#f9eac0!important;border-color:#ddc577!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-selected:not(.is-today){box-shadow:inset 0 0 0 2px #8ab58a!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-future{opacity:.58!important;filter:none!important;background:#f0f3ed!important;color:#9ba89a!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-future .wirdi-calendar-day-number,
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-future .wirdi-calendar-day-status{color:#98a598!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-score{color:#526d58!important;background:#edf4e9!important;border-color:#d7e5d2!important;box-shadow:none!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-score.high{color:#24613b!important;background:#e0f2df!important;border-color:#b8dcb8!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-score.mid{color:#785d20!important;background:#fbf0ce!important;border-color:#e6d59a!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-score.low{color:#88483b!important;background:#fae7e1!important;border-color:#e9c2b6!important;}
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-score.unrated{color:#718173!important;background:#f0f4ed!important;border-color:#dde7d8!important;}
+body.light-ui .wirdi-calendar-foot{color:#687d6c!important;border-top-color:#e1e9dd!important;}
+body.light-ui .wirdi-calendar-foot-mark{color:#3f6e51!important;background:#eaf3e7!important;}
+body.light-ui .wirdi-calendar-foot #wirdiHeatCount{color:#2e6943!important;}
+body.light-ui .wirdi-calendar-blank{background:transparent!important;border-color:transparent!important;}
+
+/* Quick-entry, achievements and personalized helper modules. */
+body.light-ui .wirdi-command-card{color:#2b4031!important;background:linear-gradient(145deg,#fffefa,#f1f7ee)!important;border-color:#dce7d9!important;box-shadow:0 9px 26px rgba(40,67,43,.055)!important;}
+body.light-ui .wirdi-command-card h1,body.light-ui .wirdi-command-card h2,body.light-ui .wirdi-command-card h3,
+body.light-ui .wirdi-command-card strong,body.light-ui .wirdi-command-copy strong{color:#2b4833!important;text-shadow:none!important;}
+body.light-ui #wirdiCommandSub,body.light-ui .wirdi-command-card p,
+body.light-ui .wirdi-command-copy small{color:#657769!important;text-shadow:none!important;}
+body.light-ui .wirdi-command-mark{color:#3a714a!important;background:#e7f2e3!important;border-color:#d5e5d0!important;box-shadow:none!important;}
+body.light-ui .wirdi-command-btn{color:#386146!important;background:#f2f7ef!important;border-color:#d5e4d0!important;box-shadow:none!important;}
+body.light-ui .wirdi-command-btn.primary{color:#fffefa!important;background:linear-gradient(130deg,#397950,#28613d)!important;border-color:#397950!important;box-shadow:0 4px 12px rgba(44,99,62,.12)!important;}
+body.light-ui .wirdi-quick-item{color:#2d4734!important;background:linear-gradient(145deg,#fffefa,#f2f7ef)!important;border-color:#dce7d9!important;box-shadow:0 3px 10px rgba(40,67,43,.025)!important;}
+body.light-ui .wirdi-quick-copy strong{color:#2c4934!important;}
+body.light-ui .wirdi-quick-copy small,body.light-ui #wirdiQuickPrayerSub,
+body.light-ui #wirdiQuickQuranSub,body.light-ui #wirdiQuickSalawatSub,
+body.light-ui #wirdiQuickQiyamSub,body.light-ui #wirdiQuickAdhkarSub{color:#657769!important;}
+body.light-ui .wirdi-quick-icon{color:#39734a!important;background:linear-gradient(145deg,#f0f7ec,#e3f0df)!important;border-color:#d3e5ce!important;box-shadow:none!important;}
+body.light-ui .wirdi-quick-icon svg,body.light-ui .wirdi-command-mark svg,body.light-ui .wirdi-command-btn svg{stroke:currentColor!important;}
+body.light-ui .wirdi-achievement{color:#2b4031!important;background:linear-gradient(145deg,#fffefa,#f5f8f2)!important;border-color:#dce7d9!important;box-shadow:none!important;}
+body.light-ui .wirdi-achievement:hover{background:#f2f7ef!important;border-color:#cfe0ca!important;}
+body.light-ui #wirdiAchSub,body.light-ui .wirdi-achievement-copy small{color:#657769!important;}
+body.light-ui .wirdi-achievement-copy strong{color:#2b4833!important;}
+body.light-ui .wirdi-achievement-icon{color:#39734a!important;background:#e6f1e2!important;border:1px solid #d5e5d0!important;}
+body.light-ui .wirdi-achievement-state{color:#326744!important;background:#ecf5e9!important;border:1px solid #d9e7d4!important;}
+body.light-ui #wirdiCalendarEyebrow{color:#80682f!important;}
+body.light-ui #wirdiCalendarToday{color:#315f3e!important;background:#edf5e9!important;border-color:#d2e3cd!important;}
+body.light-ui .wirdi-calendar-today-chip{color:#765a20!important;background:#fbf0d0!important;border-color:#e7d69d!important;}
+body.light-ui #performanceTitle{color:#2b4833!important;-webkit-text-fill-color:#2b4833!important;background-image:none!important;}
+body.light-ui #performanceSubtitle{color:#657769!important;-webkit-text-fill-color:#657769!important;}
+body.light-ui #wirdiCommandSub{color:#657769!important;-webkit-text-fill-color:#657769!important;}
+body.light-ui #dashboardTrend,body.light-ui .week-value,
+body.light-ui #weeklyPrayerMetric,body.light-ui #weeklyQuranMetric,
+body.light-ui #weeklyDhikrMetric{color:#2d7048!important;-webkit-text-fill-color:#2d7048!important;}
+body.light-ui .week-label{color:#657769!important;}
+body.light-ui .wirdi-calendar-legend>span,body.light-ui .wirdi-calendar-monthbar *{text-shadow:none!important;}
+</style>
 </body></html>
