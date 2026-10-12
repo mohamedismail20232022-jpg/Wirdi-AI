@@ -1716,6 +1716,347 @@ body.light-ui .wirdi-heat-day.wirdi-calendar-day.has-activity{background:#fbf3df
 }
 .wirdi-heatmap.wirdi-calendar-grid[dir="ltr"]{direction:ltr}
 
+
+
+/* WIRDI contrast audit v3 — fix 30-day pattern cards and the two insight/recommendation panels across every worship section. Light mode only. */
+body.light-ui .deep-insight-grid>.deep-insight-card,
+body.light-ui .deep-insight-card{
+  background:linear-gradient(145deg,#ffffff 0%,#f4f8f2 100%)!important;
+  border:1px solid #c4d5c5!important;
+  box-shadow:0 3px 12px rgba(31,66,39,.07)!important;
+  color:#1b3021!important;
+}
+body.light-ui .deep-insight-overline{
+  color:#526b48!important;-webkit-text-fill-color:#526b48!important;
+  font-size:10px!important;font-weight:750!important;letter-spacing:.045em!important;
+}
+body.light-ui .deep-insight-value{
+  color:#173d25!important;-webkit-text-fill-color:#173d25!important;
+  font-weight:800!important;text-shadow:none!important;
+}
+body.light-ui .deep-insight-copy{
+  color:#455c4a!important;-webkit-text-fill-color:#455c4a!important;
+  font-size:11px!important;font-weight:550!important;line-height:1.85!important;
+}
+body.light-ui .deep-insight-card .mini-bar{
+  background:#dce7dc!important;border:1px solid #c7d7c8!important;
+}
+body.light-ui .deep-insight-card .mini-bar span{background:#39764b!important;}
+body.light-ui .deep-insight-reco>div{
+  background:linear-gradient(145deg,#ffffff 0%,#f2f7f0 100%)!important;
+  border:1px solid #c2d4c3!important;
+  box-shadow:0 3px 12px rgba(31,66,39,.06)!important;
+  color:#1b3021!important;
+}
+body.light-ui .deep-insight-reco h4{
+  color:#234b2e!important;-webkit-text-fill-color:#234b2e!important;
+  font-size:12px!important;font-weight:800!important;
+}
+body.light-ui .deep-insight-reco p{
+  color:#455b49!important;-webkit-text-fill-color:#455b49!important;
+  font-size:11px!important;font-weight:550!important;line-height:1.9!important;
+}
+/* Pattern-analysis / 30-day trend blocks use alternate class names in some section views. */
+body.light-ui .insight-metrics>div,
+body.light-ui .insights-metric,
+body.light-ui .insights-metric-grid>.insights-metric,
+body.light-ui .insight-meaning-card,
+body.light-ui .report-meaning-card{
+  background:linear-gradient(145deg,#ffffff 0%,#f3f7f1 100%)!important;
+  border:1px solid #c4d5c5!important;
+  box-shadow:0 3px 10px rgba(31,66,39,.055)!important;
+}
+body.light-ui .insight-metrics small,
+body.light-ui .insights-metric>span,
+body.light-ui .insights-metric small{
+  color:#4b614f!important;-webkit-text-fill-color:#4b614f!important;
+  font-weight:650!important;
+}
+body.light-ui .insight-metrics b,
+body.light-ui .insights-metric strong{
+  color:#1e4b2c!important;-webkit-text-fill-color:#1e4b2c!important;
+  font-weight:800!important;
+}
+body.light-ui .insight-summary,
+body.light-ui .report-meaning-head p,
+body.light-ui .insight-meaning-head p,
+body.light-ui .report-meaning-grid p,
+body.light-ui .insight-meaning-foot{
+  color:#455b49!important;-webkit-text-fill-color:#455b49!important;
+}
+body.light-ui .report-meaning-head h2,
+body.light-ui .insight-meaning-head h2{
+  color:#1e452a!important;-webkit-text-fill-color:#1e452a!important;
+}
+/* Make all small data labels and decorative outlines readable in light-mode section cards. */
+body.light-ui .deep-insight-card :where(span,small,p,label),
+body.light-ui .deep-insight-reco :where(span,small,p,label){text-shadow:none!important;opacity:1!important;}
+
+
+
+/* WIRDI Light Mode image restoration v4 — preserve original mosque/photo artwork with readable overlays. */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#102724!important;
+  background-image:linear-gradient(90deg,rgba(8,25,24,.91) 0%,rgba(8,25,24,.76) 38%,rgba(8,25,24,.30) 70%,rgba(8,25,24,.12) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#c9d8c7!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 7px rgba(0,0,0,.5)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:1!important;}
+
+/* Dashboard worship tiles: restore embedded photography rather than hiding the image layers. */
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#102522!important;background-image:none!important;border-color:rgba(176,157,104,.55)!important;
+}
+body.light-ui .activity-card:before,
+body.light-ui .activity-card::before{
+  display:block!important;content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;opacity:1!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-embedded-image-2)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-embedded-image-1)!important;background-position:70% center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-embedded-image-4)!important;}
+body.light-ui .activity-card .activity-shade{
+  display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(8,24,22,.48) 0%,rgba(8,24,22,.60) 42%,rgba(5,19,18,.91) 100%)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 5px rgba(0,0,0,.45)!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#e0e9dc!important;-webkit-text-fill-color:#e0e9dc!important;}
+body.light-ui .activity-card .activity-icon{color:#f5dba0!important;background:rgba(5,20,19,.78)!important;border-color:rgba(237,210,151,.72)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(246,222,170,.45)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(245,245,225,.32)!important;}
+
+/* Restore the mosque artwork in the reflection cards and the sidebar footer. */
+body.light-ui .today-reflection-card{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(8,24,22,.25),rgba(8,24,22,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;background-image:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.5)!important;}
+body.light-ui .closing-reflection{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(5,19,20,.86),rgba(5,19,20,.43)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;
+  border-color:rgba(183,159,101,.5)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.48)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#102522!important;
+  background-image:linear-gradient(0deg,rgba(2,13,15,.94),rgba(2,13,15,.38) 65%,rgba(2,13,15,.12)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid rgba(201,170,108,.3)!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#fff6df!important;-webkit-text-fill-color:#fff6df!important;text-shadow:0 1px 6px rgba(0,0,0,.55)!important;}
+
+
+
+/* WIRDI Light Mode v5 — artwork harmonized with the light palette (not dark photo cards). */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#edf4eb!important;
+  background-image:linear-gradient(90deg,rgba(246,250,242,.97) 0%,rgba(246,250,242,.90) 36%,rgba(246,250,242,.68) 63%,rgba(246,250,242,.25) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#d1dfce!important;box-shadow:0 12px 28px rgba(45,79,49,.08),inset 0 1px rgba(255,255,255,.8)!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#203f2b!important;-webkit-text-fill-color:#203f2b!important;text-shadow:0 1px 0 rgba(255,255,255,.8)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:.28!important;}
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  background-color:#f1f6ee!important;border:1px solid #d7e3d2!important;
+  box-shadow:0 8px 22px rgba(49,82,47,.09),inset 0 1px rgba(255,255,255,.95)!important;
+}
+body.light-ui .activity-card:before,body.light-ui .activity-card::before{
+  filter:brightness(1.18) saturate(.72) sepia(.08)!important;opacity:.74!important;
+  background-size:cover!important;background-position:center!important;
+}
+body.light-ui .activity-card .activity-shade{
+  background:linear-gradient(135deg,rgba(248,251,244,.91) 0%,rgba(245,250,240,.78) 52%,rgba(232,242,225,.58) 100%)!important;
+  opacity:1!important;backdrop-filter:saturate(.82)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{
+  color:#203c29!important;-webkit-text-fill-color:#203c29!important;text-shadow:0 1px 0 rgba(255,255,255,.75)!important;
+}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#526b55!important;-webkit-text-fill-color:#526b55!important;}
+body.light-ui .activity-card .activity-icon{color:#315d3a!important;background:rgba(255,255,255,.82)!important;border-color:#c9dcc4!important;box-shadow:0 2px 8px rgba(49,82,47,.08)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(72,112,70,.22)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(65,105,61,.15)!important;}
+body.light-ui .today-reflection-card{
+  background-color:#edf4eb!important;
+  background-image:linear-gradient(90deg,rgba(246,250,242,.78),rgba(246,250,242,.46)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;border:1px solid #d4e1d0!important;
+  box-shadow:0 8px 22px rgba(49,82,47,.08)!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(246,250,242,.50),rgba(246,250,242,.82))!important;background-image:linear-gradient(90deg,rgba(246,250,242,.50),rgba(246,250,242,.82))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#203f2b!important;-webkit-text-fill-color:#203f2b!important;text-shadow:0 1px 0 rgba(255,255,255,.85)!important;}
+body.light-ui .closing-reflection{
+  background-color:#edf4eb!important;
+  background-image:linear-gradient(90deg,rgba(246,250,242,.92),rgba(246,250,242,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;border:1px solid #d4e1d0!important;
+  box-shadow:0 8px 22px rgba(49,82,47,.08)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#203f2b!important;-webkit-text-fill-color:#203f2b!important;text-shadow:0 1px 0 rgba(255,255,255,.8)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#edf4eb!important;
+  background-image:linear-gradient(0deg,rgba(243,248,239,.94),rgba(243,248,239,.78) 65%,rgba(243,248,239,.40)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid #d4e1d0!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#284b30!important;-webkit-text-fill-color:#284b30!important;text-shadow:0 1px 0 rgba(255,255,255,.8)!important;}
+
+
+
+/* WIRDI LIGHT MODE IMAGE SWAP — actual background variables used by the cards */
+body.light-ui{
+  --wirdi-embedded-image-1:var(--wirdi-light-mosque);
+  --wirdi-embedded-image-2:var(--wirdi-light-quran);
+  --wirdi-embedded-image-3:var(--wirdi-light-tasbih);
+  --wirdi-embedded-image-4:var(--wirdi-light-dome);
+  --wirdi-embedded-image-5:var(--wirdi-light-prayer);
+  --wirdi-embedded-image-6:var(--wirdi-light-mosque);
+  --wirdi-embedded-image-7:var(--wirdi-light-dome);
+}
+
+/* WIRDI Light Mode: use a dedicated daylight image set; Dark Mode keeps the original night imagery. */
+body.light-ui{
+  --wirdi-light-mosque:url("data:image/jpeg;base64,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");
+  --wirdi-light-quran:url("data:image/jpeg;base64,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");
+  --wirdi-light-dome:url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAICAgICAQICAgIDAgIDAwYEAwMDAwcFBQQGCAcJCAgHCAgJCg0LCQoMCggICw8LDA0ODg8OCQsQERAOEQ0ODg7/2wBDAQIDAwMDAwcEBAcOCQgJDg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg7/wAARCABOAHwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD917qdvtDRqxVV4IHc1SLc9SPxp9wf9Pn5/wCWh/nUJya422MXcc8E4+tAYk4yfzoC4Gc0Ac5pagP59Tn60EH1NGT+FOBC4ZiAo5bPoOTRcRERzzSBR6ZrlfAviSz8X/Bfwn4psr+HU7TVtJgvIru3cNHOroDvU+h/DvXV8duamLvFMpqzsNIX0pQoJ6Uu3nmlx82O1PUnQbtGemKXaB2pSOaO/Jpaj0EyfUgfWmEn1OKce4pMcdcUajBS6tuRiD6g1tW0pltQzOoYHB3CsUdfarlucRPyPvf0FaQbuIhnH+mz5/56N/Ooc+lSynN5P/10b+dRgD1rN7jQuDTgKTn1p4HFMQoHPFec/GiTULX9kr4hy6ZI0F2+iTQeehw1vHLiKWZeRlo43dwM5JUV6SvHWvM/jTqtlp37MHjBLu+gspr2wa0sVml2medyNkSY5ZmwcAc8E9ATUTfLBvyLgrzSZm/BHw5pvhj9mzRfC2hXhv8AQtGnuLLTJ3kZ3NuH3oGLKpypkZQMcAAc4zXpEl0sHiOz01sedcW80yfMAcRNGDx1P+tHPbFeFH9oH4ZeBvh3q2teMfE40sHWp4YLWS3le8vZViiLR28HMkwBONyjaO5HWvlu+/bE8Q6v+0fpXi3RvB0Vt4K0y2uLKLSNQnAv72Kd0MkzyISkMn7mPYg3qBuDMd3yc8Z/uou+un/BM6tWhRqOM3bf8tD9LB0zjmkPIrzf4d/GDwH8VNLmk8K6k6apbxh73Rr9BDfWgJxuaPJDJnjzELIfXtXpWPauq4RcZK6dxn60lSEfKaZjt1ouNoZ/F0pDyetSEdR3plGwwIxUiybQQfWox1qrcS7JgM9VzVR3Jb0Lso/0uY9/Mb+ZpoBHUVI/+vlPfzG/maaRnpTa1C4vOOlOHXrTR1waeMAVJSFI9a8K/aR1XQPCn7J+sePtfIaLwpd2+q2kGQGu51fyltVPYzCUxZ5xvzg4r3fIzk1+cn/BTLXRbfsbeBNAiukiuNT8bxS+Q0mDLHb2k7k4zyFdoyeDg7faolFOLTMp1JU4Oa3R+cOoeLfEPxA+Jep+N/F96l5r18yoqRDENlACfLtYFP3IUBwB1JyzZYk17D4XghubqODzBhuATxj/AD/OvlbQ7q4EtvDJe26Mx6BWbHXnJwK9t8P3051JIYdajSTB+ZrcYzzx16/pxXE00fKuUpyvLdnr+oPqPhvxJbaxoepz6Jr+lyebZajaNtlt29QehBHDIcqwJBBFfqR8AviufjB+zxY+JLm3is/ENpcPp2u2sH+rjuowCWQHkJIjJIoPQPjnFfjzq13cxw+bNqULu8jqnmIUB29WyDjHPevsr/gn/wCJtP8A+E0+MHhSbV4JdUnjsNUtbONyxaOPzIJpR2GC8CnnPIrWi7ux3YSq41uToz9JyDTelOb5jkGgnCjNdJ9C9iM9aYcZNSHrUbZJwKoQmMHmsm/bbdp/uf1NawORjFY2pD/TU5/5Z/1NUjOb0N5v9dL/ANdG/maTnpTmGJZDn/lo38zRzxR1KQU4AZzSDmlz+FAXHZGMV+bv7ZXw+8JeM/2kvA974usbjxHbab4e2WOmXF7ItlbPPeFZJvLRly7hEDEk/LEor7n8e+ONG8FeDLqa91SKz1m5sbk6NbPGztdTxxZVVABBwzJnOBz6Zr5u+H3h67+JXw41PxZ8U9JPi7xIt41pp8stwkG6CCMYjCxFETE7THJHOc+lediptQ5Yu0jsoQUneSuj5n8L+Cf2c9O+IfhHw/F8JtKa91/xtqnhO0kudPhYR3FhC80kzb3bKOqjYo+bnmvoW68Pfs7eDfjr8Mvh3q/wg0K51zx1Pcw6bcWmhWvlWghj3ZnyQ4DklFKA8g5wK9P8M+FLfStEtTfeG7Gz1uS/nv5m2xTEXJ3Bp0k3MVYx7V3AhiMina/r/wALtK+NfwytPGreGoPiBe3lzF4EfVIka+M6xkzLayMMx5VgMEgMWCjLECvJhJuVnd/idc6VNRukvuRxXir4d/s5Wvx58KfCy/8AhPZHW/Eei6jq1leW1oUtoIrNollV3WQMHYzrtCgjjnHGeV/Z6+Hnwx0/9o61+JXwwt9U8P6ZrXhacLYXEzmOe3keBwHilLtEyyKT8r9ucivp67S2u7+PUXgWW6gt5IorgWsbvFE2C6qx+ZVbYpYA4O0Z6Vz1noFp4csLa/8AC2mf2Z9m094bU20UccFvCVLDbEW2ke2K2U2pqSdktzP2FG3wq/TQ9sDcdaQkE1zmga5a6vpcaRzPLexW8bXQkgMRJYY3gdNpKtjB7V0PvXuRkpJNHnNOLsw5HNNPU5608ZPFNxk1oiQx+dYmqEi/j4/5Zj+Zrd/CsLVh/wATCPB/5ZD+ZqkZz+E3j/rZOf8Alo38zS59+KU/ek/66N/6EaByKTKuHbikPSgZ4px5HTFAbnmfjz4X6X8QtZ0O71XW9T06PS45lht7ERbJGl27nYurHICADHHWtzwx4E0nwr4JTRLK+vbqBLmacS3HlhyZX3EfKoGB0HFdf/FxxTWODWTpU3Lma1NFUmlZM5248MWM17azm5u1eB3ZQsoCtuUqQw28jB/OvAPif+yv4D+Kn7RPw/8AiX4h1vxDaa34Olt5NJtrG5gW1LQ3QugXV4WY7nADYYZAHTGa+ogSRimkCpVKnF80VqTOpOSs2c2PD1q0br9puQHBBwy8ZzxyvvV1PD9kNG+xebceV5Plbiy7tuMf3cdPatXvUg4H4VMaNLsV7Wo+pz+n+G7XSrxZrK9ukGwRvGwjKuoYsAfkz36gitzAz7VIeVzTcDn2rZQjFWirEuUpO7ADj3oxj1oBpcc81SJAdelYWrf8hCPj/lkP5mt3PNYGrsf7Qj/65D+Zqomcn7p//9k=");
+  --wirdi-light-tasbih:url("data:image/jpeg;base64,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");
+  --wirdi-light-prayer:url("data:image/jpeg;base64,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");
+  --wirdi-light-ink:#183e34;
+  --wirdi-light-muted:#58756b;
+}
+body.light-ui .reference-hero,
+body.light-ui .feature-carousel{
+  background-color:#f7f7ef!important;
+  background-image:linear-gradient(90deg,rgba(250,250,243,.96) 0%,rgba(250,250,243,.86) 35%,rgba(250,250,243,.40) 65%,rgba(250,250,243,.08) 100%),var(--wirdi-light-mosque)!important;
+  background-size:cover!important;background-position:center 48%!important;
+  border-color:#d8e2d8!important;box-shadow:0 12px 32px rgba(45,75,59,.09)!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:var(--wirdi-light-ink)!important;-webkit-text-fill-color:var(--wirdi-light-ink)!important;
+  text-shadow:none!important;
+}
+body.light-ui .feature-carousel .carousel-controls button,
+body.light-ui .reference-hero button{background:rgba(255,255,255,.82)!important;color:var(--wirdi-light-ink)!important;border-color:#d6e1d6!important;box-shadow:0 3px 10px rgba(31,67,51,.08)!important;}
+body.light-ui .view-worship .worship-grid .worship-card:nth-child(1),
+body.light-ui .feature-prayers{background-image:linear-gradient(180deg,rgba(250,251,246,.02),rgba(248,250,244,.84) 68%,#f8faf5 100%),var(--wirdi-light-dome)!important;}
+body.light-ui .view-worship .worship-grid .worship-card:nth-child(2),
+body.light-ui .feature-quran{background-image:linear-gradient(180deg,rgba(250,251,246,.02),rgba(248,250,244,.84) 68%,#f8faf5 100%),var(--wirdi-light-quran)!important;}
+body.light-ui .view-worship .worship-grid .worship-card:nth-child(3),
+body.light-ui .feature-salawat{background-image:linear-gradient(180deg,rgba(250,251,246,.02),rgba(248,250,244,.84) 68%,#f8faf5 100%),var(--wirdi-light-dome)!important;}
+body.light-ui .view-worship .worship-grid .worship-card:nth-child(4){background-image:linear-gradient(180deg,rgba(250,251,246,.02),rgba(248,250,244,.84) 68%,#f8faf5 100%),var(--wirdi-light-tasbih)!important;}
+body.light-ui .view-worship .worship-grid .worship-card:nth-child(5){background-image:linear-gradient(180deg,rgba(250,251,246,.02),rgba(248,250,244,.84) 68%,#f8faf5 100%),var(--wirdi-light-prayer)!important;}
+body.light-ui .view-worship .worship-grid .worship-card,
+body.light-ui .feature-tile{background-size:100% 180px,cover!important;background-position:top center,center!important;background-repeat:no-repeat!important;background-color:#f8faf5!important;border-color:#dbe5dc!important;}
+body.light-ui .view-worship .worship-grid .worship-card,
+body.light-ui .feature-tile,
+body.light-ui .activity-card{color:#24483b!important;}
+body.light-ui .view-worship .worship-grid .worship-card h1,
+body.light-ui .view-worship .worship-grid .worship-card h2,
+body.light-ui .view-worship .worship-grid .worship-card h3,
+body.light-ui .view-worship .worship-grid .worship-card p,
+body.light-ui .view-worship .worship-grid .worship-card span,
+body.light-ui .view-worship .worship-grid .worship-card strong,
+body.light-ui .feature-tile h1,body.light-ui .feature-tile h2,body.light-ui .feature-tile h3,
+body.light-ui .feature-tile p,body.light-ui .feature-tile span,body.light-ui .feature-tile strong{color:#21483a!important;-webkit-text-fill-color:#21483a!important;text-shadow:none!important;}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-light-quran)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-light-dome)!important;background-position:center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-light-tasbih)!important;}
+body.light-ui .activity-card{background-color:#f7faf5!important;border-color:#dce6dc!important;}
+body.light-ui .activity-card .activity-shade{background:linear-gradient(180deg,rgba(250,251,246,.06),rgba(250,251,246,.48) 45%,rgba(248,250,245,.96) 100%)!important;}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#21483a!important;-webkit-text-fill-color:#21483a!important;text-shadow:none!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#58756b!important;-webkit-text-fill-color:#58756b!important;}
+body.light-ui .activity-card .activity-icon{color:#1e6950!important;background:rgba(255,255,255,.88)!important;border-color:#d6e4d8!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:#dce6dc!important;}
+body.light-ui .activity-card .activity-progress{background:#dce7df!important;}
+body.light-ui .today-reflection-card,
+body.light-ui .closing-reflection,
+body.light-ui .sidebar-footer{
+  background-color:#f7f8f1!important;
+  background-image:linear-gradient(90deg,rgba(249,250,244,.92),rgba(249,250,244,.50)),var(--wirdi-light-mosque)!important;
+  background-size:cover!important;background-position:center 48%!important;
+  border-color:#dce5d9!important;box-shadow:0 8px 22px rgba(44,70,53,.06)!important;
+}
+body.light-ui .sidebar-footer{background-image:linear-gradient(0deg,rgba(249,250,244,.95),rgba(249,250,244,.50) 66%,rgba(249,250,244,.12)),var(--wirdi-light-mosque)!important;background-position:center 48%!important;}
+body.light-ui .today-reflection-card .reflection-shade{background:linear-gradient(90deg,rgba(249,250,244,.18),rgba(249,250,244,.78))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p,
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *,
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{
+  color:#21483a!important;-webkit-text-fill-color:#21483a!important;text-shadow:none!important;
+}
+body.light-ui .today-reflection-card .reflection-copy,
+body.light-ui .closing-reflection{border-color:#dce5d9!important;}
+/* Keep theme-specific artwork switching scoped to Light Mode only. */
+
 </style>
 
 <style id="wirdi-black-gold-auth-and-insight-polish">
@@ -1910,6 +2251,89 @@ body.light-ui .goal-card-actions{border-top-color:#e9dfc8}
 
 @media(max-width:700px){.mobile-nav{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:2px!important;padding-inline:5px!important}.mobile-nav .nav-btn{font-size:8px!important;gap:3px!important;padding:5px 1px!important;white-space:nowrap}.mobile-nav .nav-ico{width:21px!important;height:21px!important;display:grid;place-items:center}.mobile-nav .nav-ico svg{display:block;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}}
 @media(max-width:390px){.mobile-nav .nav-btn{font-size:7px!important}.mobile-nav .nav-ico{width:19px!important;height:19px!important}.mobile-nav .nav-ico svg{width:17px;height:17px}}
+
+
+/* WIRDI Light Mode image restoration v4 — preserve original mosque/photo artwork with readable overlays. */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#102724!important;
+  background-image:linear-gradient(90deg,rgba(8,25,24,.91) 0%,rgba(8,25,24,.76) 38%,rgba(8,25,24,.30) 70%,rgba(8,25,24,.12) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#c9d8c7!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 7px rgba(0,0,0,.5)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:1!important;}
+
+/* Dashboard worship tiles: restore embedded photography rather than hiding the image layers. */
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#102522!important;background-image:none!important;border-color:rgba(176,157,104,.55)!important;
+}
+body.light-ui .activity-card:before,
+body.light-ui .activity-card::before{
+  display:block!important;content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;opacity:1!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-embedded-image-2)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-embedded-image-1)!important;background-position:70% center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-embedded-image-4)!important;}
+body.light-ui .activity-card .activity-shade{
+  display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(8,24,22,.48) 0%,rgba(8,24,22,.60) 42%,rgba(5,19,18,.91) 100%)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 5px rgba(0,0,0,.45)!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#e0e9dc!important;-webkit-text-fill-color:#e0e9dc!important;}
+body.light-ui .activity-card .activity-icon{color:#f5dba0!important;background:rgba(5,20,19,.78)!important;border-color:rgba(237,210,151,.72)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(246,222,170,.45)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(245,245,225,.32)!important;}
+
+/* Restore the mosque artwork in the reflection cards and the sidebar footer. */
+body.light-ui .today-reflection-card{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(8,24,22,.25),rgba(8,24,22,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;background-image:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.5)!important;}
+body.light-ui .closing-reflection{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(5,19,20,.86),rgba(5,19,20,.43)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;
+  border-color:rgba(183,159,101,.5)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.48)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#102522!important;
+  background-image:linear-gradient(0deg,rgba(2,13,15,.94),rgba(2,13,15,.38) 65%,rgba(2,13,15,.12)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid rgba(201,170,108,.3)!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#fff6df!important;-webkit-text-fill-color:#fff6df!important;text-shadow:0 1px 6px rgba(0,0,0,.55)!important;}
+
 </style>
 
 <style id="wirdi-completion-system">
@@ -1936,6 +2360,89 @@ body.light-ui .goal-card-actions{border-top-color:#e9dfc8}
 .daily-report-timeline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.daily-report-event{padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.018);border:1px solid rgba(216,186,114,.1);display:flex;justify-content:space-between;align-items:center;gap:12px}.daily-report-event b{font-size:11px;color:#ddd2b9}.daily-report-event span{font-size:10px;color:#b7cdbd;text-align:end}.daily-report-event small{display:block;color:#8f998e;margin-top:4px;font-size:9px;line-height:1.6}.daily-report-event-times{direction:inherit;unicode-bidi:plaintext;overflow-wrap:anywhere}.daily-report-event{align-items:flex-start}.daily-report-event>span{white-space:nowrap;padding:5px 7px;border-radius:8px;background:rgba(216,186,114,.07);font-variant-numeric:tabular-nums}
 @media(max-width:760px){.daily-report-hero{grid-template-columns:1fr}.daily-report-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.daily-report-advice-grid,.daily-report-timeline{grid-template-columns:1fr}.daily-report-head{display:block}.daily-report-actions{margin-top:13px}}
 @media print{body.wirdi-print-daily *{visibility:hidden!important}body.wirdi-print-daily #dailyReportPrintHost,body.wirdi-print-daily #dailyReportPrintHost *{visibility:visible!important}body.wirdi-print-daily #dailyReportPrintHost{position:absolute;inset:0 auto auto 0;width:100%;background:#fff!important;color:#17211c!important;padding:0!important;margin:0!important}body.wirdi-print-daily .daily-report-shell{display:none!important}.daily-print-page{font-family:Arial,sans-serif;color:#18251e;background:#fff;padding:18mm 15mm;direction:rtl}.daily-print-page h1{font-size:25px;margin:0 0 8px;color:#172b20}.daily-print-page h2{font-size:15px;margin:22px 0 8px;color:#263e30}.daily-print-page p{font-size:10px;line-height:1.9}.daily-print-page .daily-report-summary,.daily-print-page .daily-report-score,.daily-print-page .daily-report-metric,.daily-print-page .daily-report-advice,.daily-print-page .daily-report-event{background:#fff!important;border:1px solid #dce4dc!important;color:#17211c!important;break-inside:avoid}.daily-print-page .daily-report-summary h3,.daily-print-page .daily-report-advice strong,.daily-print-page .daily-report-metric strong,.daily-print-page .daily-report-event b{color:#244936!important}.daily-print-page .daily-report-summary p,.daily-print-page .daily-report-advice p,.daily-print-page .daily-report-metric span,.daily-print-page .daily-report-metric small,.daily-print-page .daily-report-event span,.daily-print-page .daily-report-score span{color:#4d5d52!important}.daily-print-page .daily-report-score strong{color:#7b6021!important}.daily-print-page .daily-report-table th{background:#eef3ee!important;color:#294b36!important}.daily-print-page .daily-report-table td{color:#26362c!important}.daily-print-page .daily-report-status{color:#2b6948!important;background:#edf7f0!important}.daily-print-page .daily-report-disclaimer{color:#59665d!important}.daily-print-page .eyebrow{color:#8b6a25!important}@page{size:A4;margin:12mm}}
+
+
+/* WIRDI Light Mode image restoration v4 — preserve original mosque/photo artwork with readable overlays. */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#102724!important;
+  background-image:linear-gradient(90deg,rgba(8,25,24,.91) 0%,rgba(8,25,24,.76) 38%,rgba(8,25,24,.30) 70%,rgba(8,25,24,.12) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#c9d8c7!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 7px rgba(0,0,0,.5)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:1!important;}
+
+/* Dashboard worship tiles: restore embedded photography rather than hiding the image layers. */
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#102522!important;background-image:none!important;border-color:rgba(176,157,104,.55)!important;
+}
+body.light-ui .activity-card:before,
+body.light-ui .activity-card::before{
+  display:block!important;content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;opacity:1!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-embedded-image-2)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-embedded-image-1)!important;background-position:70% center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-embedded-image-4)!important;}
+body.light-ui .activity-card .activity-shade{
+  display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(8,24,22,.48) 0%,rgba(8,24,22,.60) 42%,rgba(5,19,18,.91) 100%)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 5px rgba(0,0,0,.45)!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#e0e9dc!important;-webkit-text-fill-color:#e0e9dc!important;}
+body.light-ui .activity-card .activity-icon{color:#f5dba0!important;background:rgba(5,20,19,.78)!important;border-color:rgba(237,210,151,.72)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(246,222,170,.45)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(245,245,225,.32)!important;}
+
+/* Restore the mosque artwork in the reflection cards and the sidebar footer. */
+body.light-ui .today-reflection-card{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(8,24,22,.25),rgba(8,24,22,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;background-image:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.5)!important;}
+body.light-ui .closing-reflection{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(5,19,20,.86),rgba(5,19,20,.43)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;
+  border-color:rgba(183,159,101,.5)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.48)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#102522!important;
+  background-image:linear-gradient(0deg,rgba(2,13,15,.94),rgba(2,13,15,.38) 65%,rgba(2,13,15,.12)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid rgba(201,170,108,.3)!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#fff6df!important;-webkit-text-fill-color:#fff6df!important;text-shadow:0 1px 6px rgba(0,0,0,.55)!important;}
+
 </style>
 <style id="wirdi-premium-global-typography">
 :root {
@@ -2023,11 +2530,177 @@ body :is(code, pre, kbd, samp) { font-family: ui-monospace, SFMono-Regular, Menl
 @media (prefers-reduced-motion: reduce) {
   body, body * { text-rendering: auto; }
 }
+
+
+/* WIRDI Light Mode image restoration v4 — preserve original mosque/photo artwork with readable overlays. */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#102724!important;
+  background-image:linear-gradient(90deg,rgba(8,25,24,.91) 0%,rgba(8,25,24,.76) 38%,rgba(8,25,24,.30) 70%,rgba(8,25,24,.12) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#c9d8c7!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 7px rgba(0,0,0,.5)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:1!important;}
+
+/* Dashboard worship tiles: restore embedded photography rather than hiding the image layers. */
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#102522!important;background-image:none!important;border-color:rgba(176,157,104,.55)!important;
+}
+body.light-ui .activity-card:before,
+body.light-ui .activity-card::before{
+  display:block!important;content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;opacity:1!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-embedded-image-2)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-embedded-image-1)!important;background-position:70% center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-embedded-image-4)!important;}
+body.light-ui .activity-card .activity-shade{
+  display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(8,24,22,.48) 0%,rgba(8,24,22,.60) 42%,rgba(5,19,18,.91) 100%)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 5px rgba(0,0,0,.45)!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#e0e9dc!important;-webkit-text-fill-color:#e0e9dc!important;}
+body.light-ui .activity-card .activity-icon{color:#f5dba0!important;background:rgba(5,20,19,.78)!important;border-color:rgba(237,210,151,.72)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(246,222,170,.45)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(245,245,225,.32)!important;}
+
+/* Restore the mosque artwork in the reflection cards and the sidebar footer. */
+body.light-ui .today-reflection-card{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(8,24,22,.25),rgba(8,24,22,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;background-image:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.5)!important;}
+body.light-ui .closing-reflection{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(5,19,20,.86),rgba(5,19,20,.43)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;
+  border-color:rgba(183,159,101,.5)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.48)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#102522!important;
+  background-image:linear-gradient(0deg,rgba(2,13,15,.94),rgba(2,13,15,.38) 65%,rgba(2,13,15,.12)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid rgba(201,170,108,.3)!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#fff6df!important;-webkit-text-fill-color:#fff6df!important;text-shadow:0 1px 6px rgba(0,0,0,.55)!important;}
+
 </style>
 
 <style id="wirdi-scoring-v21-evidence">
 .daily-report-evidence{margin:14px 0 20px;padding:16px;border:1px solid #d7c79b44;border-radius:18px;background:linear-gradient(145deg,rgba(216,186,114,.075),rgba(141,224,186,.025));color:var(--text,#f5f4ed);break-inside:avoid}.daily-report-evidence-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.daily-report-evidence h3{font-size:15px;margin:0 0 8px}.daily-report-evidence-head span{font-size:10px;color:var(--gold,#d8ba72);border:1px solid #d8ba7244;border-radius:100px;padding:5px 9px;white-space:nowrap}.daily-report-evidence p{font-size:11px;line-height:1.8;color:var(--muted,#a6bbb1);margin:8px 0}.daily-report-evidence-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0}.daily-report-evidence-stats>div{padding:10px;border:1px solid rgba(165,188,170,.13);border-radius:12px;background:rgba(0,0,0,.08);min-width:0}.daily-report-evidence-stats small{display:block;font-size:10px;color:var(--muted,#a6bbb1);margin-bottom:5px}.daily-report-evidence-stats strong{display:block;font-size:12px;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.daily-report-evidence .daily-report-table{min-width:500px}.daily-report-evidence ul{margin:6px 0;padding-inline-start:20px;color:var(--muted,#a6bbb1);font-size:11px;line-height:1.8}.daily-report-evidence-foot{border-top:1px solid rgba(165,188,170,.15);padding-top:9px;font-size:10px!important}@media(max-width:540px){.daily-report-evidence{padding:11px}.daily-report-evidence-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.daily-report-evidence-head h3{font-size:13px}}
 body.light-ui .daily-report-evidence{background:linear-gradient(145deg,#fbf7e9,#f6faf5);color:#24372b;border-color:#e4d8b9}body.light-ui .daily-report-evidence p,body.light-ui .daily-report-evidence ul,body.light-ui .daily-report-evidence-stats small{color:#53675b}body.light-ui .daily-report-evidence-stats>div{background:#fff;border-color:#e0e9de}
+
+
+/* WIRDI Light Mode image restoration v4 — preserve original mosque/photo artwork with readable overlays. */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#102724!important;
+  background-image:linear-gradient(90deg,rgba(8,25,24,.91) 0%,rgba(8,25,24,.76) 38%,rgba(8,25,24,.30) 70%,rgba(8,25,24,.12) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#c9d8c7!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 7px rgba(0,0,0,.5)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:1!important;}
+
+/* Dashboard worship tiles: restore embedded photography rather than hiding the image layers. */
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#102522!important;background-image:none!important;border-color:rgba(176,157,104,.55)!important;
+}
+body.light-ui .activity-card:before,
+body.light-ui .activity-card::before{
+  display:block!important;content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;opacity:1!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-embedded-image-2)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-embedded-image-1)!important;background-position:70% center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-embedded-image-4)!important;}
+body.light-ui .activity-card .activity-shade{
+  display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(8,24,22,.48) 0%,rgba(8,24,22,.60) 42%,rgba(5,19,18,.91) 100%)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 5px rgba(0,0,0,.45)!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#e0e9dc!important;-webkit-text-fill-color:#e0e9dc!important;}
+body.light-ui .activity-card .activity-icon{color:#f5dba0!important;background:rgba(5,20,19,.78)!important;border-color:rgba(237,210,151,.72)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(246,222,170,.45)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(245,245,225,.32)!important;}
+
+/* Restore the mosque artwork in the reflection cards and the sidebar footer. */
+body.light-ui .today-reflection-card{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(8,24,22,.25),rgba(8,24,22,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;background-image:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.5)!important;}
+body.light-ui .closing-reflection{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(5,19,20,.86),rgba(5,19,20,.43)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;
+  border-color:rgba(183,159,101,.5)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.48)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#102522!important;
+  background-image:linear-gradient(0deg,rgba(2,13,15,.94),rgba(2,13,15,.38) 65%,rgba(2,13,15,.12)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid rgba(201,170,108,.3)!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#fff6df!important;-webkit-text-fill-color:#fff6df!important;text-shadow:0 1px 6px rgba(0,0,0,.55)!important;}
+
 </style>
 
 <style id="wirdi-calendar-score-minimal-polish">
@@ -2047,6 +2720,89 @@ body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-ca
 body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score.unrated{color:#83958b!important}
 @media(max-width:640px){.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score{min-width:29px!important;min-height:16px!important;padding:2px 4px!important;font-size:9px!important;border-radius:5px!important}}
 @media(max-width:400px){.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-score{min-width:27px!important;font-size:8px!important}.wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-bottom.has-score{min-height:14px!important}}
+
+
+/* WIRDI Light Mode image restoration v4 — preserve original mosque/photo artwork with readable overlays. */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#102724!important;
+  background-image:linear-gradient(90deg,rgba(8,25,24,.91) 0%,rgba(8,25,24,.76) 38%,rgba(8,25,24,.30) 70%,rgba(8,25,24,.12) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#c9d8c7!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 7px rgba(0,0,0,.5)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:1!important;}
+
+/* Dashboard worship tiles: restore embedded photography rather than hiding the image layers. */
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#102522!important;background-image:none!important;border-color:rgba(176,157,104,.55)!important;
+}
+body.light-ui .activity-card:before,
+body.light-ui .activity-card::before{
+  display:block!important;content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;opacity:1!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-embedded-image-2)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-embedded-image-1)!important;background-position:70% center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-embedded-image-4)!important;}
+body.light-ui .activity-card .activity-shade{
+  display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(8,24,22,.48) 0%,rgba(8,24,22,.60) 42%,rgba(5,19,18,.91) 100%)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 5px rgba(0,0,0,.45)!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#e0e9dc!important;-webkit-text-fill-color:#e0e9dc!important;}
+body.light-ui .activity-card .activity-icon{color:#f5dba0!important;background:rgba(5,20,19,.78)!important;border-color:rgba(237,210,151,.72)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(246,222,170,.45)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(245,245,225,.32)!important;}
+
+/* Restore the mosque artwork in the reflection cards and the sidebar footer. */
+body.light-ui .today-reflection-card{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(8,24,22,.25),rgba(8,24,22,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;background-image:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.5)!important;}
+body.light-ui .closing-reflection{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(5,19,20,.86),rgba(5,19,20,.43)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;
+  border-color:rgba(183,159,101,.5)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.48)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#102522!important;
+  background-image:linear-gradient(0deg,rgba(2,13,15,.94),rgba(2,13,15,.38) 65%,rgba(2,13,15,.12)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid rgba(201,170,108,.3)!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#fff6df!important;-webkit-text-fill-color:#fff6df!important;text-shadow:0 1px 6px rgba(0,0,0,.55)!important;}
+
 </style>
 
 </head>
@@ -3274,6 +4030,89 @@ function exportDailyReportPDF(){const host=$('dailyReportContent');if(!host)retu
 body{background:#fff!important;color:#17211c!important;margin:0!important}.daily-print-page{font-family:Arial,sans-serif;color:#18251e;background:#fff;padding:12mm 10mm;direction:rtl}.daily-print-page h1{font-size:25px;margin:0 0 8px;color:#172b20}.daily-print-page h2{font-size:15px;margin:22px 0 8px;color:#263e30}.daily-print-page p{font-size:10px;line-height:1.9}.daily-print-page .daily-report-summary,.daily-print-page .daily-report-score,.daily-print-page .daily-report-metric,.daily-print-page .daily-report-advice,.daily-print-page .daily-report-event{background:#fff!important;border:1px solid #dce4dc!important;color:#17211c!important;break-inside:avoid}.daily-print-page .daily-report-summary h3,.daily-print-page .daily-report-advice strong,.daily-print-page .daily-report-metric strong,.daily-print-page .daily-report-event b{color:#244936!important}.daily-print-page .daily-report-summary p,.daily-print-page .daily-report-advice p,.daily-print-page .daily-report-metric span,.daily-print-page .daily-report-metric small,.daily-print-page .daily-report-event span,.daily-print-page .daily-report-score span,.daily-print-page .daily-report-timeline-note{color:#4d5d52!important}.daily-print-page .daily-report-score strong{color:#7b6021!important}.daily-print-page .daily-report-table th{background:#eef3ee!important;color:#294b36!important}.daily-print-page .daily-report-table td{color:#26362c!important}.daily-print-page .daily-report-status{color:#2b6948!important;background:#edf7f0!important}.daily-print-page .daily-report-disclaimer{color:#59665d!important}.daily-print-page .eyebrow{color:#8b6a25!important}.daily-print-page.en-version{direction:ltr}.daily-print-page.en-version .daily-report-table{direction:ltr}.daily-print-page.en-version .daily-report-event{direction:ltr}.daily-print-page.en-version .daily-report-timeline{direction:ltr}.daily-print-page.en-version .daily-report-advice-grid{direction:ltr}.daily-print-page.en-version .daily-report-summary,.daily-print-page.en-version .daily-report-advice{text-align:left}.daily-print-page.en-version .daily-report-table th,.daily-print-page.en-version .daily-report-table td{text-align:left}.daily-print-page.en-version .daily-report-hero,.daily-print-page.en-version .daily-report-metrics{direction:ltr}.english-report-page{break-before:page;page-break-before:always;border-top:2px solid #dce4dc;padding-top:8mm}@page{size:A4;margin:10mm}
 
 
+
+
+/* WIRDI Light Mode image restoration v4 — preserve original mosque/photo artwork with readable overlays. */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#102724!important;
+  background-image:linear-gradient(90deg,rgba(8,25,24,.91) 0%,rgba(8,25,24,.76) 38%,rgba(8,25,24,.30) 70%,rgba(8,25,24,.12) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#c9d8c7!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 7px rgba(0,0,0,.5)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:1!important;}
+
+/* Dashboard worship tiles: restore embedded photography rather than hiding the image layers. */
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#102522!important;background-image:none!important;border-color:rgba(176,157,104,.55)!important;
+}
+body.light-ui .activity-card:before,
+body.light-ui .activity-card::before{
+  display:block!important;content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;opacity:1!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-embedded-image-2)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-embedded-image-1)!important;background-position:70% center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-embedded-image-4)!important;}
+body.light-ui .activity-card .activity-shade{
+  display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(8,24,22,.48) 0%,rgba(8,24,22,.60) 42%,rgba(5,19,18,.91) 100%)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 5px rgba(0,0,0,.45)!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#e0e9dc!important;-webkit-text-fill-color:#e0e9dc!important;}
+body.light-ui .activity-card .activity-icon{color:#f5dba0!important;background:rgba(5,20,19,.78)!important;border-color:rgba(237,210,151,.72)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(246,222,170,.45)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(245,245,225,.32)!important;}
+
+/* Restore the mosque artwork in the reflection cards and the sidebar footer. */
+body.light-ui .today-reflection-card{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(8,24,22,.25),rgba(8,24,22,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;background-image:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.5)!important;}
+body.light-ui .closing-reflection{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(5,19,20,.86),rgba(5,19,20,.43)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;
+  border-color:rgba(183,159,101,.5)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.48)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#102522!important;
+  background-image:linear-gradient(0deg,rgba(2,13,15,.94),rgba(2,13,15,.38) 65%,rgba(2,13,15,.12)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid rgba(201,170,108,.3)!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#fff6df!important;-webkit-text-fill-color:#fff6df!important;text-shadow:0 1px 6px rgba(0,0,0,.55)!important;}
+
 </style>
 <style id="wirdi-premium-calendar-state-polish">
 /* Clear status colors, with a separate gold focus for the real current day. */
@@ -3342,6 +4181,89 @@ body.light-ui .wirdi-heat-day.wirdi-calendar-day.is-today strong{color:#8e641e!i
  .wirdi-heatmap-legend{align-items:flex-start!important;flex-direction:column!important;gap:5px!important}
  #wirdiHeatCount{text-align:start!important}
 }
+
+
+/* WIRDI Light Mode image restoration v4 — preserve original mosque/photo artwork with readable overlays. */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#102724!important;
+  background-image:linear-gradient(90deg,rgba(8,25,24,.91) 0%,rgba(8,25,24,.76) 38%,rgba(8,25,24,.30) 70%,rgba(8,25,24,.12) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#c9d8c7!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 7px rgba(0,0,0,.5)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:1!important;}
+
+/* Dashboard worship tiles: restore embedded photography rather than hiding the image layers. */
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#102522!important;background-image:none!important;border-color:rgba(176,157,104,.55)!important;
+}
+body.light-ui .activity-card:before,
+body.light-ui .activity-card::before{
+  display:block!important;content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;opacity:1!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-embedded-image-2)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-embedded-image-1)!important;background-position:70% center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-embedded-image-4)!important;}
+body.light-ui .activity-card .activity-shade{
+  display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(8,24,22,.48) 0%,rgba(8,24,22,.60) 42%,rgba(5,19,18,.91) 100%)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 5px rgba(0,0,0,.45)!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#e0e9dc!important;-webkit-text-fill-color:#e0e9dc!important;}
+body.light-ui .activity-card .activity-icon{color:#f5dba0!important;background:rgba(5,20,19,.78)!important;border-color:rgba(237,210,151,.72)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(246,222,170,.45)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(245,245,225,.32)!important;}
+
+/* Restore the mosque artwork in the reflection cards and the sidebar footer. */
+body.light-ui .today-reflection-card{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(8,24,22,.25),rgba(8,24,22,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;background-image:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.5)!important;}
+body.light-ui .closing-reflection{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(5,19,20,.86),rgba(5,19,20,.43)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;
+  border-color:rgba(183,159,101,.5)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.48)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#102522!important;
+  background-image:linear-gradient(0deg,rgba(2,13,15,.94),rgba(2,13,15,.38) 65%,rgba(2,13,15,.12)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid rgba(201,170,108,.3)!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#fff6df!important;-webkit-text-fill-color:#fff6df!important;text-shadow:0 1px 6px rgba(0,0,0,.55)!important;}
+
 </style>
 </head><body><main class="daily-print-page"><div class="eyebrow">WIRDI AI · DAILY INTELLIGENCE</div><h1>التقرير اليومي للعبادات | Daily Worship Report</h1><p>${reportDateLabel(day)} · دورة العبادة من الفجر إلى الفجر / Fajr-to-Fajr worship cycle</p><section class="arabic-report">${arabicHtml}</section><section class="daily-print-page en-version english-report-page"><div class="eyebrow">WIRDI AI · DAILY INTELLIGENCE</div><h1>Daily Worship Report</h1><p>${day} · Fajr-to-Fajr worship cycle</p>${englishHtml}</section></main><script>window.addEventListener('load',()=>setTimeout(()=>window.print(),350));<\/script></body></html>`);win.document.close()} 
 function checkFajrReportCycle(){const day=dailyReportCycleDate(),rec=state.records?.[day];if(!rec?.dailyReport){dayRecord(day);const input=$('dailyReportDate');if(input)input.value=day;renderDailyReportPanel(true)} }
@@ -4523,6 +5445,89 @@ body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day.is-today 
 @media(max-width:640px){body:not(.light-ui) .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day,body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day{min-height:60px!important;padding:7px 5px 6px!important;border-radius:11px!important;}body:not(.light-ui) .wirdi-calendar-panel .wirdi-heatmap.wirdi-calendar-grid,body.light-ui .wirdi-calendar-panel .wirdi-heatmap.wirdi-calendar-grid{gap:5px!important;}body:not(.light-ui) .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-number,body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-number{font-size:13px!important;}body:not(.light-ui) .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-status,body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-status{font-size:7px!important;}}
 @media(max-width:400px){body:not(.light-ui) .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day,body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day{min-height:49px!important;padding:6px 4px!important;}body:not(.light-ui) .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-status,body.light-ui .wirdi-calendar-panel .wirdi-heat-day.wirdi-calendar-day .wirdi-calendar-day-status{display:none!important;}}
 
+
+
+/* WIRDI Light Mode image restoration v4 — preserve original mosque/photo artwork with readable overlays. */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#102724!important;
+  background-image:linear-gradient(90deg,rgba(8,25,24,.91) 0%,rgba(8,25,24,.76) 38%,rgba(8,25,24,.30) 70%,rgba(8,25,24,.12) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#c9d8c7!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 7px rgba(0,0,0,.5)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:1!important;}
+
+/* Dashboard worship tiles: restore embedded photography rather than hiding the image layers. */
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#102522!important;background-image:none!important;border-color:rgba(176,157,104,.55)!important;
+}
+body.light-ui .activity-card:before,
+body.light-ui .activity-card::before{
+  display:block!important;content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;opacity:1!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-embedded-image-2)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-embedded-image-1)!important;background-position:70% center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-embedded-image-4)!important;}
+body.light-ui .activity-card .activity-shade{
+  display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(8,24,22,.48) 0%,rgba(8,24,22,.60) 42%,rgba(5,19,18,.91) 100%)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 5px rgba(0,0,0,.45)!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#e0e9dc!important;-webkit-text-fill-color:#e0e9dc!important;}
+body.light-ui .activity-card .activity-icon{color:#f5dba0!important;background:rgba(5,20,19,.78)!important;border-color:rgba(237,210,151,.72)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(246,222,170,.45)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(245,245,225,.32)!important;}
+
+/* Restore the mosque artwork in the reflection cards and the sidebar footer. */
+body.light-ui .today-reflection-card{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(8,24,22,.25),rgba(8,24,22,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;background-image:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.5)!important;}
+body.light-ui .closing-reflection{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(5,19,20,.86),rgba(5,19,20,.43)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;
+  border-color:rgba(183,159,101,.5)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.48)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#102522!important;
+  background-image:linear-gradient(0deg,rgba(2,13,15,.94),rgba(2,13,15,.38) 65%,rgba(2,13,15,.12)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid rgba(201,170,108,.3)!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#fff6df!important;-webkit-text-fill-color:#fff6df!important;text-shadow:0 1px 6px rgba(0,0,0,.55)!important;}
+
 </style>
 
 <style id="wirdi-worldclass-quality-layer">
@@ -4611,6 +5616,89 @@ body.wirdi-modal-open{overflow:hidden}
  body{background:#fff!important;color:#151b17!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
  .card,.reference-panel,.wirdi-calendar-panel{break-inside:avoid;box-shadow:none!important}
 }
+
+
+/* WIRDI Light Mode image restoration v4 — preserve original mosque/photo artwork with readable overlays. */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#102724!important;
+  background-image:linear-gradient(90deg,rgba(8,25,24,.91) 0%,rgba(8,25,24,.76) 38%,rgba(8,25,24,.30) 70%,rgba(8,25,24,.12) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#c9d8c7!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 7px rgba(0,0,0,.5)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:1!important;}
+
+/* Dashboard worship tiles: restore embedded photography rather than hiding the image layers. */
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#102522!important;background-image:none!important;border-color:rgba(176,157,104,.55)!important;
+}
+body.light-ui .activity-card:before,
+body.light-ui .activity-card::before{
+  display:block!important;content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;opacity:1!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-embedded-image-2)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-embedded-image-1)!important;background-position:70% center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-embedded-image-4)!important;}
+body.light-ui .activity-card .activity-shade{
+  display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(8,24,22,.48) 0%,rgba(8,24,22,.60) 42%,rgba(5,19,18,.91) 100%)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 5px rgba(0,0,0,.45)!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#e0e9dc!important;-webkit-text-fill-color:#e0e9dc!important;}
+body.light-ui .activity-card .activity-icon{color:#f5dba0!important;background:rgba(5,20,19,.78)!important;border-color:rgba(237,210,151,.72)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(246,222,170,.45)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(245,245,225,.32)!important;}
+
+/* Restore the mosque artwork in the reflection cards and the sidebar footer. */
+body.light-ui .today-reflection-card{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(8,24,22,.25),rgba(8,24,22,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;background-image:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.5)!important;}
+body.light-ui .closing-reflection{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(5,19,20,.86),rgba(5,19,20,.43)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;
+  border-color:rgba(183,159,101,.5)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.48)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#102522!important;
+  background-image:linear-gradient(0deg,rgba(2,13,15,.94),rgba(2,13,15,.38) 65%,rgba(2,13,15,.12)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid rgba(201,170,108,.3)!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#fff6df!important;-webkit-text-fill-color:#fff6df!important;text-shadow:0 1px 6px rgba(0,0,0,.55)!important;}
+
 </style>
 <script id="wirdi-worldclass-interaction-layer">
 (() => {
@@ -5414,5 +6502,507 @@ body.light-ui #weeklyPrayerMetric,body.light-ui #weeklyQuranMetric,
 body.light-ui #weeklyDhikrMetric{color:#2d7048!important;-webkit-text-fill-color:#2d7048!important;}
 body.light-ui .week-label{color:#657769!important;}
 body.light-ui .wirdi-calendar-legend>span,body.light-ui .wirdi-calendar-monthbar *{text-shadow:none!important;}
+
+/* Accessibility pass — stronger readable contrast throughout Light Mode. */
+body.light-ui{
+  --muted:#526457!important;
+}
+body.light-ui .brand-sub,body.light-ui .profile-name small,body.light-ui .nav-label,
+body.light-ui .nav-copy small,body.light-ui .panel-title-lockup small,
+body.light-ui .panel-heading small,body.light-ui .page-title p,
+body.light-ui .eyebrow,body.light-ui .muted,body.light-ui .small,
+body.light-ui .desc,body.light-ui .tiny-meta,body.light-ui .footer-note,
+body.light-ui .statusline,body.light-ui .privacy-note,body.light-ui .weekly-subtitle,
+body.light-ui .performance-note,body.light-ui .performance-row>span:nth-child(2),
+body.light-ui .wirdi-calendar-title-lockup p,body.light-ui .wirdi-calendar-stat-copy span,
+body.light-ui .wirdi-sync-status,body.light-ui .wirdi-calendar-legend,
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-day-status,
+body.light-ui .activity-card .activity-card-foot,
+body.light-ui .activity-card .activity-card-stat small,
+body.light-ui .activity-card .activity-card-head small,
+body.light-ui .main .card p,body.light-ui .main .card .desc,
+body.light-ui .main .card .small,body.light-ui .main .muted,
+body.light-ui .modal p,body.light-ui .modal .small,body.light-ui .modal .muted,
+body.light-ui .dialog p,body.light-ui .dialog .small,body.light-ui .dialog .muted,
+body.light-ui .wirdi-command-copy small,body.light-ui .wirdi-quick-copy small,
+body.light-ui .wirdi-achievement-copy small,
+body.light-ui #wirdiCommandSub,body.light-ui #wirdiAchSub,
+body.light-ui #wirdiQuickPrayerSub,body.light-ui #wirdiQuickQuranSub,
+body.light-ui #wirdiQuickSalawatSub,body.light-ui #wirdiQuickQiyamSub,
+body.light-ui #wirdiQuickAdhkarSub,body.light-ui #performanceSubtitle,
+body.light-ui #wirdiCommandSub,body.light-ui .week-label{
+  color:#4f6254!important;
+  -webkit-text-fill-color:#4f6254!important;
+  opacity:1!important;
+}
+body.light-ui input::placeholder,body.light-ui textarea::placeholder,
+body.light-ui select:invalid,body.light-ui .dashboard-search input::placeholder{
+  color:#657568!important;-webkit-text-fill-color:#657568!important;opacity:1!important;
+}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-future{
+  opacity:1!important;color:#5b6d5e!important;background:#edf2e9!important;
+}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-future .wirdi-calendar-day-number,
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-future .wirdi-calendar-day-status{
+  color:#5b6d5e!important;
+}
+body.light-ui button:disabled,body.light-ui input:disabled,body.light-ui select:disabled,
+body.light-ui textarea:disabled,body.light-ui .calendar-day:disabled,
+body.light-ui .calendar-cell:disabled{
+  opacity:.78!important;color:#5e6e60!important;-webkit-text-fill-color:#5e6e60!important;
+}
+body.light-ui .tag,body.light-ui .pill,body.light-ui .micro-tag,
+body.light-ui .tiny-meta,body.light-ui .city-chip,body.light-ui .sync-chip,
+body.light-ui .main .tag,body.light-ui .main .micro-tag,
+body.light-ui .main .new-tag,body.light-ui .main .performance-window,
+body.light-ui .main .tiny-meta,body.light-ui .main .sync-chip,
+body.light-ui .main .city-chip{
+  color:#405746!important;-webkit-text-fill-color:#405746!important;
+}
+body.light-ui .wirdi-calendar-legend>span,body.light-ui .wirdi-calendar-weekday,
+body.light-ui .wirdi-calendar-monthname small,body.light-ui .wirdi-calendar-foot{
+  color:#4f6254!important;
+}
+body.light-ui .chart-grid,body.light-ui .chart-axis,body.light-ui .chart-label,
+body.light-ui .axis-label,body.light-ui .chart-legend,body.light-ui .chart-legend text,
+body.light-ui svg text{
+  fill:#4f6254!important;color:#4f6254!important;
+}
+body.light-ui a:not(.btn):not(.nav-btn){color:#245d3b;}
+body.light-ui :where(p,span,small,label,li,dd,dt,figcaption,output){
+  text-shadow:none;
+}
+body.light-ui :where(button,a,input,select,textarea,[tabindex]):focus-visible{
+  outline:2px solid #39764b!important;outline-offset:2px!important;
+  box-shadow:0 0 0 4px rgba(57,118,75,.2)!important;
+}
+
+
+/* WIRDI contrast audit v2 — light theme only; strengthen daily history tables and other data-dense report UI. */
+body.light-ui .domain-detail-table{
+  background:#ffffff!important;border:1px solid #c8d6c9!important;border-radius:12px!important;
+  overflow-x:auto!important;box-shadow:0 2px 8px rgba(25,55,35,.045)!important;
+}
+body.light-ui .domain-detail-table table{background:#fff!important;color:#172b20!important;font-size:12px!important;}
+body.light-ui .domain-detail-table th,
+body.light-ui .domain-detail-table thead th{
+  background:#e8f0e7!important;color:#203f2b!important;-webkit-text-fill-color:#203f2b!important;
+  font-size:12px!important;font-weight:750!important;line-height:1.5!important;
+  border-bottom:2px solid #a9bea9!important;border-right-color:#d5e0d5!important;
+}
+body.light-ui .domain-detail-table td,
+body.light-ui .domain-detail-table tbody td{
+  background:#fff!important;color:#26382d!important;-webkit-text-fill-color:#26382d!important;
+  font-size:12px!important;font-weight:550!important;line-height:1.65!important;
+  border-bottom:1px solid #d6e0d6!important;
+}
+body.light-ui .domain-detail-table tbody tr:nth-child(even) td{background:#f3f7f1!important;}
+body.light-ui .domain-detail-table tbody tr:hover td{background:#e8f2e6!important;color:#172f20!important;-webkit-text-fill-color:#172f20!important;}
+body.light-ui .domain-detail-table td strong{color:#183d27!important;-webkit-text-fill-color:#183d27!important;font-weight:800!important;}
+body.light-ui .domain-detail-table td small{color:#435d49!important;-webkit-text-fill-color:#435d49!important;font-weight:650!important;}
+body.light-ui .domain-value-pill{
+  background:#e2f1e4!important;color:#205b32!important;-webkit-text-fill-color:#205b32!important;
+  border:1px solid #9fc8a5!important;font-weight:800!important;font-size:11px!important;
+}
+body.light-ui .domain-value-pill.low{
+  background:#fff0cf!important;color:#704b08!important;-webkit-text-fill-color:#704b08!important;
+  border:1px solid #dfbd72!important;
+}
+body.light-ui .insights-table-card .section-head h2{color:#203c29!important;-webkit-text-fill-color:#203c29!important;}
+body.light-ui .insights-table-card .section-head p{color:#4c6251!important;-webkit-text-fill-color:#4c6251!important;}
+body.light-ui .insights-table-card .section-head .btn{color:#214c30!important;border-color:#a7c0a8!important;background:#f1f7ef!important;}
+/* Daily report tables and secondary report labels */
+body.light-ui .daily-report-table-wrap{background:#fff!important;border-color:#cbd9cc!important;}
+body.light-ui .daily-report-table th{background:#e8f0e7!important;color:#203f2b!important;-webkit-text-fill-color:#203f2b!important;border-bottom:1px solid #b6c9b7!important;font-weight:750!important;}
+body.light-ui .daily-report-table td{background:#fff!important;color:#26382d!important;-webkit-text-fill-color:#26382d!important;border-bottom:1px solid #d6e0d6!important;}
+body.light-ui .daily-report-table tbody tr:nth-child(even) td{background:#f3f7f1!important;}
+body.light-ui .daily-report-section-title{color:#274b32!important;-webkit-text-fill-color:#274b32!important;}
+body.light-ui .daily-report-summary p,body.light-ui .daily-report-advice p,
+body.light-ui .daily-report-timeline-note,body.light-ui .daily-report-disclaimer,
+body.light-ui .daily-report-metric span,body.light-ui .daily-report-metric small,
+body.light-ui .daily-report-score span,body.light-ui .daily-report-score small{color:#4b5f4f!important;-webkit-text-fill-color:#4b5f4f!important;}
+body.light-ui .daily-report-metric strong{color:#203f2b!important;-webkit-text-fill-color:#203f2b!important;}
+body.light-ui .daily-report-status.done{background:#e2f3e6!important;color:#205b32!important;-webkit-text-fill-color:#205b32!important;border-color:#a6d1ad!important;}
+body.light-ui .daily-report-status.missing{background:#fff1d3!important;color:#704b08!important;-webkit-text-fill-color:#704b08!important;border-color:#e2c77f!important;}
+@media(max-width:700px){
+ body.light-ui .domain-detail-table th,body.light-ui .domain-detail-table td{padding:11px 10px!important;font-size:12px!important;}
+}
+
+
+
+/* WIRDI Light Mode image restoration v4 — preserve original mosque/photo artwork with readable overlays. */
+body.light-ui .reference-hero,
+body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel{
+  background-color:#102724!important;
+  background-image:linear-gradient(90deg,rgba(8,25,24,.91) 0%,rgba(8,25,24,.76) 38%,rgba(8,25,24,.30) 70%,rgba(8,25,24,.12) 100%),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 52%!important;
+  border-color:#c9d8c7!important;
+}
+body.light-ui .reference-hero .verse-ar,
+body.light-ui .reference-hero .verse-en,
+body.light-ui .reference-hero .verse-reference,
+body.light-ui .reference-hero .hero-greeting,
+body.light-ui .reference-hero .hero-greeting p,
+body.light-ui .reference-hero .hero-greeting small,
+body.light-ui .feature-carousel .verse-ar,
+body.light-ui .feature-carousel .verse-en,
+body.light-ui .feature-carousel .verse-reference,
+body.light-ui .feature-carousel .feature-headline,
+body.light-ui .feature-carousel .feature-reflection{
+  color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 7px rgba(0,0,0,.5)!important;
+}
+body.light-ui .reference-hero:before,body.light-ui .reference-hero:after,
+body.light-ui .feature-carousel:before,body.light-ui .feature-carousel:after{opacity:1!important;}
+
+/* Dashboard worship tiles: restore embedded photography rather than hiding the image layers. */
+body.light-ui .activity-card,
+body.light-ui .activity-card.activity-quran,
+body.light-ui .activity-card.activity-salawat,
+body.light-ui .activity-card.activity-dhikr{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  background-color:#102522!important;background-image:none!important;border-color:rgba(176,157,104,.55)!important;
+}
+body.light-ui .activity-card:before,
+body.light-ui .activity-card::before{
+  display:block!important;content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;opacity:1!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+}
+body.light-ui .activity-quran:before,body.light-ui .activity-quran::before{background-image:var(--wirdi-embedded-image-2)!important;}
+body.light-ui .activity-salawat:before,body.light-ui .activity-salawat::before{background-image:var(--wirdi-embedded-image-1)!important;background-position:70% center!important;}
+body.light-ui .activity-dhikr:before,body.light-ui .activity-dhikr::before{background-image:var(--wirdi-embedded-image-4)!important;}
+body.light-ui .activity-card .activity-shade{
+  display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(8,24,22,.48) 0%,rgba(8,24,22,.60) 42%,rgba(5,19,18,.91) 100%)!important;
+}
+body.light-ui .activity-card h1,body.light-ui .activity-card h2,body.light-ui .activity-card h3,
+body.light-ui .activity-card p,body.light-ui .activity-card span,body.light-ui .activity-card strong,
+body.light-ui .activity-card small,body.light-ui .activity-card label,
+body.light-ui .activity-card .activity-card-head,body.light-ui .activity-card .activity-card-stat,
+body.light-ui .activity-card .activity-card-foot{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 5px rgba(0,0,0,.45)!important;}
+body.light-ui .activity-card .activity-card-head small,body.light-ui .activity-card .activity-card-stat small span{color:#e0e9dc!important;-webkit-text-fill-color:#e0e9dc!important;}
+body.light-ui .activity-card .activity-icon{color:#f5dba0!important;background:rgba(5,20,19,.78)!important;border-color:rgba(237,210,151,.72)!important;}
+body.light-ui .activity-card .activity-card-stat{border-top-color:rgba(246,222,170,.45)!important;}
+body.light-ui .activity-card .activity-progress{background:rgba(245,245,225,.32)!important;}
+
+/* Restore the mosque artwork in the reflection cards and the sidebar footer. */
+body.light-ui .today-reflection-card{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(8,24,22,.25),rgba(8,24,22,.72)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 47%!important;
+}
+body.light-ui .today-reflection-card .reflection-shade{display:block!important;opacity:1!important;background:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;background-image:linear-gradient(90deg,rgba(8,24,22,.16),rgba(8,24,22,.76))!important;}
+body.light-ui .today-reflection-card .reflection-kicker,
+body.light-ui .today-reflection-card .reflection-copy small,
+body.light-ui .today-reflection-card .reflection-star,
+body.light-ui .today-reflection-card .reflection-copy h2,
+body.light-ui .today-reflection-card .reflection-copy p{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.5)!important;}
+body.light-ui .closing-reflection{
+  background-color:#102522!important;
+  background-image:linear-gradient(90deg,rgba(5,19,20,.86),rgba(5,19,20,.43)),var(--wirdi-embedded-image-1)!important;
+  background-size:cover!important;background-position:center 63%!important;
+  border-color:rgba(183,159,101,.5)!important;
+}
+body.light-ui .closing-reflection,body.light-ui .closing-reflection *{color:#fffaf0!important;-webkit-text-fill-color:#fffaf0!important;text-shadow:0 1px 6px rgba(0,0,0,.48)!important;}
+body.light-ui .sidebar-footer{
+  background-color:#102522!important;
+  background-image:linear-gradient(0deg,rgba(2,13,15,.94),rgba(2,13,15,.38) 65%,rgba(2,13,15,.12)),var(--wirdi-embedded-image-6)!important;
+  background-size:cover!important;background-position:center 40%!important;border-top:1px solid rgba(201,170,108,.3)!important;
+}
+body.light-ui .sidebar-footer *,body.light-ui .sidebar-footer p,body.light-ui .sidebar-footer .sidebar-location{color:#fff6df!important;-webkit-text-fill-color:#fff6df!important;text-shadow:0 1px 6px rgba(0,0,0,.55)!important;}
+
+
+
+/* WIRDI AI v8 — final Light Mode contrast pass. Keep photograph-backed cards intentionally dark. */
+html:has(body.light-ui), body.light-ui { color-scheme: light !important; }
+body.light-ui {
+  --bg: #f4f7f3 !important;
+  --bg2: #edf2ec !important;
+  --panel: #ffffff !important;
+  --panel2: #f7f9f6 !important;
+  --text: #1d2b24 !important;
+  --muted: #435548 !important;
+  --gold: #75551b !important;
+  --gold2: #6b501c !important;
+  --mint: #236343 !important;
+  --red: #963b33 !important;
+  --blue: #245d78 !important;
+}
+
+/* Secondary copy, captions, helper text, and dynamically updated copy on normal light surfaces. */
+body.light-ui .app .main :is(
+  .muted, .small, small, .desc, .tiny-meta, .footer-note, .statusline,
+  .privacy-note, .weekly-subtitle, .performance-note, .wirdi-sync-status,
+  .nav-label, .brand-sub, .panel-title-lockup small, .panel-heading small,
+  .page-title p, .wirdi-calendar-title-lockup p, .wirdi-calendar-stat-copy span,
+  .hint, .helper, .field-hint, .field-help, .form-help, .caption, .subtext,
+  .subtitle, .description, .empty-state, .report-empty, .history-empty,
+  .auth-gate-sub, .auth-gate-foot, .notification-copy small,
+  p[class*="subtitle"], span[class*="subtitle"], p[class*="-hint"], small[class*="hint"]
+):not(.activity-card *):not(.reference-hero *):not(.feature-carousel *):not(.today-reflection-card *):not(.closing-reflection *):not(.sidebar-footer *):not(button *):not(.btn *):not([role="button"] *):not(.tag):not(.pill):not(.micro-tag):not(.status-success):not(.complete):not(.ok):not(.wirdi-calendar-day-status):not(.wirdi-calendar-score) {
+  color: #435548 !important;
+  -webkit-text-fill-color: #435548 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+body.light-ui .topbar :is(small, .muted, .small, .tiny-meta, .sync-chip),
+body.light-ui .sidebar :is(.brand-sub, .sidebar-tagline, .nav-label, .nav-copy small):not(.sidebar-footer *),
+body.light-ui #authGate :is(.auth-gate-sub, .auth-gate-foot, .auth-gate-message, small),
+body.light-ui .modal :is(.small, .muted, .desc, .privacy-note, .statusline),
+body.light-ui .dialog :is(.small, .muted, .desc, .privacy-note, .statusline) {
+  color: #435548 !important;
+  -webkit-text-fill-color: #435548 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* Normal cards and generated panels: prevent old inline/dark-theme text colors from washing out. */
+body.light-ui .app .main :is(
+  .card:not(.activity-card), .subcard, .stat-card, .reference-panel,
+  .performance-panel, .weekly-panel, .smart-insight-panel,
+  .prayer-times-panel, .worship-card, .setting-card, .settings-card,
+  .setting-field, .goal-card, .history-item, .achievement-card,
+  .deep-insight-card, .report-card, .report-panel, .chart-panel,
+  .score-breakdown-card, .insights-metric-card, .insight-metric,
+  .insight-metrics > div, .report-meaning-card, .insight-meaning-card,
+  .wirdi-mini-panel, .wirdi-command-card, .wirdi-quick-item,
+  .wirdi-achievement, .wirdi-notice-status, .wirdi-reminder-settings
+) :is(.muted, .small, small, .desc, .tiny-meta, .privacy-note, .statusline, .hint, .helper, .field-hint, .field-help, .subtitle, .caption) {
+  color: #435548 !important;
+  -webkit-text-fill-color: #435548 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+body.light-ui .setting-field label,
+body.light-ui .setting-card label,
+body.light-ui .settings-card label,
+body.light-ui .wirdi-reminder-settings label,
+body.light-ui .wirdi-field-label,
+body.light-ui .modal label,
+body.light-ui .dialog label {
+  color: #26382d !important;
+  -webkit-text-fill-color: #26382d !important;
+}
+
+/* Readable form controls, including dynamically generated options and invalid/disabled fields. */
+body.light-ui input, body.light-ui select, body.light-ui textarea,
+body.light-ui option, body.light-ui .select-control,
+body.light-ui .line-field, body.light-ui .notes-area,
+body.light-ui .setting-field input, body.light-ui .setting-field select,
+body.light-ui .setting-field textarea, body.light-ui .modal input,
+body.light-ui .modal select, body.light-ui .modal textarea,
+body.light-ui .dialog input, body.light-ui .dialog select,
+body.light-ui .dialog textarea {
+  color: #22342a !important;
+  -webkit-text-fill-color: #22342a !important;
+  background-color: #fffefa !important;
+  border-color: #bdcdbd !important;
+  color-scheme: light !important;
+}
+body.light-ui input::placeholder, body.light-ui textarea::placeholder,
+body.light-ui select:invalid, body.light-ui .dashboard-search input::placeholder,
+body.light-ui .setting-field input::placeholder {
+  color: #596c5d !important;
+  -webkit-text-fill-color: #596c5d !important;
+  opacity: 1 !important;
+}
+body.light-ui input:disabled, body.light-ui select:disabled,
+body.light-ui textarea:disabled, body.light-ui button:disabled {
+  color: #526457 !important;
+  -webkit-text-fill-color: #526457 !important;
+  opacity: .86 !important;
+}
+body.light-ui :where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid #39764b !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(57,118,75,.20) !important;
+}
+
+/* Semantic badges and chart/table copy keep their meaning without sacrificing contrast. */
+body.light-ui a:not(.btn):not(.nav-btn) { color: #205a37 !important; }
+body.light-ui .tag, body.light-ui .pill, body.light-ui .micro-tag,
+body.light-ui .city-chip, body.light-ui .sync-chip,
+body.light-ui .performance-window, body.light-ui .new-tag {
+  color: #405746 !important;
+  -webkit-text-fill-color: #405746 !important;
+}
+body.light-ui .tag.ok, body.light-ui .ok, body.light-ui .complete,
+body.light-ui .status-success, body.light-ui .daily-report-status.done {
+  color: #205b32 !important;
+  -webkit-text-fill-color: #205b32 !important;
+}
+body.light-ui .btn-primary, body.light-ui .btn-success,
+body.light-ui .gold-filled-button, body.light-ui .wirdi-command-btn.primary,
+body.light-ui .btn-danger, body.light-ui .btn-primary *,
+body.light-ui .btn-success *, body.light-ui .gold-filled-button *,
+body.light-ui .wirdi-command-btn.primary *, body.light-ui .btn-danger * {
+  -webkit-text-fill-color: currentColor !important;
+}
+body.light-ui table, body.light-ui th, body.light-ui td,
+body.light-ui .daily-report-table th, body.light-ui .daily-report-table td {
+  color: #26382d !important;
+  -webkit-text-fill-color: #26382d !important;
+}
+body.light-ui th, body.light-ui .daily-report-table th { background-color: #e8f0e7 !important; }
+body.light-ui .chart-grid, body.light-ui .chart-axis, body.light-ui .chart-label,
+body.light-ui .axis-label, body.light-ui .chart-legend,
+body.light-ui .chart-legend text, body.light-ui svg text {
+  fill: #435548 !important;
+  color: #435548 !important;
+}
+
+/* Calendar small-print states are legible even for unfinished or future dates. */
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day .wirdi-calendar-day-status,
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-legend,
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-foot,
+body.light-ui .wirdi-calendar-panel .wirdi-calendar-stat-copy small { color: #435548 !important; }
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-incomplete:not(.is-today) .wirdi-calendar-day-status {
+  color: #844837 !important;
+}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-today .wirdi-calendar-day-status {
+  color: #74551c !important;
+}
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-future,
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-future .wirdi-calendar-day-number,
+body.light-ui .wirdi-calendar-panel .wirdi-heat-day.is-future .wirdi-calendar-day-status {
+  color: #526457 !important;
+  opacity: 1 !important;
+}
+
+/* The photo cards are intentionally dark in Light Mode: reinforce the overlay so white text stays readable. */
+body.light-ui .reference-hero, body.light-ui .reference-hero.feature-carousel,
+body.light-ui .feature-carousel {
+  background-image: linear-gradient(90deg,
+    rgba(8,25,24,.94) 0%, rgba(8,25,24,.86) 38%,
+    rgba(8,25,24,.74) 70%, rgba(8,25,24,.62) 100%), var(--wirdi-embedded-image-1) !important;
+}
+body.light-ui .activity-card .activity-shade {
+  background: linear-gradient(180deg, rgba(8,24,22,.66) 0%, rgba(8,24,22,.76) 42%, rgba(5,19,18,.94) 100%) !important;
+}
+body.light-ui .today-reflection-card {
+  background-image: linear-gradient(90deg, rgba(8,24,22,.64), rgba(8,24,22,.84)), var(--wirdi-embedded-image-1) !important;
+}
+body.light-ui .today-reflection-card .reflection-shade {
+  background: linear-gradient(90deg, rgba(8,24,22,.42), rgba(8,24,22,.82)) !important;
+  background-image: linear-gradient(90deg, rgba(8,24,22,.42), rgba(8,24,22,.82)) !important;
+}
+body.light-ui .closing-reflection {
+  background-image: linear-gradient(90deg, rgba(5,19,20,.91), rgba(5,19,20,.68)), var(--wirdi-embedded-image-1) !important;
+}
+body.light-ui .activity-card :is(h1,h2,h3,p,span,strong,small,label),
+body.light-ui .reference-hero :is(.verse-ar,.verse-en,.verse-reference,.hero-greeting,p,small),
+body.light-ui .feature-carousel :is(.verse-ar,.verse-en,.verse-reference,.feature-headline,.feature-reflection),
+body.light-ui .today-reflection-card *, body.light-ui .closing-reflection *,
+body.light-ui .sidebar-footer * {
+  color: #fffaf0 !important;
+  -webkit-text-fill-color: #fffaf0 !important;
+}
+body.light-ui .activity-card .activity-card-head small,
+body.light-ui .activity-card .activity-card-stat small span { color: #e0e9dc !important; -webkit-text-fill-color: #e0e9dc !important; }
+
+@media (max-width: 760px) {
+  body.light-ui .main .card:not(.activity-card), body.light-ui .main .subcard,
+  body.light-ui .main .setting-field, body.light-ui .main .report-card,
+  body.light-ui .main .report-panel { border-color: #d1ddcf !important; }
+}
+
+</style>
+<script id="wirdi-mobile-haptics-v1">
+(() => {
+  'use strict';
+  if (window.__wirdiMobileHapticsInstalled) return;
+  window.__wirdiMobileHapticsInstalled = true;
+
+  // Delegate once so buttons created later (counter actions, modals, quick-entry cards) also work.
+  const interactiveSelector = [
+    'button', 'input[type="button"]', 'input[type="submit"]', 'input[type="reset"]',
+    '[role="button"]', '[onclick]', '.btn', '.nav-btn', '.top-icon-button', '.lang-toggle',
+    '.prayer-time-card', '.wirdi-command-btn', '.wirdi-quick-item', '.wirdi-achievement',
+    '.activity-card', '.wirdi-calendar-navbtn', '.wirdi-calendar-today-btn', '.wirdi-calendar-today',
+    '[data-goto]', '[data-view]', '[data-route]'
+  ].join(',');
+  let lastPulseAt = 0;
+
+  function pulseFor(target) {
+    if (!(target instanceof Element)) return;
+    const control = target.closest(interactiveSelector);
+    if (!control || control.disabled || control.matches(':disabled') ||
+        control.getAttribute('aria-disabled') === 'true' || control.closest('fieldset:disabled')) return;
+    if (typeof navigator.vibrate !== 'function') return; // Graceful fallback on browsers without haptic API support.
+    const now = Date.now();
+    if (now - lastPulseAt < 85) return; // Avoid duplicate pulses from nested custom controls.
+    lastPulseAt = now;
+    try { navigator.vibrate(18); } catch (_) { /* Unsupported / blocked by browser: no-op. */ }
+  }
+
+  if ('PointerEvent' in window) {
+    document.addEventListener('pointerup', event => {
+      if (event.isPrimary && (event.pointerType === 'touch' || event.pointerType === 'pen')) pulseFor(event.target);
+    }, { capture: true, passive: true });
+  } else {
+    document.addEventListener('touchend', event => {
+      const touch = event.changedTouches && event.changedTouches[0];
+      const target = touch ? document.elementFromPoint(touch.clientX, touch.clientY) : event.target;
+      pulseFor(target);
+    }, { capture: true, passive: true });
+  }
+})();
+</script>
+
+
+<!-- WIRDI AI v11: restore original sign-in UI; only improve contrast in the requested analysis section. -->
+<style id="wirdi-v11-targeted-light-contrast-fix">
+body.light-ui #domainAnalysisSubtitle,
+body.light-ui .domain-analysis-card #domainAnalysisSubtitle,
+body.light-ui .domain-analysis-card .domain-summary-row span,
+body.light-ui .domain-analysis-card .domain-summary-row strong,
+body.light-ui .domain-analysis-card .domain-recommendation,
+body.light-ui .domain-analysis-card .domain-recommendation strong {
+  color: #243b30 !important;
+  -webkit-text-fill-color: #243b30 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+body.light-ui .domain-analysis-card .domain-summary-row,
+body.light-ui .domain-analysis-card .domain-recommendation {
+  background: #ffffff !important;
+  border-color: #cbd8cc !important;
+}
+body.light-ui .domain-analysis-card .domain-summary-row strong {
+  font-weight: 750 !important;
+}
+</style>
+
+<style id="wirdi-auth-input-white-focus-fix">
+/* Keep sign-in fields white when focused, clicked, or autofilled by the browser. */
+#authGate .auth-gate-card input,
+#authGate .auth-gate-card input:hover,
+#authGate .auth-gate-card input:focus,
+#authGate .auth-gate-card input:active {
+  background-color:#ffffff !important;
+  background-image:none !important;
+  color:#183e34 !important;
+  -webkit-text-fill-color:#183e34 !important;
+  caret-color:#183e34 !important;
+  border-color:#cbd8cf !important;
+  color-scheme:light !important;
+}
+#authGate .auth-gate-card input::placeholder { color:#66776d !important; opacity:1 !important; }
+#authGate .auth-gate-card input:focus {
+  background-color:#ffffff !important;
+  border-color:#b28c3c !important;
+  box-shadow:0 0 0 3px rgba(178,140,60,.18) !important;
+  outline:none !important;
+}
+#authGate .auth-gate-card input:-webkit-autofill,
+#authGate .auth-gate-card input:-webkit-autofill:hover,
+#authGate .auth-gate-card input:-webkit-autofill:focus,
+#authGate .auth-gate-card input:-webkit-autofill:active {
+  -webkit-text-fill-color:#183e34 !important;
+  caret-color:#183e34 !important;
+  -webkit-box-shadow:0 0 0 1000px #ffffff inset !important;
+  box-shadow:0 0 0 1000px #ffffff inset !important;
+  transition:background-color 99999s ease-out 0s !important;
+}
 </style>
 </body></html>
