@@ -2874,14 +2874,14 @@ function wirdiAchievementData(){
 }
 function wirdiCalendarBounds(){
  const today=cairoDate(new Date());
- const isDateKey=v=>typeof v==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&!Number.isNaN(new Date(v+'T12:00:00Z').getTime());
+ const isDateKey=v=>typeof v==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&!Number.isNaN(new Date(v+'T12:00:00Z').getTime())&&new Date(v+'T12:00:00Z').toISOString().slice(0,10)===v;
  const knownDates=Object.keys(state.records||{}).filter(d=>isDateKey(d)&&d<=today).sort();
- let start=state.settings?.trackingStartDate;
- if(!isDateKey(start)||start>today){
-  const meaningful=knownDates.filter(d=>{const r=state.records[d];if(!r)return false;try{return scoreDay(r).coverage>0||wirdiActivityCount(r)>0}catch(e){return false}});
-  start=meaningful[0]||today;
-  if(state.settings&&state.settings.trackingStartDate!==start){state.settings.trackingStartDate=start;persist()}
- }
+ const meaningful=knownDates.filter(d=>{const r=state.records[d];if(!r)return false;try{return scoreDay(r).coverage>0||wirdiActivityCount(r)>0}catch(e){return false}});
+ const configuredStart=state.settings?.trackingStartDate;
+ // A stale trackingStartDate must never hide real saved records. Keep settings intact,
+ // but let the calendar's visible range reach the earliest meaningful saved day.
+ let start=isDateKey(configuredStart)&&configuredStart<=today?configuredStart:(meaningful[0]||today);
+ if(meaningful.length&&meaningful[0]<start)start=meaningful[0];
  return {today,start,startMonth:start.slice(0,7),todayMonth:today.slice(0,7)};
 }
 function wirdiMonthShift(month,delta){const d=new Date(month+'-01T12:00:00Z');d.setUTCMonth(d.getUTCMonth()+delta);return d.toISOString().slice(0,7)}
@@ -2914,15 +2914,18 @@ function renderWirdiCalendar(){
  let activeDays=0,completedDays=0,usableDays=0,dayHtml='';
  for(let day=1;day<=daysInMonth;day++){
   const key=`${wirdiCalendarMonth}-${String(day).padStart(2,'0')}`;
-  const beforeStart=key<start,future=key>today;
+  const future=key>today;
   const r=state.records?.[key]||null;
+  // Existing records remain reviewable even when trackingStartDate was saved too late.
+  const beforeStart=key<start&&!r;
   const activity=wirdiActivityCount(r);
   const metrics=r?scoreDay(r):null;
   const completed=!!r&&metrics.coverage>=100&&metrics.completion===100;
-  const hasActivity=activity>0||(metrics?.coverage||0)>0;
-  if(!beforeStart&&!future){usableDays++;if(hasActivity)activeDays++;if(completed)completedDays++}
+  const hasActivity=!!r&&(activity>0||(metrics?.coverage||0)>0);
+  // Count saved records regardless of a stale configured start date.
+  if((!beforeStart||!!r)&&!future){usableDays++;if(hasActivity)activeDays++;if(completed)completedDays++}
   let status=en?'No activity logged':'من غير تسجيل';
-  if(beforeStart)status=en?'Before tracking began':'قبل بداية المتابعة';
+  if(beforeStart&&!r)status=en?'Before tracking began':'قبل بداية المتابعة';
   else if(future)status=en?'Future date':'تاريخ جاي';
   else if(completed)status=en?'Day complete':'اليوم مكتمل';
   else if(hasActivity)status=en?'In progress · some tasks left':'فيه تسجيل، ولسه فيه مهام ناقصة';
