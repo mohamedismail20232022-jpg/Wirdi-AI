@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071310"><meta name="color-scheme" content="dark light"><meta name="application-name" content="WIRDI AI — Reliable Islamic Research Assistant"><meta name="description" content="WIRDI AI — an Arabic Islamic research assistant with Google Search grounding, traceable sources, and cautious handling of Quran, tafsir, Hadith, and fiqh questions.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071310"><meta name="color-scheme" content="dark light"><meta name="application-name" content="WIRDI AI — Reliable Islamic Research Assistant"><meta name="description" content="WIRDI AI — personal local intelligence for worship logs, scoring explanations, sync diagnostics, and source-guided Islamic research.">
 <meta name="wirdi-recaptcha-enterprise-site-key" content=""> <!-- Optional public reCAPTCHA Enterprise site key for App Check; never put a secret here. -->
-<title>WIRDI AI — Reliable Islamic Research Assistant v17</title>
+<title>WIRDI AI — Smart Coach Edition v21</title>
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -5354,6 +5354,7 @@ window.WIRDI_AI_BRIDGE={
   check('Missing prayer time receives completion-only credit, not guessed timing',noTimestampResult.prayerAwards.find(x=>x.key==='Dhuhr')?.score===4.5&&noTimestampResult.prayerAwards.find(x=>x.key==='Dhuhr')?.max===4.5,JSON.stringify(noTimestampResult.prayerAwards.find(x=>x.key==='Dhuhr')));
   return {version:WIRDI_SCORING_MODEL.version,weights:WIRDI_SCORING_MODEL.weights,passed:cases.filter(x=>x.pass).length,failed:cases.filter(x=>!x.pass).length,cases};
  },
+ getHistory:(days=60)=>{const today=worshipDateFor(new Date());return Object.keys(state.records||{}).filter(d=>isValidDayKey(d)&&d<=today).sort().slice(-Math.max(1,Math.min(180,Number(days)||60))).map(day=>{const q=state.records[day]||{},z=scoreDay(q);return {date:day,score:z.score,scoreStatus:z.scoreStatus,coverage:z.coverage,completion:z.completion,domains:z.domainScores,prayers:Object.fromEntries(PRAYERS.map(p=>[p.key,q.prayers?.[p.key]?.status||'unrecorded'])),adhkar:{morning:q.adhkar?.morning?.status||'unrecorded',evening:q.adhkar?.evening?.status||'unrecorded'},quranPages:Number(q.quran?.pages)||0,salawat:Number(q.salawat?.count)||0,qiyamRakaat:Number(q.qiyam?.rakaat)||0}})},
  getContext:()=>{
   const today=worshipDateFor(new Date()),r=dayRecord(today),sc=scoreDay(r),zone=validTimeZone(r.prayerTimes?.timezone)?r.prayerTimes.timezone:ACTIVE_TZ;
   const stamp=v=>{if(!v)return null;const d=new Date(v);return Number.isFinite(d.getTime())?new Intl.DateTimeFormat('en-GB',{timeZone:zone,dateStyle:'short',timeStyle:'short'}).format(d):null};
@@ -7858,3 +7859,416 @@ body.light-ui .wirdi-scoring-weights{background:linear-gradient(140deg,#fffdf6,#
 @media(max-width:900px){.wirdi-weight-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:560px){.wirdi-weight-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.wirdi-weight-card{padding:10px}.wirdi-weight-card strong{font-size:15px}.wirdi-scoring-weights{padding:12px}}
 </style>
 </body></html>
+<style id="wirdi-v19-local-intelligence-styles">
+.wai-local-v19-box{margin:12px 0 8px;padding:13px;border:1px solid rgba(216,186,114,.26);border-radius:17px;background:linear-gradient(140deg,rgba(216,186,114,.09),rgba(30,80,65,.08))}.wai-local-v19-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.wai-local-v19-head>div{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.wai-local-v19-head strong{font-size:12px;color:var(--text,#f5f4ed)}.wai-local-v19-head span{padding:4px 8px;border-radius:999px;background:rgba(141,224,186,.12);color:var(--mint,#8de0ba);font-size:10px}.wai-local-v19-head button{border:1px solid rgba(216,186,114,.35);border-radius:999px;background:rgba(216,186,114,.08);color:var(--gold2,#f0dca2);padding:7px 10px;font:inherit;font-size:10px;cursor:pointer}.wai-local-v19-box p{font-size:11px;line-height:1.8;color:var(--muted,#a6bbb1);margin:8px 0 10px}.wai-local-v19-chips{display:flex;gap:7px;flex-wrap:wrap}.wai-local-v19-chips button{border:1px solid rgba(216,186,114,.32);border-radius:999px;padding:8px 11px;background:rgba(216,186,114,.06);color:var(--text,#f5f4ed);font:inherit;font-size:10px;cursor:pointer;transition:transform .18s,background .18s}.wai-local-v19-chips button:hover{transform:translateY(-2px);background:rgba(216,186,114,.15)}.wai-local-v19-chips button:active{transform:scale(.97)}.wai-local-badge{display:inline-flex;margin:0 0 8px;padding:5px 8px;border-radius:999px;background:rgba(141,224,186,.12);border:1px solid rgba(141,224,186,.24);color:var(--mint,#8de0ba);font-size:10px;font-weight:700}.wai-local-answer{line-height:1.9}.wai-local-answer h3{font-size:15px;margin:12px 0 6px}.wai-local-answer code{direction:ltr;unicode-bidi:embed}.wai-local-links{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.wai-local-links a{padding:8px 10px;border:1px solid rgba(216,186,114,.25);border-radius:10px;color:var(--gold2,#f0dca2);text-decoration:none;font-size:11px;background:rgba(216,186,114,.06)}.wai-local-links a:hover{text-decoration:underline}
+.light-ui .wai-local-v19-box{background:linear-gradient(140deg,#fffdf4,#f1f7f1)!important;border-color:#d7dfce!important}.light-ui .wai-local-v19-head strong{color:#203c2e!important}.light-ui .wai-local-v19-head span{background:#e7f7eb!important;color:#236c4a!important}.light-ui .wai-local-v19-head button,.light-ui .wai-local-v19-chips button{background:#fff!important;color:#234536!important;border-color:#d5dfd4!important}.light-ui .wai-local-v19-box p{color:#526b5b!important}.light-ui .wai-local-v19-chips button{background:#fff!important;color:#234536!important}.light-ui .wai-local-badge{background:#e7f7eb!important;color:#236c4a!important;border-color:#c4e8ce!important}.light-ui .wai-local-answer{color:#263e31!important}.light-ui .wai-local-links a{color:#5d4719!important;background:#fffaf0!important;border-color:#dfd2ad!important}
+@media(max-width:540px){.wai-local-v19-box{padding:10px}.wai-local-v19-chips button{padding:8px 9px}.wai-local-v19-head button{font-size:9px}}
+</style>
+<style id="wirdi-v20-smart-styles">
+.wsc{margin:0 0 18px;padding:20px;border:1px solid var(--line);border-radius:var(--radius,24px);background:linear-gradient(160deg,var(--panel2),var(--panel));box-shadow:var(--shadow)}
+.wsc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.wsc-head h2{margin:2px 0 0;font-size:19px}.wsc-eyebrow{font-size:11px;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.wsc-conf{padding:5px 12px;border-radius:99px;font-size:12px;font-weight:700;border:1px solid var(--line)}
+.wsc-conf[data-c=high]{color:var(--mint)}.wsc-conf[data-c=mid]{color:var(--gold2)}.wsc-conf[data-c=low]{color:var(--red)}
+.wsc-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:14px}
+.wsc-tile{padding:12px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.wsc-tile b{display:block;font-size:24px;line-height:1.1;color:var(--gold2)}.wsc-tile span{font-size:12px;color:var(--muted)}
+.wsc-focus{padding:14px;border-radius:18px;border:1px solid var(--gold);background:rgba(216,186,114,.08);margin-bottom:14px}
+.wsc-focus strong{color:var(--gold2)}.wsc-focus p{margin:6px 0 0;color:var(--text);line-height:1.8}
+.wsc-bars{display:grid;gap:8px;margin-bottom:14px}.wsc-bar{display:grid;grid-template-columns:130px 1fr 92px;gap:10px;align-items:center;font-size:13px}
+.wsc-track{height:9px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}.wsc-fill{height:100%;border-radius:9px;background:linear-gradient(90deg,var(--gold),var(--mint))}
+.wsc-bar small{color:var(--muted);text-align:end}
+.wsc-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}.wsc-list li{padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.04);border-inline-start:3px solid var(--blue);line-height:1.8;font-size:14px}
+.wsc-list li[data-t=good]{border-color:var(--mint)}.wsc-list li[data-t=focus]{border-color:var(--gold)}.wsc-list li[data-t=warn]{border-color:var(--red)}
+.wsc h3{margin:14px 0 8px;font-size:14px;color:var(--gold2)}
+.wsc-today{display:flex;flex-wrap:wrap;gap:8px}.wsc-today span{padding:6px 12px;border-radius:99px;background:rgba(141,224,186,.1);border:1px solid var(--line);font-size:13px}
+.wsc-note{margin:14px 0 0;font-size:12px;color:var(--muted);line-height:1.8}
+@media(max-width:560px){.wsc-bar{grid-template-columns:96px 1fr 70px}}
+</style>
+<script id="wirdi-v20-smart-coach">
+(()=>{'use strict';
+const root=typeof window!=='undefined'?window:globalThis;
+if(root.__wirdiSmartV20)return;root.__wirdiSmartV20=true;
+const W={prayers:35,salawat:35,adhkar:15,quran:10,qiyam:5};
+const DN={prayers:['الصلوات الخمس','Five prayers'],salawat:['الصلاة على النبي ﷺ','Salawat on the Prophet ﷺ'],adhkar:['الأذكار','Adhkar'],quran:['القرآن','Quran'],qiyam:['قيام الليل','Night prayer']};
+const PN={Fajr:['الفجر','Fajr'],Dhuhr:['الظهر','Dhuhr'],Asr:['العصر','Asr'],Maghrib:['المغرب','Maghrib'],Isha:['العشاء','Isha']};
+const DAYS=[['الأحد','Sunday'],['الاثنين','Monday'],['الثلاثاء','Tuesday'],['الأربعاء','Wednesday'],['الخميس','Thursday'],['الجمعة','Friday'],['السبت','Saturday']];
+const sum=a=>a.reduce((x,y)=>x+y,0),avg=a=>a.length?sum(a)/a.length:null,r1=x=>Math.round(x*10)/10;
+const sd=a=>{if(a.length<3)return null;const m=avg(a);return Math.sqrt(avg(a.map(x=>(x-m)**2)))};
+const slope=y=>{const n=y.length;if(n<5)return null;const mx=(n-1)/2,my=avg(y);let u=0,d=0;y.forEach((v,i)=>{u+=(i-mx)*(v-my);d+=(i-mx)**2});return u/d};
+const ms=d=>Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10));
+const uiLang=()=>{try{return(document.documentElement.lang||'ar').toLowerCase().startsWith('en')?'en':'ar'}catch(_){return'ar'}};
+function mk(L){const en=L==='en',T=(a,e)=>en?e:a,i=en?1:0;
+ return {en,T,dn:k=>DN[k][i],pn:k=>(PN[k]||[k,k])[i],day:w=>DAYS[w][i],
+  cnt:(n,k)=>{const f={pr:[['صلاة واحدة','صلاتان','صلوات'],['1 prayer','2 prayers','prayers']],pg:[['صفحة واحدة','صفحتان','صفحات'],['1 page','2 pages','pages']]}[k][i];return n===1?f[0]:n===2?f[1]:(en?`${n} ${f[2]}`:`${n} ${f[2]}`)},
+  conf:c=>T({high:'عالية',mid:'متوسطة',low:'منخفضة'}[c],{high:'High',mid:'Medium',low:'Low'}[c])}}
+function tip(k,x,s,L){const{T}=mk(L);
+ if(k==='prayers')return T(`ابدأ بصلاة واحدة فقط${s?` (${s})`:''}: اربطها بتنبيه ثابت، وسجّلها فور الانتهاء.`,`Start with just one prayer${s?` (${s})`:''}: tie it to a fixed reminder and log it right after.`);
+ if(k==='salawat')return T(`قسّم الهدف على الصلوات الخمس: نحو ${Math.ceil((x||100)/5)} مرة بعد كل صلاة.`,`Split the goal across the five prayers: about ${Math.ceil((x||100)/5)} after each one.`);
+ if(k==='adhkar')return T('اربط أذكار الصباح بما بعد الفجر مباشرة، والمساء بما بعد العصر، قبل انتهاء نافذتها.','Do morning adhkar right after Fajr and evening adhkar right after Asr, before their windows end.');
+ if(k==='quran')return T(`اختر وقتًا ثابتًا واحدًا لصفحات اليوم (${x||6}) بدل تأجيلها لآخر اليوم.`,`Pick one fixed time for today's pages (${x||6}) instead of leaving them to the end of the day.`);
+ return T('ركعتان قبل النوم مباشرة تكفيان لتثبيت العادة.','Two rakaat right before sleep are enough to build the habit.')}
+
+function confReason(a,L){const{T}=mk(L),r=[];
+ if(a.n<10)r.push(T(`عندك ${a.n} يوم مقيّم فقط (المطلوب 5 للمتوسطة و10 للعالية)`,`you have only ${a.n} scored day(s) (5 needed for Medium, 10 for High)`));
+ if(a.provPct>40)r.push(T(`${a.provPct}% من أيامك درجتها مبدئية`,`${a.provPct}% of your scored days are provisional`));
+ if(a.covAvg!==null&&a.covAvg<70)r.push(T(`متوسط تغطية التسجيل ${a.covAvg}% (المطلوب 70%+)`,`average recording coverage is ${a.covAvg}% (70%+ needed)`));
+ return r.length?T('سبب مستوى الثقة: ','Why this confidence level: ')+r.join(T('، ','; '))+T('. سجّل الصلوات والأذكار كلها يوميًا وبتوقيتها حتى ترتفع.','. Log all prayers and adhkar daily, with times, to raise it.'):''}
+
+function analyze(hist,ctx,L){L=L==='en'?'en':'ar';const M=mk(L),T=M.T;
+ hist=Array.isArray(hist)?hist:[];
+ const rows=hist.filter(d=>d&&d.score!==null&&d.score!==undefined&&Number.isFinite(+d.score));
+ const out={n:rows.length,days:hist.length,ok:rows.length>=3,insights:[],domains:[],plan:[],L};
+ const win=hist.slice(-14);let un=0,tot=0;const pr={};
+ win.forEach(d=>Object.entries(d.prayers||{}).forEach(([k,s])=>{const o=pr[k]||(pr[k]={done:0,not:0});tot++;if(s==='unrecorded')un++;else if(s==='done')o.done++;else if(s==='notDone')o.not++;}));
+ out.unrecordedPct=tot?Math.round(100*un/tot):null;
+ if(!out.ok){out.plan=todayPlan(ctx,L);return out}
+ const sc=rows.map(d=>+d.score),l7=sc.slice(-7),p7=sc.slice(-14,-7);
+ out.avg7=r1(avg(l7));out.avg7n=l7.length;
+ out.delta=(l7.length>=3&&p7.length>=3)?r1(avg(l7)-avg(p7)):null;
+ const sl=slope(sc.slice(-21));out.slopeWeek=sl===null?null:r1(sl*7);
+ const sdv=sd(sc.slice(-14));out.sd=sdv===null?null:r1(sdv);
+ let st=0;for(let i=rows.length-1;i>=0&&+rows[i].score>=70;i--){if(i<rows.length-1&&ms(rows[i+1].date)-ms(rows[i].date)!==864e5)break;st++}
+ out.streak=st;
+ out.provPct=Math.round(100*rows.filter(d=>d.scoreStatus==='provisional').length/rows.length);
+ const cv=avg(rows.map(d=>+d.coverage).filter(Number.isFinite));out.covAvg=cv===null?null:Math.round(cv);
+ out.confidence=(rows.length>=10&&out.provPct<=40&&(cv===null||cv>=70))?'high':rows.length>=5?'mid':'low';
+ out.confWhy=out.confidence==='high'?'':confReason(out,L);
+ out.domains=Object.keys(W).map(k=>{const v=win.map(d=>d.domains&&d.domains[k]).filter(Number.isFinite);return v.length?{k,name:M.dn(k),att:Math.round(avg(v)),n:v.length,loss:r1(W[k]*(1-avg(v)/100))}:null}).filter(Boolean).sort((a,b)=>b.loss-a.loss);
+ out.focus=out.domains[0]&&out.domains[0].loss>=1?out.domains[0]:null;
+ out.prayerRates=Object.entries(pr).map(([k,o])=>({k,name:M.pn(k),rate:(o.done+o.not)>=5?Math.round(100*o.done/(o.done+o.not)):null})).filter(p=>p.rate!==null).sort((a,b)=>a.rate-b.rate);
+ const wd={};rows.forEach(d=>{const w=new Date(ms(d.date)).getUTCDay();(wd[w]||(wd[w]=[])).push(+d.score)});
+ const wl=Object.entries(wd).filter(([,v])=>v.length>=2).map(([w,v])=>({w:+w,avg:avg(v),n:v.length})).sort((a,b)=>a.avg-b.avg);
+ out.weekday=rows.length>=10&&wl.length>=4&&wl[wl.length-1].avg-wl[0].avg>=8?{low:wl[0],high:wl[wl.length-1]}:null;
+ const I=(t,title,text)=>out.insights.push({t,title,text});
+ if(out.delta!==null){const a=Math.abs(out.delta);I(out.delta>=3?'good':out.delta<=-3?'focus':'info',T('الاتجاه','Trend'),a<3?T(`متوسطك ثابت تقريبًا (${out.avg7} من 100) مقارنة بالأسبوع السابق.`,`Your average is about steady (${out.avg7}/100) versus the previous week.`):T(`متوسط آخر ${out.avg7n} أيام ${out.avg7} من 100، ${out.delta>0?'أعلى':'أقل'} بـ ${a} نقطة من الفترة التي قبلها.`,`Your last ${out.avg7n}-day average is ${out.avg7}/100, ${a} points ${out.delta>0?'higher':'lower'} than the period before.`))}
+ if(out.slopeWeek!==null&&Math.abs(out.slopeWeek)>=3&&rows.length>=8)I(out.slopeWeek>0?'good':'focus',T('المسار العام','Overall direction'),T(`الخط العام لدرجاتك ${out.slopeWeek>0?'صاعد':'هابط'} بنحو ${Math.abs(out.slopeWeek)} نقطة أسبوعيًا (على ${Math.min(21,rows.length)} يومًا مقيّمًا).`,`Your scores are ${out.slopeWeek>0?'rising':'falling'} by about ${Math.abs(out.slopeWeek)} points per week (over ${Math.min(21,rows.length)} scored days).`));
+ if(out.focus){const f=out.focus,g=r1(W[f.k]*(.9-f.att/100));I('focus',T('أكبر فرصة','Biggest opportunity'),T(`${f.name}: متحقق ${f.att}% من نقاطه القابلة للتقييم، وتخسر منه في المتوسط ${f.loss} نقطة يوميًا.${g>0.5?` الوصول إلى 90% يضيف نحو ${g} نقطة يوميًا.`:''}`,`${f.name}: ${f.att}% of its assessable points achieved, losing about ${f.loss} points a day on average.${g>0.5?` Reaching 90% would add about ${g} points a day.`:''}`))}
+ const wp=out.prayerRates.find(p=>p.rate<90);
+ if(wp&&out.prayerRates.length>=3)I('focus',T('صلاة تحتاج انتباهًا','Prayer needing attention'),T(`صلاة ${wp.name} هي الأقل تسجيلًا كمنجزة: ${wp.rate}% من الأيام المسجلة لها.`,`${wp.name} is the least often logged as done: ${wp.rate}% of the days recorded for it.`));
+ if(out.weekday)I('info',T('نمط أيام الأسبوع','Weekday pattern'),T(`أعلى متوسط لك يوم ${M.day(out.weekday.high.w)} (${Math.round(out.weekday.high.avg)}) وأقله يوم ${M.day(out.weekday.low.w)} (${Math.round(out.weekday.low.avg)}). خطّط لدعم إضافي في اليوم الأقل.`,`Your best average is on ${M.day(out.weekday.high.w)} (${Math.round(out.weekday.high.avg)}) and lowest on ${M.day(out.weekday.low.w)} (${Math.round(out.weekday.low.avg)}). Plan extra support for the lower day.`));
+ if(out.sd!==null&&out.sd>=15)I('warn',T('الثبات','Consistency'),T(`درجاتك متذبذبة (انحراف ±${out.sd} نقطة). الثبات على الحد الأدنى أنفع من القفزات المتقطعة.`,`Your scores swing a lot (±${out.sd} points). Holding a steady minimum beats occasional spikes.`));
+ if(st>=3)I('good',T('سلسلة الالتزام','Streak'),T(`${st} أيام متتالية بدرجة 70 فأعلى. حافظ على الروتين نفسه بدل تغييره.`,`${st} consecutive days at 70 or above. Keep the same routine rather than changing it.`));
+ if(out.unrecordedPct!==null&&out.unrecordedPct>=25)I('warn',T('جودة التسجيل','Recording quality'),T(`${out.unrecordedPct}% من خانات الصلوات في آخر 14 يومًا غير مسجلة. هذا يخفض ثقة التحليل، وليس دليلًا على التقصير.`,`${out.unrecordedPct}% of prayer slots in the last 14 days are unrecorded. This lowers analysis confidence; it is not evidence of falling short.`));
+ out.plan=todayPlan(ctx,L);return out}
+
+function todayPlan(ctx,L){const M=mk(L==='en'?'en':'ar'),T=M.T,t=ctx&&ctx.todayRecord;if(!t)return[];const o=[];
+ const pend=(t.prayers||[]).filter(p=>p.status==='unrecorded'||p.status==='unsure').length;
+ if(pend)o.push({pts:pend*7,txt:T(`${M.cnt(pend,'pr')} لم تُسجَّل بعد`,`${M.cnt(pend,'pr')} not logged yet`)});
+ const sg=Number(t.salawatGoal)||100,sa=Number(t.salawat)||0;
+ if(sa<sg)o.push({pts:r1(35*(1-sa/sg)),txt:T(`الصلاة على النبي ﷺ: باقٍ ${sg-sa}`,`Salawat: ${sg-sa} remaining`)});
+ const am=['morning','evening'].filter(k=>{const s=t.adhkar&&t.adhkar[k]&&t.adhkar[k].status;return s==='unrecorded'||s==='unsure'||!s});
+ if(am.length)o.push({pts:am.length*7.5,txt:T(`أذكار ${am.map(k=>k==='morning'?'الصباح':'المساء').join(' و')}`,`${am.map(k=>k==='morning'?'Morning':'Evening').join(' & ')} adhkar`)});
+ const qg=Number(t.quranGoal)||6,qp=Number(t.quranPages)||0;
+ if(qp<qg)o.push({pts:r1(10*(1-qp/qg)),txt:T(`القرآن: باقٍ ${M.cnt(Math.ceil(qg-qp),'pg')}`,`Quran: ${M.cnt(Math.ceil(qg-qp),'pg')} remaining`)});
+ const qr=Number(t.qiyamRakaat)||0;if(qr<2)o.push({pts:r1(5*(1-qr/2)),txt:T('قيام الليل','Night prayer')});
+ return o.filter(x=>x.pts>=0.5).sort((a,b)=>b.pts-a.pts).slice(0,5)}
+
+function coachTip(a,ctx){const f=a.focus;if(!f)return null;const t=ctx&&ctx.todayRecord||{};
+ return tip(f.k,f.k==='salawat'?t.salawatGoal:t.quranGoal,f.k==='prayers'&&a.prayerRates&&a.prayerRates[0]?a.prayerRates[0].name:'',a.L)}
+
+const B=s=>`**${s}**`;
+function chatAnswer(kind,a,ctx){const{T,conf}=mk(a.L);
+ if(!a.ok)return `${B(T('لسه البيانات قليلة للتحليل','Not enough data to analyze yet'))}\n`+T('أحتاج 3 أيام على الأقل لها درجة قابلة للحساب. لا أخمّن نمطًا من بيانات ناقصة. سجّل اليوم وارجع لي بعد يومين.','I need at least 3 days with a computable score. I will not guess patterns from thin data. Log today and check back in a couple of days.');
+ const cf=conf(a.confidence),why=a.confWhy?'\n'+a.confWhy:'';
+ if(kind==='plan'){let o=B(T('خطة التحسين الذكية','Smart improvement plan'))+T(` (ثقة التحليل: ${cf} — ${a.n} يومًا مقيّمًا)`,` (confidence: ${cf} — ${a.n} scored days)`)+why+'\n';
+  if(a.focus)o+=`\n${B(T('تركيز واحد فقط:','One focus only:'))} ${a.focus.name} (${a.focus.att}% — ${T('يخسر','loses')} ${a.focus.loss} ${T('نقطة يوميًا','points/day')}).\n- ${coachTip(a,ctx)}\n`;else o+='\n'+T('لا يوجد مجال يخسر أكثر من نقطة يوميًا. المطلوب الحفاظ على ما أنت عليه.','No area is losing more than a point a day. Just keep going as you are.')+'\n';
+  if(a.plan.length)o+=`\n${B(T('أعلى نقاط متاحة اليوم','Top points available today'))}\n`+a.plan.map(p=>`- ${p.txt}: ${T('حتى','up to')} ${p.pts} ${T('نقطة','pts')}`).join('\n')+'\n';
+  return o+'\n'+T('النقاط حدّ أقصى؛ التوقيت قد يخصم جزءًا. اختيار تحسين واحد في كل مرة أنجح من تغيير كل شيء.','Points are maximums; timing may deduct some. One improvement at a time works better than changing everything.')}
+ if(kind==='patterns'){const ks=T(['الاتجاه','نمط أيام الأسبوع','صلاة تحتاج انتباهًا','الثبات','المسار العام'],['Trend','Weekday pattern','Prayer needing attention','Consistency','Overall direction']);
+  const ins=a.insights.filter(i=>ks.includes(i.title));
+  return B(T('أنماطك من السجل','Your patterns'))+T(` (ثقة: ${cf})`,` (confidence: ${cf})`)+why+'\n'+(ins.length?'\n'+ins.map(i=>`- ${B(i.title)}: ${i.text}`).join('\n'):'\n'+T('لا يوجد نمط واضح بما يكفي حتى الآن، والبيانات الحالية لا تدعم استنتاجًا قويًا.','No clear pattern yet; the current data does not support a strong conclusion.'))+'\n\n'+T('هذه أنماط إحصائية في تسجيلك، وليست حكمًا على عبادتك.','These are statistical patterns in your logs, not a judgment on your worship.')}
+ if(kind==='whatif'){const f=a.focus,h=B(T('سيناريو "لو التزمت"','"What if" scenario'));if(!f)return h+'\n'+T('لا يوجد مجال يخسر نقاطًا كبيرة، لذلك لن يتغير متوسطك كثيرًا.','No area is losing many points, so your average will not change much.');
+  const g=r1(W[f.k]*(.9-f.att/100));if(g<=0.5)return h+'\n'+T(`${f.name} قريب من 90% بالفعل. أي مكسب إضافي صغير.`,`${f.name} is already near 90%. Any extra gain is small.`);
+  return h+'\n'+T(`لو رفعت ${f.name} من ${f.att}% إلى 90%، فالزيادة التقريبية ${g} نقطة في درجة اليوم الواحد. متوسطك الحالي ${a.avg7}، ويصبح تقريبًا ${Math.min(100,r1(a.avg7+g))}.\n\nهذا حساب مبسّط على سجلك الحالي، وليس وعدًا بنتيجة.`,`Raising ${f.name} from ${f.att}% to 90% adds roughly ${g} points to a single day's score. Your current average is ${a.avg7}; it would become about ${Math.min(100,r1(a.avg7+g))}.\n\nThis is a simple calculation on your current log, not a promise.`)}
+ if(kind==='streak')return B(T('الالتزام والاستمرار','Consistency & streak'))+'\n'+T(`- سلسلة الأيام المتتالية بدرجة 70+: ${a.streak}\n- متوسط آخر ${a.avg7n} أيام: ${a.avg7}\n`,`- Consecutive days at 70+: ${a.streak}\n- Last ${a.avg7n}-day average: ${a.avg7}\n`)+(a.sd!==null?T(`- ثبات الدرجات: ±${a.sd} نقطة\n`,`- Score steadiness: ±${a.sd} points\n`):'')+(a.unrecordedPct!==null?T(`- خانات صلاة غير مسجلة (14 يومًا): ${a.unrecordedPct}%\n`,`- Unrecorded prayer slots (14 days): ${a.unrecordedPct}%\n`):'')+'\n'+T('انقطاع السلسلة لا يمحو ما سبق؛ المهم العودة في اليوم التالي.','A broken streak does not erase what came before; what matters is returning the next day.');
+ return null}
+
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e};
+function fill(host,a,ctx){const{T,conf}=mk(a.L);host.textContent='';host.dir=a.L==='en'?'ltr':'rtl';
+ const head=el('div','wsc-head'),l=el('div');l.append(el('div','wsc-eyebrow','WIRDI SMART COACH · '+T('تحليل محلي','LOCAL ANALYSIS')),el('h2','',T('المدرب الذكي','Smart Coach')));head.append(l);
+ if(a.ok){const c=el('span','wsc-conf',T('ثقة التحليل: ','Analysis confidence: ')+conf(a.confidence));c.dataset.c=a.confidence;head.append(c)}
+ host.append(head);
+ if(a.ok&&a.confWhy)host.append(el('p','wsc-note',a.confWhy));
+ if(!a.ok){host.append(el('p','wsc-note',T(`لسه البيانات قليلة (${a.n} يوم مقيّم). أحتاج 3 أيام على الأقل لها درجة قابلة للحساب حتى أقدّم تحليلًا موثوقًا بدل التخمين.`,`Not enough data yet (${a.n} scored day(s)). I need at least 3 days with a computable score to give reliable analysis instead of guessing.`)));
+  if(a.plan.length){host.append(el('h3','',T('نقاط متاحة اليوم','Points available today')));const t=el('div','wsc-today');a.plan.forEach(p=>t.append(el('span','',`${p.txt} · ${p.pts}`)));host.append(t)}return}
+ const tiles=el('div','wsc-tiles'),Tl=(v,s)=>{const t=el('div','wsc-tile');t.append(el('b','',v),el('span','',s));tiles.append(t)};
+ Tl(String(a.avg7),T(`متوسط آخر ${a.avg7n} أيام`,`Average, last ${a.avg7n} days`));
+ if(a.delta!==null)Tl((a.delta>0?'▲ ':a.delta<0?'▼ ':'')+Math.abs(a.delta),T('التغير عن الأسبوع السابق','Change vs previous week'));
+ if(a.sd!==null)Tl('±'+a.sd,T('ثبات الدرجات','Score steadiness'));
+ Tl(String(a.streak),T('أيام متتالية 70+','Days in a row 70+'));host.append(tiles);
+ if(a.focus){const f=el('div','wsc-focus');f.append(el('strong','',T('تركيز الغد: ','Tomorrow\'s focus: ')+a.focus.name),el('p','',coachTip(a,ctx)));host.append(f)}
+ if(a.domains.length){const bars=el('div','wsc-bars');a.domains.forEach(d=>{const r=el('div','wsc-bar'),tr=el('div','wsc-track'),fl=el('div','wsc-fill');fl.style.width=d.att+'%';tr.append(fl);r.append(el('span','',d.name),tr,el('small','',`${d.att}% · −${d.loss}`));bars.append(r)});host.append(el('h3','',T('أين تذهب نقاطك (آخر 14 يومًا)','Where your points go (last 14 days)')),bars)}
+ if(a.insights.length){const ul=el('ul','wsc-list');a.insights.forEach(i=>{const li=el('li','',i.title+': '+i.text);li.dataset.t=i.t;ul.append(li)});host.append(el('h3','',T('ما اكتشفه التحليل','What the analysis found')),ul)}
+ if(a.plan.length){host.append(el('h3','',T('أعلى نقاط متاحة اليوم','Top points available today')));const t=el('div','wsc-today');a.plan.forEach(p=>t.append(el('span','',`${p.txt} · ${T('حتى','up to')} ${p.pts} ${T('نقطة','pts')}`)));host.append(t)}
+ host.append(el('p','wsc-note',T('تحليل إحصائي محلي على تسجيلاتك فقط؛ الأيام غير المسجلة لا تُعامل كإخفاق. هذه أداة متابعة وليست حكمًا على العبادة أو القبول.','Local statistical analysis of your own logs only; unrecorded days are never treated as failures. This is a tracking tool, not a judgment on worship or acceptance.')))}
+
+function hosts(){const hs=[];
+ [['view-reports','#dailyReportShell',0],['view-insights','.insights-engine-banner',1]].forEach(([v,sel,after])=>{const view=document.getElementById(v);if(!view)return;let h=view.querySelector('.wsc');if(!h){h=el('section','wsc');const ref=view.querySelector(sel);if(ref)ref.parentNode.insertBefore(h,after?ref.nextSibling:ref);else view.append(h)}hs.push(h)});return hs}
+let busy=false;
+function render(){if(busy)return;busy=true;try{const b=root.WIRDI_AI_BRIDGE;if(!b||!b.getHistory)return;const L=uiLang(),ctx=b.getContext(),a=analyze(b.getHistory(60),ctx,L);hosts().forEach(h=>fill(h,a,ctx))}catch(e){console.warn('WIRDI Smart Coach:',e)}finally{busy=false}}
+function boot(){if(typeof document==='undefined')return;let t=null;const soon=()=>{clearTimeout(t);t=setTimeout(render,600)};
+ document.addEventListener('click',soon,true);document.addEventListener('change',soon,true);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)soon()});
+ try{new MutationObserver(soon).observe(document.documentElement,{attributes:true,attributeFilter:['lang']})}catch(_){}
+ setInterval(()=>{if(!document.hidden)render()},60000);setTimeout(render,1500)}
+
+function chatSetup(){if(typeof document==='undefined')return;
+ const form=document.getElementById('waiChatForm'),prompt=document.getElementById('waiPrompt'),chat=document.getElementById('waiChatView');
+ if(!form||!prompt||!chat)return;
+ const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[\u0640\p{P}\p{S}]/gu,' ').replace(/\s+/g,' ').trim();
+ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const INT=[['whatif',/(لو التزمت|ماذا لو|لو زودت|لو حسنت|توقع|الاسبوع الجاي|what if|if i commit|if i improve|forecast|predict)/],['patterns',/(نمط|انماط|افضل يوم|اسوا يوم|ايام الاسبوع|ما الذي يؤثر|ايه اللي بيأثر|pattern|best day|worst day|weekday|my trend)/],['streak',/(ستريك|سلسله|متتاليه|استمرار|التزامي|streak|consistency)/],['plan',/(اركز|ركز علي|اولويه|خطه تحسين|خطتي|اتحسن|افضل طريقه|اضعف|فرصه|ماذا اغير|اغير ايه|خطه ذكيه|focus on|what should i focus|improve|improvement plan|smart plan|weakest|priorit)/]];
+ const OUT=/(حكم|فتوي|حديث|قران|سوره|تفسير|مزامنه|سحابه|حلال|حرام|ruling|fatwa|hadith|quran|verse|sync|halal|haram)/;
+ const push=(role,txt,L)=>{const art=el('article','wai-message '+(role==='user'?'user':'assistant'));const body=el('div','wai-message-body');if(role==='user')body.textContent=txt;else{body.classList.add('wai-local-answer');body.dir=L==='en'?'ltr':'rtl';body.innerHTML=esc(txt).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');art.append(el('div','wai-local-badge',L==='en'?'Local smart analysis · Smart Coach':'تحليل ذكي محلي · Smart Coach'))}art.append(body);chat.append(art);chat.scrollTop=chat.scrollHeight};
+ form.addEventListener('submit',e=>{let local=true;try{local=localStorage.getItem('wirdi_ai_local_intelligence_v19')!=='0'}catch(_){}
+  if(!local)return;const q=prompt.value.trim();if(!q)return;const n=norm(q);if(OUT.test(n))return;const hit=INT.find(([,r])=>r.test(n));if(!hit)return;
+  const b=root.WIRDI_AI_BRIDGE;if(!b||!b.getHistory)return;
+  const L=/[\u0600-\u06FF]/.test(q)?'ar':/[a-z]/i.test(q)?'en':uiLang();
+  e.preventDefault();e.stopImmediatePropagation();push('user',q,L);prompt.value='';
+  try{const ctx=b.getContext();push('assistant',chatAnswer(hit[0],analyze(b.getHistory(60),ctx,L),ctx),L)}catch(_){push('assistant',L==='en'?'Could not complete the analysis right now.':'تعذر إتمام التحليل الآن. جرّب «حلل يومي».',L)}},true);
+ setTimeout(()=>{const box=document.querySelector('.wai-local-v19-chips');if(!box||box.querySelector('[data-v20]'))return;const en=uiLang()==='en';
+  (en?[['Smart plan','What should I focus on to improve?'],['My patterns','What are my patterns and best days?'],['What if I commit?','What if I commit to my weakest area?']]:[['خطة تحسين ذكية','ما أهم شيء أركز عليه لأتحسن؟'],['أنماطي','ما أنماطي وأفضل أيامي؟'],['ماذا لو التزمت؟','ماذا لو التزمت بأضعف مجال عندي؟']]).forEach(([l,q])=>{const bt=el('button','',l);bt.type='button';bt.dataset.localq=q;bt.dataset.v20='1';box.append(bt)})},400)}
+
+root.WIRDI_SMART_V20={analyze,todayPlan,chatAnswer};
+if(typeof module!=='undefined')module.exports={analyze,todayPlan,chatAnswer};
+chatSetup();
+if(typeof document!=='undefined'){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot()}
+})();
+</script>
+
+<style id="wirdi-v21-motion-viz-styles">
+@property --score{syntax:'<percentage>';inherits:false;initial-value:0%}
+.score-ring{transition:--score 1.1s cubic-bezier(.22,1,.36,1)}
+.score-ring.wv-pulse{animation:wv-pulse .9s cubic-bezier(.34,1.56,.64,1)}
+@keyframes wv-pulse{0%{transform:scale(1)}35%{transform:scale(1.08);filter:drop-shadow(0 0 22px rgba(216,186,114,.55))}100%{transform:scale(1)}}
+.view.active{animation:wv-view .4s cubic-bezier(.22,1,.36,1)}
+@keyframes wv-view{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.wv-reveal{opacity:0;transform:translateY(16px)}
+.wv-reveal.wv-in{opacity:1;transform:none;transition:opacity .55s ease,transform .6s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--i,0)*55ms)}
+button,.btn,.wai-rate,[role=tab]{transition:transform .2s cubic-bezier(.34,1.56,.64,1),filter .2s,background-color .2s,box-shadow .2s}
+button:active:not(:disabled),.btn:active{transform:scale(.95)}
+@media(hover:hover){.btn:hover:not(:disabled){filter:brightness(1.08)}}
+.wv{margin:0 0 18px;padding:20px;border:1px solid var(--line);border-radius:var(--radius,24px);background:linear-gradient(160deg,var(--panel2),var(--panel));box-shadow:var(--shadow)}
+.wv h2{margin:2px 0 4px;font-size:19px}.wv h3{margin:16px 0 8px;font-size:14px;color:var(--gold2)}
+.wv-eyebrow{font-size:11px;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.wv-chart{position:relative;touch-action:pan-y;direction:ltr}.wv-chart svg{width:100%;height:auto;display:block;overflow:visible}
+.wv-grid{stroke:rgba(255,255,255,.09);stroke-width:1}.wv-axis{fill:var(--muted);font-size:10px}
+.wv-area{fill:rgba(216,186,114,.12)}.wv-line{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:wv-draw 1.2s .1s cubic-bezier(.22,1,.36,1) forwards}
+.wv-ma{fill:none;stroke:var(--mint);stroke-width:2;stroke-dasharray:5 4;opacity:.9}
+@keyframes wv-draw{to{stroke-dashoffset:0}}
+.wv-dot{fill:var(--gold2);stroke:var(--panel);stroke-width:2}.wv-guide{stroke:var(--gold);stroke-width:1;opacity:0}.wv-hot{fill:var(--gold);opacity:0}
+.wv-tip{position:absolute;top:0;pointer-events:none;opacity:0;transform:translate(-50%,-110%);padding:7px 11px;border-radius:12px;background:#020b09;border:1px solid var(--gold);color:#f5f4ed;font-size:12px;line-height:1.6;white-space:nowrap;transition:opacity .15s;z-index:3;direction:inherit}
+.wv-rad{fill:rgba(141,224,186,.2);stroke:var(--mint);stroke-width:2;transform-origin:150px 140px;animation:wv-rad .9s cubic-bezier(.34,1.3,.64,1)}
+@keyframes wv-rad{from{transform:scale(.2);opacity:0}to{transform:none;opacity:1}}
+.wv-rv{fill:var(--mint);cursor:pointer}.wv-rl{fill:var(--text);font-size:11px;text-anchor:middle}
+.wv-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.wv-badges{display:flex;flex-wrap:wrap;gap:8px}.wv-badge{padding:8px 12px;border-radius:14px;border:1px solid var(--line);font-size:13px;background:rgba(255,255,255,.04);opacity:.55}
+.wv-badge[data-on="1"]{opacity:1;border-color:var(--gold);background:rgba(216,186,114,.12);color:var(--gold2)}.wv-badge small{display:block;color:var(--muted);font-size:11px}
+.wv-note{margin:12px 0 0;font-size:12px;color:var(--muted);line-height:1.8}.wv-welcome{padding:10px 14px;border-radius:14px;background:rgba(141,224,186,.1);margin-bottom:12px;font-size:14px}
+.wv-share{margin-top:14px;padding:11px 20px;border-radius:99px;border:1px solid var(--gold);background:rgba(216,186,114,.14);color:var(--gold2);font-weight:700;cursor:pointer;font-family:inherit}
+@media(prefers-reduced-motion:reduce){.view.active,.score-ring,.wv-line,.wv-rad,.score-ring.wv-pulse{animation:none!important;transition:none!important}.wv-reveal{opacity:1;transform:none}.wv-line{stroke-dashoffset:0}}
+</style>
+<script id="wirdi-v21-motion-viz">
+(()=>{'use strict';
+if(window.__wv21)return;window.__wv21=true;
+const RM=()=>{try{return matchMedia('(prefers-reduced-motion: reduce)').matches}catch(_){return false}};
+const lang=()=>(document.documentElement.lang||'ar').toLowerCase().startsWith('en')?'en':'ar';
+const T=(a,e)=>lang()==='en'?e:a;
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e};
+const NS='http://www.w3.org/2000/svg',sv=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.append(e);return e};
+const ms=d=>Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10));
+const bridge=()=>window.WIRDI_AI_BRIDGE;
+const DOM=[['prayers','الصلوات','Prayers'],['salawat','الصلاة على النبي','Salawat'],['adhkar','الأذكار','Adhkar'],['quran','القرآن','Quran'],['qiyam','القيام','Qiyam']];
+
+/* ===== 1) Score count-up + celebration ===== */
+let cur=null,written=null,raf=0;
+function burst(th){
+ if(RM())return;
+ const c=el('canvas');c.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:99999';c.width=innerWidth;c.height=innerHeight;document.body.append(c);
+ const x=c.getContext('2d'),cols=['#d8ba72','#f0dca2','#8de0ba','#8ebbdc'];
+ const P=Array.from({length:th>=90?110:70},()=>({x:c.width/2,y:c.height*.35,vx:(Math.random()-.5)*12,vy:-Math.random()*11-3,s:4+Math.random()*5,r:Math.random()*6,c:cols[(Math.random()*4)|0]}));
+ let f=0;(function loop(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.vy+=.32;p.x+=p.vx;p.y+=p.vy;p.r+=.2;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.globalAlpha=Math.max(0,1-f/90);x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);x.restore()});if(++f<95)requestAnimationFrame(loop);else c.remove()})();
+ try{navigator.vibrate&&navigator.vibrate(th>=90?[18,40,18]:18)}catch(_){}
+ const r=document.getElementById('dailyRing');if(r){r.classList.remove('wv-pulse');void r.offsetWidth;r.classList.add('wv-pulse')}}
+function celebrate(th,to){
+ try{const b=bridge(),ctx=b&&b.getContext&&b.getContext();if(!ctx||ctx.todayScore.score!==to||ctx.todayScore.scoreStatus==='provisional')return;
+  const key='wv21_cel_'+ctx.today+'_'+th;if(localStorage.getItem(key))return;localStorage.setItem(key,'1');burst(th)}catch(_){}}
+function onScore(node){
+ const raw=(node.textContent||'').trim();if(raw===written)return;
+ const m=raw.match(/^(~?)(\d+(?:\.\d+)?)$/);if(!m){cur=null;return}
+ const to=+m[2],pre=m[1],from=cur===null?0:cur,first=cur===null;if(from===to)return;
+ cancelAnimationFrame(raf);
+ if(!first)[90,70].some(th=>from<th&&to>=th&&!pre&&(celebrate(th,to),true));
+ if(RM()){cur=to;return}
+ const t0=performance.now(),dur=Math.min(1100,450+Math.abs(to-from)*12);
+ const step=t=>{const k=Math.min(1,(t-t0)/dur),v=Math.round(from+(to-from)*(1-Math.pow(1-k,3)));cur=v;written=pre+v;node.textContent=written;if(k<1)raf=requestAnimationFrame(step);else{cur=to;written=pre+to}};
+ raf=requestAnimationFrame(step)}
+function watchScore(){const n=document.getElementById('heroScore');if(!n)return;new MutationObserver(()=>onScore(n)).observe(n,{childList:true,characterData:true,subtree:true});onScore(n)}
+
+/* ===== 7) Motion: staggered reveal ===== */
+let io=null;
+function reveal(){
+ if(RM()||!('IntersectionObserver'in window))return;
+ io=io||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('wv-in');io.unobserve(e.target)}}),{threshold:.06});
+ document.querySelectorAll('.view .card:not(.wv-seen),.view .wsc:not(.wv-seen),.view .wv:not(.wv-seen)').forEach((c,i)=>{c.classList.add('wv-seen','wv-reveal');c.style.setProperty('--i',String(i%6));io.observe(c)});
+ setTimeout(()=>document.querySelectorAll('.wv-reveal:not(.wv-in)').forEach(c=>{if(c.getBoundingClientRect().height)c.classList.add('wv-in')}),2500)}
+
+/* ===== data helpers ===== */
+function runs(hist){let best=0,run=0,pBest=0,pRun=0,prev=null,mx=0;
+ hist.forEach(d=>{const adj=prev&&ms(d.date)-ms(prev)===864e5;
+  const ok=Number.isFinite(+d.score)&&d.score!==null&&+d.score>=70;run=ok?(adj&&run?run+1:1):0;best=Math.max(best,run);
+  const all=d.prayers&&Object.values(d.prayers).length===5&&Object.values(d.prayers).every(s=>s==='done');pRun=all?(adj&&pRun?pRun+1:1):0;pBest=Math.max(pBest,pRun);
+  if(Number.isFinite(+d.score)&&d.score!==null)mx=Math.max(mx,+d.score);prev=d.date});
+ return{streak:best,prayers:pBest,max:mx}}
+const BADGES=[['s3','🔥',3,'streak','٣ أيام متتالية 70+','3 days in a row 70+'],['s7','🔥',7,'streak','٧ أيام متتالية 70+','7 days in a row 70+'],['s14','🏅',14,'streak','١٤ يومًا متتاليًا 70+','14 days in a row 70+'],['s30','👑',30,'streak','٣٠ يومًا متتاليًا 70+','30 days in a row 70+'],['p7','🕌',7,'prayers','٧ أيام كل الصلوات','7 days all prayers'],['m90','⭐',90,'max','يوم بدرجة 90+','A 90+ day']];
+
+/* ===== 8) Charts ===== */
+function tipShow(wrap,tip,xPct,html){tip.textContent='';html.forEach((l,i)=>{if(i)tip.append(document.createElement('br'));tip.append(l)});tip.style.left=xPct+'%';tip.style.opacity='1'}
+function trend(hist,today){
+ const wrap=el('div','wv-chart'),tip=el('div','wv-tip');const W=640,H=210,P={l:30,r:10,t:12,b:22};
+ const end=ms(today),start=end-29*864e5,pts=hist.filter(d=>d.score!==null&&Number.isFinite(+d.score)&&ms(d.date)>=start&&ms(d.date)<=end).map(d=>({d,x:P.l+(ms(d.date)-start)/864e5/29*(W-P.l-P.r),y:P.t+(1-(+d.score)/100)*(H-P.t-P.b)}));
+ const s=sv('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':T('اتجاه درجتك خلال 30 يومًا','Your 30-day score trend')});
+ [0,50,100].forEach(v=>{const y=P.t+(1-v/100)*(H-P.t-P.b);sv('line',{x1:P.l,x2:W-P.r,y1:y,y2:y,class:'wv-grid'},s);const t=sv('text',{x:2,y:y+3,class:'wv-axis'},s);t.textContent=v});
+ if(pts.length<2){const t=sv('text',{x:W/2,y:H/2,'text-anchor':'middle',class:'wv-axis'},s);t.textContent=T('تحتاج يومين مقيّمين على الأقل لرسم الاتجاه','Need at least 2 scored days to draw a trend');wrap.append(s);return wrap}
+ const line=pts.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');
+ sv('path',{d:line+` L${pts[pts.length-1].x} ${H-P.b} L${pts[0].x} ${H-P.b}Z`,class:'wv-area'},s);
+ sv('path',{d:line,class:'wv-line',pathLength:1},s);
+ const ma=pts.map(p=>{const w=pts.filter(q=>ms(q.d.date)<=ms(p.d.date)&&ms(q.d.date)>ms(p.d.date)-7*864e5);return w.length>=3?{x:p.x,y:P.t+(1-(w.reduce((a,q)=>a+ +q.d.score,0)/w.length)/100)*(H-P.t-P.b)}:null}).filter(Boolean);
+ if(ma.length>=2)sv('path',{d:ma.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' '),class:'wv-ma'},s);
+ pts.forEach(p=>sv('circle',{cx:p.x,cy:p.y,r:3.5,class:'wv-dot'},s));
+ const g=sv('line',{y1:P.t,y2:H-P.b,class:'wv-guide'},s),hot=sv('circle',{r:6,class:'wv-hot'},s);
+ const move=e=>{const r=s.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W;let b=pts[0];pts.forEach(p=>{if(Math.abs(p.x-x)<Math.abs(b.x-x))b=p});
+  g.setAttribute('x1',b.x);g.setAttribute('x2',b.x);g.style.opacity=.7;hot.setAttribute('cx',b.x);hot.setAttribute('cy',b.y);hot.style.opacity=1;
+  const sc=Math.round(+b.d.score);tipShow(wrap,tip,Math.min(92,Math.max(8,b.x/W*100)),[b.d.date+(b.d.scoreStatus==='provisional'?T(' (مبدئية)',' (provisional)'):''),T('الدرجة ','Score ')+sc+T(' · التغطية ',' · coverage ')+(b.d.coverage??'—')+'%']);tip.style.top=(b.y/H*100)+'%'};
+ const out=()=>{tip.style.opacity=0;g.style.opacity=0;hot.style.opacity=0};
+ wrap.addEventListener('pointermove',move);wrap.addEventListener('pointerdown',move);wrap.addEventListener('pointerleave',out);
+ wrap.append(s,tip);return wrap}
+function radar(domains){
+ const wrap=el('div','wv-chart'),tip=el('div','wv-tip'),s=sv('svg',{viewBox:'0 0 300 280',role:'img','aria-label':T('رادار المجالات الخمسة','Five-area radar')});
+ const cx=150,cy=140,R=90,ang=i=>(-90+72*i)*Math.PI/180,pt=(i,r)=>[cx+Math.cos(ang(i))*r,cy+Math.sin(ang(i))*r];
+ [25,50,75,100].forEach(v=>sv('polygon',{points:DOM.map((_,i)=>pt(i,R*v/100).join(',')).join(' '),fill:'none',class:'wv-grid'},s));
+ DOM.forEach((_,i)=>sv('line',{x1:cx,y1:cy,x2:pt(i,R)[0],y2:pt(i,R)[1],class:'wv-grid'},s));
+ const val=DOM.map(([k])=>{const d=domains.find(x=>x.k===k);return d?d.att:null});
+ sv('polygon',{points:val.map((v,i)=>pt(i,R*(v||0)/100).join(',')).join(' '),class:'wv-rad'},s);
+ DOM.forEach((d,i)=>{const[lx,ly]=pt(i,R+22),t=sv('text',{x:lx,y:ly+4,class:'wv-rl'},s);t.textContent=(T(d[1],d[2]))+' '+(val[i]===null?'—':val[i]+'%');
+  if(val[i]!==null){const[px,py]=pt(i,R*val[i]/100),c=sv('circle',{cx:px,cy:py,r:5,class:'wv-rv'},s);c.addEventListener('pointerenter',()=>{tipShow(wrap,tip,px/3,[T(d[1],d[2]),val[i]+'%']);tip.style.top=(py/280*100)+'%'});c.addEventListener('pointerleave',()=>tip.style.opacity=0)}});
+ wrap.append(s,tip);return wrap}
+
+/* ===== 9) Milestones + share card ===== */
+function shareCard(st){
+ const c=el('canvas');c.width=1080;c.height=1350;const x=c.getContext('2d'),en=lang()==='en',F="'IBM Plex Sans Arabic','Noto Sans Arabic',Tahoma,Arial,sans-serif";
+ const g=x.createLinearGradient(0,0,0,1350);g.addColorStop(0,'#071614');g.addColorStop(1,'#15332d');x.fillStyle=g;x.fillRect(0,0,1080,1350);
+ x.strokeStyle='#d8ba72';x.lineWidth=3;x.strokeRect(40,40,1000,1270);x.textAlign='center';x.direction=en?'ltr':'rtl';
+ x.fillStyle='#d8ba72';x.font='700 54px '+F;x.fillText('WIRDI AI',540,150);
+ x.fillStyle='#a6bbb1';x.font='400 36px '+F;x.fillText(new Intl.DateTimeFormat(en?'en':'ar-EG',{month:'long',year:'numeric'}).format(new Date()),540,215);
+ x.fillStyle='#f0dca2';x.font='700 300px '+F;x.fillText(String(st.avg),540,520);
+ x.fillStyle='#f5f4ed';x.font='500 40px '+F;x.fillText(en?'Average score · last 30 days':'متوسط الدرجة · آخر 30 يومًا',540,590);
+ if(st.pts.length>1){x.beginPath();st.pts.forEach((p,i)=>{const px=120+p[0]*840,py=860-p[1]/100*200;i?x.lineTo(px,py):x.moveTo(px,py)});x.strokeStyle='#8de0ba';x.lineWidth=6;x.lineJoin='round';x.stroke()}
+ [[String(st.max),en?'Best day':'أفضل يوم'],[String(st.streak),en?'Longest 70+ streak':'أطول سلسلة 70+'],[st.badges+'/6',en?'Badges':'الأوسمة']].forEach(([v,l],i)=>{const px=215+i*325;x.fillStyle='#d8ba72';x.font='700 90px '+F;x.fillText(v,px,1060);x.fillStyle='#a6bbb1';x.font='400 30px '+F;x.fillText(l,px,1110)});
+ x.fillStyle='#a6bbb1';x.font='400 26px '+F;x.fillText(en?'A personal tracking summary — not a judgment on worship.':'ملخص متابعة شخصي، وليس حكمًا على العبادة.',540,1240);
+ return c}
+async function doShare(st){const c=shareCard(st);c.toBlob(async b=>{if(!b)return;const f=new File([b],'wirdi-report-card.png',{type:'image/png'});
+ try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return}}catch(_){}
+ const a=el('a');a.href=URL.createObjectURL(b);a.download='wirdi-report-card.png';document.body.append(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500)},'image/png')}
+
+/* ===== card assembly ===== */
+function build(host){
+ const b=bridge();if(!b||!b.getHistory)return;
+ const hist=b.getHistory(60),ctx=b.getContext(),S=window.WIRDI_SMART_V20,A=S?S.analyze(hist,ctx,lang()):{domains:[]};
+ host.textContent='';host.dir=lang()==='en'?'ltr':'rtl';
+ host.append(el('div','wv-eyebrow','WIRDI VISUAL INSIGHTS'),el('h2','',T('رسوماتك التفاعلية','Interactive insights')));
+ const R=runs(hist),rated=hist.filter(d=>d.score!==null&&Number.isFinite(+d.score)),last=rated[rated.length-1];
+ if(last&&(ms(ctx.today)-ms(last.date))/864e5>=3)host.append(el('div','wv-welcome',T('أهلًا بعودتك 🌿 كل يوم جديد بداية جديدة. سجّل ما تيسّر اليوم وكمّل من هنا.','Welcome back 🌿 Every day is a fresh start. Log what you can today and continue from here.')));
+ host.append(el('h3','',T('اتجاه آخر 30 يومًا (المس الرسم لرؤية التفاصيل)','30-day trend (touch the chart for details)')),trend(hist,ctx.today),el('p','wv-note',T('الخط الذهبي: درجاتك. المنقّط الأخضر: متوسط متحرك 7 أيام. الأيام بلا درجة قابلة للحساب تُتخطّى ولا تُعد صفرًا.','Gold line: your scores. Dashed green: 7-day moving average. Days without a computable score are skipped, never counted as zero.')));
+ const row=el('div','wv-row'),a=el('div'),c=el('div');
+ a.append(el('h3','',T('توازن المجالات (آخر 14 يومًا)','Area balance (last 14 days)')),radar(A.domains||[]));
+ const earned=BADGES.filter(([,,n,k])=>R[k]>=n).length;c.append(el('h3','',T('الأوسمة','Milestones')));
+ const bd=el('div','wv-badges');BADGES.forEach(([id,ic,n,k,ar,en])=>{const on=R[k]>=n,e=el('div','wv-badge',ic+' '+T(ar,en));e.dataset.on=on?'1':'0';e.append(el('small','',on?T('تحقق ✓','Unlocked ✓'):T(`أفضل لك: ${R[k]} من ${n}`,`Your best: ${R[k]} of ${n}`)));bd.append(e)});c.append(bd);
+ row.append(a,c);host.append(row);
+ const rs=rated.slice(-30),avg=rs.length?Math.round(rs.reduce((x,d)=>x+ +d.score,0)/rs.length):null;
+ if(avg!==null){const e0=ms(ctx.today)-29*864e5,st={avg,max:Math.round(R.max),streak:R.streak,badges:earned,pts:rs.filter(d=>ms(d.date)>=e0).map(d=>[(ms(d.date)-e0)/864e5/29,+d.score])};
+  const bt=el('button','wv-share',T('📤 حفظ / مشاركة بطاقة تقريرك','📤 Save / share your report card'));bt.type='button';bt.addEventListener('click',()=>doShare(st));host.append(bt)}}
+function hostFor(){const v=document.getElementById('view-insights');if(!v)return null;let h=v.querySelector('.wv');if(!h){h=el('section','wv');const ref=v.querySelector('.wsc')||v.querySelector('.insights-engine-banner');if(ref)ref.parentNode.insertBefore(h,ref.nextSibling);else v.append(h)}return h}
+let busy=false;function render(){if(busy)return;busy=true;try{const h=hostFor();if(h)build(h);reveal()}catch(e){console.warn('WIRDI viz:',e)}finally{busy=false}}
+function boot(){watchScore();let t=null;const soon=()=>{clearTimeout(t);t=setTimeout(render,700)};
+ document.addEventListener('click',soon,true);document.addEventListener('change',soon,true);
+ try{new MutationObserver(soon).observe(document.documentElement,{attributes:true,attributeFilter:['lang']})}catch(_){}
+ setInterval(()=>{if(!document.hidden)render()},90000);setTimeout(render,1800);reveal()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+window.WIRDI_VIZ_V21={runs,shareCard};
+})();
+</script>
+
+<script id="wirdi-v19-local-intelligence">
+(()=>{'use strict';
+ const $=id=>document.getElementById(id);
+ const panel=$('wirdiAiPanel'),chat=$('waiChatView'),form=$('waiChatForm'),prompt=$('waiPrompt');
+ if(!panel||!chat||!form||!prompt||window.__wirdiLocalIntelligenceV19)return;
+ window.__wirdiLocalIntelligenceV19=true;
+ const KEY='wirdi_ai_local_intelligence_v19';
+ // Default to local-first: this works immediately and does not send personal records to an unavailable API.
+ let localOnly=true;try{localOnly=localStorage.getItem(KEY)!=='0';}catch(_){localOnly=true;}
+ const bridge=()=>window.WIRDI_AI_BRIDGE||null;
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[\u0640\p{P}\p{S}]/gu,' ').replace(/\s+/g,' ').trim();
+ const status=(t,kind='ready')=>{const e=$('wirdiAiStatus');if(e){e.textContent=t;e.dataset.kind=kind;}};
+ const consentSpan=$('waiContextOpt')?.querySelector?.('span');const originalConsentHTML=consentSpan?.innerHTML||'';
+ const getContext=()=>{try{return bridge()?.getContext?.()||null}catch(_){return null}};
+ const getPrefs=()=>{try{return bridge()?.getPreferences?.()||{}}catch(_){return {}}};
+ const isLocalQ=q=>{const v=norm(q);return /(سجلي|سجلاتي|درجتي|نقاطي|تقدمي|تقييمي|نظام النقاط|اوزان|مزامنه|حفظ|هدفي|اهدافي|صفحتي|صفحاتي|صلواتي|تسجيلاتي|حالتي|راجع|حلل|ملخص|تقرير|بتاعي|بتاعتي|صليت|سجلت|قيام الليل عندي|كم قرات|كم قريت|كم صفحه|عدد الصفحات|كام صفحه|اللي سجلته)/i.test(v)||(/(النهارده|اليوم)/i.test(v)&&/(سجل|راجع|حلل|درجه|نقط|حاله|ناقص|تقدم|ماذا افعل|كم قرات|كم قريت|كم صفحه)/i.test(v));};
+ function localPrayerName(k){return ({Fajr:'الفجر',Dhuhr:'الظهر',Asr:'العصر',Maghrib:'المغرب',Isha:'العشاء'})[k]||k;}
+ function localStatus(v){return v==='done'?'مسجل كمنجز':v==='notDone'?'مسجل كعدم أداء':v==='exempt'?'مسجل كاستثناء':v==='unsure'?'غير مؤكد':'لا يوجد تسجيل';}
+ function mean(values){const a=values.filter(n=>Number.isFinite(n));return a.length?{n:a.length,avg:a.reduce((x,y)=>x+y,0)/a.length}:null;}
+ function sourceLinks(question){const q=String(question||'').trim().slice(0,500),n=norm(q);if(/حديث|صحيح|ضعيف|سند|راوي|رواه|تخريج|النبي|السنه/.test(n))return [
+  {label:'الدرر السنية — بحث الحديث',url:'https://www.google.com/search?q='+encodeURIComponent('site:dorar.net/hadith '+q)},
+  {label:'Sunnah.com — بحث حديثي',url:'https://www.google.com/search?q='+encodeURIComponent('site:sunnah.com '+q)},
+  {label:'بحث تخريج إضافي',url:'https://www.google.com/search?q='+encodeURIComponent('site:islamweb.net OR site:shamela.ws '+q)}];
+  if(/قران|سوره|ايه|تفسير|معني الايه/.test(n))return [
+  {label:'القرآن والتفسير',url:'https://www.google.com/search?q='+encodeURIComponent('site:quran.com OR site:quranenc.com '+q)},
+  {label:'تفسير — جامعة الملك سعود',url:'https://www.google.com/search?q='+encodeURIComponent('site:quran.ksu.edu.sa OR site:altafsir.com '+q)},
+  {label:'بحث قرآني إضافي',url:'https://www.google.com/search?q='+encodeURIComponent('قرآن تفسير مصدر موثوق '+q)}];
+  if(/بحث ديني|مصادر دينيه|اجابه دينيه موثوقه/.test(n))return [
+  {label:'القرآن والتفسير',url:'https://www.google.com/search?q='+encodeURIComponent('site:quran.com OR site:quranenc.com '+q)},
+  {label:'الحديث والتخريج',url:'https://www.google.com/search?q='+encodeURIComponent('site:dorar.net/hadith OR site:sunnah.com '+q)},
+  {label:'الفتاوى الموثوقة',url:'https://www.google.com/search?q='+encodeURIComponent('site:dar-alifta.org OR site:islamweb.net '+q)}];
+  return [
+  {label:'دار الإفتاء المصرية',url:'https://www.google.com/search?q='+encodeURIComponent('site:dar-alifta.org '+q)},
+  {label:'إسلام ويب',url:'https://www.google.com/search?q='+encodeURIComponent('site:islamweb.net '+q)},
+  {label:'جهات فتوى أخرى',url:'https://www.google.com/search?q='+encodeURIComponent('site:binbaz.org.sa OR site:islamqa.info OR site:aliftaa.jo '+q)}];
+ }
+ function markdown(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\n/g,'<br>');}
+ function appendMessage(role,text,meta={}){const article=document.createElement('article');article.className='wai-message '+(role==='user'?'user':'assistant');article.dataset.localV19='1';const body=document.createElement('div');body.className='wai-message-body';if(role==='user')body.textContent=text;else{body.classList.add('wai-local-answer');body.innerHTML=markdown(text);}article.appendChild(body);if(role!=='user'){const badge=document.createElement('div');badge.className='wai-local-badge';badge.textContent=meta.research?'بحث موجّه · التوثيق يحتاج فتح المرجع':'ذكاء محلي · يعمل بدون API';article.insertBefore(badge,body);const actions=document.createElement('div');actions.className='wai-message-actions';for(const [kind,label] of [['positive','مفيد 👍'],['negative','مش دقيق 👎']]){const b=document.createElement('button');b.type='button';b.className='wai-rate';b.textContent=label;b.addEventListener('click',()=>{const ok=bridge()?.saveFeedback?.(kind,'local-assistant');b.disabled=true;b.textContent=ok?(kind==='positive'?'شكرًا ❤️':'وصلت ملاحظتك'):'تم';});actions.appendChild(b);}article.appendChild(actions);}chat.appendChild(article);chat.scrollTop=chat.scrollHeight;return article;}
+ function appendLinks(article,links){if(!links?.length)return;const box=document.createElement('div');box.className='wai-local-links';links.forEach(x=>{const a=document.createElement('a');a.href=x.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=x.label;box.appendChild(a);});article.insertBefore(box,article.querySelector('.wai-message-actions')||null);}
+ function buildLocalAnswer(raw){const q=norm(raw),c=getContext(),t=c?.todayRecord,sc=c?.todayScore,recent=Array.isArray(c?.recentDays)?c.recentDays:[];
+  const research=/(قران|سوره|ايه|تفسير|حديث|احاديث|السنه النبويه|النبي|حلال|حرام|فتوي|حكم|يجوز|هل لازم|هل يجب|فرض|واجب|مستحب|مكروه|صحيح|يصح|وضوء|غسل|تيمم|صيام|رمضان|زكاه|حج|عمره|اذكار|ذكر الله|عقيده|فقه|المصحف|الحديث الصحيح|الحديث الضعيف|بحث ديني|مصادر دينيه|اجابه دينيه موثوقه)/.test(q)&&!isLocalQ(raw);
+  if(research)return {research:true,answer:'**خلّينا نتحقق بدل ما نخمن.**\n\nخدمة النموذج الخارجي غير مستخدمة في الوضع المحلي؛ لذلك لن أنسب فتوى أو نص آية أو حديث أو درجة صحة إلى مصدر من غير تحقق. جهزت لك عمليات بحث موجّهة حسب موضوع سؤالك. افتح المصدر الأصلي، وتأكد من النص والسياق، وفي الحديث راجع المرجع ورقم الحديث وحكم المحدّث.\n\n**تنبيه:** نتائج البحث ليست توثيقًا بحد ذاتها. هذا مسار بحث بديل يعمل فورًا، وليس إجابة علمية نهائية داخل المحادثة.',links:sourceLinks(raw)};
+  if(/^(السلام عليكم|سلام|اهلا|اهلا بيك|مرحبا|هاي|hi|hello|السلام عليكم ورحمة الله وبركاته)$/.test(q))return {answer:'أهلًا بيك 🌿 أنا شغّال بالذكاء المحلي، فمش محتاج تفعيل API عشان أساعدك في وظائف WIRDI. أقدر أحلل سجلّك، أشرح درجاتك والتوقيتات، أقارن الأيام المسجلة، وأفحص حالة المزامنة. وفي الأسئلة الدينية أجهز بحثًا موجّهًا لمراجع معروفة، لكن لن أدّعي إن البحث تم التحقق منه تلقائيًا.\n\nاستخدم الاختصارات فوق المحادثة أو اكتب سؤالك عن سجلّك.'};
+  if(/مساعده|تقدر تعمل|تقدر تساعد|ازاي استخدم|كيف استخدم|امكانيات|ماذا تستطيع/.test(q))return {answer:'**قدرات الذكاء المحلي الحالية**\n- تحليل حالة اليوم من سجلات WIRDI الموجودة داخل المتصفح.\n- مقارنة الأيام ذات الدرجات القابلة للحساب، مع استبعاد الأيام التي لا توجد عنها درجة بدل اعتبارها صفرًا.\n- شرح توزيع 100 نقطة: الصلاة 35، الصلاة على النبي ﷺ 35، الأذكار 15، القرآن 10، وقيام الليل 5.\n- تشخيص مؤشرات الإنترنت وتسجيل الدخول والمزامنة المحلية/السحابية.\n- إعداد عمليات بحث ديني موجّهة للقرآن والتفسير والحديث والفتوى.\n\n**حدوده بوضوح:** من غير نموذج خارجي متصل، لا أستطيع توليد إجابة مفتوحة عن كل مسألة دينية أو التحقق الحي من المصادر داخل المحادثة.'};
+  if(/مزامنه|حفظ|سحابه|فايربيز|firebase|انترنت|offline|sync/.test(q)){const x=c?.sync||{};let a='**فحص حالة الحفظ والمزامنة**\n';a+='- اتصال الجهاز: '+(x.online?'متصل بالإنترنت':'غير متصل')+'\n';a+='- الدخول إلى الحساب السحابي: '+(x.signedIn?'مسجل الدخول':'غير مسجل الدخول')+'\n';a+='- المزامنة الأولية: '+(x.initialSyncComplete?'مكتملة حسب مؤشر التطبيق':'لم يُؤكد اكتمالها')+'\n';a+='- تغييرات معلقة: '+(x.pending?'نعم':'لا حسب المؤشر')+'\n';a+='- خطأ مزامنة معروف: '+(x.hasError?'نعم — راجع مؤشر المزامنة الأصلي':'لا يظهر خطأ حالي')+'\n';a+='- التخزين المحلي: '+(x.localPersistence?'ظاهر أنه مفعّل':'غير مؤكد')+'\n\n**التفسير:** هذا تشخيص لحالة التطبيق في المتصفح، وليس قراءة مستقلة من قاعدة بيانات الخادم. إذا لم تكن مسجل الدخول أو المزامنة غير مكتملة، فلا نفترض أن السجلات وصلت إلى جهاز آخر.';return {answer:a};}
+  if(/اسبوع|تقدم|تحسن|اتطور|مقارنه|الايام اللي فاتت|اخر ٧|اخر سبع|اخر اسبوع/.test(q)){const rows=recent.slice(-14),first=rows.slice(0,7),last=rows.slice(-7),a=mean(last.map(d=>Number.isFinite(Number(d.score))&&d.score!==null?Number(d.score):NaN)),b=mean(first.map(d=>Number.isFinite(Number(d.score))&&d.score!==null?Number(d.score):NaN));let out='**قراءة اتجاهات السجل**\n';out+=`- عدد الأيام ذات السجلات في النافذة الحديثة: ${last.length} كحد أقصى.\n`;out+=`- متوسط الدرجات القابلة للحساب في أحدث سجلات: ${a?a.avg.toFixed(1)+' / 100 من '+a.n+' سجل':'غير متاح'}.\n`;out+=`- متوسط النافذة السابقة في الملخص: ${b?b.avg.toFixed(1)+' / 100 من '+b.n+' سجل':'غير متاح'}.\n`;if(a&&b)out+=`- الفرق الحسابي بين المتوسطين: ${(a.avg-b.avg)>0?'+':''}${(a.avg-b.avg).toFixed(1)} نقطة.\n`;else out+='- المقارنة الزمنية غير حاسمة لأن إحدى الفترتين لا تحتوي على درجات كافية.\n';out+='- السجل المتاح هنا بحد أقصى 14 تاريخًا مسجلًا، وقد لا تكون كلها أيامًا متتالية.\n- الأيام بلا درجة مستبعدة من المتوسط، ولا أتعامل معها كأنها صفر أو دليل على عدم العبادة.';return {answer:out};}
+  if(/وزن|اوزان|توزيع|نظام النقاط|النقاط|الدرجات|درجتي|احسب الدرجه|ليه الدرجه|نقطه كام/.test(q)){let out='**نظام التقييم الحالي — 100 نقطة**\n- الصلوات الخمس: 35 نقطة.\n- الصلاة على النبي ﷺ لهدف 100 مرة: 35 نقطة.\n- أذكار الصباح والمساء: 15 نقطة، بواقع 7.5 لكل فترة.\n- القرآن الكريم: 10 نقاط.\n- ركعتا قيام الليل: 5 نقاط.\n\n**التوقيت:** الصلاة تحصل على الدرجة الزمنية الكاملة خلال أول 30 دقيقة من الأذان، ثم ينخفض عنصر التوقيت تدريجيًا بعد ذلك مع حد أدنى للجزء الزمني. أذكار الصباح من الفجر للشروق، والمساء من العصر للمغرب؛ بعد انتهاء النافذة يُخصم من عنصر التوقيت نقطة لكل ساعة حتى الحد الأدنى.\n\n**الدقة:** لو وقت الإتمام أو جدول المواقيت الموثوق ناقص، لا يخترع النظام توقيتًا؛ قد يحتسب الدرجة الجزئية فقط. هذه أداة متابعة شخصية وليست حكمًا شرعيًا.';if(sc&&sc.score!==null&&sc.score!==undefined)out+='\n\n**درجة اليوم الموجودة في السجل:** '+sc.score+' / 100'+(sc.scoreStatus==='provisional'?' (مبدئية)':'')+'. التغطية: '+(Number.isFinite(sc.coverage)?sc.coverage+'%':'غير متاحة')+'.';return {answer:out};}
+  if(/حلل|راجع|ملخص|تقرير|حالتي|اليوم|النهارده|ايه ناقص|اعمل ايه|ماذا افعل|نصيحه|اقتراح|المطلوب/.test(q)&&c){let out='**ملخص سجلّك المحلي لليوم — '+(c.today||'التاريخ غير متاح')+'**\n';if(sc?.score!==null&&sc?.score!==undefined)out+='- الدرجة المسجلة: '+sc.score+' / 100'+(sc.scoreStatus==='provisional'?' (مبدئية لأن بعض أدلة/تغطية التقييم غير مكتملة)':'')+'.\n';else out+='- لا توجد درجة كافية للحساب حاليًا. هذا لا يعني عدم أداء العبادة؛ قد تعني البيانات أن التسجيلات أو أدلة التوقيت غير كافية.\n';const ps=Array.isArray(t?.prayers)?t.prayers:[],done=ps.filter(p=>p.status==='done').length,unknown=ps.filter(p=>!p.status||['unrecorded','unsure'].includes(p.status)).length;out+=`- الصلوات المسجلة كمنجزة: ${done} من 5.\n`;if(unknown)out+=`- صلوات بلا تسجيل واضح: ${unknown}؛ عدم التسجيل ليس دليلًا على عدم الأداء.\n`;if(ps.length)out+='\n**تفاصيل الصلاة**\n'+ps.map(p=>'- '+localPrayerName(p.key)+': '+localStatus(p.status)+(p.performedAt?' — '+p.performedAt:'')).join('\n')+'\n';out+='\n**الأذكار**\n';['morning','evening'].forEach(k=>{const x=t?.adhkar?.[k]||{};out+='- '+(k==='morning'?'الصباح':'المساء')+': '+localStatus(x.status)+(x.completedAt?' — '+x.completedAt:'')+'\n';});const pages=Number(t?.quranPages)||0,goal=Number(t?.quranGoal)||6,sal=Number(t?.salawat)||0,sg=Number(t?.salawatGoal)||100,qiy=Number(t?.qiyamRakaat)||0;out+=`\n**تقدم الأهداف المسجلة**\n- القرآن: ${pages} من ${goal} صفحة (${goal?Math.min(100,Math.round(pages/goal*100)):0}%).\n- الصلاة على النبي ﷺ: ${sal} من ${sg} (${sg?Math.min(100,Math.round(sal/sg*100)):0}%).\n- قيام الليل: ${qiy} ركعة من هدف ركعتين.\n`;if(Array.isArray(sc?.dataQualityFlags)&&sc.dataQualityFlags.length)out+='\nيوجد '+sc.dataQualityFlags.length+' مؤشرًا لجودة البيانات؛ راجع تبويب «فحص البيانات». هذه مؤشرات مراجعة وليست بالضرورة أخطاء.\n';out+='\n**خطوة ذكية مقترحة:** راجع أي خانة بلا تسجيل لو محتاج تكمل التوثيق، وتأكد من وقت الصلاة لو عايز تقييم التوقيت. لن أعتبر التسجيل المفقود دليلًا على أنك لم تفعل العبادة.';return {answer:out};}
+  if(c&&isLocalQ(raw)&&/(قران|صفح|الورد|الصلاه علي النبي|الصلاه على النبي|صلوات|صلاه|فجر|ظهر|عصر|مغرب|عشاء|قيام الليل|ركعت|اذكار|ذكر)/.test(q)){const t0=c.todayRecord||{},a=t0.adhkar||{};let out='**تفاصيل التسجيل المحلي**\n';if(/قران|صفح|الورد/.test(q))out+=`- القرآن: ${Number(t0.quranPages)||0} من ${Number(t0.quranGoal)||6} صفحة في سجل اليوم.\n`;if(/الصلاه علي النبي|الصلاه على النبي|صلوات/.test(q))out+=`- الصلاة على النبي ﷺ: ${Number(t0.salawat)||0} من ${Number(t0.salawatGoal)||100} مرة في سجل اليوم.\n`;if(/قيام الليل|ركعت/.test(q))out+=`- قيام الليل: ${Number(t0.qiyamRakaat)||0} ركعة مسجلة اليوم من هدف ركعتين.\n`;if(/اذكار|ذكر/.test(q))out+=`- أذكار الصباح: ${localStatus(a.morning?.status)}.\n- أذكار المساء: ${localStatus(a.evening?.status)}.\n`;if(/صلاه|الصلاه|صلوات|فجر|ظهر|عصر|مغرب|عشاء/.test(q))out+='- حالة الصلاة: '+(t0.prayers||[]).map(p=>localPrayerName(p.key)+': '+localStatus(p.status)).join('؛ ')+'.\n';out+='\nهذه أرقام من السجل الحالي فقط؛ عدم وجود تسجيل لا يثبت عدم أداء العبادة.';return {answer:out};}
+  if(/صلاه|الصلاه|فجر|ظهر|عصر|مغرب|عشاء|اذكار|ذكر|قران|صفح|الورد|قيام الليل|ركعت/.test(q)&&c)return {answer:'أقدر أراجع بيانات WIRDI المسجلة، لكن أحتاج أوضح نوع السؤال حتى لا أخمّن: هل تقصد **حالة تسجيلك اليوم** أم **حكمًا أو معلومة دينية**؟\n\nجرّب «حلل يومي» أو اكتب الحكم الذي تريد البحث عنه.'};
+  return {answer:'أنا في وضع الذكاء المحلي، لأنه يعمل فورًا بدون مفاتيح API. أقدر تحليل بيانات WIRDI الفعلية وشرح الأوزان وفحص المزامنة، لكن من غير نموذج خارجي لا أقدر الإجابة بحرية عن كل سؤال عام أو ديني.\n\nجرّب أحد الاختصارات فوق: «حلل يومي»، «تحليل آخر أسبوع»، «اشرح نظام النقاط»، «افحص المزامنة»، أو اسأل عن مسألة دينية وسأجهز لك روابط بحث متخصصة مع توضيح أن الروابط تحتاج تحققًا.'};
+ }
+ function updateBanner(){const pill=$('waiLocalModeStateBadge'),btn=$('waiLocalModeToggle'),state=$('waiLocalModeText'),apiHelp=$('waiApiEnableHelp');if(pill)pill.textContent=localOnly?'الذكاء المحلي يعمل — دون API':'وضع الاتصال السحابي';if(btn)btn.textContent=localOnly?'التبديل لوضع Gemini':'الرجوع للذكاء المحلي';if(state)state.textContent=localOnly?'أسئلتك عن سجلك تُحلل داخل المتصفح ولا تُرسل إلى Gemini.':'سيحاول المساعد الاتصال بخدمة Gemini عند إرسال السؤال.';if(localOnly&&apiHelp)apiHelp.hidden=true;if(consentSpan){consentSpan.innerHTML=localOnly?'<strong>الخصوصية: الذكاء المحلي لا يرسل سجلاتك إلى أي نموذج.</strong><br>لو اخترت الاتصال السحابي، لن يُرسل ملخص السجل والذاكرة إلا بعد تفعيل الموافقة.':originalConsentHTML;}}
+ function renderAnswer(result,question){const art=appendMessage('assistant',result.answer,{research:!!result.research});appendLinks(art,result.links);if(result.research)status('وضع البحث المحلي: الروابط تفتح نتائج بحث؛ تحقق من المصدر الأصلي.','warning');else status('الذكاء المحلي جاهز — تم تحليل السؤال داخل المتصفح.','ready');}
+ function setMode(v){localOnly=!!v;try{localStorage.setItem(KEY,localOnly?'1':'0');}catch(_){}updateBanner();status(localOnly?'الذكاء المحلي مفعّل، ولا تُرسل بياناتك إلى نموذج خارجي.':'تم اختيار الاتصال السحابي؛ قد يحتاج إعدادًا خارجيًا حتى يعمل.','ready');}
+ // Insert a visible, no-API intelligence panel and one-tap prompts.
+ if(!document.getElementById('waiLocalQuickV19')){const box=document.createElement('section');box.id='waiLocalQuickV19';box.className='wai-local-v19-box';box.innerHTML='<div class="wai-local-v19-head"><div><strong>✦ ذكاء WIRDI المحلي</strong><span id="waiLocalModeStateBadge"></span></div><button type="button" id="waiLocalModeToggle"></button></div><p id="waiLocalModeText"></p><div class="wai-local-v19-chips"><button type="button" data-localq="حلل يومي من سجلات WIRDI الحالية">حلل يومي</button><button type="button" data-localq="راجع تقدمي في آخر أسبوع وقارنه بالفترة السابقة">تحليل آخر أسبوع</button><button type="button" data-localq="اشرح لي نظام النقاط وأوزان الفئات والتوقيتات">اشرح النقاط</button><button type="button" data-localq="افحص حالة الحفظ والمزامنة واشرحها لي">افحص المزامنة</button><button type="button" data-localq="كيف أبحث عن إجابة دينية موثوقة؟">بحث ديني موثق</button></div>';const welcome=chat.querySelector('.wai-welcome');if(welcome)welcome.insertAdjacentElement('afterend',box);else chat.prepend(box);}
+ if(!document.getElementById('waiLocalModeCardV19')){const settings=panel.querySelector('[data-wai-view="settings"]');if(settings){const card=document.createElement('div');card.id='waiLocalModeCardV19';card.className='wai-card';card.innerHTML='<h3>ذكاء محلي بدون إعدادات خارجية</h3><p class="wai-help">يعمل تحليل السجل والدرجات مباشرةً داخل المتصفح. الأسئلة الدينية تفتح عمليات بحث موجهة ولا تُعتبر إجابة موثقة تلقائيًا. يمكنك تجربة الاتصال السحابي يدويًا من إعدادات الاتصال أدناه.</p><button type="button" class="wai-action" id="waiLocalModeToggleSettings"></button>';settings.prepend(card);}}
+ function updateAllToggles(){updateBanner();const b=$('waiLocalModeToggleSettings');if(b)b.textContent=localOnly?'الذكاء المحلي مفعّل — اضغط لتجربة الوضع السحابي':'الرجوع للذكاء المحلي بدون API';}
+ // Capture submits before the cloud assistant listener. In local mode nothing is sent externally.
+ form.addEventListener('submit',e=>{if(!localOnly)return;e.preventDefault();e.stopImmediatePropagation();const q=prompt.value.trim();if(!q)return;const user=appendMessage('user',q);prompt.value='';const send=$('waiSend');if(send)send.disabled=true;try{const result=buildLocalAnswer(q);renderAnswer(result,q);}catch(err){renderAnswer({answer:'حصل عطل أثناء تحليل السجل المحلي. افتح تبويب «فحص البيانات» أو جرّب «اشرح نظام النقاط».',research:false},q);}finally{if(send)send.disabled=false;chat.scrollTop=chat.scrollHeight;}},true);
+ panel.addEventListener('click',e=>{const chip=e.target.closest('[data-localq]');if(chip){prompt.value=chip.dataset.localq||'';form.requestSubmit();return;}if(e.target.closest('#waiLocalModeToggle')||e.target.closest('#waiLocalModeToggleSettings')){setMode(!localOnly);updateAllToggles();}});
+ // If a user manually tries cloud mode and the model reports a setup failure, switch back to local automatically.
+ const observer=new MutationObserver(()=>{if(localOnly)return;const msgs=Array.from(chat.querySelectorAll('.wai-message.assistant'));const last=msgs[msgs.length-1];if(!last||last.dataset.v19FallbackDone)return;const txt=last.textContent||'';if(/api-not-enabled|تعذر الحصول على إجابة من الخدمة|فشل الاختبار|quota-exceeded|permission-denied|unauthenticated/i.test(txt)){const users=Array.from(chat.querySelectorAll('.wai-message.user'));const u=users[users.length-1];if(!u)return;last.dataset.v19FallbackDone='1';const question=u.textContent||'';setMode(true);last.remove();const result=buildLocalAnswer(question);renderAnswer(result,question);status('تعذر الاتصال السحابي؛ تم التحويل تلقائيًا إلى الذكاء المحلي.','warning');}});observer.observe(chat,{childList:true,subtree:true});
+ const testResult=$('waiAiConnectionTestResult');if(testResult){new MutationObserver(()=>{const txt=testResult.textContent||'';if(!localOnly&&/api-not-enabled|تعذر الحصول على إجابة|permission-denied|quota-exceeded/i.test(txt)){setMode(true);updateAllToggles();status('خدمة النموذج غير متاحة؛ رجعنا تلقائيًا للذكاء المحلي.','warning');}else if(localOnly&&/نجح الاختبار/.test(txt)){status('اختبار الاتصال السحابي نجح، لكن المحادثة ما زالت على الذكاء المحلي. اضغط «التبديل لوضع Gemini» لو أردت استخدامه.','ready');}}).observe(testResult,{childList:true,subtree:true,characterData:true});}
+ const originalStatus=$('wirdiAiStatus');if(originalStatus&&!localOnly&&!/api-not-enabled/i.test(originalStatus.textContent||''))status('الوضع السحابي متاح للمحاولة؛ اختر الذكاء المحلي لو أردت تشغيلًا فوريًا بدون إعدادات.','setup');
+ updateAllToggles();
+ const opener=$('wirdiAiOpen');if(opener)opener.addEventListener('click',()=>setTimeout(()=>{if(localOnly)status('الذكاء المحلي مفعّل: تحليل السجل والأهداف يعمل دون API.','ready');},0));
+})();
+
+</script>
