@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071310"><meta name="color-scheme" content="dark light"><meta name="application-name" content="WIRDI AI — Reliable Islamic Research Assistant"><meta name="description" content="WIRDI AI — personal local intelligence for worship logs, scoring explanations, sync diagnostics, and source-guided Islamic research.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071310"><meta name="color-scheme" content="dark light"><meta name="application-name" content="WIRDI AI — Visual Insights Polished v22"><meta name="description" content="WIRDI AI — polished responsive visual insights, accurate 30-day score trends, interactive charts, category balance, milestones, and accessible motion.">
 <meta name="wirdi-recaptcha-enterprise-site-key" content=""> <!-- Optional public reCAPTCHA Enterprise site key for App Check; never put a secret here. -->
-<title>WIRDI AI — Smart Coach Edition v21</title>
+<title>WIRDI AI — Visual Insights Polished v22</title>
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -8037,166 +8037,327 @@ if(typeof document!=='undefined'){if(document.readyState==='loading')document.ad
 })();
 </script>
 
-<style id="wirdi-v21-motion-viz-styles">
+<style id="wirdi-v22-visual-insights-styles">
 @property --score{syntax:'<percentage>';inherits:false;initial-value:0%}
 .score-ring{transition:--score 1.1s cubic-bezier(.22,1,.36,1)}
 .score-ring.wv-pulse{animation:wv-pulse .9s cubic-bezier(.34,1.56,.64,1)}
-@keyframes wv-pulse{0%{transform:scale(1)}35%{transform:scale(1.08);filter:drop-shadow(0 0 22px rgba(216,186,114,.55))}100%{transform:scale(1)}}
-.view.active{animation:wv-view .4s cubic-bezier(.22,1,.36,1)}
-@keyframes wv-view{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.wv-reveal{opacity:0;transform:translateY(16px)}
-.wv-reveal.wv-in{opacity:1;transform:none;transition:opacity .55s ease,transform .6s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--i,0)*55ms)}
-button,.btn,.wai-rate,[role=tab]{transition:transform .2s cubic-bezier(.34,1.56,.64,1),filter .2s,background-color .2s,box-shadow .2s}
-button:active:not(:disabled),.btn:active{transform:scale(.95)}
-@media(hover:hover){.btn:hover:not(:disabled){filter:brightness(1.08)}}
-.wv{margin:0 0 18px;padding:20px;border:1px solid var(--line);border-radius:var(--radius,24px);background:linear-gradient(160deg,var(--panel2),var(--panel));box-shadow:var(--shadow)}
-.wv h2{margin:2px 0 4px;font-size:19px}.wv h3{margin:16px 0 8px;font-size:14px;color:var(--gold2)}
-.wv-eyebrow{font-size:11px;letter-spacing:.14em;color:var(--gold);font-weight:700}
-.wv-chart{position:relative;touch-action:pan-y;direction:ltr}.wv-chart svg{width:100%;height:auto;display:block;overflow:visible}
-.wv-grid{stroke:rgba(255,255,255,.09);stroke-width:1}.wv-axis{fill:var(--muted);font-size:10px}
-.wv-area{fill:rgba(216,186,114,.12)}.wv-line{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:wv-draw 1.2s .1s cubic-bezier(.22,1,.36,1) forwards}
-.wv-ma{fill:none;stroke:var(--mint);stroke-width:2;stroke-dasharray:5 4;opacity:.9}
+@keyframes wv-pulse{0%{transform:scale(1)}35%{transform:scale(1.06);filter:drop-shadow(0 0 18px rgba(216,186,114,.38))}100%{transform:scale(1)}}
+.view.active{animation:wv-view .34s cubic-bezier(.22,1,.36,1)}
+@keyframes wv-view{from{opacity:.82;transform:translateY(5px)}to{opacity:1;transform:none}}
+.wv-reveal{opacity:0;transform:translateY(7px)}
+.wv-reveal.wv-in{opacity:1;transform:none;transition:opacity .42s ease,transform .48s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--i,0)*45ms)}
+.wv{box-sizing:border-box;min-width:0;width:100%;margin:18px 0 22px;padding:clamp(15px,2vw,24px);border:1px solid rgba(216,186,114,.17);border-radius:26px;background:linear-gradient(155deg,#102824 0%,#0b1e1a 100%);box-shadow:0 16px 48px rgba(0,0,0,.14);color:var(--text,#f5f4ed);isolation:isolate}
+.wv *{box-sizing:border-box;min-width:0}
+.wv-main-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin:0 0 18px}
+.wv-title-copy{min-width:0;max-width:780px}
+.wv-eyebrow{font-size:10px;letter-spacing:.14em;color:var(--gold,#d8ba72);font-weight:800;margin:0 0 6px}
+.wv h2{margin:0;font-size:clamp(18px,2vw,22px);line-height:1.45;letter-spacing:-.02em;color:var(--text,#f5f4ed);text-wrap:balance}
+.wv-lede{margin:6px 0 0;max-width:70ch;color:var(--muted,#a6bbb1);font-size:13px;line-height:1.9;text-wrap:pretty}
+.wv-context-pill{display:inline-flex;align-items:center;gap:7px;flex:0 0 auto;padding:8px 11px;border:1px solid rgba(141,224,186,.22);border-radius:999px;background:rgba(141,224,186,.07);color:var(--mint,#8de0ba);font-size:11px;font-weight:700;white-space:nowrap}
+.wv-context-pill:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px rgba(141,224,186,.08)}
+.wv-welcome{margin:0 0 16px;padding:11px 14px;border:1px solid rgba(141,224,186,.17);border-radius:16px;background:linear-gradient(105deg,rgba(141,224,186,.09),rgba(141,224,186,.025));color:var(--text,#f5f4ed);font-size:13px;line-height:1.8}
+.wv-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 16px}
+.wv-kpi{padding:13px 15px;border:1px solid var(--line,rgba(223,203,145,.13));border-radius:17px;background:rgba(255,255,255,.025);min-width:0}
+.wv-kpi strong{display:block;font-size:clamp(19px,2.2vw,25px);line-height:1.25;color:var(--gold2,#f0dca2);font-variant-numeric:tabular-nums}
+.wv-kpi span{display:block;margin-top:5px;color:var(--muted,#a6bbb1);font-size:11px;line-height:1.7}
+.wv-panel{min-width:0;margin:0;padding:clamp(14px,1.8vw,20px);border:1px solid rgba(223,203,145,.12);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));box-shadow:0 8px 26px rgba(0,0,0,.08);overflow:hidden;contain:layout paint;}
+.wv-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin:0 0 14px}
+.wv-panel-head-copy{min-width:0}
+.wv-panel-kicker{margin:0 0 4px;color:var(--gold,#d8ba72);font-weight:800;font-size:10px;letter-spacing:.08em}
+.wv h3{margin:0;color:var(--text,#f5f4ed);font-size:15px;line-height:1.55;font-weight:750;text-wrap:balance}
+.wv-panel-subtitle{margin:5px 0 0;color:var(--muted,#a6bbb1);font-size:12px;line-height:1.8;text-wrap:pretty}
+.wv-period-pill{flex:0 0 auto;align-self:flex-start;padding:6px 9px;border:1px solid var(--line,rgba(223,203,145,.13));border-radius:999px;color:var(--muted,#a6bbb1);font-size:10px;white-space:nowrap}
+.wv-chart{display:grid;grid-template-columns:minmax(0,1fr);gap:7px;width:100%;min-width:0;direction:inherit;touch-action:pan-y}
+.wv-chart-canvas{width:100%;min-width:0;overflow:hidden;border-radius:14px;direction:ltr}
+.wv-chart svg{width:100%;height:auto;max-width:100%;display:block;overflow:hidden;aspect-ratio:560 / 235}
+.wv-trend-svg{background:linear-gradient(180deg,rgba(216,186,114,.025),transparent 78%)}
+.wv-grid{stroke:rgba(255,255,255,.10);stroke-width:1;vector-effect:non-scaling-stroke}
+.wv-axis{fill:var(--muted,#a6bbb1);font-size:14px;font-family:'IBM Plex Sans Arabic',Tahoma,Arial,sans-serif}
+.wv-xaxis{font-size:13px}
+.wv-area{fill:rgba(216,186,114,.10)}
+.wv-line{fill:none;stroke:var(--gold,#d8ba72);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:wv-draw 1.05s .08s cubic-bezier(.22,1,.36,1) forwards;vector-effect:non-scaling-stroke}
+.wv-ma{fill:none;stroke:var(--mint,#8de0ba);stroke-width:2.2;stroke-dasharray:6 5;opacity:.95;vector-effect:non-scaling-stroke}
 @keyframes wv-draw{to{stroke-dashoffset:0}}
-.wv-dot{fill:var(--gold2);stroke:var(--panel);stroke-width:2}.wv-guide{stroke:var(--gold);stroke-width:1;opacity:0}.wv-hot{fill:var(--gold);opacity:0}
-.wv-tip{position:absolute;top:0;pointer-events:none;opacity:0;transform:translate(-50%,-110%);padding:7px 11px;border-radius:12px;background:#020b09;border:1px solid var(--gold);color:#f5f4ed;font-size:12px;line-height:1.6;white-space:nowrap;transition:opacity .15s;z-index:3;direction:inherit}
-.wv-rad{fill:rgba(141,224,186,.2);stroke:var(--mint);stroke-width:2;transform-origin:150px 140px;animation:wv-rad .9s cubic-bezier(.34,1.3,.64,1)}
-@keyframes wv-rad{from{transform:scale(.2);opacity:0}to{transform:none;opacity:1}}
-.wv-rv{fill:var(--mint);cursor:pointer}.wv-rl{fill:var(--text);font-size:11px;text-anchor:middle}
-.wv-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
-.wv-badges{display:flex;flex-wrap:wrap;gap:8px}.wv-badge{padding:8px 12px;border-radius:14px;border:1px solid var(--line);font-size:13px;background:rgba(255,255,255,.04);opacity:.55}
-.wv-badge[data-on="1"]{opacity:1;border-color:var(--gold);background:rgba(216,186,114,.12);color:var(--gold2)}.wv-badge small{display:block;color:var(--muted);font-size:11px}
-.wv-note{margin:12px 0 0;font-size:12px;color:var(--muted);line-height:1.8}.wv-welcome{padding:10px 14px;border-radius:14px;background:rgba(141,224,186,.1);margin-bottom:12px;font-size:14px}
-.wv-share{margin-top:14px;padding:11px 20px;border-radius:99px;border:1px solid var(--gold);background:rgba(216,186,114,.14);color:var(--gold2);font-weight:700;cursor:pointer;font-family:inherit}
-@media(prefers-reduced-motion:reduce){.view.active,.score-ring,.wv-line,.wv-rad,.score-ring.wv-pulse{animation:none!important;transition:none!important}.wv-reveal{opacity:1;transform:none}.wv-line{stroke-dashoffset:0}}
+.wv-dot{fill:var(--gold2,#f0dca2);stroke:#102824;stroke-width:2;cursor:pointer;vector-effect:non-scaling-stroke;transition:r .15s ease,fill .15s ease}
+.wv-dot:focus{outline:none;stroke:var(--mint,#8de0ba);stroke-width:3}
+.wv-dot:hover{fill:#fff;stroke-width:3}
+.wv-guide{stroke:var(--gold,#d8ba72);stroke-width:1;opacity:0;stroke-dasharray:3 4;vector-effect:non-scaling-stroke}
+.wv-hot{fill:var(--gold,#d8ba72);opacity:0;stroke:#102824;stroke-width:2;vector-effect:non-scaling-stroke}
+.wv-tip{position:relative;display:block;width:100%;min-height:42px;margin:0;padding:8px 11px;border:1px solid var(--line,rgba(223,203,145,.13));border-radius:13px;background:rgba(0,0,0,.12);color:var(--muted,#a6bbb1);font-size:12px;line-height:1.75;white-space:normal;overflow-wrap:anywhere;word-break:normal;text-align:start;direction:inherit;opacity:1;transform:none;pointer-events:none;z-index:auto}
+.wv-tip.wv-tip-active{border-color:rgba(216,186,114,.32);background:rgba(216,186,114,.055);color:var(--text,#f5f4ed)}
+.wv-chart-status{margin:8px 0 0;padding:9px 11px;border-radius:12px;background:rgba(255,255,255,.025);color:var(--muted,#a6bbb1);font-size:11px;line-height:1.8}
+.wv-chart-legend{display:flex;flex-wrap:wrap;gap:9px 14px;margin-top:12px;color:var(--muted,#a6bbb1);font-size:11px;line-height:1.7}
+.wv-legend-item{display:inline-flex;align-items:center;gap:7px;min-width:0}
+.wv-legend-swatch{display:inline-block;width:18px;height:3px;flex:0 0 auto;border-radius:99px;background:var(--gold,#d8ba72)}
+.wv-legend-swatch.wv-swatch-average{height:0;border-top:2px dashed var(--mint,#8de0ba);background:transparent}
+.wv-row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:14px;margin-top:14px;align-items:stretch}
+.wv-panel-radar,.wv-panel-badges{display:flex;flex-direction:column}
+.wv-radar-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
+.wv-radar-canvas svg{aspect-ratio:360 / 300}
+.wv-rad{fill:rgba(141,224,186,.17);stroke:var(--mint,#8de0ba);stroke-width:2.4;transform-box:view-box;transform-origin:50% 50%;animation:wv-rad .82s cubic-bezier(.22,1,.36,1)}
+@keyframes wv-rad{from{transform:scale(.12);opacity:.12}to{transform:scale(1);opacity:1}}
+.wv-rv{fill:var(--gold2,#f0dca2);stroke:#102824;stroke-width:2;cursor:pointer;vector-effect:non-scaling-stroke}
+.wv-rv:focus{outline:none;stroke:var(--mint,#8de0ba);stroke-width:3}
+.wv-center-value{fill:var(--text,#f5f4ed);font-size:22px;font-weight:800;text-anchor:middle;font-family:'Manrope',sans-serif}
+.wv-center-caption{fill:var(--muted,#a6bbb1);font-size:11px;text-anchor:middle;font-family:'IBM Plex Sans Arabic',Tahoma,Arial,sans-serif}
+.wv-domain-legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:2px}
+.wv-domain-item{display:flex;align-items:center;gap:8px;padding:9px 10px;border:1px solid var(--line,rgba(223,203,145,.13));border-radius:12px;background:rgba(255,255,255,.02);min-width:0}
+.wv-domain-mark{width:7px;height:7px;border-radius:50%;flex:0 0 auto;background:var(--mint,#8de0ba);box-shadow:0 0 0 3px rgba(141,224,186,.08)}
+.wv-domain-name{flex:1;min-width:0;color:var(--muted,#a6bbb1);font-size:11px;line-height:1.6;overflow-wrap:anywhere}
+.wv-domain-value{flex:0 0 auto;color:var(--text,#f5f4ed);font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}
+.wv-domain-value.is-missing{color:var(--muted,#a6bbb1);font-size:10px;font-weight:500}
+.wv-badges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:8px}
+.wv-badge{display:flex;align-items:flex-start;gap:9px;min-width:0;padding:11px 10px;border:1px solid var(--line,rgba(223,203,145,.13));border-radius:15px;background:rgba(255,255,255,.025);opacity:.8;transition:transform .22s cubic-bezier(.22,1,.36,1),border-color .22s,background .22s,opacity .22s}
+.wv-badge-icon{flex:0 0 auto;font-size:18px;line-height:1.35;filter:saturate(.75)}
+.wv-badge-copy{flex:1;min-width:0}
+.wv-badge-title{display:block;color:var(--text,#f5f4ed);font-size:11px;font-weight:700;line-height:1.65;overflow-wrap:anywhere}
+.wv-badge small{display:block;margin-top:3px;color:var(--muted,#a6bbb1);font-size:10px;line-height:1.65;overflow-wrap:anywhere}
+.wv-badge[data-on="1"]{opacity:1;border-color:rgba(216,186,114,.42);background:linear-gradient(140deg,rgba(216,186,114,.12),rgba(216,186,114,.035))}
+.wv-badge[data-on="1"] .wv-badge-icon{filter:none}
+@media(hover:hover){.wv-badge[data-on="1"]:hover{transform:translateY(-2px);border-color:rgba(216,186,114,.7)}}
+.wv-note{margin:12px 0 0;color:var(--muted,#a6bbb1);font-size:11px;line-height:1.85;text-wrap:pretty}
+.wv-panel-note{margin-top:auto;padding-top:12px}
+.wv-report-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line,rgba(223,203,145,.13))}
+.wv-report-caption{color:var(--muted,#a6bbb1);font-size:11px;line-height:1.7}
+.wv-share{display:inline-flex;align-items:center;justify-content:center;gap:8px;max-width:100%;padding:11px 17px;border-radius:999px;border:1px solid rgba(216,186,114,.46);background:linear-gradient(130deg,rgba(216,186,114,.17),rgba(216,186,114,.06));color:var(--gold2,#f0dca2);font-weight:750;font-size:12px;line-height:1.5;cursor:pointer;font-family:inherit;transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .22s,border-color .22s}
+.wv-share:focus-visible{outline:2px solid var(--mint,#8de0ba);outline-offset:3px}
+.wv-share:active{transform:scale(.98)}
+@media(hover:hover){.wv-share:hover{transform:translateY(-1px);border-color:var(--gold,#d8ba72);box-shadow:0 8px 22px rgba(216,186,114,.10)}}
+/* Refined layout of every major insights section, not only the custom charts. */
+#view-insights .insights-engine-banner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;padding:18px 20px;border-radius:22px;min-width:0}
+#view-insights .insights-engine-copy{min-width:0}
+#view-insights .insights-engine-copy p{margin:5px 0 0;line-height:1.8;overflow-wrap:anywhere}
+#view-insights .insight-meaning-card{padding:17px 19px;border-radius:20px}
+#view-insights .insight-meaning-head{align-items:flex-start;gap:12px}
+#view-insights .insight-meaning-head>div{min-width:0}
+#view-insights .insight-meaning-head p,#view-insights .insight-meaning-foot{line-height:1.85;text-wrap:pretty;overflow-wrap:anywhere}
+#view-insights .insights-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:14px 0}
+#view-insights .insight-domain-switch,#view-insights .insight-period-switch{display:flex;flex-wrap:wrap;align-items:center;gap:5px;max-width:100%;min-width:0;padding:5px;border-radius:16px}
+#view-insights .insight-domain-switch button,#view-insights .insight-period-switch button{min-height:38px;padding:8px 12px;border-radius:12px;font-size:12px;line-height:1.5;white-space:normal}
+#view-insights .insight-domain-switch button:focus-visible,#view-insights .insight-period-switch button:focus-visible{outline:2px solid var(--gold,#d8ba72);outline-offset:2px}
+#view-insights .insights-metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:14px}
+#view-insights .card.insights-metric{min-width:0;min-height:130px;padding:17px 16px;border-radius:20px;overflow:hidden}
+#view-insights .insights-metric>span{display:block;font-size:12px;line-height:1.7;overflow-wrap:anywhere}
+#view-insights .insights-metric strong{display:block;margin:9px 0 6px;font-size:clamp(20px,2.1vw,28px);line-height:1.25;font-variant-numeric:tabular-nums}
+#view-insights .insights-metric small{display:block;font-size:11px;line-height:1.7;overflow-wrap:anywhere}
+#view-insights .insights-main-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:stretch;gap:14px;margin:0 0 14px}
+#view-insights .insights-chart-card,#view-insights .domain-analysis-card,#view-insights .insights-table-card,#view-insights .scoring-method-card,#view-insights .deep-insights-report{min-width:0;padding:clamp(15px,2vw,22px);border-radius:22px;overflow:hidden}
+#view-insights .section-head{gap:12px;align-items:flex-start;flex-wrap:wrap}
+#view-insights .section-head>div{min-width:0}
+#view-insights .section-head h2{font-size:clamp(15px,1.5vw,18px);line-height:1.5;text-wrap:balance}
+#view-insights .section-head p{line-height:1.8;text-wrap:pretty;overflow-wrap:anywhere}
+#view-insights #domainTrendChart{width:100%;min-width:0;max-width:100%;overflow:hidden}
+#view-insights .domain-trend-chart svg,#view-insights #domainTrendChart svg{display:block;width:100%;height:auto;max-width:100%}
+#view-insights .domain-chart-legend{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:flex-start;margin-top:12px;line-height:1.7}
+#view-insights .domain-analysis-summary,#view-insights .domain-recommendation{min-width:0;overflow-wrap:anywhere;line-height:1.85}
+#view-insights .domain-detail-table{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain}
+#view-insights .domain-detail-table table{width:100%;min-width:520px;border-collapse:separate;border-spacing:0}
+#view-insights .wirdi-scoring-weights{min-width:0}
+#view-insights .wirdi-weight-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#view-insights .wirdi-weight-card{min-width:0;border-radius:15px;padding:12px}
+#view-insights .wirdi-weight-card>div{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;line-height:1.7}
+#view-insights .wirdi-weight-card strong{white-space:nowrap}
+#view-insights .scoring-method-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+#view-insights .scoring-method-grid>div{min-width:0;padding:13px;border-radius:15px;border:1px solid var(--line,rgba(223,203,145,.13));background:rgba(255,255,255,.02)}
+#view-insights .scoring-method-grid p{margin:7px 0 0;line-height:1.85;overflow-wrap:anywhere;text-wrap:pretty}
+#view-insights .deep-insights-report p{line-height:1.85;overflow-wrap:anywhere}
+/* Explicit light palette to stop inherited dark chart labels from fading or clashing. */
+body.light-ui #view-insights .wv{background:linear-gradient(160deg,#fffefa 0%,#f5f8f2 100%);border-color:#dbe5d8;color:#213d30;box-shadow:0 14px 36px rgba(40,65,43,.08)}
+body.light-ui #view-insights .wv h2,body.light-ui #view-insights .wv h3{color:#233f32}
+body.light-ui #view-insights .wv-lede,body.light-ui #view-insights .wv-note,body.light-ui #view-insights .wv-panel-subtitle,body.light-ui #view-insights .wv-report-caption{color:#617566}
+body.light-ui #view-insights .wv-panel,body.light-ui #view-insights .wv-kpi{background:linear-gradient(150deg,#fff,#f8faf6);border-color:#e0e8dd;box-shadow:0 5px 18px rgba(38,64,42,.045)}
+body.light-ui #view-insights .wv-kpi strong{color:#866623}
+body.light-ui #view-insights .wv-context-pill{color:#27694b;border-color:#c5e1cd;background:#edf8ef}
+body.light-ui #view-insights .wv-grid{stroke:rgba(44,73,52,.14)}
+body.light-ui #view-insights .wv-axis{fill:#65796a}
+body.light-ui #view-insights .wv-dot{stroke:#fffefa}
+body.light-ui #view-insights .wv-rv{stroke:#fffefa}
+body.light-ui #view-insights .wv-tip{background:#f3f7f0;border-color:#dce6d9;color:#596d5e}
+body.light-ui #view-insights .wv-tip.wv-tip-active{background:#fff9e9;border-color:#dbc58b;color:#2d4635}
+body.light-ui #view-insights .wv-domain-item,body.light-ui #view-insights .wv-badge,body.light-ui #view-insights .scoring-method-grid>div{background:#fff;border-color:#e1e8de}
+body.light-ui #view-insights .wv-domain-name,body.light-ui #view-insights .wv-badge small{color:#617566}
+body.light-ui #view-insights .wv-domain-value,body.light-ui #view-insights .wv-badge-title{color:#2a4835}
+body.light-ui #view-insights .wv-badge[data-on="1"]{background:linear-gradient(140deg,#fff7de,#fffdf6);border-color:#dcc789}
+body.light-ui #view-insights .wv-chart-status{background:#f1f6ee;color:#617566}
+body.light-ui #view-insights .wv-share{background:linear-gradient(130deg,#fbf0ce,#fffaf0);border-color:#d9c17c;color:#6c531f}
+body.light-ui #view-insights .insights-engine-banner{background:linear-gradient(105deg,#f7fbf5,#eef6ef)!important;border-color:#d7e7d9!important}
+body.light-ui #view-insights .insights-engine-copy strong{color:#284936!important}
+body.light-ui #view-insights .insights-engine-copy p{color:#5f7565!important}
+body.light-ui #view-insights .insight-meaning-card{background:linear-gradient(145deg,#fffefa,#f7faf5);border-color:#dfe7db}
+body.light-ui #view-insights .insight-domain-switch,body.light-ui #view-insights .insight-period-switch{background:#eff5ed!important;border-color:#dce7da!important}
+body.light-ui #view-insights .insight-domain-switch button,body.light-ui #view-insights .insight-period-switch button{color:#4f6958!important}
+body.light-ui #view-insights .insight-domain-switch button.active,body.light-ui #view-insights .insight-period-switch button.active{background:#fff!important;color:#234934!important;box-shadow:inset 0 0 0 1px #c6d9c6,0 3px 10px rgba(46,78,51,.08)!important}
+body.light-ui #view-insights .insights-metric-grid .insights-metric{background:linear-gradient(150deg,#fffefa,#f6faf4)!important;border-color:#dce7d9!important}
+body.light-ui #view-insights .insights-metric>span,body.light-ui #view-insights .insights-metric small{color:#637767!important}
+body.light-ui #view-insights .insights-metric strong{color:#2b5138!important}
+body.light-ui #view-insights .insights-chart-card,body.light-ui #view-insights .domain-analysis-card,body.light-ui #view-insights .insights-table-card,body.light-ui #view-insights .scoring-method-card,body.light-ui #view-insights .deep-insights-report{background:#fffefa;border-color:#dfe7dd}
+body.light-ui #view-insights .scoring-method-grid strong{color:#2b5138}
+@media(max-width:900px){
+ #view-insights .insights-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #view-insights .insights-main-grid{grid-template-columns:minmax(0,1fr)}
+ .wv-row{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:600px){
+ .wv{padding:14px;border-radius:21px;margin-top:14px}
+ .wv-main-heading{gap:8px;flex-direction:column;margin-bottom:14px}
+ .wv-context-pill{white-space:normal;font-size:10px}
+ .wv-kpis{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .wv-kpi{padding:10px 9px;border-radius:14px}
+ .wv-kpi strong{font-size:19px}
+ .wv-kpi span{font-size:10px;line-height:1.55}
+ .wv-panel{padding:13px;border-radius:18px}
+ .wv-panel-head{gap:7px;margin-bottom:10px}
+ .wv-panel-subtitle{font-size:11px}
+ .wv-domain-legend{grid-template-columns:minmax(0,1fr)}
+ .wv-badges{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .wv-badge{padding:9px 8px;gap:7px}
+ .wv-badge-icon{font-size:16px}
+ .wv-badge-title{font-size:10px}
+ .wv-badge small{font-size:9px}
+ .wv-report-actions{align-items:stretch;flex-direction:column}
+ .wv-share{width:100%}
+ #view-insights .insights-engine-banner{grid-template-columns:auto minmax(0,1fr);padding:14px;gap:10px}
+ #view-insights .insights-engine-banner>.tag{grid-column:1/-1;justify-self:start}
+ #view-insights .insight-meaning-card{padding:14px}
+ #view-insights .insights-controls{align-items:stretch;flex-direction:column}
+ #view-insights .insight-domain-switch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+ #view-insights .insight-domain-switch button{width:100%;min-width:0;padding:8px 7px;font-size:11px}
+ #view-insights .insight-period-switch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
+ #view-insights .insight-period-switch button{width:100%;padding:8px 6px}
+ #view-insights .insights-metric-grid{gap:8px}
+ #view-insights .card.insights-metric{min-height:120px;padding:13px 12px;border-radius:17px}
+ #view-insights .insights-metric>span{font-size:11px}
+ #view-insights .insights-metric strong{font-size:22px}
+ #view-insights .insights-main-grid{gap:10px}
+ #view-insights .wirdi-weight-cards,#view-insights .scoring-method-grid{grid-template-columns:minmax(0,1fr)}
+ #view-insights .section-head .tag{max-width:100%;white-space:normal}
+ #view-insights .domain-chart-legend{flex-direction:column;gap:6px}
+}
+@media(prefers-reduced-motion:reduce){
+ .view.active,.score-ring,.wv-line,.wv-rad,.score-ring.wv-pulse{animation:none!important;transition:none!important}
+ .wv-line{stroke-dashoffset:0}
+ .wv-reveal,.wv-reveal.wv-in{opacity:1;transform:none;filter:none;transition:none!important}
+ .wv-badge,.wv-share{transition:none!important}
+}
 </style>
-<script id="wirdi-v21-motion-viz">
+<script id="wirdi-v22-visual-insights">
 (()=>{'use strict';
-if(window.__wv21)return;window.__wv21=true;
+if(window.__wv22)return;window.__wv22=true;
 const RM=()=>{try{return matchMedia('(prefers-reduced-motion: reduce)').matches}catch(_){return false}};
 const lang=()=>(document.documentElement.lang||'ar').toLowerCase().startsWith('en')?'en':'ar';
 const T=(a,e)=>lang()==='en'?e:a;
 const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e};
 const NS='http://www.w3.org/2000/svg',sv=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.append(e);return e};
-const ms=d=>Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10));
+const ms=d=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(String(d||'')))return NaN;return Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10))};
 const bridge=()=>window.WIRDI_AI_BRIDGE;
 const DOM=[['prayers','الصلوات','Prayers'],['salawat','الصلاة على النبي','Salawat'],['adhkar','الأذكار','Adhkar'],['quran','القرآن','Quran'],['qiyam','القيام','Qiyam']];
+const DOMAIN_COLORS=['#d8ba72','#8de0ba','#8ebbdc','#bda3e1','#edaa8d'];
+const validNum=v=>v!==null&&v!==undefined&&v!==''&&Number.isFinite(Number(v));
+const dateLabel=d=>{const n=ms(d);if(!Number.isFinite(n))return String(d||'—');try{return new Intl.DateTimeFormat(lang()==='en'?'en':'ar-EG',{day:'numeric',month:'short',timeZone:'UTC'}).format(new Date(n))}catch(_){return String(d)}};
 
-/* ===== 1) Score count-up + celebration ===== */
+/* Score animation and celebration */
 let cur=null,written=null,raf=0;
 function burst(th){
  if(RM())return;
- const c=el('canvas');c.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:99999';c.width=innerWidth;c.height=innerHeight;document.body.append(c);
- const x=c.getContext('2d'),cols=['#d8ba72','#f0dca2','#8de0ba','#8ebbdc'];
- const P=Array.from({length:th>=90?110:70},()=>({x:c.width/2,y:c.height*.35,vx:(Math.random()-.5)*12,vy:-Math.random()*11-3,s:4+Math.random()*5,r:Math.random()*6,c:cols[(Math.random()*4)|0]}));
- let f=0;(function loop(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.vy+=.32;p.x+=p.vx;p.y+=p.vy;p.r+=.2;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.globalAlpha=Math.max(0,1-f/90);x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);x.restore()});if(++f<95)requestAnimationFrame(loop);else c.remove()})();
- try{navigator.vibrate&&navigator.vibrate(th>=90?[18,40,18]:18)}catch(_){}
- const r=document.getElementById('dailyRing');if(r){r.classList.remove('wv-pulse');void r.offsetWidth;r.classList.add('wv-pulse')}}
-function celebrate(th,to){
- try{const b=bridge(),ctx=b&&b.getContext&&b.getContext();if(!ctx||ctx.todayScore.score!==to||ctx.todayScore.scoreStatus==='provisional')return;
-  const key='wv21_cel_'+ctx.today+'_'+th;if(localStorage.getItem(key))return;localStorage.setItem(key,'1');burst(th)}catch(_){}}
-function onScore(node){
- const raw=(node.textContent||'').trim();if(raw===written)return;
- const m=raw.match(/^(~?)(\d+(?:\.\d+)?)$/);if(!m){cur=null;return}
- const to=+m[2],pre=m[1],from=cur===null?0:cur,first=cur===null;if(from===to)return;
- cancelAnimationFrame(raf);
- if(!first)[90,70].some(th=>from<th&&to>=th&&!pre&&(celebrate(th,to),true));
- if(RM()){cur=to;return}
- const t0=performance.now(),dur=Math.min(1100,450+Math.abs(to-from)*12);
- const step=t=>{const k=Math.min(1,(t-t0)/dur),v=Math.round(from+(to-from)*(1-Math.pow(1-k,3)));cur=v;written=pre+v;node.textContent=written;if(k<1)raf=requestAnimationFrame(step);else{cur=to;written=pre+to}};
- raf=requestAnimationFrame(step)}
+ const c=el('canvas');c.setAttribute('aria-hidden','true');c.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:99999';
+ const dpr=Math.min(window.devicePixelRatio||1,2);c.width=Math.round(innerWidth*dpr);c.height=Math.round(innerHeight*dpr);document.body.append(c);
+ const x=c.getContext('2d');if(!x){c.remove();return}x.scale(dpr,dpr);
+ const cols=['#d8ba72','#f0dca2','#8de0ba','#8ebbdc'];
+ const P=Array.from({length:th>=90?95:60},()=>({x:innerWidth/2,y:innerHeight*.35,vx:(Math.random()-.5)*10,vy:-Math.random()*10-3,s:3+Math.random()*4,r:Math.random()*6,c:cols[(Math.random()*4)|0]}));
+ let f=0;(function loop(){if(!c.isConnected)return;x.clearRect(0,0,innerWidth,innerHeight);P.forEach(p=>{p.vy+=.30;p.x+=p.vx;p.y+=p.vy;p.r+=.18;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.globalAlpha=Math.max(0,1-f/88);x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.65);x.restore()});if(++f<92)requestAnimationFrame(loop);else c.remove()})();
+ try{navigator.vibrate&&navigator.vibrate(th>=90?[18,36,18]:16)}catch(_){}
+ const r=document.getElementById('dailyRing');if(r){r.classList.remove('wv-pulse');void r.offsetWidth;r.classList.add('wv-pulse')}
+}
+function celebrate(th,to){try{const b=bridge(),ctx=b&&b.getContext&&b.getContext();if(!ctx||ctx.todayScore.score!==to||ctx.todayScore.scoreStatus==='provisional')return;const key='wv22_cel_'+ctx.today+'_'+th;if(localStorage.getItem(key))return;localStorage.setItem(key,'1');burst(th)}catch(_){}}
+function onScore(node){const raw=(node.textContent||'').trim();if(raw===written)return;const m=raw.match(/^(~?)(\d+(?:\.\d+)?)$/);if(!m){cur=null;return}const to=+m[2],pre=m[1],from=cur===null?0:cur,first=cur===null;if(from===to)return;cancelAnimationFrame(raf);if(!first)[90,70].some(th=>from<th&&to>=th&&!pre&&(celebrate(th,to),true));if(RM()){cur=to;written=pre+to;return}const t0=performance.now(),dur=Math.min(1050,430+Math.abs(to-from)*11);const step=t=>{const k=Math.min(1,(t-t0)/dur),v=Math.round(from+(to-from)*(1-Math.pow(1-k,3)));cur=v;written=pre+v;node.textContent=written;if(k<1)raf=requestAnimationFrame(step);else{cur=to;written=pre+to}};raf=requestAnimationFrame(step)}
 function watchScore(){const n=document.getElementById('heroScore');if(!n)return;new MutationObserver(()=>onScore(n)).observe(n,{childList:true,characterData:true,subtree:true});onScore(n)}
 
-/* ===== 7) Motion: staggered reveal ===== */
+/* Reveal only the analysis page's major blocks. This avoids the old site-wide transform that could push charts into nearby copy. */
 let io=null;
 function reveal(){
- if(RM()||!('IntersectionObserver'in window))return;
- io=io||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('wv-in');io.unobserve(e.target)}}),{threshold:.06});
- document.querySelectorAll('.view .card:not(.wv-seen),.view .wsc:not(.wv-seen),.view .wv:not(.wv-seen)').forEach((c,i)=>{c.classList.add('wv-seen','wv-reveal');c.style.setProperty('--i',String(i%6));io.observe(c)});
- setTimeout(()=>document.querySelectorAll('.wv-reveal:not(.wv-in)').forEach(c=>{if(c.getBoundingClientRect().height)c.classList.add('wv-in')}),2500)}
+ const nodes=document.querySelectorAll('#view-insights > .card, #view-insights > .insights-controls, #view-insights > .grid.insights-metric-grid, #view-insights > .grid.insights-main-grid, #view-insights .wsc, #view-insights .wv-panel');
+ nodes.forEach((c,i)=>{if(!c.classList.contains('wv-seen')){c.classList.add('wv-seen','wv-reveal');c.style.setProperty('--i',String(i%5))}});
+ if(RM()){nodes.forEach(c=>c.classList.add('wv-in'));return}
+ if(!('IntersectionObserver'in window)){nodes.forEach(c=>c.classList.add('wv-in'));return}
+ io=io||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('wv-in');io.unobserve(e.target)}}),{threshold:.04,rootMargin:'0px 0px -2% 0px'});
+ nodes.forEach(c=>{if(!c.classList.contains('wv-in'))io.observe(c)});
+ setTimeout(()=>nodes.forEach(c=>c.classList.add('wv-in')),1250)
+}
 
-/* ===== data helpers ===== */
-function runs(hist){let best=0,run=0,pBest=0,pRun=0,prev=null,mx=0;
- hist.forEach(d=>{const adj=prev&&ms(d.date)-ms(prev)===864e5;
-  const ok=Number.isFinite(+d.score)&&d.score!==null&&+d.score>=70;run=ok?(adj&&run?run+1:1):0;best=Math.max(best,run);
-  const all=d.prayers&&Object.values(d.prayers).length===5&&Object.values(d.prayers).every(s=>s==='done');pRun=all?(adj&&pRun?pRun+1:1):0;pBest=Math.max(pBest,pRun);
-  if(Number.isFinite(+d.score)&&d.score!==null)mx=Math.max(mx,+d.score);prev=d.date});
- return{streak:best,prayers:pBest,max:mx}}
+/* Data helpers */
+function runs(hist){let best=0,run=0,pBest=0,pRun=0,prev=null,mx=0;hist.forEach(d=>{const adj=prev&&ms(d.date)-ms(prev)===864e5;const ok=validNum(d.score)&&+d.score>=70;run=ok?(adj&&run?run+1:1):0;best=Math.max(best,run);const all=d.prayers&&Object.values(d.prayers).length===5&&Object.values(d.prayers).every(s=>s==='done');pRun=all?(adj&&pRun?pRun+1:1):0;pBest=Math.max(pBest,pRun);if(validNum(d.score))mx=Math.max(mx,+d.score);prev=d.date});return{streak:best,prayers:pBest,max:mx}}
 const BADGES=[['s3','🔥',3,'streak','٣ أيام متتالية 70+','3 days in a row 70+'],['s7','🔥',7,'streak','٧ أيام متتالية 70+','7 days in a row 70+'],['s14','🏅',14,'streak','١٤ يومًا متتاليًا 70+','14 days in a row 70+'],['s30','👑',30,'streak','٣٠ يومًا متتاليًا 70+','30 days in a row 70+'],['p7','🕌',7,'prayers','٧ أيام كل الصلوات','7 days all prayers'],['m90','⭐',90,'max','يوم بدرجة 90+','A 90+ day']];
-
-/* ===== 8) Charts ===== */
-function tipShow(wrap,tip,xPct,html){tip.textContent='';html.forEach((l,i)=>{if(i)tip.append(document.createElement('br'));tip.append(l)});tip.style.left=xPct+'%';tip.style.opacity='1'}
+function tipShow(tip,lines){tip.textContent='';(lines||[]).forEach((l,i)=>{if(i)tip.append(document.createElement('br'));tip.append(document.createTextNode(String(l)))});tip.classList.add('wv-tip-active');tip.setAttribute('aria-live','polite')}
+function fmtScore(p){return T('الدرجة ','Score ')+Math.round(Number(p.d.score))+T(' · التغطية ',' · coverage ')+(validNum(p.d.coverage)?Math.round(Number(p.d.coverage))+'%':'—')}
+function segmentsFrom(points,gapDays=1.5){const out=[];let seg=[];for(const p of points){if(seg.length&&ms(p.d.date)-ms(seg[seg.length-1].d.date)>gapDays*864e5){out.push(seg);seg=[]}seg.push(p)}if(seg.length)out.push(seg);return out}
+function pathFor(seg){return seg.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ')}
 function trend(hist,today){
- const wrap=el('div','wv-chart'),tip=el('div','wv-tip');const W=640,H=210,P={l:30,r:10,t:12,b:22};
- const end=ms(today),start=end-29*864e5,pts=hist.filter(d=>d.score!==null&&Number.isFinite(+d.score)&&ms(d.date)>=start&&ms(d.date)<=end).map(d=>({d,x:P.l+(ms(d.date)-start)/864e5/29*(W-P.l-P.r),y:P.t+(1-(+d.score)/100)*(H-P.t-P.b)}));
- const s=sv('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':T('اتجاه درجتك خلال 30 يومًا','Your 30-day score trend')});
- [0,50,100].forEach(v=>{const y=P.t+(1-v/100)*(H-P.t-P.b);sv('line',{x1:P.l,x2:W-P.r,y1:y,y2:y,class:'wv-grid'},s);const t=sv('text',{x:2,y:y+3,class:'wv-axis'},s);t.textContent=v});
- if(pts.length<2){const t=sv('text',{x:W/2,y:H/2,'text-anchor':'middle',class:'wv-axis'},s);t.textContent=T('تحتاج يومين مقيّمين على الأقل لرسم الاتجاه','Need at least 2 scored days to draw a trend');wrap.append(s);return wrap}
- const line=pts.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');
- sv('path',{d:line+` L${pts[pts.length-1].x} ${H-P.b} L${pts[0].x} ${H-P.b}Z`,class:'wv-area'},s);
- sv('path',{d:line,class:'wv-line',pathLength:1},s);
- const ma=pts.map(p=>{const w=pts.filter(q=>ms(q.d.date)<=ms(p.d.date)&&ms(q.d.date)>ms(p.d.date)-7*864e5);return w.length>=3?{x:p.x,y:P.t+(1-(w.reduce((a,q)=>a+ +q.d.score,0)/w.length)/100)*(H-P.t-P.b)}:null}).filter(Boolean);
- if(ma.length>=2)sv('path',{d:ma.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' '),class:'wv-ma'},s);
- pts.forEach(p=>sv('circle',{cx:p.x,cy:p.y,r:3.5,class:'wv-dot'},s));
- const g=sv('line',{y1:P.t,y2:H-P.b,class:'wv-guide'},s),hot=sv('circle',{r:6,class:'wv-hot'},s);
- const move=e=>{const r=s.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W;let b=pts[0];pts.forEach(p=>{if(Math.abs(p.x-x)<Math.abs(b.x-x))b=p});
-  g.setAttribute('x1',b.x);g.setAttribute('x2',b.x);g.style.opacity=.7;hot.setAttribute('cx',b.x);hot.setAttribute('cy',b.y);hot.style.opacity=1;
-  const sc=Math.round(+b.d.score);tipShow(wrap,tip,Math.min(92,Math.max(8,b.x/W*100)),[b.d.date+(b.d.scoreStatus==='provisional'?T(' (مبدئية)',' (provisional)'):''),T('الدرجة ','Score ')+sc+T(' · التغطية ',' · coverage ')+(b.d.coverage??'—')+'%']);tip.style.top=(b.y/H*100)+'%'};
- const out=()=>{tip.style.opacity=0;g.style.opacity=0;hot.style.opacity=0};
- wrap.addEventListener('pointermove',move);wrap.addEventListener('pointerdown',move);wrap.addEventListener('pointerleave',out);
- wrap.append(s,tip);return wrap}
+ const wrap=el('div','wv-chart wv-trend-wrap'),canvas=el('div','wv-chart-canvas wv-trend-canvas'),tip=el('div','wv-tip',T('المس أو ركّز على أي نقطة لعرض الدرجة والتغطية.','Touch or focus a point to see its score and coverage.'));
+ tip.setAttribute('role','status');tip.dir=lang();
+ const W=560,H=235,P={l:40,r:14,t:18,b:38},end=ms(today),start=end-29*864e5,base=H-P.b;
+ const usable=(Array.isArray(hist)?hist:[]).filter(d=>d&&Number.isFinite(ms(d.date))&&ms(d.date)>=start&&ms(d.date)<=end&&validNum(d.score)).sort((a,b)=>ms(a.date)-ms(b.date));
+ const pts=usable.map(d=>({d,x:P.l+(ms(d.date)-start)/864e5/29*(W-P.l-P.r),y:P.t+(1-Math.max(0,Math.min(100,+d.score))/100)*(base-P.t)}));
+ const s=sv('svg',{viewBox:`0 0 ${W} ${H}`,class:'wv-svg wv-trend-svg',role:'group','aria-label':T('اتجاه الدرجات خلال الثلاثين يومًا الماضية','Score trend over the past 30 calendar days')},canvas);
+ [0,50,100].forEach(v=>{const y=P.t+(1-v/100)*(base-P.t);sv('line',{x1:P.l,x2:W-P.r,y1:y,y2:y,class:'wv-grid'},s);const t=sv('text',{x:P.l-9,y:y+5,'text-anchor':'end',class:'wv-axis'},s);t.textContent=String(v)});
+ [0,14.5,29].forEach((d,i)=>{const x=P.l+d/29*(W-P.l-P.r),key=new Date(start+d*864e5).toISOString().slice(0,10),t=sv('text',{x,y:H-9,'text-anchor':i===0?'start':i===2?'end':'middle',class:'wv-axis wv-xaxis'},s);t.textContent=i===2?T('اليوم','Today'):dateLabel(key)});
+ if(pts.length){const lineSegments=segmentsFrom(pts,1.5);lineSegments.forEach(seg=>{if(seg.length>=2){const area=pathFor(seg)+` L${seg[seg.length-1].x.toFixed(1)} ${base} L${seg[0].x.toFixed(1)} ${base} Z`;sv('path',{d:area,class:'wv-area'},s);sv('path',{d:pathFor(seg),class:'wv-line',pathLength:1},s)}});
+  const ma=pts.map(p=>{const win=pts.filter(q=>ms(q.d.date)<=ms(p.d.date)&&ms(q.d.date)>ms(p.d.date)-7*864e5);return win.length>=3?{d:p.d,x:p.x,y:P.t+(1-(win.reduce((a,q)=>a+Number(q.d.score),0)/win.length)/100)*(base-P.t)}:null}).filter(Boolean);
+  segmentsFrom(ma,1.5).forEach(seg=>{if(seg.length>=2)sv('path',{d:pathFor(seg),class:'wv-ma'},s)});
+ }else{const t=sv('text',{x:W/2,y:H/2-3,'text-anchor':'middle',class:'wv-axis'},s);t.textContent=T('لا توجد درجات قابلة للرسم في هذه الفترة','No computable scores in this period')}
+ const guide=sv('line',{x1:P.l,x2:P.l,y1:P.t,y2:base,class:'wv-guide'},s),hot=sv('circle',{cx:P.l,cy:base,r:6,class:'wv-hot'},s);
+ const select=p=>{guide.setAttribute('x1',p.x);guide.setAttribute('x2',p.x);guide.style.opacity='.75';hot.setAttribute('cx',p.x);hot.setAttribute('cy',p.y);hot.style.opacity='1';tipShow(tip,[p.d.date+(p.d.scoreStatus==='provisional'?T(' (مبدئية)',' (provisional)'):''),fmtScore(p)])};
+ pts.forEach(p=>{const dot=sv('circle',{cx:p.x,cy:p.y,r:4.5,class:'wv-dot',tabindex:'0',role:'button','aria-label':p.d.date+', '+fmtScore(p)},s);dot.addEventListener('pointerenter',()=>select(p));dot.addEventListener('focus',()=>select(p));dot.addEventListener('click',()=>select(p));dot.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(p)}else if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const idx=pts.indexOf(p),n=pts[Math.max(0,Math.min(pts.length-1,idx+(e.key==='ArrowRight'?(lang()==='en'?1:-1):(lang()==='en'?-1:1))))];n&&select(n);const eln=Array.from(s.querySelectorAll('.wv-dot'))[pts.indexOf(n)];eln&&eln.focus()}})});
+ if(pts.length<2){const tx=sv('text',{x:W/2,y:P.t+18,'text-anchor':'middle',class:'wv-axis'},s);tx.textContent=pts.length===1?T('يوم واحد له درجة — نحتاج تسجيلًا إضافيًا لإظهار الاتجاه','One scored day — add more records to show a trend'):T('سجّل درجات قابلة للحساب لعرض الاتجاه','Record computable scores to reveal a trend')}
+ if(pts.length) {wrap.setAttribute('aria-label',T('رسم تفاعلي: '+pts.length+' يومًا له درجة ضمن الفترة','Interactive chart: '+pts.length+' scored days in the period'));}
+ wrap.append(canvas,tip);return wrap
+}
 function radar(domains){
- const wrap=el('div','wv-chart'),tip=el('div','wv-tip'),s=sv('svg',{viewBox:'0 0 300 280',role:'img','aria-label':T('رادار المجالات الخمسة','Five-area radar')});
- const cx=150,cy=140,R=90,ang=i=>(-90+72*i)*Math.PI/180,pt=(i,r)=>[cx+Math.cos(ang(i))*r,cy+Math.sin(ang(i))*r];
- [25,50,75,100].forEach(v=>sv('polygon',{points:DOM.map((_,i)=>pt(i,R*v/100).join(',')).join(' '),fill:'none',class:'wv-grid'},s));
- DOM.forEach((_,i)=>sv('line',{x1:cx,y1:cy,x2:pt(i,R)[0],y2:pt(i,R)[1],class:'wv-grid'},s));
- const val=DOM.map(([k])=>{const d=domains.find(x=>x.k===k);return d?d.att:null});
- sv('polygon',{points:val.map((v,i)=>pt(i,R*(v||0)/100).join(',')).join(' '),class:'wv-rad'},s);
- DOM.forEach((d,i)=>{const[lx,ly]=pt(i,R+22),t=sv('text',{x:lx,y:ly+4,class:'wv-rl'},s);t.textContent=(T(d[1],d[2]))+' '+(val[i]===null?'—':val[i]+'%');
-  if(val[i]!==null){const[px,py]=pt(i,R*val[i]/100),c=sv('circle',{cx:px,cy:py,r:5,class:'wv-rv'},s);c.addEventListener('pointerenter',()=>{tipShow(wrap,tip,px/3,[T(d[1],d[2]),val[i]+'%']);tip.style.top=(py/280*100)+'%'});c.addEventListener('pointerleave',()=>tip.style.opacity=0)}});
- wrap.append(s,tip);return wrap}
-
-/* ===== 9) Milestones + share card ===== */
+ const wrap=el('div','wv-radar-wrap'),canvas=el('div','wv-chart-canvas wv-radar-canvas'),s=sv('svg',{viewBox:'0 0 360 300',class:'wv-svg wv-radar-svg',role:'img','aria-label':T('رسم توازن خمسة مجالات','Five-category balance chart')},canvas),tip=el('div','wv-tip',T('اختر نقطة في الرسم لعرض المجال ونسبته.','Focus or tap a plotted point to inspect its category.'));
+ tip.setAttribute('role','status');tip.dir=lang();
+ const cx=180,cy=150,R=88,ang=i=>(-90+72*i)*Math.PI/180,pt=(i,r)=>[cx+Math.cos(ang(i))*r,cy+Math.sin(ang(i))*r];
+ [25,50,75,100].forEach(v=>sv('polygon',{points:DOM.map((_,i)=>pt(i,R*v/100).map(n=>n.toFixed(2)).join(',')).join(' '),fill:'none',class:'wv-grid'},s));
+ DOM.forEach((_,i)=>{const a=pt(i,R);sv('line',{x1:cx,y1:cy,x2:a[0],y2:a[1],class:'wv-grid'},s)});
+ const values=DOM.map(([k])=>{const d=(Array.isArray(domains)?domains:[]).find(x=>x.k===k);return d&&validNum(d.att)?Math.max(0,Math.min(100,Number(d.att))):null});
+ const all=values.every(v=>v!==null),enough=values.filter(v=>v!==null).length;
+ if(all){sv('polygon',{points:values.map((v,i)=>pt(i,R*v/100).map(n=>n.toFixed(2)).join(',')).join(' '),class:'wv-rad'},s);const avg=Math.round(values.reduce((a,b)=>a+b,0)/values.length);const n=sv('text',{x:cx,y:cy-1,class:'wv-center-value'},s);n.textContent=avg+'%';const cap=sv('text',{x:cx,y:cy+17,class:'wv-center-caption'},s);cap.textContent=T('متوسط المجالات','Areas average');
+  DOM.forEach((d,i)=>{const [x,y]=pt(i,R*values[i]/100),dot=sv('circle',{cx:x,cy:y,r:5.2,class:'wv-rv',tabindex:'0',role:'button','aria-label':T(d[1],d[2])+': '+Math.round(values[i])+'%'},s);const show=()=>tipShow(tip,[T(d[1],d[2]),Math.round(values[i])+'%',T('آخر 14 يومًا من السجلات المتاحة','Last 14 days of available records')]);dot.addEventListener('pointerenter',show);dot.addEventListener('focus',show);dot.addEventListener('click',show);dot.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show()}})});
+ }else{const txt=sv('text',{x:cx,y:cy-2,'text-anchor':'middle',class:'wv-center-caption'},s);txt.textContent=enough?T('بيانات غير مكتملة','Partial data'):T('لا توجد بيانات كافية بعد','Not enough data yet');}
+ const legend=el('div','wv-domain-legend');DOM.forEach(([k,ar,en],i)=>{const d=(Array.isArray(domains)?domains:[]).find(x=>x.k===k),v=d&&validNum(d.att)?Math.max(0,Math.min(100,Number(d.att))):null,item=el('div','wv-domain-item');const mark=el('i','wv-domain-mark');mark.style.background=DOMAIN_COLORS[i];mark.style.boxShadow='0 0 0 3px '+DOMAIN_COLORS[i]+'18';const name=el('span','wv-domain-name',T(ar,en)),value=el('strong','wv-domain-value'+(v===null?' is-missing':''),v===null?T('غير متاح','N/A'):Math.round(v)+'%');item.append(mark,name,value);legend.append(item)});
+ const status=el('p','wv-chart-status',all?T('تظهر المجالات الخمسة لأن لها بيانات قابلة للمقارنة في آخر 14 يومًا من السجل المتاح.','All five categories have comparable data in the available 14-day window.'):enough?T('بعض المجالات لا تتوفر لها بيانات كافية بعد؛ لن نرسمها كأنها صفر. راجع القيم المتاحة أسفل الرسم.','Some categories lack enough data; they are not plotted as zero. See the available values below.'):T('سيظهر المضلع بعد توفر بيانات قابلة للحساب للمجالات الخمسة. نقص التسجيل لا يعني أن العبادة لم تحدث.','The radar polygon appears when all five categories have computable data. Missing records do not mean a practice did not happen.'));
+ wrap.append(canvas,tip,legend,status);return wrap
+}
+function panelHead(kicker,title,subtitle,tag){const h=el('div','wv-panel-head'),copy=el('div','wv-panel-head-copy');copy.append(el('div','wv-panel-kicker',kicker),el('h3','',title));if(subtitle)copy.append(el('p','wv-panel-subtitle',subtitle));h.append(copy);if(tag)h.append(el('span','wv-period-pill',tag));return h}
 function shareCard(st){
- const c=el('canvas');c.width=1080;c.height=1350;const x=c.getContext('2d'),en=lang()==='en',F="'IBM Plex Sans Arabic','Noto Sans Arabic',Tahoma,Arial,sans-serif";
- const g=x.createLinearGradient(0,0,0,1350);g.addColorStop(0,'#071614');g.addColorStop(1,'#15332d');x.fillStyle=g;x.fillRect(0,0,1080,1350);
- x.strokeStyle='#d8ba72';x.lineWidth=3;x.strokeRect(40,40,1000,1270);x.textAlign='center';x.direction=en?'ltr':'rtl';
- x.fillStyle='#d8ba72';x.font='700 54px '+F;x.fillText('WIRDI AI',540,150);
- x.fillStyle='#a6bbb1';x.font='400 36px '+F;x.fillText(new Intl.DateTimeFormat(en?'en':'ar-EG',{month:'long',year:'numeric'}).format(new Date()),540,215);
- x.fillStyle='#f0dca2';x.font='700 300px '+F;x.fillText(String(st.avg),540,520);
- x.fillStyle='#f5f4ed';x.font='500 40px '+F;x.fillText(en?'Average score · last 30 days':'متوسط الدرجة · آخر 30 يومًا',540,590);
+ const c=el('canvas');c.width=1080;c.height=1350;const x=c.getContext('2d');if(!x)return c;const en=lang()==='en',F="'IBM Plex Sans Arabic','Noto Sans Arabic',Tahoma,Arial,sans-serif";const g=x.createLinearGradient(0,0,0,1350);g.addColorStop(0,'#071614');g.addColorStop(1,'#15332d');x.fillStyle=g;x.fillRect(0,0,1080,1350);x.strokeStyle='#d8ba72';x.lineWidth=3;x.strokeRect(40,40,1000,1270);x.textAlign='center';x.direction=en?'ltr':'rtl';
+ x.fillStyle='#d8ba72';x.font='700 54px '+F;x.fillText('WIRDI AI',540,150);x.fillStyle='#a6bbb1';x.font='400 36px '+F;x.fillText(new Intl.DateTimeFormat(en?'en':'ar-EG',{month:'long',year:'numeric'}).format(new Date()),540,215);x.fillStyle='#f0dca2';x.font='700 300px '+F;x.fillText(String(st.avg),540,520);x.fillStyle='#f5f4ed';x.font='500 40px '+F;x.fillText(en?'Average score · last 30 days':'متوسط الدرجة · آخر 30 يومًا',540,590);
  if(st.pts.length>1){x.beginPath();st.pts.forEach((p,i)=>{const px=120+p[0]*840,py=860-p[1]/100*200;i?x.lineTo(px,py):x.moveTo(px,py)});x.strokeStyle='#8de0ba';x.lineWidth=6;x.lineJoin='round';x.stroke()}
- [[String(st.max),en?'Best day':'أفضل يوم'],[String(st.streak),en?'Longest 70+ streak':'أطول سلسلة 70+'],[st.badges+'/6',en?'Badges':'الأوسمة']].forEach(([v,l],i)=>{const px=215+i*325;x.fillStyle='#d8ba72';x.font='700 90px '+F;x.fillText(v,px,1060);x.fillStyle='#a6bbb1';x.font='400 30px '+F;x.fillText(l,px,1110)});
- x.fillStyle='#a6bbb1';x.font='400 26px '+F;x.fillText(en?'A personal tracking summary — not a judgment on worship.':'ملخص متابعة شخصي، وليس حكمًا على العبادة.',540,1240);
- return c}
-async function doShare(st){const c=shareCard(st);c.toBlob(async b=>{if(!b)return;const f=new File([b],'wirdi-report-card.png',{type:'image/png'});
- try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return}}catch(_){}
- const a=el('a');a.href=URL.createObjectURL(b);a.download='wirdi-report-card.png';document.body.append(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500)},'image/png')}
-
-/* ===== card assembly ===== */
-function build(host){
- const b=bridge();if(!b||!b.getHistory)return;
- const hist=b.getHistory(60),ctx=b.getContext(),S=window.WIRDI_SMART_V20,A=S?S.analyze(hist,ctx,lang()):{domains:[]};
- host.textContent='';host.dir=lang()==='en'?'ltr':'rtl';
- host.append(el('div','wv-eyebrow','WIRDI VISUAL INSIGHTS'),el('h2','',T('رسوماتك التفاعلية','Interactive insights')));
- const R=runs(hist),rated=hist.filter(d=>d.score!==null&&Number.isFinite(+d.score)),last=rated[rated.length-1];
- if(last&&(ms(ctx.today)-ms(last.date))/864e5>=3)host.append(el('div','wv-welcome',T('أهلًا بعودتك 🌿 كل يوم جديد بداية جديدة. سجّل ما تيسّر اليوم وكمّل من هنا.','Welcome back 🌿 Every day is a fresh start. Log what you can today and continue from here.')));
- host.append(el('h3','',T('اتجاه آخر 30 يومًا (المس الرسم لرؤية التفاصيل)','30-day trend (touch the chart for details)')),trend(hist,ctx.today),el('p','wv-note',T('الخط الذهبي: درجاتك. المنقّط الأخضر: متوسط متحرك 7 أيام. الأيام بلا درجة قابلة للحساب تُتخطّى ولا تُعد صفرًا.','Gold line: your scores. Dashed green: 7-day moving average. Days without a computable score are skipped, never counted as zero.')));
- const row=el('div','wv-row'),a=el('div'),c=el('div');
- a.append(el('h3','',T('توازن المجالات (آخر 14 يومًا)','Area balance (last 14 days)')),radar(A.domains||[]));
- const earned=BADGES.filter(([,,n,k])=>R[k]>=n).length;c.append(el('h3','',T('الأوسمة','Milestones')));
- const bd=el('div','wv-badges');BADGES.forEach(([id,ic,n,k,ar,en])=>{const on=R[k]>=n,e=el('div','wv-badge',ic+' '+T(ar,en));e.dataset.on=on?'1':'0';e.append(el('small','',on?T('تحقق ✓','Unlocked ✓'):T(`أفضل لك: ${R[k]} من ${n}`,`Your best: ${R[k]} of ${n}`)));bd.append(e)});c.append(bd);
- row.append(a,c);host.append(row);
- const rs=rated.slice(-30),avg=rs.length?Math.round(rs.reduce((x,d)=>x+ +d.score,0)/rs.length):null;
- if(avg!==null){const e0=ms(ctx.today)-29*864e5,st={avg,max:Math.round(R.max),streak:R.streak,badges:earned,pts:rs.filter(d=>ms(d.date)>=e0).map(d=>[(ms(d.date)-e0)/864e5/29,+d.score])};
-  const bt=el('button','wv-share',T('📤 حفظ / مشاركة بطاقة تقريرك','📤 Save / share your report card'));bt.type='button';bt.addEventListener('click',()=>doShare(st));host.append(bt)}}
-function hostFor(){const v=document.getElementById('view-insights');if(!v)return null;let h=v.querySelector('.wv');if(!h){h=el('section','wv');const ref=v.querySelector('.wsc')||v.querySelector('.insights-engine-banner');if(ref)ref.parentNode.insertBefore(h,ref.nextSibling);else v.append(h)}return h}
-let busy=false;function render(){if(busy)return;busy=true;try{const h=hostFor();if(h)build(h);reveal()}catch(e){console.warn('WIRDI viz:',e)}finally{busy=false}}
-function boot(){watchScore();let t=null;const soon=()=>{clearTimeout(t);t=setTimeout(render,700)};
- document.addEventListener('click',soon,true);document.addEventListener('change',soon,true);
- try{new MutationObserver(soon).observe(document.documentElement,{attributes:true,attributeFilter:['lang']})}catch(_){}
- setInterval(()=>{if(!document.hidden)render()},90000);setTimeout(render,1800);reveal()}
+ [[String(st.max),en?'Best score · 30 days':'أعلى درجة · 30 يومًا'],[String(st.streak),en?'Longest 70+ streak':'أطول سلسلة 70+'],[st.badges+'/6',en?'Badges':'الأوسمة']].forEach(([v,l],i)=>{const px=215+i*325;x.fillStyle='#d8ba72';x.font='700 78px '+F;x.fillText(v,px,1060);x.fillStyle='#a6bbb1';x.font='400 26px '+F;x.fillText(l,px,1110)});
+ x.fillStyle='#a6bbb1';x.font='400 26px '+F;x.fillText(en?'A personal tracking summary — not a judgment on worship.':'ملخص متابعة شخصي، وليس حكمًا على العبادة.',540,1240);return c
+}
+async function doShare(st){const c=shareCard(st);c.toBlob(async b=>{if(!b)return;const f=new File([b],'wirdi-report-card.png',{type:'image/png'});try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return}}catch(_){}const a=el('a');a.href=URL.createObjectURL(b);a.download='wirdi-report-card.png';document.body.append(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500)},'image/png')}
+function build(host,hist,ctx){
+ const S=window.WIRDI_SMART_V20,A=S?S.analyze(hist,ctx,lang()):{domains:[]};
+ host.textContent='';host.dir=lang()==='en'?'ltr':'rtl';host.setAttribute('aria-labelledby','wvMainTitle');
+ const head=el('div','wv-main-heading'),copy=el('div','wv-title-copy');copy.append(el('div','wv-eyebrow','WIRDI VISUAL INSIGHTS'));const title=el('h2','',T('رسوماتك التفاعلية','Interactive insights'));title.id='wvMainTitle';copy.append(title,el('p','wv-lede',T('ملخص بصري لاتجاه الدرجات وتوازن مجالات العبادة، مع فصل البيانات الناقصة عن الصفر. الرسوم ثابتة على نافذتها الزمنية ولا تعيد الحركة مع كل ضغطة.','A visual summary of score trends and worship categories. Missing data stays missing, and charts only animate when the underlying records change.')));head.append(copy,el('span','wv-context-pill',T('تحليل محلي من سجلك','Local log analysis')));host.append(head);
+ const R=runs(hist),start=ms(ctx.today)-29*864e5,rated=hist.filter(d=>d&&Number.isFinite(ms(d.date))&&ms(d.date)>=start&&ms(d.date)<=ms(ctx.today)&&validNum(d.score)).sort((a,b)=>ms(a.date)-ms(b.date));
+ const avg=rated.length?Math.round(rated.reduce((a,d)=>a+Number(d.score),0)/rated.length):null,max30=rated.length?Math.round(Math.max(...rated.map(d=>Number(d.score)))):null;
+ if(hist.length){const last=hist.filter(d=>validNum(d.score)).sort((a,b)=>ms(b.date)-ms(a.date))[0];if(last&&Number.isFinite(ms(ctx.today))&&(ms(ctx.today)-ms(last.date))/864e5>=3)host.append(el('div','wv-welcome',T('أهلًا بعودتك 🌿 كل يوم جديد بداية جديدة. سجّل ما تيسّر اليوم وكمّل من هنا.','Welcome back 🌿 Every day is a fresh start. Log what you can today and continue from here.')))}
+ const kpis=el('div','wv-kpis');[[avg===null?'—':String(avg),T('متوسط الدرجة · آخر 30 يومًا','Average score · last 30 days')],[max30===null?'—':String(max30),T('أعلى درجة · آخر 30 يومًا','Best score · last 30 days')],[String(rated.length),T('أيام لها درجة قابلة للحساب','Days with a computable score')]].forEach(([v,l])=>{const k=el('div','wv-kpi');k.append(el('strong','',v),el('span','',l));kpis.append(k)});host.append(kpis);
+ const trendPanel=el('article','wv-panel wv-panel-trend');trendPanel.append(panelHead(T('الاتجاه','TREND'),T('اتجاه آخر 30 يومًا','30-day score trend'),T('كل نقطة تمثل يومًا له درجة قابلة للحساب. تنقطع الوصلة عند وجود فجوة في الأيام كي لا يوحي الرسم ببيانات غير موجودة.','Each dot is a day with a computable score. Lines break across missing days to avoid implying data that is not there.'),T('30 يومًا','30 days')));trendPanel.append(trend(hist,ctx.today));const trendLeg=el('div','wv-chart-legend');const lg1=el('span','wv-legend-item');lg1.append(el('i','wv-legend-swatch'),el('span','',T('الدرجة المسجلة','Recorded score')));const lg2=el('span','wv-legend-item');lg2.append(el('i','wv-legend-swatch wv-swatch-average'),el('span','',T('متوسط متحرك 7 أيام عند توفر 3 درجات','7-day moving average when 3 scores are available')));trendLeg.append(lg1,lg2);trendPanel.append(trendLeg);host.append(trendPanel);
+ const row=el('div','wv-row'),area=el('article','wv-panel wv-panel-radar'),badgePanel=el('article','wv-panel wv-panel-badges');area.append(panelHead(T('توازن المجالات','CATEGORY BALANCE'),T('توازن المجالات','Area balance'),T('نظرة مقارنة على آخر 14 يومًا من البيانات المتاحة.','A comparison of available data in the last 14 days.'),T('5 مجالات','5 areas')),radar(A.domains||[]),el('p','wv-note wv-panel-note',T('النسب تصف التسجيلات القابلة للحساب فقط؛ ولا تمثل حكمًا على الإخلاص أو قبول العبادة.','Percentages describe computable records only; they are not a judgment on sincerity or acceptance.')));
+ const earned=BADGES.filter(([,,n,k])=>R[k]>=n).length;badgePanel.append(panelHead(T('الاستمرارية','MILESTONES'),T('محطات الإنجاز','Milestones'),T('تُحتسب من الأيام المتاحة في آخر 60 يومًا، وليس من سجل غير محدود.','Calculated from the available 60-day history, not an unlimited lifetime record.'),earned+'/6'));
+ const bd=el('div','wv-badges');BADGES.forEach(([id,ic,n,k,ar,en])=>{const on=R[k]>=n,e=el('div','wv-badge');e.dataset.on=on?'1':'0';e.append(el('span','wv-badge-icon',ic));const cp=el('div','wv-badge-copy');cp.append(el('span','wv-badge-title',T(ar,en)),el('small','',on?T('تحقق ✓','Unlocked ✓'):T(`الأفضل في السجل المتاح: ${R[k]} من ${n}`,`Best in available log: ${R[k]} of ${n}`)));e.append(cp);bd.append(e)});badgePanel.append(bd,el('p','wv-note wv-panel-note',T('الأوسمة تشجّع الاستمرار فقط؛ لا تُصدر حكمًا على العبادة، ولا تعتبر اليوم غير المسجّل يومًا فاشلًا.','Milestones encourage consistency only; unrecorded days are not treated as failures.')));
+ row.append(area,badgePanel);host.append(row);
+ if(avg!==null){const pts=rated.map(d=>[(ms(d.date)-start)/(29*864e5),Number(d.score)]),bt=el('button','wv-share',T('⬇ حفظ / مشاركة بطاقة التقرير','⬇ Save / share report card'));bt.type='button';bt.addEventListener('click',()=>doShare({avg,max:max30,streak:R.streak,badges:earned,pts}));const actions=el('div','wv-report-actions');actions.append(el('span','wv-report-caption',T('البطاقة تلخص آخر 30 يومًا؛ السلسلة والأوسمة من آخر 60 يومًا متاحًا.','Card summarizes 30 days; streak and milestones use the available 60-day history.')),bt);host.append(actions)}else{host.append(el('p','wv-chart-status',T('سيظهر ملخص المشاركة بعد تسجيل أيام لها درجة قابلة للحساب. الأيام الفارغة لا تُحسب أصفارًا.','The shareable summary appears once scored days are available. Empty days are not counted as zero.')))}
+}
+function hostFor(){const v=document.getElementById('view-insights');if(!v)return null;let h=v.querySelector(':scope > .wv');if(!h){h=el('section','wv');const ref=v.querySelector('.wsc')||v.querySelector('.insights-engine-banner');if(ref)ref.parentNode.insertBefore(h,ref.nextSibling);else v.append(h)}return h}
+let busy=false,lastSignature='';
+function snapshot(){const b=bridge();if(!b||!b.getHistory||!b.getContext)return null;const ctx=b.getContext();if(!ctx||!ctx.today)return null;const hist=b.getHistory(60);const rows=(Array.isArray(hist)?hist:[]).filter(d=>d&&Number.isFinite(ms(d.date))).sort((a,b)=>ms(a.date)-ms(b.date));return{ctx,hist:rows}}
+function render(force=false){if(busy)return;busy=true;try{const data=snapshot(),h=hostFor();if(!data||!h)return;const sig=lang()+'|'+data.ctx.today+'|'+JSON.stringify(data.hist);if(force||sig!==lastSignature){lastSignature=sig;h.dataset.wvSignature=sig;build(h,data.hist,data.ctx)}reveal()}catch(e){console.warn('WIRDI visual insights:',e)}finally{busy=false}}
+function schedule(force=false){setTimeout(()=>render(!!force),360)}
+function boot(){watchScore();render(true);document.addEventListener('click',e=>{if(e.target.closest('[data-route="insights"], [data-insight-domain], #insightsLogToday'))schedule(false)});document.addEventListener('change',e=>{if(e.target.closest('#view-insights .insights-controls'))schedule(false)});document.addEventListener('visibilitychange',()=>{if(!document.hidden)render(false)});try{new MutationObserver(()=>schedule(false)).observe(document.documentElement,{attributes:true,attributeFilter:['lang']})}catch(_){}setInterval(()=>{if(!document.hidden&&document.getElementById('view-insights')?.classList.contains('active'))render(false)},15000);setTimeout(()=>render(false),1300)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
-window.WIRDI_VIZ_V21={runs,shareCard};
+window.WIRDI_VIZ_V22={runs,trend,radar,shareCard,render};
 })();
 </script>
 
