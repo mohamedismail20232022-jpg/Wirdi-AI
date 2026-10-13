@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071310"><meta name="color-scheme" content="dark light"><meta name="application-name" content="WIRDI AI — Visual Insights Polished v22"><meta name="description" content="WIRDI AI — polished responsive visual insights, accurate 30-day score trends, interactive charts, category balance, milestones, and accessible motion.">
 <meta name="wirdi-recaptcha-enterprise-site-key" content=""> <!-- Optional public reCAPTCHA Enterprise site key for App Check; never put a secret here. -->
-<title>WIRDI AI — Visual Insights Polished v22</title>
+<title>WIRDI AI — Premium Motion System v23</title>
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -8433,3 +8433,156 @@ window.WIRDI_VIZ_V22={runs,trend,radar,shareCard,render};
 })();
 
 </script>
+
+<!-- WIRDI AI v23 premium global motion layer -->
+
+<style id="wirdi-v23-world-class-motion">
+/* WIRDI AI v23 — global motion language: quiet, responsive, consistent, accessible. */
+:root{
+ --wirdi-motion-quick:140ms;
+ --wirdi-motion-base:210ms;
+ --wirdi-motion-enter:520ms;
+ --wirdi-motion-ease:cubic-bezier(.2,.8,.2,1);
+ --wirdi-motion-spring:cubic-bezier(.22,1.25,.36,1);
+ --wirdi-focus-ring:rgba(216,186,114,.38);
+}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{-webkit-tap-highlight-color:transparent}
+.app button,.app a[href],.app [role="button"],.app summary{
+ -webkit-tap-highlight-color:transparent;
+ transition-property:transform,background-color,border-color,color,box-shadow,opacity,filter!important;
+ transition-duration:var(--wirdi-motion-base)!important;
+ transition-timing-function:var(--wirdi-motion-ease)!important;
+}
+.app button:active:not(:disabled),.app [role="button"]:active,.app a[href]:active{
+ transform:scale(.985)!important;
+ transition-duration:85ms!important;
+}
+.app button:disabled,.app [aria-disabled="true"]{transform:none!important;filter:saturate(.75)}
+.app button:focus-visible,.app a[href]:focus-visible,.app [role="button"]:focus-visible,
+.app input:focus-visible,.app select:focus-visible,.app textarea:focus-visible,.app summary:focus-visible{
+ outline:2px solid var(--gold2,var(--gold,#d8ba72));outline-offset:3px;
+ box-shadow:0 0 0 5px var(--wirdi-focus-ring);
+}
+.app input,.app select,.app textarea{
+ transition:border-color var(--wirdi-motion-base) var(--wirdi-motion-ease),box-shadow var(--wirdi-motion-base) var(--wirdi-motion-ease),background-color var(--wirdi-motion-base) var(--wirdi-motion-ease);
+}
+.app input:focus,.app select:focus,.app textarea:focus{border-color:var(--gold,#d8ba72);box-shadow:0 0 0 3px var(--wirdi-focus-ring)}
+/* One consistent lift language for surfaces; never interfere with dashboard drag mode. */
+.app :is(.card,.subcard,.stat-card,.prayer-time-card,.wirdi-weight-card,.wirdi-quick-item,.activity-card,.wsc,.wv-panel,.insights-metric,.domain-analysis-card,.insights-chart-card,.insights-table-card,.scoring-method-card,.deep-insights-report,.wirdi-command-card,.ai-assistant-card,.today-reflection-card,.fajr-live-card){
+ transition:transform 260ms var(--wirdi-motion-ease),box-shadow 260ms var(--wirdi-motion-ease),border-color 220ms var(--wirdi-motion-ease),background-color 220ms var(--wirdi-motion-ease)!important;
+}
+@media(hover:hover) and (pointer:fine){
+ .app :is(.card,.subcard,.stat-card,.prayer-time-card,.wirdi-weight-card,.wirdi-quick-item,.activity-card,.wsc,.wv-panel,.insights-metric,.domain-analysis-card,.insights-chart-card,.insights-table-card,.scoring-method-card,.deep-insights-report,.wirdi-command-card,.ai-assistant-card,.today-reflection-card,.fajr-live-card):hover:not(.wirdi-sort-dragging):not(.wirdi-sort-landed){
+  transform:translateY(-2px);border-color:color-mix(in srgb,var(--gold,#d8ba72) 38%,transparent);box-shadow:0 14px 36px rgba(0,0,0,.12);
+ }
+ .app .nav-btn:hover:not(.active),.app .top-icon-button:hover,.app .lang-toggle:hover,.app .wirdi-calendar-navbtn:hover{transform:translateY(-1px)}
+ .app .top-icon-button:hover svg{transform:rotate(-5deg) scale(1.04)}
+}
+.app .nav-btn{position:relative;isolation:isolate;transition:background-color 220ms var(--wirdi-motion-ease),color 220ms var(--wirdi-motion-ease),box-shadow 220ms var(--wirdi-motion-ease),transform 180ms var(--wirdi-motion-ease)!important}
+.app .nav-btn::after{content:"";position:absolute;inset-block:23%;inset-inline-start:0;width:3px;border-radius:999px;background:var(--gold,#d8ba72);opacity:0;transform:scaleY(.45);transition:opacity 230ms var(--wirdi-motion-ease),transform 280ms var(--wirdi-motion-spring);pointer-events:none}
+.app .nav-btn.active::after{opacity:1;transform:scaleY(1)}
+.app .nav-ico,.app .nav-ico svg{transition:transform 260ms var(--wirdi-motion-spring),color 220ms var(--wirdi-motion-ease),opacity 220ms var(--wirdi-motion-ease)}
+.app .nav-btn.wirdi-nav-feedback .nav-ico{animation:wirdiNavIconPop 430ms var(--wirdi-motion-spring)}
+/* Entrance motion is coordinated only for the active screen, never all hidden pages. */
+body.wirdi-motion-ready .topbar{animation:wirdiTopbarEnter 600ms var(--wirdi-motion-ease) both}
+body.wirdi-motion-ready .sidebar{animation:wirdiSidebarEnter 650ms var(--wirdi-motion-ease) 55ms both}
+body.wirdi-motion-ready #authGate .auth-gate-card{animation:wirdiAuthEnter 600ms var(--wirdi-motion-spring) both}
+.view.wirdi-motion-enter>:not(script):not(style){animation:wirdiContentEnter 490ms var(--wirdi-motion-ease) both;animation-delay:calc(min(var(--wirdi-motion-index,0),9)*32ms)}
+.view.wirdi-motion-enter .wirdi-motion-surface-enter{animation:wirdiContentEnter 470ms var(--wirdi-motion-ease) both;animation-delay:calc(min(var(--wirdi-motion-index,0),8)*26ms)}
+.view.wirdi-motion-enter>:nth-child(1){--wirdi-motion-index:0}
+.view.wirdi-motion-enter>:nth-child(2){--wirdi-motion-index:1}
+.view.wirdi-motion-enter>:nth-child(3){--wirdi-motion-index:2}
+.view.wirdi-motion-enter>:nth-child(4){--wirdi-motion-index:3}
+.view.wirdi-motion-enter>:nth-child(5){--wirdi-motion-index:4}
+.view.wirdi-motion-enter>:nth-child(6){--wirdi-motion-index:5}
+.view.wirdi-motion-enter>:nth-child(7){--wirdi-motion-index:6}
+.view.wirdi-motion-enter>:nth-child(8){--wirdi-motion-index:7}
+.view.wirdi-motion-enter>:nth-child(9){--wirdi-motion-index:8}
+.view.wirdi-motion-enter>:nth-child(n+10){--wirdi-motion-index:9}
+@keyframes wirdiTopbarEnter{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes wirdiSidebarEnter{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:none}}
+@keyframes wirdiAuthEnter{from{opacity:0;transform:translateY(12px) scale(.99)}to{opacity:1;transform:none}}
+@keyframes wirdiContentEnter{from{opacity:.25;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes wirdiNavIconPop{0%{transform:scale(.9)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
+/* Light, short tap ripple. It is decorative only and never intercepts input. */
+.wirdi-motion-ripple{position:absolute!important;display:block!important;z-index:0!important;pointer-events:none!important;border-radius:50%!important;width:var(--wirdi-ripple-size,90px)!important;height:var(--wirdi-ripple-size,90px)!important;max-width:none!important;background:radial-gradient(circle,rgba(239,218,161,.31) 0%,rgba(216,186,114,.18) 32%,rgba(216,186,114,0) 72%)!important;opacity:0;transform:translate(-50%,-50%) scale(.12);animation:wirdiRippleBloom 520ms var(--wirdi-motion-ease) forwards!important}
+@keyframes wirdiRippleBloom{0%{opacity:.72;transform:translate(-50%,-50%) scale(.12)}70%{opacity:.45}100%{opacity:0;transform:translate(-50%,-50%) scale(1.15)}}
+/* Navigation progress cue, intentionally thin and short — not a fake loading state. */
+#wirdiMotionProgress{position:fixed;top:0;inset-inline:0;height:2px;z-index:100000;pointer-events:none;opacity:0;transform-origin:right center;transform:scaleX(0);background:linear-gradient(90deg,#8de0ba,#d8ba72,#f0dca2);box-shadow:0 0 10px rgba(216,186,114,.28);transition:transform 420ms var(--wirdi-motion-ease),opacity 240ms ease}
+#wirdiMotionProgress.is-active{opacity:1;transform:scaleX(.72)}
+#wirdiMotionProgress.is-finishing{opacity:0;transform:scaleX(1);transition:transform 180ms var(--wirdi-motion-ease),opacity 280ms ease 100ms}
+/* Progress bars move rather than snap; shimmer is subtle and low-frequency. */
+.app .progress-track,.app .perf-bar,.app .activity-progress{overflow:hidden;isolation:isolate}
+.app .progress-fill,.app .activity-progress i,.app .perf-bar i{position:relative;overflow:hidden;transition:width 760ms var(--wirdi-motion-ease)!important;will-change:width}
+.app .progress-fill::after,.app .activity-progress i::after,.app .perf-bar i::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.23) 48%,transparent 76%);transform:translateX(-130%);animation:wirdiProgressSheen 3.6s ease-in-out infinite;opacity:.46}
+@keyframes wirdiProgressSheen{0%,25%{transform:translateX(-130%)}70%,100%{transform:translateX(130%)}}
+/* Calm saving/sync activity indication; only shown for an active status. */
+.sync-chip.wirdi-status-live .sync-dot{animation:wirdiStatusPulse 1.8s ease-in-out infinite}
+@keyframes wirdiStatusPulse{0%,100%{box-shadow:0 0 0 0 rgba(141,224,186,.1)}50%{box-shadow:0 0 0 5px rgba(141,224,186,.13)}}
+/* Updated metrics get a tiny confirmation pulse; no continuous counter animation. */
+.wirdi-value-updated{animation:wirdiValueNudge 340ms var(--wirdi-motion-spring)}
+@keyframes wirdiValueNudge{0%{transform:translateY(3px);opacity:.62}70%{transform:translateY(-1px);opacity:1}100%{transform:none;opacity:1}}
+/* Dialog and toast retain their existing logic while movement is softened. */
+#modalBackdrop.show #modalPanel,#modalBackdrop.show .modal{animation:wirdiDialogEnter 300ms var(--wirdi-motion-spring) both}
+@keyframes wirdiDialogEnter{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.toast.show{animation:wirdiToastEnter 260ms var(--wirdi-motion-spring) both}
+@keyframes wirdiToastEnter{from{opacity:0;transform:translateY(8px) scale(.99)}to{opacity:1;transform:none}}
+/* Keyboard and mobile behavior remain explicit. */
+@media(max-width:700px){
+ html{scroll-padding-top:72px}
+ .view.wirdi-motion-enter>:not(script):not(style){animation-duration:380ms;animation-delay:calc(min(var(--wirdi-motion-index,0),6)*24ms)}
+ .view.wirdi-motion-enter .wirdi-motion-surface-enter{animation-duration:360ms;animation-delay:calc(min(var(--wirdi-motion-index,0),6)*20ms)}
+ .app .card,.app .subcard,.app .stat-card,.app .activity-card,.app .wirdi-quick-item{transition-duration:190ms}
+ .wirdi-motion-ripple{--wirdi-ripple-size:68px;background:radial-gradient(circle,rgba(239,218,161,.24),rgba(216,186,114,0) 72%)!important}
+}
+body.light-ui #wirdiMotionProgress{box-shadow:0 0 8px rgba(82,105,65,.18)}
+body.light-ui .wirdi-motion-ripple{background:radial-gradient(circle,rgba(125,97,36,.16) 0%,rgba(151,116,49,.1) 32%,rgba(151,116,49,0) 72%)!important}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0ms!important}
+ body.wirdi-motion-ready .topbar,body.wirdi-motion-ready .sidebar,body.wirdi-motion-ready #authGate .auth-gate-card,.view.wirdi-motion-enter>:not(script):not(style){animation:none!important;opacity:1!important;transform:none!important}
+ .wirdi-motion-ripple,#wirdiMotionProgress{display:none!important}
+ .app .progress-fill::after,.app .activity-progress i::after,.app .perf-bar i::after{display:none!important}
+ .app button,.app a[href],.app [role="button"],.app summary,.app input,.app select,.app textarea,
+ .app .nav-btn,.app .card,.app .subcard,.app .stat-card,.app .prayer-time-card,.app .wirdi-quick-item,
+ .app .activity-card,.app .wirdi-weight-card,.app .wv-panel,.app .wsc,.app .insights-metric,
+ .app .domain-analysis-card,.app .insights-chart-card,.app .insights-table-card,.app .scoring-method-card,
+ .app .deep-insights-report,.app .nav-ico,.app .nav-ico svg,.app .nav-btn::after{
+  transition-duration:.01ms!important;transition-delay:0ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important;
+ }
+ .app button:active:not(:disabled),.app [role="button"]:active,.app a[href]:active{transform:none!important}
+}
+</style>
+
+
+<script id="wirdi-v23-premium-motion-engine">
+(function(){
+ 'use strict';
+ if(window.__WIRDI_V23_MOTION__) return;
+ window.__WIRDI_V23_MOTION__=true;
+ const reduce=()=>!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+ let progressTimer=0,finishTimer=0,entered=false;
+ const $=(sel,root=document)=>root.querySelector(sel);
+ function ensureProgress(){let bar=$('#wirdiMotionProgress');if(bar)return bar;bar=document.createElement('div');bar.id='wirdiMotionProgress';bar.setAttribute('aria-hidden','true');document.body.appendChild(bar);return bar;}
+ function progressCue(){if(reduce())return;const bar=ensureProgress();clearTimeout(progressTimer);clearTimeout(finishTimer);bar.classList.remove('is-finishing');bar.classList.add('is-active');bar.style.transform='scaleX(.18)';requestAnimationFrame(()=>{bar.style.transform='scaleX(.76)'});progressTimer=setTimeout(()=>{bar.classList.add('is-finishing');bar.classList.remove('is-active');bar.style.transform='scaleX(1)';finishTimer=setTimeout(()=>{bar.classList.remove('is-finishing');bar.style.transform='scaleX(0)'},390)},420);}
+ function enterActiveView(){const active=$('.view.active');if(!active)return;document.querySelectorAll('.view.wirdi-motion-enter').forEach(v=>{v.classList.remove('wirdi-motion-enter');v.querySelectorAll('.wirdi-motion-surface-enter').forEach(el=>{el.classList.remove('wirdi-motion-surface-enter');el.style.removeProperty('--wirdi-motion-index');});});if(reduce())return;active.classList.remove('wirdi-motion-enter');const surfaces=Array.from(active.querySelectorAll('.card,.subcard,.stat-card,.wirdi-quick-item,.activity-card,.wirdi-weight-card,.wsc,.wv,.wv-panel,.insights-metric,.domain-analysis-card,.insights-chart-card,.insights-table-card,.scoring-method-card,.deep-insights-report,.wirdi-command-card,.ai-assistant-card,.today-reflection-card,.fajr-live-card'));surfaces.forEach((el,i)=>{el.classList.remove('wirdi-motion-surface-enter');el.style.setProperty('--wirdi-motion-index',String(Math.min(i,8)));});void active.offsetWidth;active.classList.add('wirdi-motion-enter');surfaces.forEach(el=>el.classList.add('wirdi-motion-surface-enter'));setTimeout(()=>{active.classList.remove('wirdi-motion-enter');surfaces.forEach(el=>{el.classList.remove('wirdi-motion-surface-enter');el.style.removeProperty('--wirdi-motion-index');});},1100);}
+ function navFeedback(target){document.querySelectorAll('.nav-btn.wirdi-nav-feedback').forEach(b=>b.classList.remove('wirdi-nav-feedback'));let active=$('.sidebar .nav-btn.active')||$('.mobile-nav .nav-btn.active');if(target&&target.matches&&target.matches('.nav-btn'))active=target.classList.contains('active')?target:active;if(active){active.classList.remove('wirdi-nav-feedback');void active.offsetWidth;active.classList.add('wirdi-nav-feedback');setTimeout(()=>active.classList.remove('wirdi-nav-feedback'),520);}}
+ function showRipple(host,event){if(reduce()||!host||host.disabled||host.getAttribute('aria-disabled')==='true')return;if(host.closest('.wirdi-sort-dragging'))return;if(document.querySelector('.wirdi-sort-mode')&&host.closest('.dashboard-grid'))return;const rect=host.getBoundingClientRect();if(!rect.width||!rect.height)return;const old=host.querySelectorAll(':scope > .wirdi-motion-ripple');old.forEach(n=>n.remove());const r=document.createElement('span');r.className='wirdi-motion-ripple';const x=Math.max(0,Math.min(rect.width,event.clientX-rect.left));const y=Math.max(0,Math.min(rect.height,event.clientY-rect.top));const size=Math.max(64,Math.min(220,Math.max(rect.width,rect.height)*.76));r.style.left=x+'px';r.style.top=y+'px';r.style.setProperty('--wirdi-ripple-size',size+'px');host.appendChild(r);r.addEventListener('animationend',()=>r.remove(),{once:true});setTimeout(()=>{if(r.isConnected)r.remove()},700);}
+ function initEntrance(){if(entered)return;entered=true;document.body.classList.add('wirdi-motion-ready');const app=$('.app');if(app)app.classList.add('wirdi-motion-app');if(!reduce())setTimeout(enterActiveView,75);ensureProgress();}
+ function observeProgressStatus(){const chip=$('.sync-chip'),label=$('#syncLabel');if(!chip||!label)return;const update=()=>{const t=(label.textContent||'').trim();chip.classList.toggle('wirdi-status-live',/(جار.{0,3}(?:تحميل|حفظ|مزامن)|جاري (?:الحفظ|المزامنة|التحميل)|syncing|saving|loading)/i.test(t));};update();if('MutationObserver'in window)new MutationObserver(update).observe(label,{childList:true,subtree:true,characterData:true});}
+ function observeMetricValues(){if(!('MutationObserver'in window))return;const sel='.view .stat-card strong,.view .insights-metric strong,.view .wirdi-weight-card strong,.view .activity-card-stat b';const seen=new WeakMap();function attach(root){root.querySelectorAll?.(sel).forEach(el=>{if(el.dataset.wirdiV23MetricWatch)return;el.dataset.wirdiV23MetricWatch='1';seen.set(el,el.textContent);new MutationObserver(()=>{const now=el.textContent;if(seen.get(el)===now)return;seen.set(el,now);if(reduce())return;el.classList.remove('wirdi-value-updated');void el.offsetWidth;el.classList.add('wirdi-value-updated');setTimeout(()=>el.classList.remove('wirdi-value-updated'),430);}).observe(el,{childList:true,characterData:true,subtree:true});});}attach(document);}
+ function bind(){
+  document.addEventListener('pointerdown',e=>{if(e.button!==undefined&&e.button!==0)return;const host=e.target.closest('button:not(:disabled),a[href],[role="button"],.prayer-row,.wirdi-sort-toggle,.wirdi-calendar-navbtn');if(!host||!host.isConnected)return;showRipple(host,e);},{capture:true,passive:true});
+  document.addEventListener('click',e=>{const target=e.target.closest('button,[role="button"],a[href]');if(!target)return;if(target.matches('.nav-btn[data-view],.nav-btn[data-route],.mobile-nav [data-view],.mobile-nav [data-route],[data-route]')){progressCue();setTimeout(()=>{enterActiveView();navFeedback(target);},55);setTimeout(()=>{const active=$('.view.active');if(active&&active.classList.contains('wirdi-motion-enter'))active.classList.remove('wirdi-motion-enter');},1250);}
+   if(target.matches('button[data-view],button[data-route]'))setTimeout(()=>{const active=$('.view.active');if(active&&active.id==='view-insights'){const charts=active.querySelectorAll('.wv-line,.wv-rad');charts.forEach(chart=>{if(reduce())return;chart.classList.remove('wirdi-chart-replay');void chart.getBoundingClientRect();chart.classList.add('wirdi-chart-replay');setTimeout(()=>chart.classList.remove('wirdi-chart-replay'),1300);});}},90);
+  },false);
+  document.addEventListener('submit',e=>{const form=e.target;if(!form||!form.matches('form'))return;if(form.closest('#wirdiAiPanel')||form.closest('#waiLocalModeCardV19'))return;const submit=form.querySelector('button[type="submit"],button:not([type])');if(submit&&!submit.disabled){submit.classList.add('wirdi-submit-feedback');setTimeout(()=>submit.classList.remove('wirdi-submit-feedback'),500);}},{capture:true});
+ }
+ function observeAppUnlock(){const app=$('.app');if(!app||!('MutationObserver'in window))return;let visible=!(document.body.classList.contains('auth-locked')||getComputedStyle(app).display==='none');const check=()=>{const now=!(document.body.classList.contains('auth-locked')||getComputedStyle(app).display==='none');if(now&&!visible){setTimeout(enterActiveView,80);}visible=now;};new MutationObserver(check).observe(document.body,{attributes:true,attributeFilter:['class']});}
+ function init(){initEntrance();observeProgressStatus();observeMetricValues();observeAppUnlock();bind();}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+ window.WIRDI_MOTION_V23={playNavigation:enterActiveView,progress:progressCue,reducedMotion:reduce};
+})();
+</script>
+
